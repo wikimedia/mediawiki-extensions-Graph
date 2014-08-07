@@ -1,21 +1,16 @@
 MediaWiki Limn
 ==============
 
-`Limn` is a MediaWiki extension that uses `Vega JS` to visualize almost arbitrary data in almost arbitrary ways.
-
-## History 
-
-* Zurich Hackathon, project started ;
-* London wikimania continue.
-
-# Installation
+`Limn` is a MediaWiki extension that uses [`Vega JS`](https://github.com/trifacta/vega) to visualize almost arbitrary data in almost arbitrary ways.
 
 ## Requirements
 
 * requires JsonConfig extension
 * add to your LocalSettings.php:
 
-If you already have installed `mediawiki`, just add the line below to your _LocalSettings.php_. Otherwise follow the [installation instructions](https://www.mediawiki.org/wiki/Manual:Installing_MediaWiki).
+## Installation
+
+If you already have installed `mediawiki` and `JsonConfig` extension, just add the lines below to your _LocalSettings.php_. Otherwise follow the [installation instructions](https://www.mediawiki.org/wiki/Manual:Installing_MediaWiki).
 
 ```
 require_once("$IP/extensions/JsonConfig/JsonConfig.php");
@@ -92,3 +87,8 @@ Create a new [page in the `Limn` namespace](http://wiki.example.com/index.php/Li
 Should result in:
 
 ![preview](preview.png)
+
+## History 
+
+* Zurich Hackathon, project started ;
+* London Wikimania/Hackathon: continue.
