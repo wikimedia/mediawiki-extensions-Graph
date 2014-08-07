@@ -30,7 +30,7 @@ $wgExtensionCredits['other'][] = array(
 );
 
 // TODO: find the right range to put this namespace number in
-define( 'NS_LIMN', 282 );
+define( 'NS_LIMN', 44 );
 define( 'NS_LIMN_TALK', NS_LIMN +1 );
 $wgExtraNamespaces[NS_LIMN] = "Limn";
 $wgExtraNamespaces[NS_LIMN_TALK] = "Limn_talk";
