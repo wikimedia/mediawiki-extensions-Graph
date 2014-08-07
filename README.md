@@ -11,19 +11,18 @@ MediaWiki Limn
 
 If you already have installed `mediawiki` and `JsonConfig` extension, just add the lines below to your _LocalSettings.php_. Otherwise follow the [installation instructions](https://www.mediawiki.org/wiki/Manual:Installing_MediaWiki).
 
-```
+```php
 require_once("$IP/extensions/JsonConfig/JsonConfig.php");
 require_once("$IP/extensions/Limn/Limn.php");
 ```
 
 Then check it's active in [Special:Version](http://wiki.example.com/index.php/Special:Version).
 
-# Configuration
+## Configuration
 
-```
-// To use limn as a tag element in wiki markup, 
-// 	<limn>{...}</limn>
-// enable it with:
+```php
+// To use limn as a tag element in wiki markup, enable it with:
+// e.g.: <limn>{...}</limn>
 $wgEnableLimnParserTag = true;
 
 // To use it on a standalone page, enable it via $wgJsonConfigs
@@ -36,7 +35,7 @@ $wgJsonConfigs['limn.jsonconfig'] = array(
 );
 ```
 
-# Usage
+## Usage
 
 Create a new [page in the `Limn` namespace](http://wiki.example.com/index.php/Limn:TestPage) and paste the following (nothing else) save… and voilà!
 
