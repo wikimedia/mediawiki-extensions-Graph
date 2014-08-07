@@ -5,8 +5,7 @@ MediaWiki Limn
 
 ## Requirements
 
-* requires JsonConfig extension
-* add to your LocalSettings.php:
+* [JsonConfig extension](https://www.mediawiki.org/wiki/Extension:JsonConfig) `≥1.24`.
 
 ## Installation
 
