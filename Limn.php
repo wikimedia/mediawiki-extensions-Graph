@@ -21,7 +21,10 @@ if ( version_compare( $wgVersion, '1.21', '<' ) ) {
 $wgExtensionCredits['other'][] = array(
     'path' => __FILE__,
     'name' => 'Limn',
-    'author' => 'Dan Andreescu',
+    'author' => array(
+        'Dan Andreescu',
+        'Édouard Lopez'
+    ),
 );
 
 // TODO: find the right range to put this namespace number in
