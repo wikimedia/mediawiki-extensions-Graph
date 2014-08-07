@@ -1,8 +1,12 @@
 MediaWiki Limn
 ==============
 
-Zurich Hackathon.  Limn is a MediaWiki extension that uses Vega JS to visualize almost arbitrary data in almost arbitrary ways.
+`Limn` is a MediaWiki extension that uses `VegaJS` to visualize almost arbitrary data in almost arbitrary ways.
 
+## History 
+
+* Zurich Hackathon, project started ;
+* London wikimania continue.
 
 Add to your LocalSettings.php:
 # Installation
