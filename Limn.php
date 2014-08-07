@@ -21,25 +21,17 @@ if ( version_compare( $wgVersion, '1.21', '<' ) ) {
 $wgExtensionCredits['other'][] = array(
     'path' => __FILE__,
     'name' => 'Limn',
-    'author' => 'Dan Andreescu',
+    'author' => array( 'Dan Andreescu', 'Yuri Astrakhan' ),
 );
 
-// TODO: find the right range to put this namespace number in
-define( 'NS_LIMN', 44 );
-define( 'NS_LIMN_TALK', NS_LIMN +1 );
-$wgExtraNamespaces[NS_LIMN] = "Limn";
-$wgExtraNamespaces[NS_LIMN_TALK] = "Limn_talk";
+$wgAutoloadClasses['limn\Singleton'] = __DIR__ . '/includes/LimnContent.php';
+$wgAutoloadClasses['limn\Content'] = __DIR__ . '/includes/LimnContent.php';
+$wgAutoloadClasses['limn\ContentView'] = __DIR__ . '/includes/LimnContent.php';
 
-$wgAutoloadClasses['LimnContentHandler'] = __DIR__ . '/includes/LimnContentHandler.php';
-$wgAutoloadClasses['LimnContent'] = __DIR__ . '/includes/LimnContent.php';
+$wgEnableLimnParserTag = false;
 
-// Define a constant for the identifier of our custom content model...
-define( 'CONTENT_MODEL_LIMN_DATA', 'LIMN_DATA' );
+$wgHooks['ParserFirstCallInit'][] = 'limn\Singleton::onParserFirstCallInit';
 
-// ...and register a handler for that content model.
-$wgContentHandlers[CONTENT_MODEL_LIMN_DATA] = 'LimnContentHandler';
-
-$wgNamespaceContentModels[ NS_LIMN ] = CONTENT_MODEL_LIMN_DATA;
 
 // ResourceLoader modules
 /**
@@ -51,11 +43,10 @@ $extLimnBoilerplate = array(
     'targets' => array( 'mobile', 'desktop' ),
 );
 
-// TODO: do not minify because Resource Loader does it for me
 $wgResourceModules['mediawiki.libs.d3'] = array(
     'scripts' => array(
-        'resources/scripts/d3.v3.min.js',
-        'resources/scripts/d3.geo.projection.min.js',
+        'resources/scripts/d3.js',
+        //'resources/scripts/d3.geo.projection.min.js',
     ),
 ) + $extLimnBoilerplate;
 $wgResourceModules['mediawiki.libs.topojson'] = array(
@@ -81,10 +72,10 @@ $wgResourceModules['ext.limn'] = array(
         //'mediawiki.libs.vega',
     //),
     'scripts' => array(
-        'resources/scripts/d3.v3.min.js',
-        'resources/scripts/d3.geo.projection.min.js',
+        'resources/scripts/d3.js',
+        // 'resources/scripts/d3.geo.projection.min.js',
         'resources/scripts/topojson.js',
-        'resources/scripts/vega.min.js',
+        'resources/scripts/vega.js',
         'resources/scripts/limn.js',
     ),
     'styles' => array(
