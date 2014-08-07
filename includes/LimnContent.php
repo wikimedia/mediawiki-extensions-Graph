@@ -78,7 +78,7 @@ class Content extends JCContent {
 	}
 }
 
-class ContentView extends JCContentView {
+class ContentView extends \JsonConfig\JCContentView {
 
 	/**
 	 * Render JCContent object as HTML
