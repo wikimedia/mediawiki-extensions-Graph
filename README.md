@@ -1,7 +1,7 @@
 MediaWiki Limn
 ==============
 
-`Limn` is a MediaWiki extension that uses `VegaJS` to visualize almost arbitrary data in almost arbitrary ways.
+`Limn` is a MediaWiki extension that uses `Vega JS` to visualize almost arbitrary data in almost arbitrary ways.
 
 ## History 
 
@@ -10,13 +10,37 @@ MediaWiki Limn
 
 # Installation
 
+## Requirements
+
+* requires JsonConfig extension
+* add to your LocalSettings.php:
+
 If you already have installed `mediawiki`, just add the line below to your _LocalSettings.php_. Otherwise follow the [installation instructions](https://www.mediawiki.org/wiki/Manual:Installing_MediaWiki).
 
 ```
+require_once("$IP/extensions/JsonConfig/JsonConfig.php");
 require_once("$IP/extensions/Limn/Limn.php");
 ```
 
 Then check it's active in [Special:Version](http://wiki.example.com/index.php/Special:Version).
+
+# Configuration
+
+```
+// To use limn as a tag element in wiki markup, 
+// 	<limn>{...}</limn>
+// enable it with:
+$wgEnableLimnParserTag = true;
+
+// To use it on a standalone page, enable it via $wgJsonConfigs
+// https://www.mediawiki.org/wiki/Extension:JsonConfig
+$wgJsonConfigModels['limn.jsonconfig'] = 'limn\Content';
+$wgJsonConfigs['limn.jsonconfig'] = array(
+	'namespace' => <PICK-A-NS-NUMBER>,
+	'nsName' => 'Limn',
+	'isLocal' => true,
+);
+```
 
 # Usage
 

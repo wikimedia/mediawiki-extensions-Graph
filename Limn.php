@@ -6,7 +6,7 @@
  * @file
  * @ingroup Extensions
  *
- * @author Dan Andreescu
+ * @author Dan Andreescu, Édouard Lopez, Yuri Astrakhan
  * @see DataPages.example https://github.com/wikimedia/mediawiki-extensions-examples/blob/master/DataPages/DataPages.example.php
  * @see DataPages https://github.com/wikimedia/mediawiki-extensions-examples/blob/master/DataPages/DataPages.php
  */
@@ -25,26 +25,19 @@ $wgExtensionCredits['other'][] = array(
     'name' => 'Limn',
     'author' => array(
         'Dan Andreescu',
-        'Édouard Lopez'
+        'Édouard Lopez',
+		'Yuri Astrakhan'
     ),
 );
 
-// TODO: find the right range to put this namespace number in
-define( 'NS_LIMN', 282 );
-define( 'NS_LIMN_TALK', NS_LIMN +1 );
-$wgExtraNamespaces[NS_LIMN] = "Limn";
-$wgExtraNamespaces[NS_LIMN_TALK] = "Limn_talk";
+$wgAutoloadClasses['limn\Singleton'] = __DIR__ . '/includes/LimnContent.php';
+$wgAutoloadClasses['limn\Content'] = __DIR__ . '/includes/LimnContent.php';
+$wgAutoloadClasses['limn\ContentView'] = __DIR__ . '/includes/LimnContent.php';
 
-$wgAutoloadClasses['LimnContentHandler'] = __DIR__ . '/includes/LimnContentHandler.php';
-$wgAutoloadClasses['LimnContent'] = __DIR__ . '/includes/LimnContent.php';
+$wgEnableLimnParserTag = false;
 
-// Define a constant for the identifier of our custom content model...
-define( 'CONTENT_MODEL_LIMN_DATA', 'LIMN_DATA' );
+$wgHooks['ParserFirstCallInit'][] = 'limn\Singleton::onParserFirstCallInit';
 
-// ...and register a handler for that content model.
-$wgContentHandlers[CONTENT_MODEL_LIMN_DATA] = 'LimnContentHandler';
-
-$wgNamespaceContentModels[ NS_LIMN ] = CONTENT_MODEL_LIMN_DATA;
 
 // ResourceLoader modules
 /**
@@ -56,10 +49,9 @@ $extLimnBoilerplate = array(
     'targets' => array( 'mobile', 'desktop' ),
 );
 
-// TODO: do not minify because Resource Loader does it for me
 $wgResourceModules['mediawiki.libs.d3'] = array(
     'scripts' => array(
-        'resources/scripts/d3.v3.min.js',
+        'resources/scripts/d3.js',
         'resources/scripts/d3.geo.projection.min.js',
     ),
 ) + $extLimnBoilerplate;
@@ -86,10 +78,10 @@ $wgResourceModules['ext.limn'] = array(
         //'mediawiki.libs.vega',
     //),
     'scripts' => array(
-        'resources/scripts/d3.v3.min.js',
+        'resources/scripts/d3.js',
         'resources/scripts/d3.geo.projection.min.js',
         'resources/scripts/topojson.js',
-        'resources/scripts/vega.min.js',
+        'resources/scripts/vega.js',
         'resources/scripts/limn.js',
     ),
     'styles' => array(
