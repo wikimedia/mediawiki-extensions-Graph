@@ -20,6 +20,7 @@
  * TODO: create a visual editor for Limn definitions that introspects what is allowed
  * in each part of the definition and presents documentation to aid with discovery.
  *
+ * @see https://github.com/wikimedia/mediawiki-extensions-examples/blob/master/DataPages/XmlContent.php
  */
 class LimnContent extends \TextContent {
 

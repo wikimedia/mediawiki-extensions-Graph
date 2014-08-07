@@ -12,6 +12,8 @@
  * Class LimnContentHandler represents the set of operations for LimnContent that can be
  * performed without the actual content. Most importantly, it acts as a factory
  * and serialization/unserialization service for LimnContent objects.
+ *
+ * @see https://github.com/wikimedia/mediawiki-extensions-examples/blob/master/DataPages/XmlContentHandler.php
  */
 class LimnContentHandler extends \TextContentHandler {
 

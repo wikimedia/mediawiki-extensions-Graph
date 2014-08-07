@@ -7,6 +7,8 @@
  * @ingroup Extensions
  *
  * @author Dan Andreescu
+ * @see DataPages.example https://github.com/wikimedia/mediawiki-extensions-examples/blob/master/DataPages/DataPages.example.php
+ * @see DataPages https://github.com/wikimedia/mediawiki-extensions-examples/blob/master/DataPages/DataPages.php
  */
 
 if ( !defined( 'MEDIAWIKI' ) ) {
