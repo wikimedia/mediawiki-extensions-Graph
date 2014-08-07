@@ -8,7 +8,6 @@ MediaWiki Limn
 * Zurich Hackathon, project started ;
 * London wikimania continue.
 
-Add to your LocalSettings.php:
 # Installation
 
 If you already have installed `mediawiki`, just add the line below to your _LocalSettings.php_. Otherwise follow the [installation instructions](https://www.mediawiki.org/wiki/Manual:Installing_MediaWiki).
