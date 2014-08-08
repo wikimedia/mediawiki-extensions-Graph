@@ -1,24 +1,41 @@
 MediaWiki Limn
 ==============
 
-`Limn` is a MediaWiki extension that uses `VegaJS` to visualize almost arbitrary data in almost arbitrary ways.
+`Limn` is a MediaWiki extension that uses [`Vega JS`](https://github.com/trifacta/vega) to visualize almost arbitrary data in almost arbitrary ways.
 
-## History 
+## Requirements
 
-* Zurich Hackathon, project started ;
-* London wikimania continue.
+* [JsonConfig extension](https://www.mediawiki.org/wiki/Extension:JsonConfig) `≥1.24`.
 
-# Installation
+## Installation
 
-If you already have installed `mediawiki`, just add the line below to your _LocalSettings.php_. Otherwise follow the [installation instructions](https://www.mediawiki.org/wiki/Manual:Installing_MediaWiki).
+If you already have installed `mediawiki` and `JsonConfig` extension, just add the lines below to your _LocalSettings.php_. Otherwise follow the [installation instructions](https://www.mediawiki.org/wiki/Manual:Installing_MediaWiki).
 
-```
+```php
+require_once("$IP/extensions/JsonConfig/JsonConfig.php");
 require_once("$IP/extensions/Limn/Limn.php");
 ```
 
 Then check it's active in [Special:Version](http://wiki.example.com/index.php/Special:Version).
 
-# Usage
+## Configuration
+
+```php
+// To use limn as a tag element in wiki markup, enable it with:
+// e.g.: <limn>{...}</limn>
+$wgEnableLimnParserTag = true;
+
+// To use it on a standalone page, enable it via $wgJsonConfigs
+// https://www.mediawiki.org/wiki/Extension:JsonConfig
+$wgJsonConfigModels['limn.jsonconfig'] = 'limn\Content';
+$wgJsonConfigs['limn.jsonconfig'] = array(
+	'namespace' => <PICK-A-NS-NUMBER>,
+	'nsName' => 'Limn',
+	'isLocal' => true,
+);
+```
+
+## Usage
 
 Create a new [page in the `Limn` namespace](http://wiki.example.com/index.php/Limn:TestPage) and paste the following (nothing else) save… and voilà!
 
@@ -68,3 +85,8 @@ Create a new [page in the `Limn` namespace](http://wiki.example.com/index.php/Li
 Should result in:
 
 ![preview](preview.png)
+
+## History 
+
+* Zurich Hackathon, project started ;
+* London Wikimania/Hackathon: continue.
