@@ -79,7 +79,7 @@ $wgResourceModules['ext.limn'] = array(
     //),
     'scripts' => array(
         'resources/scripts/d3.js',
-        'resources/scripts/d3.geo.projection.min.js',
+        'resources/scripts/d3.geo.projection.js',
         'resources/scripts/topojson.js',
         'resources/scripts/vega.js',
         'resources/scripts/limn.js',
