@@ -24,7 +24,7 @@ $wgExtensionCredits['other'][] = array(
     'author' => array( 'Dan Andreescu', 'Yuri Astrakhan' ),
 );
 
-$graphBodyFile = __DIR__ . 'Graph.body.php';
+$graphBodyFile = __DIR__ . DIRECTORY_SEPARATOR . 'Graph.body.php';
 $wgAutoloadClasses['graph\Singleton'] = $graphBodyFile;
 $wgAutoloadClasses['graph\Content'] = $graphBodyFile;
 $wgAutoloadClasses['graph\ContentView'] = $graphBodyFile;
