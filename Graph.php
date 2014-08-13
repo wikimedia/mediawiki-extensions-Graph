@@ -1,12 +1,12 @@
 <?php
 /**
- * Limn extension, visualizes arbitrary datasets in arbitrary ways in MediaWiki.
+ * Graph extension, visualizes arbitrary datasets in arbitrary ways in MediaWiki.
  *
  * @license MIT
  * @file
  * @ingroup Extensions
  *
- * @author Dan Andreescu
+ * @author Dan Andreescu, Yuri Astrakhan
  */
 
 if ( !defined( 'MEDIAWIKI' ) ) {
@@ -20,50 +20,52 @@ if ( version_compare( $wgVersion, '1.21', '<' ) ) {
 
 $wgExtensionCredits['other'][] = array(
     'path' => __FILE__,
-    'name' => 'Limn',
+    'name' => 'Graph',
     'author' => array( 'Dan Andreescu', 'Yuri Astrakhan' ),
 );
 
-$wgAutoloadClasses['limn\Singleton'] = __DIR__ . '/includes/LimnContent.php';
-$wgAutoloadClasses['limn\Content'] = __DIR__ . '/includes/LimnContent.php';
-$wgAutoloadClasses['limn\ContentView'] = __DIR__ . '/includes/LimnContent.php';
+$graphBodyFile = __DIR__ . 'Graph.body.php';
+$wgAutoloadClasses['graph\Singleton'] = $graphBodyFile;
+$wgAutoloadClasses['graph\Content'] = $graphBodyFile;
+$wgAutoloadClasses['graph\ContentView'] = $graphBodyFile;
+unset( $graphBodyFile );
 
-$wgEnableLimnParserTag = false;
+$wgEnableGraphParserTag = false;
 
-$wgHooks['ParserFirstCallInit'][] = 'limn\Singleton::onParserFirstCallInit';
+$wgHooks['ParserFirstCallInit'][] = 'graph\Singleton::onParserFirstCallInit';
 
 
 // ResourceLoader modules
 /**
  * A boilerplate for resource loader modules
  */
-$extLimnBoilerplate = array(
+$extGraphBoilerplate = array(
     'localBasePath' => __DIR__,
-    'remoteExtPath' => 'Limn',
+    'remoteExtPath' => 'Graph',
     'targets' => array( 'mobile', 'desktop' ),
 );
 
 $wgResourceModules['mediawiki.libs.d3'] = array(
     'scripts' => array(
-        'resources/scripts/d3.js',
-        //'resources/scripts/d3.geo.projection.min.js',
+        'lib/d3.js',
+        //'lib/d3.geo.projection.min.js',
     ),
-) + $extLimnBoilerplate;
+) + $extGraphBoilerplate;
 $wgResourceModules['mediawiki.libs.topojson'] = array(
     'scripts' => array(
-        'resources/scripts/topojson.js',
+        'lib/topojson.js',
     ),
-) + $extLimnBoilerplate;
+) + $extGraphBoilerplate;
 $wgResourceModules['mediawiki.libs.vega'] = array(
     'dependencies' => array(
         'mediawiki.libs.d3',
         'mediawiki.libs.topojson',
     ),
     'scripts' => array(
-        'resources/scripts/vega.js',
+        'lib/vega.js',
     ),
-) + $extLimnBoilerplate;
-$wgResourceModules['ext.limn'] = array(
+) + $extGraphBoilerplate;
+$wgResourceModules['ext.graph'] = array(
     // TODO: dependencies don't work.  Symptoms:
     // * Firefox works
     // * Chrome works in debug mode
@@ -72,13 +74,14 @@ $wgResourceModules['ext.limn'] = array(
         //'mediawiki.libs.vega',
     //),
     'scripts' => array(
-        'resources/scripts/d3.js',
-        // 'resources/scripts/d3.geo.projection.min.js',
-        'resources/scripts/topojson.js',
-        'resources/scripts/vega.js',
-        'resources/scripts/limn.js',
+        'lib/d3.js',
+        // 'lib/d3.geo.projection.min.js',
+        'lib/topojson.js',
+        'lib/vega.js',
+        'js/graph.js',
     ),
     'styles' => array(
-        'resources/styles/common.less',
+        'styles/common.less',
     ),
-) + $extLimnBoilerplate;
+) + $extGraphBoilerplate;
+unset( $extGraphBoilerplate );
