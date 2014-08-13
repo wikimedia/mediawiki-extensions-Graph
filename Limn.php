@@ -7,6 +7,8 @@
  * @ingroup Extensions
  *
  * @author Dan Andreescu
+ * @see DataPages.example https://github.com/wikimedia/mediawiki-extensions-examples/blob/master/DataPages/DataPages.example.php
+ * @see DataPages https://github.com/wikimedia/mediawiki-extensions-examples/blob/master/DataPages/DataPages.php
  */
 
 if ( !defined( 'MEDIAWIKI' ) ) {
@@ -21,7 +23,11 @@ if ( version_compare( $wgVersion, '1.21', '<' ) ) {
 $wgExtensionCredits['other'][] = array(
     'path' => __FILE__,
     'name' => 'Limn',
-    'author' => array( 'Dan Andreescu', 'Yuri Astrakhan' ),
+    'author' => array(
+        'Dan Andreescu',
+        'Édouard Lopez',
+		'Yuri Astrakhan'
+    ),
 );
 
 $wgAutoloadClasses['limn\Singleton'] = __DIR__ . '/includes/LimnContent.php';
@@ -46,7 +52,7 @@ $extLimnBoilerplate = array(
 $wgResourceModules['mediawiki.libs.d3'] = array(
     'scripts' => array(
         'resources/scripts/d3.js',
-        //'resources/scripts/d3.geo.projection.min.js',
+        'resources/scripts/d3.geo.projection.min.js',
     ),
 ) + $extLimnBoilerplate;
 $wgResourceModules['mediawiki.libs.topojson'] = array(
@@ -73,7 +79,7 @@ $wgResourceModules['ext.limn'] = array(
     //),
     'scripts' => array(
         'resources/scripts/d3.js',
-        // 'resources/scripts/d3.geo.projection.min.js',
+        'resources/scripts/d3.geo.projection.js',
         'resources/scripts/topojson.js',
         'resources/scripts/vega.js',
         'resources/scripts/limn.js',
