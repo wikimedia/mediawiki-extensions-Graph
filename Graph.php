@@ -30,7 +30,17 @@ $wgAutoloadClasses['graph\Content'] = $graphBodyFile;
 $wgAutoloadClasses['graph\ContentView'] = $graphBodyFile;
 unset( $graphBodyFile );
 
+/**
+ * @var bool Set to true to enable <graph> tag in wiki markup
+ */
 $wgEnableGraphParserTag = false;
+
+/**
+ * @var false|string[] a list of domains that the vega code is allowed to pull data from.
+ * If false, there are no restrictions. An empty list disables any external data (inline only).
+ * NOTE: Setting this value to anything other than 'false' will also enable safe mode formula/filter evaluation
+ */
+$wgGraphDataDomains = array();
 
 $wgHooks['ParserFirstCallInit'][] = 'graph\Singleton::onParserFirstCallInit';
 

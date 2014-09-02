@@ -50,6 +50,8 @@ class Singleton {
 	}
 
 	public static function updateParser( ParserOutput $parserOutput ) {
+		global $wgGraphDataDomains;
+		$parserOutput->addJsConfigVars( 'graphDataDomains', $wgGraphDataDomains );
 		$parserOutput->addModules( 'ext.graph' );
 		return $parserOutput;
 	}
