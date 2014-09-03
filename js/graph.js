@@ -3,7 +3,7 @@
         vg.parse.spec(spec, function(chart) { chart({el:el}).update(); });
     }
     $( function() {
-	    vg.config.domainWhiteList = mw.config.get('graphDataDomains');
+	    vg.config.domainWhiteList = mw.config.get('wgGraphDataDomains');
 	    if (vg.config.domainWhiteList) {
 		    vg.config.safeMode = true;
 	    }
