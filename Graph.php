@@ -25,9 +25,9 @@ $wgExtensionCredits['other'][] = array(
 );
 
 $graphBodyFile = __DIR__ . DIRECTORY_SEPARATOR . 'Graph.body.php';
-$wgAutoloadClasses['graph\Singleton'] = $graphBodyFile;
-$wgAutoloadClasses['graph\Content'] = $graphBodyFile;
-$wgAutoloadClasses['graph\ContentView'] = $graphBodyFile;
+$wgAutoloadClasses['Graph\Singleton'] = $graphBodyFile;
+$wgAutoloadClasses['Graph\Content'] = $graphBodyFile;
+$wgAutoloadClasses['Graph\ContentView'] = $graphBodyFile;
 unset( $graphBodyFile );
 
 /**
@@ -42,7 +42,7 @@ $wgEnableGraphParserTag = false;
  */
 $wgGraphDataDomains = array();
 
-$wgHooks['ParserFirstCallInit'][] = 'graph\Singleton::onParserFirstCallInit';
+$wgHooks['ParserFirstCallInit'][] = 'Graph\Singleton::onParserFirstCallInit';
 
 
 // ResourceLoader modules

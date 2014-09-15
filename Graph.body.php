@@ -7,7 +7,7 @@
  * @author Dan Andreescu, Yuri Astrakhan
  */
 
-namespace graph;
+namespace Graph;
 
 use FormatJson;
 use Html;
@@ -23,7 +23,7 @@ class Singleton {
 	public static function onParserFirstCallInit( Parser $parser ) {
 		global $wgEnableGraphParserTag;
 		if ( $wgEnableGraphParserTag ) {
-			$parser->setHook( 'graph', 'graph\Singleton::onGraphTag' );
+			$parser->setHook( 'graph', 'Graph\Singleton::onGraphTag' );
 		}
 		return true;
 	}
