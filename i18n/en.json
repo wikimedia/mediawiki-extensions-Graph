@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dan Andreescu",
+			"Yuri Astrakhan"
+		]
+	},
+	"graph-desc": "Allows &lt;graph> tags or entire pages to become [http://trifacta.github.io/vega/ Vega]-based graphs"
+}
