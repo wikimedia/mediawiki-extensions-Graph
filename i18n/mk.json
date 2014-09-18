@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"graph-desc": "Одозможува ознаки &lt;graph> или цели страници да станат графикони на основа на [http://trifacta.github.io/vega/ Vega]"
+}
