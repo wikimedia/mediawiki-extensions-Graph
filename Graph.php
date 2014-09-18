@@ -22,6 +22,7 @@ $wgExtensionCredits['other'][] = array(
     'path' => __FILE__,
     'name' => 'Graph',
     'author' => array( 'Dan Andreescu', 'Yuri Astrakhan' ),
+    'url' => 'https://www.mediawiki.org/wiki/Extension:Graph',
 );
 
 $graphBodyFile = __DIR__ . DIRECTORY_SEPARATOR . 'Graph.body.php';
