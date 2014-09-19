@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Liuxinyu970226"
+		]
+	},
+	"graph-desc": "允许&lt;graph>标签或全部页面成为基于[http://trifacta.github.io/vega/ Vega]的图形"
+}
