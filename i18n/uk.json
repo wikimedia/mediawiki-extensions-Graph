@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Andriykopanytsia"
+		]
+	},
+	"graph-desc": "Дозволяє &lt;graph> тегам або цілим сторінкам стати графіками на основі [http://trifacta.github.io/vega/ Vega]"
+}
