@@ -47,49 +47,17 @@ $wgEnableGraphParserTag = false;
 $wgGraphDataDomains = array();
 
 $wgHooks['ParserFirstCallInit'][] = 'Graph\Singleton::onParserFirstCallInit';
+$wgHooks['EditPage::showEditForm:initial'][] = 'Graph\Singleton::editPageShowEditFormInitial';
 
-
-// ResourceLoader modules
-/**
- * A boilerplate for resource loader modules
- */
 $extGraphBoilerplate = array(
     'localBasePath' => __DIR__,
     'remoteExtPath' => 'Graph',
     'targets' => array( 'mobile', 'desktop' ),
 );
 
-$wgResourceModules['mediawiki.libs.d3'] = array(
-    'scripts' => array(
-        'lib/d3.js',
-        //'lib/d3.geo.projection.min.js',
-    ),
-) + $extGraphBoilerplate;
-$wgResourceModules['mediawiki.libs.topojson'] = array(
-    'scripts' => array(
-        'lib/topojson.js',
-    ),
-) + $extGraphBoilerplate;
-$wgResourceModules['mediawiki.libs.vega'] = array(
-    'dependencies' => array(
-        'mediawiki.libs.d3',
-        'mediawiki.libs.topojson',
-    ),
-    'scripts' => array(
-        'lib/vega.js',
-    ),
-) + $extGraphBoilerplate;
 $wgResourceModules['ext.graph'] = array(
-    // TODO: dependencies don't work.  Symptoms:
-    // * Firefox works
-    // * Chrome works in debug mode
-    // * Chrome does not work in production mode (debug=false)
-    //'dependencies' => array(
-        //'mediawiki.libs.vega',
-    //),
     'scripts' => array(
         'lib/d3.js',
-        // 'lib/d3.geo.projection.min.js',
         'lib/topojson.js',
         'lib/vega.js',
         'js/graph.js',
@@ -98,4 +66,11 @@ $wgResourceModules['ext.graph'] = array(
         'styles/common.less',
     ),
 ) + $extGraphBoilerplate;
+
+$wgResourceModules['ext.graph.editor'] = array(
+    'scripts' => array(
+        'js/graph.editor.js',
+    )
+) + $extGraphBoilerplate;
+
 unset( $extGraphBoilerplate );

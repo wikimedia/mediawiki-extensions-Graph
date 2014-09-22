@@ -13,6 +13,7 @@ use FormatJson;
 use Html;
 use JsonConfig\JCContent;
 use JsonConfig\JCContentView;
+use JsonConfig\JCSingleton;
 use Parser;
 use ParserOptions;
 use ParserOutput;
@@ -54,6 +55,21 @@ class Singleton {
 		$parserOutput->addJsConfigVars( 'wgGraphDataDomains', $wgGraphDataDomains );
 		$parserOutput->addModules( 'ext.graph' );
 		return $parserOutput;
+	}
+
+	/**
+	 * @param \EditPage $editpage
+	 * @param \OutputPage $output
+	 * @return bool
+	 */
+	public static function editPageShowEditFormInitial( &$editpage, $output ) {
+		// TODO: not sure if this is the best way to test
+		if ( $editpage->contentFormat === CONTENT_FORMAT_JSON &&
+		     JCSingleton::getContentClass( $editpage->contentModel ) === __NAMESPACE__ . '\Content'
+		) {
+			$output->addModules( 'ext.graph.editor' );
+		}
+		return true;
 	}
 }
 
