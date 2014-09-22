@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Gomoko"
+		]
+	},
+	"graph-desc": "Permet aux balises &lt;graph> ou aux pages complètes de devenir des graphes basés sur [http://trifacta.github.io/vega/ Vega]"
+}

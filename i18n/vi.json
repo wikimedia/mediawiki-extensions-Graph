@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Minh Nguyen"
+		]
+	},
+	"graph-desc": "Cho phép các thẻ &lt;graph> hoặc toàn bộ trang trở thành biểu đồ dùng [http://trifacta.github.io/vega/ Vega]"
+}
