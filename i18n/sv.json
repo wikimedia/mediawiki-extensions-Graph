@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Lokal Profil"
+		]
+	},
+	"graph-desc": "Tillåter &lt;graph>-taggar eller hela sidor att bli [http://trifacta.github.io/vega/ Vega]-baserade grafer"
+}
