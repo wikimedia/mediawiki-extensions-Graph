@@ -14,12 +14,13 @@
 				var spec = $.parseJSON(content);
 				if (spec === null) return;
 				if (this.hasAttribute('spec')) this.removeAttribute('spec');
-				vg.parse.spec(spec, function(chart) { chart({el:el}).update(); });
+				vg.parse.spec(spec, function (chart) {
+					chart({el: el}).update();
+				});
 			});
-		} catch(err) {
-			// Ignore all errors
+		} finally {
+			// FIXME: This should be done on data modification, not on timer
+			setTimeout(arguments.callee, 300);
 		}
-		// FIXME: This should be done on data modification, not on timer
-		setTimeout(arguments.callee, 300);
 	})();
 } ( jQuery ) );
