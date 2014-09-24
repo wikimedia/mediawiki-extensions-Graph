@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amire80"
+		]
+	},
+	"graph-desc": "מאפשרת לתגי &lt;graph> או לדפים שלמים להיות גרפים שמבוססים על [http://trifacta.github.io/vega/ Vega]"
+}

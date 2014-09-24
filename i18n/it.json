@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Beta16"
+		]
+	},
+	"graph-desc": "Permette il tag &lt;graph> o intere pagine di diventare grafici basati su [http://trifacta.github.io/vega/ Vega]"
+}
