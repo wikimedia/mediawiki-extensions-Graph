@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Okras"
+		]
+	},
+	"graph-desc": "Позволяет тегам &lt;graph> или целым страницам становиться графами на основе [http://trifacta.github.io/vega/ Vega]"
+}
