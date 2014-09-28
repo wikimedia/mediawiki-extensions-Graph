@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Macofe"
+			"Macofe",
+			"Fitoschido"
 		]
 	},
-	"graph-desc": "Permite que etiquetas &lt;graph> o páginas enteras convertirse en gráficos basados en [http://trifacta.github.io/vega/ Vega]"
+	"graph-desc": "Permite transformar etiquetas &lt;graph> o páginas enteras en gráficos basados en [http://trifacta.github.io/vega/ Vega]"
 }

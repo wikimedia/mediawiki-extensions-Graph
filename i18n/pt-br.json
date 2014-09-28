@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jefersonmoraes"
+		]
+	},
+	"graph-desc": "Permite transformar etiquetas &lt;graph> ou páginas todas em gráficos basados em [http://trifacta.github.io/vega/ Vega]"
+}
