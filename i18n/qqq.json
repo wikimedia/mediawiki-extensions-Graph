@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Raimond Spekking"
+			"Raimond Spekking",
+			"Mormegil"
 		]
 	},
-	"graph-desc": "{{desc|name=Graph|url=https://www.mediawiki.org/wiki/Graph}}"
+	"graph-desc": "{{desc|name=Graph|url=https://www.mediawiki.org/wiki/Extension:Graph}}"
 }
