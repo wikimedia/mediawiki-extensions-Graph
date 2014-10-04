@@ -1,9 +1,7 @@
 ( function( $ ) {
 	$( function() {
 		vg.config.domainWhiteList = mw.config.get('wgGraphDataDomains');
-		if (vg.config.domainWhiteList) {
-			vg.config.safeMode = true;
-		}
+		vg.config.safeMode = vg.config.domainWhiteList !== false;
 		$('.mw-wiki-graph').each(function () {
 			var definition = $(this).data('spec'),
 				el = this;
