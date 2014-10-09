@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Xuacu"
+		]
+	},
+	"graph-desc": "Permite convertir etiquetes &lt;graph> o páxines completes en gráficos basaos en [http://trifacta.github.io/vega/ Vega]"
+}
