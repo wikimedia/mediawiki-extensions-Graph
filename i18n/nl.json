@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Siebrand"
+		]
+	},
+	"graph-desc": "Maakt het mogelijk om het label &lt;graph> of hele pagina's op [http://trifacta.github.io/vega/ Vega] gebaseerde grafieken te laten worden"
+}
