@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Metalhead64"
+			"Metalhead64",
+			"Purodha"
 		]
 	},
-	"graph-desc": "Ergänzt &lt;graph>-Tags oder wandelt ganze Seiten in [http://trifacta.github.io/vega/ Vega]-basierte Grafiken um"
+	"graph-desc": "Erlaubt &lt;graph>-Tags oder wandelt ganze Seiten in [http://trifacta.github.io/vega/ Vega]-basierte Grafiken um"
 }
