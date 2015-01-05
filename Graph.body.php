@@ -12,7 +12,6 @@ namespace Graph;
 use FormatJson;
 use Html;
 use JsonConfig\JCContent;
-use JsonConfig\JCContentView;
 use JsonConfig\JCSingleton;
 use Parser;
 use ParserOptions;
@@ -40,17 +39,12 @@ class Singleton {
 	                                   array $args, Parser $parser, \PPFrame $frame ) {
 
 		// expand template arguments and other wiki markup
-		// TODO: we might want to add some magic $args parameter to disable template expansion
-		$input = $parser->recursiveTagParse( $input, $frame );
-
-		$content = new Content( $input, 'graph-temp.json', true );
-		if ( $content->isValid() ) {
-			self::updateParser( $parser->getOutput() );
-		}
-		return $content->getHtml();
+		$input = $parser->recursivePreprocess( $input, $frame );
+		self::updateParserOutput( $parser->getOutput() );
+		return self::buildHtml( $input, $parser->getTitle(), $parser->getRevisionId() );
 	}
 
-	public static function updateParser( ParserOutput $parserOutput ) {
+	public static function updateParserOutput( ParserOutput $parserOutput ) {
 		global $wgGraphDataDomains;
 		$parserOutput->addJsConfigVars( 'wgGraphDataDomains', $wgGraphDataDomains );
 		$parserOutput->addModules( 'ext.graph' );
@@ -71,6 +65,61 @@ class Singleton {
 		}
 		return true;
 	}
+
+	/**
+	 * @param string $jsonText
+	 * @param Title $title
+	 * @param int $revid
+	 * @return string
+	 */
+	public static function buildHtml( $jsonText, $title, $revid ) {
+
+		global $wgGraphImgServiceUrl;
+		static $hashIds = array();
+
+		$status = FormatJson::parse( $jsonText, FormatJson::TRY_FIXING | FormatJson::STRIP_COMMENTS );
+		if ( !$status->isGood() ) {
+			return $status->getWikiText();
+		}
+
+		$json = FormatJson::encode( $status->getValue(), false, FormatJson::ALL_OK );
+
+		$spanAttrs = array(
+			'class' => 'mw-wiki-graph',
+			'data-spec' => $json,
+		);
+
+		// ensure that the same ID is not used multiple times,
+		// e.g. identical graph is included multiple times
+		$id = 'mw-graph-' . sha1( $json );
+		if ( array_key_exists( $id, $hashIds ) ) {
+			$hashIds[$id] += 1;
+			$id = $id . '-' . $hashIds[$id];
+		} else {
+			$hashIds[$id] = 1;
+		}
+		$spanAttrs['id'] = $id;
+
+		if ( $wgGraphImgServiceUrl ) {
+			$title = !$title ? '' : rawurlencode( str_replace( $title->getText(), ' ', '_' ) );
+			$revid = rawurlencode( (string)$revid ) ?: '0';
+			$url = sprintf( $wgGraphImgServiceUrl, $title, $revid, $id );
+
+			// TODO: Use "width" and "height" from the definition if available
+			// In some cases image might still be larger - need to investigate
+			$img = Html::rawElement( 'img', array( 'src' => $url ) );
+
+			$backendImgLinks =
+				Html::inlineScript( 'if(!mw.window){document.write(' .
+									FormatJson::encode( $img, false, FormatJson::UTF8_OK ) .
+									');}' ) .
+				Html::rawElement( 'noscript', array(), $img );
+		} else {
+			$backendImgLinks = '';
+		}
+
+		return Html::element( 'span', $spanAttrs ) . $backendImgLinks;
+	}
 }
 
 /**
@@ -89,40 +138,29 @@ class Singleton {
 class Content extends JCContent {
 
 	public function getWikitextForTransclusion() {
-		return $this->getHtml();
+		//
+		// TODO: Somehow we need to avoid wgParser here
+		global $wgParser;
+		Singleton::updateParserOutput( $wgParser->getOutput() );
+		return Singleton::buildHtml(
+			$this->getNativeData(),
+			$wgParser->getTitle(),
+			$wgParser->getRevisionId() );
 	}
 
-	public function getParserOutput( Title $title, $revId = null, ParserOptions $options = null,
-	                                 $generateHtml = true ) {
-		return Singleton::updateParser( parent::getParserOutput( $title, $revId, $options, $generateHtml ) );
+	protected function fillParserOutput( Title $title, $revId, ParserOptions $options, $generateHtml,
+	                                     ParserOutput &$output ) {
+		global $wgParser;
+		$text = $this->getNativeData();
+		$parser = $wgParser->getFreshParser();
+//		$output = $parser->parse( $text, $title, $options, true, true, $revId );
+		$text = $parser->preprocess( $text, $title, $options, $revId );
+
+		Singleton::updateParserOutput( $output );
+		$output->setText( $generateHtml ? Singleton::buildHtml( $text, $title, $revId ) : '' );
 	}
 
-	protected function createDefaultView() {
-		return new ContentView();
-	}
-}
-
-class ContentView extends JCContentView {
-
-	/**
-	 * Render JCContent object as HTML
-	 * @param JCContent $content
-	 * @return string
-	 */
-	public function valueToHtml( JCContent $content ) {
-		return Html::element( 'div', array(
-			'class' => 'mw-wiki-graph',
-			'data-spec' => FormatJson::encode( $content->getData(), false, FormatJson::UTF8_OK ),
-		) );
-	}
-
-	/**
-	 * Returns default content for this object.
-	 * The returned valued does not have to be valid JSON
-	 * @param string $modelId
-	 * @return string
-	 */
-	public function getDefault( $modelId ) {
-		return '{}';
+	public function getCompactJson() {
+		return FormatJson::encode( $this->getData(), false, FormatJson::ALL_OK );
 	}
 }

@@ -31,20 +31,26 @@ $wgMessagesDirs['Graph'] = __DIR__ . DIRECTORY_SEPARATOR . 'i18n';
 $graphBodyFile = __DIR__ . DIRECTORY_SEPARATOR . 'Graph.body.php';
 $wgAutoloadClasses['Graph\Singleton'] = $graphBodyFile;
 $wgAutoloadClasses['Graph\Content'] = $graphBodyFile;
-$wgAutoloadClasses['Graph\ContentView'] = $graphBodyFile;
 unset( $graphBodyFile );
 
 /**
- * @var bool Set to true to enable <graph> tag in wiki markup
+ * @var bool $wgEnableGraphParserTag Set to true to enable <graph> tag in wiki markup
  */
 $wgEnableGraphParserTag = false;
 
-/**
- * @var false|string[] a list of domains that the vega code is allowed to pull data from.
+/** @var false|string[] $wgGraphDataDomains a list of domains that the vega code is allowed to pull data from.
  * If false, there are no restrictions. An empty list disables any external data (inline only).
  * NOTE: Setting this value to anything other than 'false' will also enable safe mode formula/filter evaluation
  */
 $wgGraphDataDomains = array();
+
+/** @var string|false $wgGraphImgServiceUrl A format string to form a backend service request for the img.
+ * For example:  '/api/v1/pages/%1$s/graph/%2$s/%3$s.png'
+ * Parameters will be supplied in this order: title, revid, graph-hash-id
+ * All parameters will be escaped with rawurlencode()
+ * If the value is false, no <noscript> urls will be generated
+ */
+$wgGraphImgServiceUrl = false;
 
 $wgHooks['ParserFirstCallInit'][] = 'Graph\Singleton::onParserFirstCallInit';
 $wgHooks['EditPage::showEditForm:initial'][] = 'Graph\Singleton::editPageShowEditFormInitial';
