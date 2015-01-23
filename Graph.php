@@ -33,11 +33,6 @@ $wgAutoloadClasses['Graph\Singleton'] = $graphBodyFile;
 $wgAutoloadClasses['Graph\Content'] = $graphBodyFile;
 unset( $graphBodyFile );
 
-/**
- * @var bool $wgEnableGraphParserTag Set to true to enable <graph> tag in wiki markup
- */
-$wgEnableGraphParserTag = false;
-
 /** @var false|string[] $wgGraphDataDomains a list of domains that the vega code is allowed to pull data from.
  * If false, there are no restrictions. An empty list disables any external data (inline only).
  * NOTE: Setting this value to anything other than 'false' will also enable safe mode formula/filter evaluation
@@ -54,6 +49,7 @@ $wgGraphImgServiceUrl = false;
 
 $wgHooks['ParserFirstCallInit'][] = 'Graph\Singleton::onParserFirstCallInit';
 $wgHooks['EditPage::showEditForm:initial'][] = 'Graph\Singleton::editPageShowEditFormInitial';
+$wgHooks['ParserAfterParse'][] = 'Graph\Singleton::onParserAfterParse';
 
 $extGraphBoilerplate = array(
     'localBasePath' => __DIR__,
