@@ -24,6 +24,7 @@ $wgExtensionCredits['other'][] = array(
 	'author' => array( 'Dan Andreescu', 'Yuri Astrakhan' ),
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Graph',
 	'descriptionmsg' => 'graph-desc',
+	'license-name' => 'MIT',
 );
 
 $wgMessagesDirs['Graph'] = __DIR__ . DIRECTORY_SEPARATOR . 'i18n';
