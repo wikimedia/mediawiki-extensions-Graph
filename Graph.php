@@ -40,8 +40,10 @@ unset( $graphBodyFile );
 $wgGraphDataDomains = array();
 
 /** @var string|false $wgGraphImgServiceUrl A format string to form a backend service request for the img.
- * For example:  '/api/v1/pages/%1$s/graph/%2$s/%3$s.png'
- * Parameters will be supplied in this order: title, revid, graph-hash-id
+ * For example:
+ * 		/api/v1/%1$s/pages/%2$s/graph/%3$s/%4$s.png
+ * 		http://graph.wmflabs.org:8080?server=%1$s&title=%3$s&id=%4$s.png
+ * Parameters will be supplied in this order: server, title, revid, graph-hash-id
  * All parameters will be escaped with rawurlencode()
  * If the value is false, no <noscript> urls will be generated
  */
