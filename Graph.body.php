@@ -81,7 +81,7 @@ class Singleton {
 	 * @return string
 	 */
 	public static function buildHtml( $jsonText, $title, $revid, $parserOutput ) {
-		global $wgGraphImgServiceUrl;
+		global $wgGraphImgServiceUrl, $wgServer;
 
 		$status = FormatJson::parse( $jsonText, FormatJson::TRY_FIXING | FormatJson::STRIP_COMMENTS );
 		if ( !$status->isGood() ) {
@@ -94,9 +94,10 @@ class Singleton {
 
 		// Render fallback image rendering html (noscript and old-script)
 		if ( $wgGraphImgServiceUrl ) {
+			$server = rawurlencode( $wgServer );
 			$title = !$title ? '' : rawurlencode( str_replace( ' ', '_', $title->getText() ) );
 			$revid = rawurlencode( (string)$revid ) ?: '0';
-			$url = sprintf( $wgGraphImgServiceUrl, $title, $revid, $hash );
+			$url = sprintf( $wgGraphImgServiceUrl, $server, $title, $revid, $hash );
 
 			// TODO: Use "width" and "height" from the definition if available
 			// In some cases image might still be larger - need to investigate
