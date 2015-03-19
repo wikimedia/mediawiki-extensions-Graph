@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Banjo"
+		]
+	},
+	"graph-desc": "Permite que as etiquetas &lt;graph> ou páxinas enteiras se convirtan en gráficos basados en [http://trifacta.github.io/vega/ Vega]"
+}
