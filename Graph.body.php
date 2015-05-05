@@ -95,7 +95,7 @@ class Singleton {
 		// Render fallback image rendering html (noscript and old-script)
 		if ( $wgGraphImgServiceUrl ) {
 			$server = rawurlencode( $wgServerName );
-			$title = !$title ? '' : rawurlencode( str_replace( ' ', '_', $title->getText() ) );
+			$title = !$title ? '' : rawurlencode( $title->getPrefixedDBkey() );
 			$revid = rawurlencode( (string)$revid ) ?: '0';
 			$url = sprintf( $wgGraphImgServiceUrl, $server, $title, $revid, $hash );
 
