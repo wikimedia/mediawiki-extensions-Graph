@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Geraki"
+		]
+	},
+	"graph-desc": "Επιτρέπει ετικέτες &lt;graph> ή ολόκληρες σελίδες να γίνονται γραφήματα με βάση το [http://trifacta.github.io/vega/ Vega]"
+}
