@@ -40,6 +40,16 @@ unset( $graphBodyFile );
  */
 $wgGraphDataDomains = array();
 
+/** @var false|string[] $wgGraphUrlBlacklist a list of regular expressions (JavaScript regex)
+ * All data URLs will be matched against this list, and the URL will be used only
+ * if it does not match any of the given regexes.
+ */
+$wgGraphUrlBlacklist = false;
+
+/** @var bool $wgGraphIsTrusted if false, passes Treat-as-Untrusted:1 header with all graph data requests
+ */
+$wgGraphIsTrusted = false;
+
 /** @var string|false $wgGraphImgServiceUrl A format string to form a backend service request for the img.
  * For example:
  *    $wgGraphImgServiceUrl = "//graphoid.wikimedia.org/%1\$s/v1/png/%2\$s/%3\$s/%4\$s.png";
@@ -60,6 +70,9 @@ $extGraphBoilerplate = array(
     'localBasePath' => __DIR__,
     'remoteExtPath' => 'Graph',
     'targets' => array( 'mobile', 'desktop' ),
+    'dependencies' => array(
+        'mediawiki.Uri',
+    ),
 );
 
 $wgResourceModules['ext.graph'] = array(

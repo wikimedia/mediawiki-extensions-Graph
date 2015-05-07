@@ -48,8 +48,10 @@ class Singleton {
 	public static function finalizeParserOutput( ParserOutput $output ) {
 		$specs = $output->getExtensionData( 'graph_specs' );
 		if ( $specs !== null ) {
-			global $wgGraphDataDomains;
+			global $wgGraphDataDomains, $wgGraphUrlBlacklist, $wgGraphIsTrusted;
 			$output->addJsConfigVars( 'wgGraphDataDomains', $wgGraphDataDomains );
+			$output->addJsConfigVars( 'wgGraphUrlBlacklist', $wgGraphUrlBlacklist );
+			$output->addJsConfigVars( 'wgGraphIsTrusted', $wgGraphIsTrusted );
 			$output->addModules( 'ext.graph' );
 
 			$output->addJsConfigVars( 'wgGraphSpecs', $specs );
