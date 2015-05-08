@@ -65,6 +65,7 @@
 	  	"GraphDataDomains": [],
 		"GraphUrlBlacklist": false,
 		"GraphIsTrusted": false,
+		"GraphImgServiceAlways": false,
 		"GraphImgServiceUrl": false
 	}
 }
