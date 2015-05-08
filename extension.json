@@ -17,6 +17,7 @@
 	"AutoloadClasses": {
 		"Graph\\ApiGraph": "includes/ApiGraph.php",
 		"Graph\\Singleton": "includes/Graph.body.php",
+		"Graph\\Sandbox": "includes/Sandbox.php",
 		"Graph\\Content": "includes/Graph.body.php",
 		"Graph\\Hooks": "includes/Graph.hooks.php"
 	},
@@ -79,14 +80,21 @@
 				"desktop"
 			]
 		},
-		"ext.graph.editor": {
+		"ext.graph.sandbox": {
 			"scripts": [
-				"modules/graph.editor.js"
+				"lib/jquery.splitter-0.18.0.js",
+				"modules/graph.sandbox.js"
 			],
-			"targets": [
-				"mobile",
-				"desktop"
-			]
+			"styles": [
+				"styles/jquery.splitter.css"
+			],
+			"dependencies": [
+				"jquery.throttle-debounce",
+				"ext.codeEditor",
+				"ext.graph.vega2"
+			],
+			"messages": [ "ok" ],
+			"targets": [ "desktop" ]
 		}
 	},
 	"ResourceFileModulePaths": {
@@ -94,11 +102,11 @@
 		"remoteExtPath": "Graph"
 	},
 	"Hooks": {
+		"ContentHandlerDefaultModelFor": [
+			"Graph\\Singleton::onContentHandlerDefaultModelFor"
+		],
 		"ParserFirstCallInit": [
 			"Graph\\Singleton::onParserFirstCallInit"
-		],
-		"EditPage::showEditForm:initial": [
-			"Graph\\Singleton::editPageShowEditFormInitial"
 		],
 		"ParserAfterParse": [
 			"Graph\\Singleton::onParserAfterParse"
@@ -125,5 +133,11 @@
 		"graph-obsolete-category",
 		"graph-broken-category"
 	],
+	"SpecialPages": {
+		"GraphSandbox": "Graph\\Sandbox"
+	},
+	"ExtensionMessagesFiles": {
+		"GraphAliases": "Graph.alias.php"
+	},
 	"manifest_version": 1
 }

@@ -9,6 +9,7 @@
 		]
 	},
 	"graph-desc": "{{desc|name=Graph|url=https://www.mediawiki.org/wiki/Extension:Graph}}",
+	"graphsandbox": "Page title of [[Special:GraphSandbox]].",
 	"graph-tracking-category": "Name of the tracking category",
 	"graph-tracking-category-desc": "Description on [[Special:TrackingCategories]] for the {{msg-mw|graph-tracking-category}} tracking category.",
 	"graph-broken-category": "Name of the tracking category",
@@ -19,6 +20,7 @@
 	"apihelp-graph-example": "{{doc-apihelp-example|graph}}",
 	"apihelp-graph-param-hash": "{{doc-apihelp-param|graph|hash}}",
 	"apihelp-graph-param-title": "{{doc-apihelp-param|graph|title}}",
+	"apihelp-graph-param-text": "{{doc-apihelp-param|graph|text}}",
 	"graph-ve-dialog-button-tooltip": "Tooltip for the graph editing dialog button",
 	"graph-ve-dialog-edit-field-graph-type": "Label for graph type",
 	"graph-ve-dialog-edit-field-raw-json": "Label for the raw JSON specification in the graph editing dialog",

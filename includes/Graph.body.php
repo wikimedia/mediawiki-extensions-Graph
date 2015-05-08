@@ -12,13 +12,27 @@ namespace Graph;
 use FormatJson;
 use Html;
 use JsonConfig\JCContent;
-use JsonConfig\JCSingleton;
 use Parser;
 use ParserOptions;
 use ParserOutput;
 use Title;
 
 class Singleton {
+
+	/**
+	 * Mark the Special Title as having a JSON content model
+	 *
+	 * @param Title $title
+	 * @param string $model
+	 * @return bool
+	 */
+	public static function onContentHandlerDefaultModelFor( Title $title, &$model ) {
+		if ( $title->isSpecial( Sandbox::PageName ) ) {
+			$model = CONTENT_MODEL_JSON;
+			return false;
+		}
+		return true;
+	}
 
 	public static function onParserFirstCallInit( Parser $parser ) {
 		$parser->setHook( 'graph', 'Graph\Singleton::onGraphTag' );
@@ -92,18 +106,30 @@ class Singleton {
 	}
 
 	/**
-	 * @param \EditPage $editpage
-	 * @param \OutputPage $output
-	 * @return bool
+	 * @param string $mode
+	 * @param mixed $data
+	 * @param string $hash
+	 * @return array
 	 */
-	public static function editPageShowEditFormInitial( &$editpage, $output ) {
-		// TODO: not sure if this is the best way to test
-		if ( $editpage->contentFormat === CONTENT_FORMAT_JSON &&
-		     JCSingleton::getContentClass( $editpage->contentModel ) === __NAMESPACE__ . '\Content'
-		) {
-			$output->addModules( 'ext.graph.editor' );
+	public static function buildDivAttributes( $mode = '', $data = false, $hash = '' ) {
+		$attribs = array( 'class' => 'mw-graph' );
+
+		if ( is_object( $data ) ) {
+			$width = property_exists( $data, 'width' ) && is_int( $data->width ) ? $data->width : 0;
+			$height =
+				property_exists( $data, 'height' ) && is_int( $data->height ) ? $data->height : 0;
+			if ( $width && $height ) {
+				$attribs['style'] = "min-width:{$width}px;min-height:{$height}px";
+			}
 		}
-		return true;
+		if ( $mode ) {
+			$attribs['class'] .= ' mw-graph-' . $mode;
+		}
+		if ( $hash ) {
+			$attribs['data-graph-id'] = $hash;
+		}
+
+		return $attribs;
 	}
 
 	/**
@@ -159,18 +185,9 @@ class Singleton {
 		$specs[$hash] = $data;
 		$parserOutput->setExtensionData( 'graph_specs', $specs );
 
-		$attribs = array( 'class' => 'mw-graph' );
-
-		$width = property_exists( $data, 'width' ) && is_int( $data->width ) ? $data->width : 0;
-		$height = property_exists( $data, 'height' ) && is_int( $data->height ) ? $data->height : 0;
-		if ( $width && $height ) {
-			$attribs['style'] = "min-width:{$width}px;min-height:{$height}px";
-		}
-
 		if ( $isPreview || !$wgGraphImgServiceUrl ) {
 			// Always do client-side rendering
-			$attribs['class'] .= ' mw-graph-always';
-			$attribs['data-graph-id'] = $hash;
+			$attribs = self::buildDivAttributes( 'always', $data, $hash );
 			$liveSpecs = $parserOutput->getExtensionData( 'graph_live_specs' ) ?: array();
 			$liveSpecs[$hash] = $data;
 			$parserOutput->setExtensionData( 'graph_live_specs', $liveSpecs );
@@ -188,9 +205,8 @@ class Singleton {
 
 			if ( $isInteractive ) {
 				// Allow image to interactive switchover
-				$attribs['class'] .= ' mw-graph-interactable';
-				$attribs['data-graph-id'] = $hash;
 				$parserOutput->setExtensionData( 'graph_interact', true );
+				$attribs = self::buildDivAttributes( 'interactable', $data, $hash );
 
 				// Add a "make interactive" button
 				$buttonSpan = Html::rawElement( 'span', null, wfMessage( 'graph-switch-button' )->inContentLanguage()->text() );
@@ -210,6 +226,8 @@ class Singleton {
 				), Html::rawElement( 'div', null, $layoverContent ) );
 
 				$html .= $layover;
+			} else {
+				$attribs = self::buildDivAttributes( '', $data );
 			}
 		}
 

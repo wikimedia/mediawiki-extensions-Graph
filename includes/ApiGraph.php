@@ -12,6 +12,7 @@ namespace Graph;
 use ApiBase;
 use FormatJson;
 use Title;
+use ParserOptions;
 
 /**
  * This class implements action=graph api, allowing client-side graphs to get the spec,
@@ -24,7 +25,70 @@ class ApiGraph extends ApiBase {
 	public function execute() {
 		$params = $this->extractRequestParams();
 
-		$title = Title::newFromText( $params['title'] );
+		$this->requireOnlyOneParameter( $params, 'title', 'text' );
+
+		if ( $params['title'] !== null ) {
+			if ( $params['hash'] === null ) {
+				$this->dieUsage( 'Parameter "hash" is required', 'missingparam' );
+			}
+			$graph = $this->getFromStorage( $params['title'], $params['hash'] );
+		} else {
+			if ( !$this->getRequest()->wasPosted() ) {
+				$this->dieUsage( 'Request had to be POSTed when used with "text" parameter', 'invalidparammix' );
+			}
+			if ( $params['hash'] !== null ) {
+				$this->dieUsage( 'Parameter "hash" cannot be used with "text"', 'invalidparammix' );
+			}
+			$graph = $this->preprocess( $params['text'] );
+		}
+		$this->getResult()->addValue( null, $this->getModuleName(), $graph );
+	}
+
+	public function getAllowedParams() {
+		return array(
+			'hash' => array(
+				ApiBase::PARAM_TYPE => 'string',
+			),
+			'title' => array(
+				ApiBase::PARAM_TYPE => 'string',
+			),
+			'text' => array(
+				ApiBase::PARAM_TYPE => 'string',
+			),
+		);
+	}
+
+	protected function getExamplesMessages() {
+		return array(
+			'formatversion=2&action=graph&title=Extension%3AGraph%2FDemo&hash=1533aaad45c733dcc7e07614b54cbae4119a6747'
+				=> 'apihelp-graph-example',
+		);
+	}
+
+	/**
+	 * Get graph definition with title and hash
+	 * @param string $text
+	 * @return string
+	 */
+	private function preprocess( $text ) {
+		global $wgParser;
+		$title = Title::makeTitle( NS_SPECIAL, Sandbox::PageName )->fixSpecialName();
+		$text = $wgParser->getFreshParser()->preprocess( $text, $title, new ParserOptions() );
+		$st = FormatJson::parse( $text );
+		if ( !$st->isOK() ) {
+			$this->dieUsage( "Graph is not valid.", "invalidtext" );
+		}
+		return $st->getValue();
+	}
+
+	/**
+	 * Get graph definition with title and hash
+	 * @param string $title
+	 * @param string $hash
+	 * @return string
+	 */
+	private function getFromStorage( $title, $hash ) {
+		$title = Title::newFromText( $title );
 		if ( !$title || !$title->exists() || !$title->userCan( 'read', $this->getUser() ) ) {
 			$this->dieUsage( "Invalid title given.", "invalidtitle" );
 		}
@@ -44,7 +108,6 @@ class ApiGraph extends ApiBase {
 			$st = FormatJson::parse( $ppValue );
 			if ( $st->isOK() ) {
 				$allGraphs = $st->getValue();
-				$hash = $params['hash'];
 				if ( property_exists( $allGraphs, $hash ) ) {
 					$graph = $allGraphs->$hash;
 				}
@@ -53,26 +116,6 @@ class ApiGraph extends ApiBase {
 		if ( !$graph ) {
 			$this->dieUsage( "No graph found.", "invalidhash" );
 		}
-		$this->getResult()->addValue( null, $this->getModuleName(), $graph );
-	}
-
-	public function getAllowedParams() {
-		return array(
-			'hash' => array(
-				ApiBase::PARAM_TYPE => 'string',
-				ApiBase::PARAM_REQUIRED => true,
-			),
-			'title' => array(
-				ApiBase::PARAM_TYPE => 'string',
-				ApiBase::PARAM_REQUIRED => true,
-			),
-		);
-	}
-
-	protected function getExamplesMessages() {
-		return array(
-			'formatversion=2&action=graph&title=Extension%3AGraph%2FDemo&hash=1533aaad45c733dcc7e07614b54cbae4119a6747'
-				=> 'apihelp-graph-example',
-		);
+		return $graph;
 	}
 }
