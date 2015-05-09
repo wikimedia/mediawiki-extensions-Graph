@@ -1,57 +1,60 @@
-( function( $ ) {
-	$( function() {
-		var specs = mw.config.get('wgGraphSpecs');
-		if (!specs) {
+( function ( $, mw ) {
+	$( function () {
+		var originalSanitize,
+			specs = mw.config.get( 'wgGraphSpecs' );
+		if ( !specs ) {
 			return;
 		}
-		vg.config.domainWhiteList = mw.config.get('wgGraphDataDomains');
-		vg.config.urlBlackList = mw.config.get('wgGraphUrlBlacklist');
-		if (!mw.config.get('wgGraphIsTrusted')) {
-			vg.config.dataHeaders = {'Treat-as-Untrusted': 1};
+		vg.config.domainWhiteList = mw.config.get( 'wgGraphDataDomains' );
+		vg.config.urlBlackList = mw.config.get( 'wgGraphUrlBlacklist' );
+		if ( !mw.config.get( 'wgGraphIsTrusted' ) ) {
+			vg.config.dataHeaders = { 'Treat-as-Untrusted': 1 };
 		}
 		vg.config.safeMode = vg.config.domainWhiteList !== false;
 
-		var originalSanitize = vg.data.load.sanitizeUrl.bind(vg.data.load);
-		vg.data.load.sanitizeUrl = function (urlOrig) {
-			var url = originalSanitize.call(vg.data.load, urlOrig);
-			if (!url) {
+		originalSanitize = vg.data.load.sanitizeUrl.bind( vg.data.load );
+		vg.data.load.sanitizeUrl = function ( urlOrig ) {
+			var url = originalSanitize.call( vg.data.load, urlOrig );
+			if ( !url ) {
 				return false;
 			}
 			// Normalize url by parsing and re-encoding it
-			url = new mw.Uri(url);
-			url.path = decodeURIComponent(url.path);
+			url = new mw.Uri( url );
+			url.path = decodeURIComponent( url.path );
 			url = url.toString();
-			if (!url) {
+			if ( !url ) {
 				return false;
 			}
-			if (!vg.config.urlBlackListRe) {
+			if ( !vg.config.urlBlackListRe ) {
 				// Lazy initialize urlBlackListRe
-				if (vg.config.urlBlackList) {
-					vg.config.urlBlackListRe = vg.config.urlBlackList.map(function (s) {
-						return new RegExp(s);
-					});
+				if ( vg.config.urlBlackList ) {
+					vg.config.urlBlackListRe = vg.config.urlBlackList.map( function ( s ) {
+						return new RegExp( s );
+					} );
 				} else {
 					vg.config.urlBlackListRe = [];
 				}
 			}
-			if (vg.config.urlBlackListRe.some(function(re) { return re.test(url); })) {
+			if ( vg.config.urlBlackListRe.some( function ( re ) {
+				return re.test( url );
+			} ) ) {
 				return false;
 			}
 			return url;
 		};
 
-		$('.mw-wiki-graph').each(function () {
-			var graphId = $(this).data('graph-id'),
+		$( '.mw-wiki-graph' ).each( function () {
+			var graphId = $( this ).data( 'graph-id' ),
 				el = this;
-			if (!specs[graphId]) {
-				mw.log.warn(graphId);
+			if ( !specs[graphId] ) {
+				mw.log.warn( graphId );
 			} else {
-				vg.parse.spec(specs[graphId], function (chart) {
-					if (chart) {
-						chart({el: el}).update();
+				vg.parse.spec( specs[graphId], function ( chart ) {
+					if ( chart ) {
+						chart( { el: el } ).update();
 					}
-				});
+				} );
 			}
-		});
-	});
-} ( jQuery ) );
+		} );
+	} );
+}( jQuery, mediaWiki ) );
