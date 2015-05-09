@@ -7,7 +7,7 @@
 					el = $( '.mw-wiki-graph' ).get( 0 ),
 					content = session.getValue();
 
-				if ( oldContent === content ) {
+				if ( typeof vg === 'undefined' || oldContent === content ) {
 					return;
 				}
 				oldContent = content;
