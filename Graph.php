@@ -70,9 +70,6 @@ $extGraphBoilerplate = array(
     'localBasePath' => __DIR__,
     'remoteExtPath' => 'Graph',
     'targets' => array( 'mobile', 'desktop' ),
-    'dependencies' => array(
-        'mediawiki.Uri',
-    ),
 );
 
 $wgResourceModules['ext.graph'] = array(
@@ -84,6 +81,9 @@ $wgResourceModules['ext.graph'] = array(
     ),
     'styles' => array(
         'styles/common.less',
+    ),
+    'dependencies' => array(
+        'mediawiki.Uri',
     ),
 ) + $extGraphBoilerplate;
 
