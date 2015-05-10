@@ -1,0 +1,69 @@
+{
+	"name": "Graph",
+	"author": [
+		"Dan Andreescu",
+		"Yuri Astrakhan"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:Graph",
+	"descriptionmsg": "graph-desc",
+	"license-name": "MIT",
+	"type": "other",
+	"MessagesDirs": {
+		"Graph": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"Graph\\Singleton": "Graph.body.php",
+		"Graph\\Content": "Graph.body.php"
+	},
+	"ResourceModules": {
+		"ext.graph": {
+			"scripts": [
+				"lib/d3.js",
+				"lib/topojson.js",
+				"lib/vega.js",
+				"js/graph.js"
+			],
+			"styles": [
+				"styles/common.less"
+			],
+			"dependencies": [
+				"mediawiki.Uri"
+			],
+			"targets": [
+				"mobile",
+				"desktop"
+			]
+		},
+		"ext.graph.editor": {
+			"scripts": [
+				"js/graph.editor.js"
+			],
+			"targets": [
+				"mobile",
+				"desktop"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "Graph"
+	},
+	"Hooks": {
+		"ParserFirstCallInit": [
+			"Graph\\Singleton::onParserFirstCallInit"
+		],
+		"EditPage::showEditForm:initial": [
+			"Graph\\Singleton::editPageShowEditFormInitial"
+		],
+		"ParserAfterParse": [
+			"Graph\\Singleton::onParserAfterParse"
+		]
+	},
+	"config": {
+		"GraphUrlBlacklist": false,
+		"GraphIsTrusted": false,
+		"GraphImgServiceUrl": false
+	}
+}
