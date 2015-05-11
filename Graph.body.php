@@ -111,7 +111,10 @@ class Singleton {
 
 			// TODO: Use "width" and "height" from the definition if available
 			// In some cases image might still be larger - need to investigate
-			$imgTag = Html::rawElement( 'img', array( 'src' => $url ) );
+			$imgTag = Html::rawElement( 'img', array(
+				'class' => 'mw-wiki-graph-img',
+				'src' => $url,
+			) );
 		} else {
 			$imgTag = false;
 		}
