@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Pikne"
+		]
+	},
+	"graph-desc": "Võimaldab teha &lt;graph>-siltidest või tervetest lehekülgedest [http://trifacta.github.io/vega/ Vega]-põhiseid diagramme."
+}
