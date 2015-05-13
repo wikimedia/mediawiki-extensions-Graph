@@ -90,7 +90,7 @@ class Singleton {
 		global $wgGraphImgServiceUrl, $wgServerName, $wgGraphImgServiceAlways;
 
 		$status = FormatJson::parse( $jsonText, FormatJson::TRY_FIXING | FormatJson::STRIP_COMMENTS );
-		if ( !$status->isGood() ) {
+		if ( !$status->isOK() ) {
 			return $status->getWikiText();
 		}
 
