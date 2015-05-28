@@ -21,7 +21,6 @@
 		"ext.graph": {
 			"scripts": [
 				"lib/d3.js",
-				"lib/d3.layout.cloud.js",
 				"lib/topojson.js",
 				"lib/vega.js",
 				"js/graph.js"
