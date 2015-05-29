@@ -62,10 +62,11 @@
 		]
 	},
 	"config": {
-	  	"GraphDataDomains": [],
+		"GraphDataDomains": [],
 		"GraphUrlBlacklist": false,
 		"GraphIsTrusted": false,
 		"GraphImgServiceAlways": false,
 		"GraphImgServiceUrl": false
-	}
+	},
+	"manifest_version": 1
 }
