@@ -67,17 +67,48 @@ ve.ui.MWGraphDialog.prototype.getBodyHeight = function () {
  * @inheritdoc
  */
 ve.ui.MWGraphDialog.prototype.initialize = function () {
-	var rootPanelLayout, jsonTextField;
+	var graphTypeField, jsonTextField;
 
 	// Parent method
 	ve.ui.MWGraphDialog.super.prototype.initialize.call( this );
 
-	// Root layout
-	rootPanelLayout = new OO.ui.PanelLayout( {
-		padded: true
+	/* Root layout */
+	this.rootLayout = new OO.ui.BookletLayout( {
+		classes: [ 've-ui-mwGraphDialog-panel-root' ],
+		outlined: true
 	} );
 
-	// JSON spec field
+	this.generalPage = new OO.ui.PageLayout( 'general' );
+	this.rawPage = new OO.ui.PageLayout( 'raw' );
+
+	this.rootLayout.addPages( [
+		this.generalPage, this.rawPage
+	] );
+
+	/* Graph type page */
+	this.generalPage.getOutlineItem()
+		.setIcon( 'parameter' )
+		.setLabel( ve.msg( 'graph-ve-dialog-edit-page-general' ) );
+
+	this.graphTypeDropdownInput = new OO.ui.DropdownInputWidget();
+
+	graphTypeField = new OO.ui.FieldLayout( this.graphTypeDropdownInput, {
+		label: ve.msg( 'graph-ve-dialog-edit-field-graph-type' )
+	} );
+
+	this.unknownGraphTypeWarningLabel = new OO.ui.LabelWidget( {
+		label: ve.msg( 'graph-ve-dialog-edit-unknown-graph-type-warning' )
+	} );
+
+	this.generalPage.$element
+		.append( graphTypeField.$element )
+		.append( this.unknownGraphTypeWarningLabel.$element );
+
+	/* Raw JSON page */
+	this.rawPage.getOutlineItem()
+		.setIcon( 'code' )
+		.setLabel( ve.msg( 'graph-ve-dialog-edit-page-raw' ) );
+
 	this.jsonTextInput = new ve.ui.WhitespacePreservingTextInputWidget( {
 		autosize: true,
 		classes: [ 've-ui-mwGraphDialog-json' ],
@@ -91,15 +122,20 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 		align: 'top'
 	} );
 
+	this.rawPage.$element
+		.append( jsonTextField.$element );
+
 	// Event handlers
 	this.jsonTextInput.connect( this, {
 		change: 'onSpecStringInputChange'
 	} );
 
-	// Initialization
-	rootPanelLayout.$element.append( jsonTextField.$element );
+	this.graphTypeDropdownInput.connect( this, {
+		change: 'onGraphTypeInputChange'
+	} );
 
-	this.$body.append( rootPanelLayout.$element );
+	// Initialization
+	this.$body.append( this.rootLayout.$element );
 };
 
 /**
@@ -164,7 +200,37 @@ ve.ui.MWGraphDialog.prototype.getActionProcess = function ( action ) {
  * @private
  */
 ve.ui.MWGraphDialog.prototype.setupFormValues = function () {
+	var graphType = this.graphModel.getGraphType(),
+		options = [
+			{
+				data: 'bar',
+				label: ve.msg( 'graph-ve-dialog-edit-type-bar' )
+			},
+			{
+				data: 'area',
+				label: ve.msg( 'graph-ve-dialog-edit-type-area' )
+			},
+			{
+				data: 'line',
+				label: ve.msg( 'graph-ve-dialog-edit-type-line' )
+			}
+		],
+		unknownGraphTypeOption = {
+			data: 'unknown',
+			label: ve.msg( 'graph-ve-dialog-edit-type-unknown' )
+		};
+
+	// JSON text input
 	this.jsonTextInput.setValue( this.graphModel.getSpecString() );
+
+	// Graph type
+	if ( graphType === 'unknown' ) {
+		options.push( unknownGraphTypeOption );
+	}
+
+	this.graphTypeDropdownInput
+		.setOptions( options )
+		.setValue( graphType );
 };
 
 /**
@@ -204,7 +270,20 @@ ve.ui.MWGraphDialog.prototype.onSpecStringInputChange = function ( value ) {
 };
 
 /**
- * React to model spec changes
+ * React to graph type changes
+ *
+ * @param {string} [value] The new graph type
+ */
+ve.ui.MWGraphDialog.prototype.onGraphTypeInputChange = function ( value ) {
+	this.unknownGraphTypeWarningLabel.toggle( value === 'unknown' );
+
+	if ( value !== 'unknown' ) {
+		this.graphModel.switchGraphType( value );
+	}
+};
+
+/**
+ * React to spec change
  *
  * @private
  */

@@ -26,6 +26,67 @@ ve.dm.MWGraphModel = function VeDmMWGraphModel( spec ) {
 
 OO.mixinClass( ve.dm.MWGraphModel, OO.EventEmitter );
 
+/* Static Members */
+
+ve.dm.MWGraphModel.static.graphConfigs = {
+	area: {
+		mark: {
+			type: 'area',
+			properties: {
+				enter: {
+					fill: { value: 'steelblue' },
+					interpolate: { value: 'monotone' },
+					stroke: undefined,
+					strokeWidth: undefined,
+					width: undefined
+				}
+			}
+		},
+		scale: {
+			name: 'x',
+			type: 'linear'
+		}
+	},
+
+	bar: {
+		mark: {
+			type: 'rect',
+			properties: {
+				enter: {
+					fill: { value: 'steelblue' },
+					interpolate: undefined,
+					stroke: undefined,
+					strokeWidth: undefined,
+					width: { scale: 'x', band: true, offset: -1 }
+				}
+			}
+		},
+		scale: {
+			name: 'x',
+			type: 'ordinal'
+		}
+	},
+
+	line: {
+		mark: {
+			type: 'line',
+			properties: {
+				enter: {
+					fill: undefined,
+					interpolate: { value: 'monotone' },
+					stroke: { value: 'steelblue' },
+					strokeWidth: { value: 3 },
+					width: undefined
+				}
+			}
+		},
+		scale: {
+			name: 'x',
+			type: 'linear'
+		}
+	}
+};
+
 /* Events */
 
 /**
@@ -120,6 +181,23 @@ ve.dm.MWGraphModel.static.removeProperty = function ( obj, prop ) {
 /* Methods */
 
 /**
+ * Switch the graph to a different type
+ *
+ * @param {string} type Desired graph type. Can be either area, line or bar.
+ * @fires specChange
+ */
+ve.dm.MWGraphModel.prototype.switchGraphType = function ( type ) {
+	var params = {
+		scales: [ ve.copy( this.constructor.static.graphConfigs[ type ].scale ) ],
+		marks: [ ve.copy( this.constructor.static.graphConfigs[ type ].mark ) ]
+	};
+
+	this.updateSpec( params );
+
+	this.emit( 'specChange', this.spec );
+};
+
+/**
  * Apply changes to the node
  *
  * @param {ve.dm.MWGraphNode} node The node to be modified
@@ -197,6 +275,26 @@ ve.dm.MWGraphModel.prototype.getSpecString = function () {
  */
 ve.dm.MWGraphModel.prototype.getOriginalSpecString = function () {
 	return ve.dm.MWGraphNode.static.stringifySpec( this.originalSpec );
+};
+
+/**
+ * Get the graph type
+ *
+ * @return {string} The graph type
+ */
+ve.dm.MWGraphModel.prototype.getGraphType = function () {
+	var markType = this.spec.marks[0].type;
+
+	switch ( markType ) {
+		case 'area':
+			return 'area';
+		case 'rect':
+			return 'bar';
+		case 'line':
+			return 'line';
+		default:
+			return 'unknown';
+	}
 };
 
 /**
