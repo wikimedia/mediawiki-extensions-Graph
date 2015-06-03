@@ -2,7 +2,6 @@
 	// Enforcing
 	"bitwise": true,
 	"eqeqeq": true,
-	"es3": true,
 	"freeze": true,
 	"latedef": true,
 	"noarg": true,
@@ -11,12 +10,17 @@
 	"unused": true,
 	"strict": false,
 
+	// Relaxing
+	"es5": false,
+
 	// Environment
 	"browser": true,
 	"jquery": true,
 
 	"globals": {
-		"mediaWiki": true,
-		"vg": true
+		"mediaWiki": false,
+		"OO": false,
+		"ve": false,
+		"vg": false
 	}
 }

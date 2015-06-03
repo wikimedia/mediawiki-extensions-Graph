@@ -20,7 +20,8 @@ module.exports = function ( grunt ) {
 				jshintrc: true
 			},
 			all: [
-				'js/*.js'
+				'js/*.js',
+				'modules/ve-graph/*.js'
 			]
 		},
 		jscs: {

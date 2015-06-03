@@ -15,7 +15,8 @@
 	},
 	"AutoloadClasses": {
 		"Graph\\Singleton": "Graph.body.php",
-		"Graph\\Content": "Graph.body.php"
+		"Graph\\Content": "Graph.body.php",
+		"GraphHooks": "Graph.hooks.php"
 	},
 	"ResourceModules": {
 		"ext.graph": {
@@ -59,8 +60,14 @@
 		],
 		"ParserAfterParse": [
 			"Graph\\Singleton::onParserAfterParse"
+		],
+		"ResourceLoaderRegisterModules": [
+			"GraphHooks::onResourceLoaderRegisterModules"
 		]
 	},
+	"VisualEditorPluginModules": [
+		"ext.graph.visualEditor"
+	],
 	"config": {
 		"GraphDataDomains": [],
 		"GraphUrlBlacklist": false,

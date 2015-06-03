@@ -5,5 +5,6 @@
 			"Yuri Astrakhan"
 		]
 	},
-	"graph-desc": "Allows &lt;graph> tags or entire pages to become [http://trifacta.github.io/vega/ Vega]-based graphs"
+	"graph-desc": "Allows &lt;graph&gt; tags or entire pages to become [http://trifacta.github.io/vega/ Vega]-based graphs",
+	"graph-ve-no-spec": "No graph specification found"
 }
