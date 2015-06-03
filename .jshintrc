@@ -21,6 +21,7 @@
 		"mediaWiki": false,
 		"OO": false,
 		"ve": false,
-		"vg": false
+		"vg": false,
+		"QUnit": false
 	}
 }

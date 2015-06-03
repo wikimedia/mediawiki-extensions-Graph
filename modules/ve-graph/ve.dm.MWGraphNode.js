@@ -8,7 +8,7 @@
  * DataModel MediaWiki graph node.
  *
  * @class
- * @extends ve.dm.MWBlockExtensionNode
+ * @extends ve.dm.MWInlineExtensionNode
  *
  * @constructor
  * @param {Object} [element]
@@ -21,6 +21,12 @@ ve.dm.MWGraphNode = function VeDmMWGraphNode() {
 
 	// Properties
 	this.spec = null;
+	this.graphID = $( this.getOriginalDomElements() ).attr( 'data-graph-id' );
+
+	// Events
+	this.connect( this, {
+		attributeChange: 'onAttributeChange'
+	} );
 
 	// Initialize specificiation
 	mw = this.getAttribute( 'mw' );
@@ -33,7 +39,7 @@ ve.dm.MWGraphNode = function VeDmMWGraphNode() {
 
 /* Inheritance */
 
-OO.inheritClass( ve.dm.MWGraphNode, ve.dm.MWBlockExtensionNode );
+OO.inheritClass( ve.dm.MWGraphNode, ve.dm.MWInlineExtensionNode );
 
 /* Static Members */
 
@@ -58,15 +64,36 @@ ve.dm.MWGraphNode.static.extensionName = 'graph';
 /**
  * Parses a spec string and returns its object representation.
  *
- * @param {string} str The spec string to validate
- * @return {Object|null} The object specification if the parsing was successful, null otherwise
+ * @param {string} str The spec string to validate. If the string is null or represents an empty object, the spec will be null.
+ * @return {Object} The object specification. On a failed parsing, the object will be returned empty.
  */
 ve.dm.MWGraphNode.static.parseSpecString = function ( str ) {
+	var result;
+
 	try {
-		return JSON.parse( str );
+		result = JSON.parse( str );
+
+		// JSON.parse can return other types than Object, we don't want that
+		// The error will be caught just below as this counts as a failed process
+		if ( $.type( result ) !== 'object' ) {
+			throw new Error();
+		}
+
+		return result;
 	} catch ( err ) {
-		return null;
+		return {};
 	}
+};
+
+/**
+ * Return the indented string representation of a spec.
+ *
+ * @param {Object} spec The object specificiation.
+ * @return {string} The stringified version of the spec.
+ */
+ve.dm.MWGraphNode.static.stringifySpec = function ( spec ) {
+	var result = JSON.stringify( spec, null, '\t' );
+	return result || '';
 };
 
 /* Methods */
@@ -77,7 +104,7 @@ ve.dm.MWGraphNode.static.parseSpecString = function ( str ) {
  * @return {string} The specification JSON string
  */
 ve.dm.MWGraphNode.prototype.getSpecString = function () {
-	return JSON.stringify( this.spec, null, '\t' );
+	return ve.dm.MWGraphNode.static.stringifySpec( this.spec );
 };
 
 /**
@@ -90,15 +117,20 @@ ve.dm.MWGraphNode.prototype.getSpec = function () {
 };
 
 /**
- * Update the spec with new parameters
+ * Set the specificiation
  *
- * @param {Object} params The new parameters to be updated in the spec
+ * @param {Object} spec The new spec
  * @fires specChange
  */
-ve.dm.MWGraphNode.prototype.updateSpec = function ( params ) {
-	this.spec = $.extend( {}, this.spec, params );
+ve.dm.MWGraphNode.prototype.setSpec = function ( spec ) {
+	// Consolidate all falsy values to an empty object for consistency
+	spec = spec || {};
 
-	this.emit( 'specChange', this.spec );
+	// Check if there are any actual changes
+	if ( !OO.compare( this.spec, spec ) ) {
+		this.spec = spec;
+		this.emit( 'specChange', this.spec );
+	}
 };
 
 /**
@@ -108,9 +140,21 @@ ve.dm.MWGraphNode.prototype.updateSpec = function ( params ) {
  * @fires specChange
  */
 ve.dm.MWGraphNode.prototype.setSpecFromString = function ( str ) {
-	this.spec = ve.dm.MWGraphNode.static.parseSpecString( str );
+	this.setSpec( ve.dm.MWGraphNode.static.parseSpecString( str ) );
+};
 
-	this.emit( 'specChange', this.spec );
+/**
+ * React to node attribute changes
+ *
+ * @param {string} attributeName The attribute being updated
+ * @param {Object} from The old value of the attribute
+ * @param {Object} to The new value of the attribute
+ * @fires specChange
+ */
+ve.dm.MWGraphNode.prototype.onAttributeChange = function ( attributeName, from, to ) {
+	if ( attributeName === 'mw' ) {
+		this.setSpecFromString( to.body.extsrc );
+	}
 };
 
 /* Registration */

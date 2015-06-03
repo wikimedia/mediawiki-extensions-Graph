@@ -6,5 +6,13 @@
 		]
 	},
 	"graph-desc": "{{desc|name=Graph|url=https://www.mediawiki.org/wiki/Extension:Graph}}",
-	"graph-ve-no-spec": "Label to display on a graph node when no spec is found"
+	"graph-ve-dialog-edit-apply": "Label for the apply button in the graph editing dialog",
+	"graph-ve-dialog-edit-cancel": "Label for the cancel button in the graph editing dialog",
+	"graph-ve-dialog-edit-field-raw-json": "Label for the raw JSON specification in the graph editing dialog",
+	"graph-ve-dialog-edit-json-invalid": "Validation label for the JSON specification string",
+	"graph-ve-dialog-edit-title": "Title for the graph editing dialog",
+	"graph-ve-dialog-button-tooltip": "Tooltip for the graph editing dialog button",
+	"graph-ve-no-spec": "Label to display on a graph node when no spec is found",
+	"graph-ve-vega-error": "Label to display on a graph node when Vega encounters an unknown error",
+	"graph-ve-vega-error-no-render": "Label to display on a graph node when Vega is unable to render"
 }

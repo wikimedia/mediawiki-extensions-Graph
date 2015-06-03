@@ -2,7 +2,8 @@
 	"name": "Graph",
 	"author": [
 		"Dan Andreescu",
-		"Yuri Astrakhan"
+		"Yuri Astrakhan",
+		"Frédéric Bolduc"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:Graph",
 	"descriptionmsg": "graph-desc",
@@ -63,6 +64,9 @@
 		],
 		"ResourceLoaderRegisterModules": [
 			"GraphHooks::onResourceLoaderRegisterModules"
+		],
+		"ResourceLoaderTestModules": [
+			"GraphHooks::onResourceLoaderTestModules"
 		]
 	},
 	"VisualEditorPluginModules": [

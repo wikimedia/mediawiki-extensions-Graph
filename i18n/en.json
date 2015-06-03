@@ -6,5 +6,13 @@
 		]
 	},
 	"graph-desc": "Allows &lt;graph&gt; tags or entire pages to become [http://trifacta.github.io/vega/ Vega]-based graphs",
-	"graph-ve-no-spec": "No graph specification found"
+	"graph-ve-dialog-edit-apply": "Apply",
+	"graph-ve-dialog-edit-cancel": "Cancel",
+	"graph-ve-dialog-edit-field-raw-json": "Raw JSON specification",
+	"graph-ve-dialog-edit-json-invalid": "Invalid JSON string",
+	"graph-ve-dialog-edit-title": "Edit graph",
+	"graph-ve-dialog-button-tooltip": "Graph",
+	"graph-ve-no-spec": "No graph specification found",
+	"graph-ve-vega-error": "Vega has encountered an error rendering this graph",
+	"graph-ve-vega-error-no-render": "Vega was unable to render this graph"
 }

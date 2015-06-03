@@ -29,6 +29,63 @@ ve.ce.MWGraphNode.static.name = 'mwGraph';
 
 ve.ce.MWGraphNode.static.primaryCommandName = 'graph';
 
+/* Static Methods */
+
+/**
+ * Attempt to render the graph through Vega.
+ *
+ * @param {Object} spec The graph spec
+ * @param {jQuery} $node Element to render the graph in
+ * @return {jQuery.Promise} Promise that resolves when the graph is rendered.
+ * Promise is rejected if there was a problem rendering the graph.
+ */
+ve.ce.MWGraphNode.static.vegaParseSpec = function ( spec, $node ) {
+	var deferred = $.Deferred(),
+		canvasNode;
+
+	// Check if the spec is currently valid
+	if ( spec ) {
+		vg.parse.spec( spec, function ( chart ) {
+			try {
+				chart( { el: $node[0] } ).update();
+
+				// HACK: If canvas is blank, this means Vega didn't render properly.
+				// Once Vega allows for proper rendering validation, this should be
+				// swapped for a validation check.
+				canvasNode = $node[0].children[0].children[0];
+				if ( ve.ce.MWGraphNode.static.isCanvasBlank( canvasNode ) ) {
+					deferred.reject( 'graph-ve-vega-error-no-render' );
+				} else {
+					deferred.resolve();
+				}
+
+			} catch ( err ) {
+				deferred.reject( 'graph-ve-vega-error' );
+			}
+		} );
+	} else {
+		deferred.reject( 'graph-ve-no-spec' );
+	}
+
+	return deferred.promise();
+};
+
+/**
+ * Check if a canvas is blank
+ *
+ * @author Austin Brunkhorst http://stackoverflow.com/a/17386803/2055594
+ * @param {HTMLElement} canvas The canvas to Check
+ * @return True if the canvas is blank, False otherwise
+ */
+ve.ce.MWGraphNode.static.isCanvasBlank = function ( canvas ) {
+	var blank = document.createElement( 'canvas' );
+
+	blank.width = canvas.width;
+	blank.height = canvas.height;
+
+	return canvas.toDataURL() === blank.toDataURL();
+};
+
 /* Methods */
 
 /**
@@ -62,19 +119,22 @@ ve.ce.MWGraphNode.prototype.onTeardown = function () {
  * Render a Vega graph inside the node
  *
  * @private
+ * @return {jQuery.Promise} Promise that resolves when the graph is rendered.
+ * The promise is rejected if there was a problem rendering the graph.
  */
 ve.ce.MWGraphNode.prototype.renderGraph = function () {
 	var element = this.$element[0],
 		spec = this.getModel().getSpec();
 
-	// Check if the spec is currently valid
-	if ( spec !== null ) {
-		vg.parse.spec( spec, function ( chart ) {
-			chart( { el: element } ).update();
-		} );
-	} else {
-		$( element ).text( ve.msg( 'graph-ve-no-spec' ) );
-	}
+	// Clear element
+	this.$element.empty();
+
+	return ve.ce.MWGraphNode.static.vegaParseSpec( spec, this.$element ).then(
+		null,
+		function ( failMessageKey ) {
+			$( element ).text( ve.msg( failMessageKey ) );
+		}
+	);
 };
 
 /**
