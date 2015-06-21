@@ -5,5 +5,6 @@
 			"Purodha"
 		]
 	},
-	"graph-desc": "Erlaubt &lt;graph>-Tags oder wandelt ganze Seiten in [http://trifacta.github.io/vega/ Vega]-basierte Grafiken um"
+	"graph-desc": "Erlaubt &lt;graph&gt;-Tags oder wandelt ganze Seiten in [http://trifacta.github.io/vega/ Vega]-basierte Grafiken um",
+	"graph-ve-no-spec": "Keine Grafik-Spezifikation gefunden"
 }

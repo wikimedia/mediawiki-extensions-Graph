@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Beta16"
+			"Beta16",
+			"Alexmar983"
 		]
 	},
-	"graph-desc": "Permette il tag &lt;graph> o intere pagine di diventare grafici basati su [http://trifacta.github.io/vega/ Vega]"
+	"graph-desc": "Permette il tag &lt;graph> o intere pagine di diventare grafici basati su [http://trifacta.github.io/vega/ Vega]",
+	"graph-ve-no-spec": "Nessuna specifica grafica è stata trovata"
 }

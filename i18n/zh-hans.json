@@ -4,5 +4,6 @@
 			"Liuxinyu970226"
 		]
 	},
-	"graph-desc": "允许&lt;graph>标签或全部页面成为基于[http://trifacta.github.io/vega/ Vega]的图形"
+	"graph-desc": "允许&lt;graph&gt;标签或全部页面成为基于[http://trifacta.github.io/vega/ Vega]的图形",
+	"graph-ve-no-spec": "找不到图表规范"
 }

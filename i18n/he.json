@@ -4,5 +4,6 @@
 			"Amire80"
 		]
 	},
-	"graph-desc": "מאפשרת לתגי &lt;graph> או לדפים שלמים להיות גרפים שמבוססים על [http://trifacta.github.io/vega/ Vega]"
+	"graph-desc": "מאפשרת לתגי &lt;graph&gt; או לדפים שלמים להיות תרשים שמבוססים על [http://trifacta.github.io/vega/ Vega]",
+	"graph-ve-no-spec": "לא נמצאו הגדרות תרשים"
 }

@@ -4,5 +4,5 @@
 			"Okras"
 		]
 	},
-	"graph-desc": "Позволяет тегам &lt;graph> или целым страницам становиться графами на основе [http://trifacta.github.io/vega/ Vega]"
+	"graph-desc": "Позволяет тегам &lt;graph&gt; или целым страницам становиться графами на основе [http://trifacta.github.io/vega/ Vega]"
 }

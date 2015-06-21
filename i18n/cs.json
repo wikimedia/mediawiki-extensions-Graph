@@ -4,5 +4,6 @@
 			"Mormegil"
 		]
 	},
-	"graph-desc": "Vytváří ze značek &lt;graph> nebo celých stránek grafy pomocí [http://trifacta.github.io/vega/ Vega]"
+	"graph-desc": "Vytváří ze značek &lt;graph&gt; nebo celých stránek grafy pomocí [http://trifacta.github.io/vega/ Vega]",
+	"graph-ve-no-spec": "Nenalezena žádná specifikace grafu"
 }

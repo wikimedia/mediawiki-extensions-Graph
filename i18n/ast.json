@@ -4,5 +4,6 @@
 			"Xuacu"
 		]
 	},
-	"graph-desc": "Permite convertir etiquetes &lt;graph> o páxines completes en gráficos basaos en [http://trifacta.github.io/vega/ Vega]"
+	"graph-desc": "Permite convertir etiquetes &lt;graph&gt; o páxines completes en gráficos basaos en [http://trifacta.github.io/vega/ Vega]",
+	"graph-ve-no-spec": "No s'alcontró nenguna especificación de gráficos"
 }
