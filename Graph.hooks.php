@@ -34,6 +34,9 @@ class GraphHooks {
 				),
 				'messages' => array(
 					'graph-ve-no-spec'
+				),
+				'targets' => array(
+					'mobile', 'desktop'
 				)
 			)
 		);
