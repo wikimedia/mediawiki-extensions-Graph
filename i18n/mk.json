@@ -4,5 +4,6 @@
 			"Bjankuloski06"
 		]
 	},
-	"graph-desc": "Одозможува ознаки &lt;graph> или цели страници да станат графикони на основа на [http://trifacta.github.io/vega/ Vega]"
+	"graph-desc": "Одозможува ознаки &lt;graph&gt; или цели страници да станат графикони на основа на [http://trifacta.github.io/vega/ Vega]",
+	"graph-ve-no-spec": "Не пронајдов определба за графикот"
 }
