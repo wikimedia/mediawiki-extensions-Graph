@@ -4,5 +4,6 @@
 			"Joetaras"
 		]
 	},
-	"graph-desc": "Permette le tag &lt;graph> o pàggene indere de devendà grafece basate sus a [http://trifacta.github.io/vega/ Vega]"
+	"graph-desc": "Permette le tag &lt;graph&gt; o pàggene indere de devendà grafece basate sus a [http://trifacta.github.io/vega/ Vega]",
+	"graph-ve-no-spec": "Nisciuna specifiche de grafeche ha state acchiate"
 }
