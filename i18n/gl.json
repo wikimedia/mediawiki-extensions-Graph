@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Banjo"
+			"Banjo",
+			"Elisardojm"
 		]
 	},
-	"graph-desc": "Permite que as etiquetas &lt;graph> ou páxinas enteiras se convirtan en gráficos basados en [http://trifacta.github.io/vega/ Vega]"
+	"graph-desc": "Permite que as etiquetas &lt;graph&gt; ou páxinas enteiras se convirtan en gráficos basados en [http://trifacta.github.io/vega/ Vega]",
+	"graph-ve-no-spec": "Non se atopou ningunha especificación de gráficos"
 }
