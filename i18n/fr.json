@@ -2,8 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"Gomoko",
-			"Mattho69"
+			"Mattho69",
+			"Djiboun"
 		]
 	},
-	"graph-desc": "Permet aux balises &lt;graph&gt; ou aux pages complètes de devenir des graphes basés sur [http://trifacta.github.io/vega/ Vega]"
+	"graph-desc": "Permet aux balises &lt;graph&gt; ou aux pages complètes de devenir des graphes basés sur [http://trifacta.github.io/vega/ Vega]",
+	"graph-ve-no-spec": "Spécification de graphe introuvable"
 }
