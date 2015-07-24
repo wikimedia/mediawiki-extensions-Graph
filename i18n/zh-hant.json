@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cwlin0416"
+		]
+	},
+	"graph-desc": "允許 &lt;graph&gt; 標籤或整個頁面使用 [http://trifacta.github.io/vega/ Vega] 為基礎的圖型。",
+	"graph-ve-no-spec": "查無圖型規格"
+}
