@@ -1,0 +1,4 @@
+.ve-ui-tableWidget > .ve-ui-tableWidget-rows {
+	float: left;
+	clear: left;
+}

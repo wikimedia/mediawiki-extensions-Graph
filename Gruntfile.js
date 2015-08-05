@@ -21,7 +21,7 @@ module.exports = function ( grunt ) {
 			},
 			all: [
 				'js/*.js',
-				'modules/ve-graph/*.js'
+				'modules/ve-graph/**/*.js'
 			]
 		},
 		jscs: {

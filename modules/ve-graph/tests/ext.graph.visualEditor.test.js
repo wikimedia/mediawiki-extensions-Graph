@@ -2,7 +2,7 @@
  * VisualEditor MWGraphNode tests.
  */
 
-( function() {
+( function () {
 	'use strict';
 
 	QUnit.module( 'ext.graph.visualEditor' );
