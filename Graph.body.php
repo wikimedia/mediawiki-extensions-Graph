@@ -25,8 +25,15 @@ class Singleton {
 		return true;
 	}
 
-	public static function onParserAfterParse( Parser $parser ) {
-		self::finalizeParserOutput( $parser->getOutput(), $parser->getOptions()->getIsPreview() );
+	/**
+	 * @param Parser $parser
+	 * @return bool
+	 */
+	public static function onParserAfterParse( $parser ) {
+		if ( $parser !== null ) {
+			self::finalizeParserOutput( $parser->getOutput(),
+				$parser->getOptions()->getIsPreview() );
+		}
 		return true;
 	}
 
