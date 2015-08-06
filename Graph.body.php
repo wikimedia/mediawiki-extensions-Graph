@@ -102,6 +102,8 @@ class Singleton {
 		$specs[$hash] = $data;
 		$parserOutput->setExtensionData( 'graph_specs', $specs );
 
+		$html = '';
+
 		// Graphoid service image URL
 		if ( $wgGraphImgServiceUrl ) {
 			$server = rawurlencode( $wgServerName );
@@ -111,31 +113,22 @@ class Singleton {
 
 			// TODO: Use "width" and "height" from the definition if available
 			// In some cases image might still be larger - need to investigate
-			$imgTag = Html::rawElement( 'img', array(
+			$html .= Html::rawElement( 'img', array(
 				'class' => 'mw-wiki-graph-img',
 				'src' => $url,
 			) );
-		} else {
-			$imgTag = false;
 		}
 
 		if ( $isPreview || !$wgGraphImgServiceUrl || !$wgGraphImgServiceAlways ) {
-			// Render fallback image rendering html (noscript and old-script)
-			$result = Html::element( 'div', array(
+			$html .= Html::element( 'div', array(
 				'class' => 'mw-wiki-graph',
 				'data-graph-id' => $hash,
 			) );
-			if ( $imgTag ) {
-				$encImg = FormatJson::encode( $imgTag, false, FormatJson::UTF8_OK );
-				$result = $result .
-					Html::inlineScript( 'if(!window.mw){document.write(' . $encImg . ');}' ) .
-					Html::rawElement( 'noscript', array(), $imgTag );
-			}
-			return $result;
-		} else {
-			// Show just the image
-			return $imgTag;
 		}
+
+		return Html::rawElement( 'div', array(
+			'class' => 'mw-wiki-graph-container',
+		), $html );
 	}
 }
 

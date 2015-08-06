@@ -1,3 +1,15 @@
 .mw-wiki-graph, .mw-wiki-graph-img {
-	display: inline-block
+	display: inline-block;
+}
+
+/* If a JavaScript-based rendering is available, and the client
+   is JavaScript-capable, hide the static image. */
+.client-js .mw-wiki-graph-container .mw-wiki-graph-img {
+	display: none;
+}
+
+/* If the client is not JavaScript capable, hide the placeholder
+  for the JavaScript-based rendering. */
+.client-nojs .mw-wiki-graph-container .mw-wiki-graph {
+	display: none;
 }
