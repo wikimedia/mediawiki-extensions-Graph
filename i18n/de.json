@@ -6,5 +6,13 @@
 		]
 	},
 	"graph-desc": "Erlaubt &lt;graph&gt;-Tags oder wandelt ganze Seiten in [http://trifacta.github.io/vega/ Vega]-basierte Grafiken um",
-	"graph-ve-no-spec": "Keine Grafik-Spezifikation gefunden"
+	"graph-ve-dialog-edit-apply": "Anwenden",
+	"graph-ve-dialog-edit-cancel": "Abbrechen",
+	"graph-ve-dialog-edit-field-raw-json": "Rohes-JSON-Spezifikation",
+	"graph-ve-dialog-edit-json-invalid": "Ungültige JSON-Zeichenfolge",
+	"graph-ve-dialog-edit-title": "Grafik bearbeiten",
+	"graph-ve-dialog-button-tooltip": "Grafik",
+	"graph-ve-no-spec": "Keine Grafik-Spezifikation gefunden",
+	"graph-ve-vega-error": "Vega hat einen Fehler beim Rendern dieser Grafik entdeckt",
+	"graph-ve-vega-error-no-render": "Vega konnte diese Grafik nicht rendern"
 }

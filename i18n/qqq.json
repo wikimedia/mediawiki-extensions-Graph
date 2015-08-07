@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Raimond Spekking",
-			"Mormegil"
+			"Mormegil",
+			"Liuxinyu970226",
+			"Robby"
 		]
 	},
 	"graph-desc": "{{desc|name=Graph|url=https://www.mediawiki.org/wiki/Extension:Graph}}",
-	"graph-ve-dialog-edit-apply": "Label for the apply button in the graph editing dialog",
-	"graph-ve-dialog-edit-cancel": "Label for the cancel button in the graph editing dialog",
+	"graph-ve-dialog-edit-apply": "Label for the apply button in the graph editing dialog\n{{Identical|Apply}}",
+	"graph-ve-dialog-edit-cancel": "Label for the cancel button in the graph editing dialog\n{{Identical|Cancel}}",
 	"graph-ve-dialog-edit-field-raw-json": "Label for the raw JSON specification in the graph editing dialog",
 	"graph-ve-dialog-edit-json-invalid": "Validation label for the JSON specification string",
 	"graph-ve-dialog-edit-title": "Title for the graph editing dialog",

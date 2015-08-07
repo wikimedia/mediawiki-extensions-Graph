@@ -6,5 +6,9 @@
 		]
 	},
 	"graph-desc": "Permite transformar etiquetas &lt;graph&gt; o páginas enteras en gráficos basados en [http://trifacta.github.io/vega/ Vega]",
+	"graph-ve-dialog-edit-apply": "Aplicar",
+	"graph-ve-dialog-edit-cancel": "Cancelar",
+	"graph-ve-dialog-edit-title": "Editar gráfico",
+	"graph-ve-dialog-button-tooltip": "Gráfico",
 	"graph-ve-no-spec": "No se encontró ninguna especificación de gráficos"
 }
