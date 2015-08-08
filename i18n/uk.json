@@ -2,9 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Andriykopanytsia",
-			"Ата"
+			"Ата",
+			"Base"
 		]
 	},
 	"graph-desc": "Дозволяє &lt;graph&gt; тегам або цілим сторінкам стати графіками на основі [http://trifacta.github.io/vega/ Vega]",
+	"graph-ve-dialog-edit-apply": "Застосувати",
+	"graph-ve-dialog-edit-cancel": "Скасувати",
+	"graph-ve-dialog-edit-field-raw-json": "Специфікація сирого JSON",
+	"graph-ve-dialog-edit-json-invalid": "Неправильний рядок JSON",
+	"graph-ve-dialog-edit-title": "Редагувати діаграму",
 	"graph-ve-no-spec": "Не знайдено специфікації графів"
 }

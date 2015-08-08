@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Lokal Profil"
+			"Lokal Profil",
+			"WikiPhoenix"
 		]
 	},
-	"graph-desc": "Tillåter &lt;graph>-taggar eller hela sidor att bli [http://trifacta.github.io/vega/ Vega]-baserade grafer"
+	"graph-desc": "Tillåter taggen &lt;graph&gt; eller hela sidor att bli [http://trifacta.github.io/vega/ Vega]-baserade grafer"
 }

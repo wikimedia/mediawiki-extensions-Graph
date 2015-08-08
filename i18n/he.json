@@ -5,5 +5,13 @@
 		]
 	},
 	"graph-desc": "מאפשרת לתגי &lt;graph&gt; או לדפים שלמים להיות תרשים שמבוססים על [http://trifacta.github.io/vega/ Vega]",
-	"graph-ve-no-spec": "לא נמצאו הגדרות תרשים"
+	"graph-ve-dialog-edit-apply": "החלה",
+	"graph-ve-dialog-edit-cancel": "ביטול",
+	"graph-ve-dialog-edit-field-raw-json": "הגדרה ב־JSON גולמי",
+	"graph-ve-dialog-edit-json-invalid": "מחרוזת JSON בלתי־תקינה",
+	"graph-ve-dialog-edit-title": "עריכת תרשים",
+	"graph-ve-dialog-button-tooltip": "תרשים",
+	"graph-ve-no-spec": "לא נמצאו הגדרות תרשים",
+	"graph-ve-vega-error": "וגה מצאה שגיאה בתיצוג התרשים הזה",
+	"graph-ve-vega-error-no-render": "וגה לא הצליחה לתצג את התרשים הזה"
 }

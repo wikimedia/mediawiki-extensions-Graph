@@ -6,6 +6,7 @@
 	},
 	"graph-ve-dialog-edit-apply": "Uwennen",
 	"graph-ve-dialog-edit-cancel": "Ofbriechen",
+	"graph-ve-dialog-button-tooltip": "Graphik",
 	"graph-ve-no-spec": "Keng Spezifikatioun fir d'Graphik fonnt",
 	"graph-ve-vega-error": "Vega hat e Feeler beim Duerstelle vun dëser Grafik"
 }

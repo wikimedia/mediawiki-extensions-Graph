@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Praveenp"
+			"Praveenp",
+			"Nesi"
 		]
 	},
-	"graph-desc": "&lt;graph> ടാഗുകൾ അനുവദിക്കുന്നു അഥവാ താളുകളെ [http://trifacta.github.io/vega/ വേഗാ]-അധിഷ്ഠിത ഗ്രാഫുകളാക്കുന്നു"
+	"graph-desc": "&lt;graph> ടാഗുകൾ അനുവദിക്കുന്നു അഥവാ താളുകളെ [http://trifacta.github.io/vega/ വേഗാ]-അധിഷ്ഠിത ഗ്രാഫുകളാക്കുന്നു",
+	"graph-ve-dialog-edit-title": "ഗ്രാഫ് തിരുത്തുക",
+	"graph-ve-dialog-button-tooltip": "ഗ്രാഫ്"
 }
