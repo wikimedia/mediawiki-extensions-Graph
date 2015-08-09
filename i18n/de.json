@@ -14,5 +14,5 @@
 	"graph-ve-dialog-button-tooltip": "Grafik",
 	"graph-ve-no-spec": "Keine Grafik-Spezifikation gefunden",
 	"graph-ve-vega-error": "Vega hat einen Fehler beim Rendern dieser Grafik entdeckt",
-	"graph-ve-vega-error-no-render": "Vega konnte diese Grafik nicht rendern"
+	"graph-ve-vega-error-no-render": "Vega konnte diese Grafik nicht darstellen"
 }

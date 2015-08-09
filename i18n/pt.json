@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vitorvicentevalente"
+			"Vitorvicentevalente",
+			"Macofe"
 		]
 	},
+	"graph-ve-dialog-edit-apply": "Aplicar",
+	"graph-ve-dialog-edit-cancel": "Cancelar",
 	"graph-ve-no-spec": "Nenhum gráfico especificado encontrado"
 }

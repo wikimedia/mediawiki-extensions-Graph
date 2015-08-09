@@ -3,9 +3,13 @@
 		"authors": [
 			"Gomoko",
 			"Mattho69",
-			"Djiboun"
+			"Djiboun",
+			"Macofe"
 		]
 	},
 	"graph-desc": "Permet aux balises &lt;graph&gt; ou aux pages complètes de devenir des graphes basés sur [http://trifacta.github.io/vega/ Vega]",
+	"graph-ve-dialog-edit-apply": "Appliquer",
+	"graph-ve-dialog-edit-cancel": "Annuler",
+	"graph-ve-dialog-edit-title": "Edit graphique",
 	"graph-ve-no-spec": "Spécification de graphe introuvable"
 }
