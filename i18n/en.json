@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Dan Andreescu",
-			"Yuri Astrakhan"
+			"Yuri Astrakhan",
+			"Frédéric Bolduc"
 		]
 	},
 	"graph-desc": "Allows &lt;graph&gt; tags or entire pages to become [http://trifacta.github.io/vega/ Vega]-based graphs",
@@ -11,8 +12,10 @@
 	"graph-ve-dialog-edit-field-graph-type": "Graph type",
 	"graph-ve-dialog-edit-field-raw-json": "Raw JSON specification",
 	"graph-ve-dialog-edit-json-invalid": "Invalid JSON string",
+	"graph-ve-dialog-edit-page-data": "Data",
 	"graph-ve-dialog-edit-page-general": "General",
 	"graph-ve-dialog-edit-page-raw": "Raw data",
+	"graph-ve-dialog-edit-table-row-delete": "Delete row",
 	"graph-ve-dialog-edit-title": "Edit graph",
 	"graph-ve-dialog-edit-type-area": "Area graph",
 	"graph-ve-dialog-edit-type-bar": "Bar graph",

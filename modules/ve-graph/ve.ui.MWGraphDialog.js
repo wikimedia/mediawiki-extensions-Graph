@@ -79,10 +79,11 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 	} );
 
 	this.generalPage = new OO.ui.PageLayout( 'general' );
+	this.dataPage = new OO.ui.PageLayout( 'data' );
 	this.rawPage = new OO.ui.PageLayout( 'raw' );
 
 	this.rootLayout.addPages( [
-		this.generalPage, this.rawPage
+		this.generalPage, this.dataPage, this.rawPage
 	] );
 
 	/* Graph type page */
@@ -104,6 +105,11 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 		graphTypeField.$element,
 		this.unknownGraphTypeWarningLabel.$element
 	);
+
+	/* Data page */
+	this.dataPage.getOutlineItem()
+		.setIcon( 'parameter' )
+		.setLabel( ve.msg( 'graph-ve-dialog-edit-page-data' ) );
 
 	/* Raw JSON page */
 	this.rawPage.getOutlineItem()
@@ -147,7 +153,7 @@ ve.ui.MWGraphDialog.prototype.getSetupProcess = function ( data ) {
 	return ve.ui.MWGraphDialog.super.prototype.getSetupProcess.call( this, data )
 		.next( function () {
 			// Set up model
-			spec = this.selectedNode.getSpec();
+			spec = ve.copy( this.selectedNode.getSpec() );
 
 			this.graphModel = new ve.dm.MWGraphModel( spec );
 			this.graphModel.connect( this, {
@@ -174,7 +180,15 @@ ve.ui.MWGraphDialog.prototype.getTeardownProcess = function () {
 		.first( function () {
 			// Kill model
 			this.graphModel.disconnect( this );
+
 			this.graphModel = null;
+
+			// Clear data page
+			this.dataTable.clearItems();
+			this.dataTable.disconnect( this );
+			this.dataTable.$element.remove();
+
+			this.dataTable = null;
 		}, this );
 };
 
@@ -220,9 +234,6 @@ ve.ui.MWGraphDialog.prototype.setupFormValues = function () {
 			label: ve.msg( 'graph-ve-dialog-edit-type-unknown' )
 		};
 
-	// JSON text input
-	this.jsonTextInput.setValue( this.graphModel.getSpecString() );
-
 	// Graph type
 	if ( graphType === 'unknown' ) {
 		options.push( unknownGraphTypeOption );
@@ -231,6 +242,55 @@ ve.ui.MWGraphDialog.prototype.setupFormValues = function () {
 	this.graphTypeDropdownInput
 		.setOptions( options )
 		.setValue( graphType );
+
+	// Data
+	this.updateDataPage();
+
+	// JSON text input
+	this.jsonTextInput.setValue( this.graphModel.getSpecString() );
+};
+
+/**
+ * Update data page widgets based on the current spec
+ */
+ve.ui.MWGraphDialog.prototype.updateDataPage = function () {
+	var pipeline = this.graphModel.getPipeline( 0 ),
+		i, row, rows, inputs, entry, field;
+
+	this.dataTable = new ve.ui.TableWidget( this.graphModel.getPipelineFields( 0 ) );
+
+	// Iterate over each data entry
+	rows = [];
+	for ( i = 0; i < pipeline.values.length; i++ ) {
+		entry = pipeline.values[i];
+		row = new ve.ui.RowWidget();
+		inputs = [];
+
+		for ( field in entry ) {
+			if ( entry.hasOwnProperty( field ) ) {
+				inputs.push( new OO.ui.TextInputWidget( {
+					data: field,
+					value: entry[field],
+					validate: /^[0-9]+$/,
+					inputFilter: this.dataTable.filterCellInput
+				} ) );
+			}
+		}
+
+		row.addItems( inputs );
+		rows.push( row );
+	}
+
+	this.dataTable.addItems( rows );
+
+	// Event listeners
+	this.dataTable.connect( this, {
+		change: 'onDataInputChange',
+		deleteRow: 'onDataInputRowDelete'
+	} );
+
+	// Initialization
+	this.dataPage.$element.append( this.dataTable.$element );
 };
 
 /**
@@ -280,6 +340,26 @@ ve.ui.MWGraphDialog.prototype.onGraphTypeInputChange = function ( value ) {
 	if ( value !== 'unknown' ) {
 		this.graphModel.switchGraphType( value );
 	}
+};
+
+/**
+ * React to data input change
+ * @param {number} [entry] The index of the entry updated
+ * @param {string} [field] The field that changed
+ * @param {string} [value] The new value for the field
+ */
+ve.ui.MWGraphDialog.prototype.onDataInputChange = function ( entry, field, value ) {
+	if ( !isNaN( value ) ) {
+		this.graphModel.setEntryField( entry, field, parseFloat( value ) );
+	}
+};
+
+/**
+ * React to data input row deletion
+ * @param {number} [rowIndex] The index of the row deleted
+ */
+ve.ui.MWGraphDialog.prototype.onDataInputRowDelete = function ( rowIndex ) {
+	this.graphModel.removeEntry( rowIndex );
 };
 
 /**

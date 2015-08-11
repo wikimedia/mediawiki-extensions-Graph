@@ -4,7 +4,7 @@
  * @license MIT
  * @file
  *
- * @author Dan Andreescu, Yuri Astrakhan
+ * @author Dan Andreescu, Yuri Astrakhan, Frédéric Bolduc
  */
 
 namespace Graph;

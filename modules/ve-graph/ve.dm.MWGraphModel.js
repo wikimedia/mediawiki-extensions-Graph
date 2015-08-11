@@ -298,6 +298,75 @@ ve.dm.MWGraphModel.prototype.getGraphType = function () {
 };
 
 /**
+ * Get the fields for a data pipeline
+ *
+ * @param {number} [id] The pipeline's id
+ * @returns {Object} The fields for the pipeline
+ */
+ve.dm.MWGraphModel.prototype.getPipelineFields = function ( id ) {
+	return Object.keys( this.spec.data[ id ].values[0] );
+};
+
+/**
+ * Get a data pipeline
+ *
+ * @param {number} [id] The pipeline's id
+ * @returns {Object} The data pipeline within the spec
+ */
+ve.dm.MWGraphModel.prototype.getPipeline = function ( id ) {
+	return this.spec.data[ id ];
+};
+
+/**
+ * Set the field value of an entry in a pipeline
+ *
+ * @param {number} [entry] ID of the entry
+ * @param {string} [field] The field to change
+ * @param {number} [value] The new value
+ * @fires specChange
+ */
+ve.dm.MWGraphModel.prototype.setEntryField = function ( entry, field, value ) {
+	if ( this.spec.data[0].values[ entry ] === undefined ) {
+		this.spec.data[0].values[ entry ] = this.buildNewEntry( 0 );
+	}
+	this.spec.data[0].values[ entry ][ field ] = value;
+
+	this.emit( 'specChange', this.spec );
+};
+
+/**
+ * Builds and returns a new entry for a pipeline
+ *
+ * @private
+ * @param {number} [pipelineId] The ID of the pipeline the entry is intended for
+ * @returns {Object} The new entry
+ */
+ve.dm.MWGraphModel.prototype.buildNewEntry = function ( pipelineId ) {
+	var fields = this.getPipelineFields( pipelineId ),
+		newEntry = {},
+		i;
+
+	for ( i = 0; i < fields.length; i++ ) {
+		newEntry[ fields[i] ] = '';
+	}
+
+	return newEntry;
+};
+
+/**
+ * Removes an entry from a pipeline
+ *
+ * @param {number} [index] The index of the entry to delete
+ * @fires specChange
+ */
+ve.dm.MWGraphModel.prototype.removeEntry = function ( index ) {
+	// FIXME: Support multiple pipelines
+	this.spec.data[0].values.splice( index, 1 );
+
+	this.emit( 'specChange', this.spec );
+};
+
+/**
  * Returns whether the current spec has been modified since the dialog was opened
  *
  * @return {boolean} The spec was changed
