@@ -3,12 +3,14 @@
 		"authors": [
 			"Beta16",
 			"Alexmar983",
-			"Macofe"
+			"Macofe",
+			"Statix64"
 		]
 	},
 	"graph-desc": "Permette il tag &lt;graph> o intere pagine di diventare grafici basati su [http://trifacta.github.io/vega/ Vega]",
 	"graph-ve-dialog-edit-apply": "Applica",
 	"graph-ve-dialog-edit-cancel": "Annulla",
+	"graph-ve-dialog-edit-title": "Modifica grafico",
 	"graph-ve-dialog-button-tooltip": "Grafico",
 	"graph-ve-no-spec": "Nessuna specifica grafica è stata trovata"
 }
