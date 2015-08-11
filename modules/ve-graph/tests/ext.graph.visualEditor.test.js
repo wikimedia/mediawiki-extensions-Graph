@@ -384,8 +384,47 @@
 		);
 	} );
 
-	QUnit.test( 've.dm.MWGraphModel', 4, function ( assert ) {
-		var model = new ve.dm.MWGraphModel( sampleSpecs.areaGraph );
+	QUnit.test( 've.dm.MWGraphModel', 5, function ( assert ) {
+		var model = new ve.dm.MWGraphModel( sampleSpecs.areaGraph ),
+			updateSpecRemoval = {
+				marks: undefined,
+				scales: undefined,
+				padding: { top: 50 },
+				axes: [
+					{ type: 'z' }
+				]
+			},
+			areaGraphRemovalExpected = {
+				width: 500,
+				height: 200,
+				padding: {
+					top: 50,
+					left: 30,
+					bottom: 30,
+					right: 10
+				},
+				data: [
+					{
+						name: 'table',
+						values: [
+							{ x: 0, y: 28 },
+							{ x: 1, y: 43 },
+							{ x: 2, y: 81 },
+							{ x: 3, y: 19 }
+						]
+					}
+				],
+				axes: [
+					{
+						type: 'z',
+						scale: 'x'
+					},
+					{
+						type: 'y',
+						scale: 'y'
+					}
+				]
+			};
 
 		assert.equal( model.hasBeenChanged(), false, 'Model changes are correctly initialized' );
 
@@ -397,5 +436,85 @@
 
 		model.setSpecFromString( JSON.stringify( sampleSpecs.stackedAreaGraph ) );
 		assert.equal( model.hasBeenChanged(), true, 'Model recognizes valid changes to spec' );
+
+		model.setSpecFromString( JSON.stringify( sampleSpecs.areaGraph ) );
+		model.updateSpec( updateSpecRemoval );
+		assert.deepEqual( model.getSpec(), areaGraphRemovalExpected, 'Updating the spec and removing properties' );
+	} );
+
+	QUnit.test( 've.dm.MWGraphModel.static', 5, function ( assert ) {
+		var result,
+			basicTestObj = {
+				a: 3,
+				b: undefined,
+				c: {
+					ca: undefined,
+					cb: 'undefined'
+				}
+			},
+			complexTestObj = {
+				a: {
+					aa: undefined,
+					ab: 3,
+					ac: [
+						{
+							ac0a: undefined,
+							ac0b: 4
+						},
+						{
+							ac1a: 'ac1a',
+							ac1b: 5,
+							ac1c: undefined
+						}
+					]
+				},
+				b: {
+					a: undefined,
+					b: undefined,
+					c: 2
+				},
+				c: 3,
+				d: undefined
+			},
+			undefinedPropertiesBasicExpected = [ 'b', 'c.ca' ],
+			undefinedPropertiesComplexExpected = [ 'a.aa', 'a.ac.0.ac0a', 'a.ac.1.ac1c', 'b.a', 'b.b', 'd' ],
+			removePropBasicExpected = {
+				a: 3,
+				b: undefined,
+				c: {
+					cb: 'undefined'
+				}
+			},
+			removePropComplexExpected = {
+				a: {
+					aa: undefined,
+					ab: 3,
+					ac: [ {
+						ac1b: 5,
+						ac1c: undefined
+					} ]
+				},
+				c: 3,
+				d: undefined
+			};
+
+		result = ve.dm.MWGraphModel.static.getUndefinedProperties( basicTestObj );
+		assert.deepEqual( result, undefinedPropertiesBasicExpected, 'Basic deep undefined property scan is successful' );
+
+		result = ve.dm.MWGraphModel.static.getUndefinedProperties( complexTestObj );
+		assert.deepEqual( result, undefinedPropertiesComplexExpected, 'Complex deep undefined property scan is successful' );
+
+		result = ve.dm.MWGraphModel.static.removeProperty( basicTestObj, [ 'c', 'ca' ] );
+		assert.deepEqual( basicTestObj, removePropBasicExpected, 'Basic nested property removal is successful' );
+
+		ve.dm.MWGraphModel.static.removeProperty( complexTestObj, [ 'a', 'ac', '0' ] );
+		ve.dm.MWGraphModel.static.removeProperty( complexTestObj, [ 'a', 'ac', '0', 'ac1a' ] );
+		ve.dm.MWGraphModel.static.removeProperty( complexTestObj, [ 'b' ] );
+		assert.deepEqual( complexTestObj, removePropComplexExpected, 'Complex nested property removal is successful' );
+
+		assert.throws(
+			ve.dm.MWGraphModel.static.removeProperty( complexTestObj, [ 'b' ] ),
+			'Trying to delete an invalid property throws an error'
+		);
 	} );
 }() );
