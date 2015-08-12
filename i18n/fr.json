@@ -10,6 +10,11 @@
 	"graph-desc": "Permet aux balises &lt;graph&gt; ou aux pages complètes de devenir des graphes basés sur [http://trifacta.github.io/vega/ Vega]",
 	"graph-ve-dialog-edit-apply": "Appliquer",
 	"graph-ve-dialog-edit-cancel": "Annuler",
+	"graph-ve-dialog-edit-field-raw-json": "Spécification JSON brut",
+	"graph-ve-dialog-edit-json-invalid": "Chaîne JSON non valide",
 	"graph-ve-dialog-edit-title": "Edit graphique",
-	"graph-ve-no-spec": "Spécification de graphe introuvable"
+	"graph-ve-dialog-button-tooltip": "Graphe",
+	"graph-ve-no-spec": "Spécification de graphe introuvable",
+	"graph-ve-vega-error": "Vega a rencontré une erreur lors du rendu de ce graphe",
+	"graph-ve-vega-error-no-render": "Vega n’a pas pu faire un rendu de ce graphe"
 }
