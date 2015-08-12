@@ -91,7 +91,8 @@ ve.ui.TableWidget = function VeUiTableWidget( fields, config ) {
 
 	this.connect( this, {
 		rowChange: 'onRowChange',
-		rowDelete: 'onRowDelete'
+		rowDelete: 'onRowDelete',
+		disable: 'onDisable'
 	} );
 
 	if ( !this.disableInsertion ) {
@@ -204,6 +205,17 @@ ve.ui.TableWidget.prototype.setValue = function ( row, field, value ) {
 };
 
 /**
+ * Clears all values from the table
+ */
+ve.ui.TableWidget.prototype.clear = function () {
+	var i, rows = this.getItems();
+
+	for ( i = 0; i < rows.length; i++ ) {
+		rows[ i ].clear();
+	}
+};
+
+/**
  * Get a row from its key
  *
  * @param  {string} key The key to query
@@ -281,7 +293,7 @@ ve.ui.TableWidget.prototype.onInsertionRowChange = function ( input, value ) {
 
 		// Reset insertion row
 		this.listeningToInsertionRowChanges = false;
-		this.insertionRow.reset();
+		this.insertionRow.clear();
 		this.listeningToInsertionRowChanges = true;
 	}
 };
@@ -299,6 +311,20 @@ ve.ui.TableWidget.prototype.onRowDelete = function ( row ) {
 	this.removeItems( [ row ] );
 
 	this.emit( 'deleteRow', rowIndex );
+};
+
+/**
+ * Handle disabled state changes
+ *
+ * @param  {boolean} disabled New disabled state
+ */
+ve.ui.TableWidget.prototype.onDisable = function ( disabled ) {
+	var i,
+		rows = this.getItems();
+
+	for ( i = 0; i < rows.length; i++ ) {
+		rows[ i ].setDisabled( disabled );
+	}
 };
 
 /**

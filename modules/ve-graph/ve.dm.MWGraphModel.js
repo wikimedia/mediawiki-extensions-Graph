@@ -20,6 +20,8 @@ ve.dm.MWGraphModel = function VeDmMWGraphModel( spec ) {
 	// Properties
 	this.spec = spec || {};
 	this.originalSpec = ve.copy( this.spec );
+
+	this.cachedPadding = ve.copy( this.spec.padding ) || this.getDefaultPaddingObject();
 };
 
 /* Inheritance */
@@ -27,6 +29,8 @@ ve.dm.MWGraphModel = function VeDmMWGraphModel( spec ) {
 OO.mixinClass( ve.dm.MWGraphModel, OO.EventEmitter );
 
 /* Static Members */
+
+ve.dm.MWGraphModel.static.defaultPadding = 30;
 
 ve.dm.MWGraphModel.static.graphConfigs = {
 	area: {
@@ -300,6 +304,66 @@ ve.dm.MWGraphModel.prototype.getGraphType = function () {
 };
 
 /**
+ * Get the padding values of the graph
+ *
+ * @return {Object} The paddings
+ */
+ve.dm.MWGraphModel.prototype.getPaddingObject = function () {
+	return this.spec.padding;
+};
+
+/**
+ * Return the default padding
+ *
+ * @return {Object} The default padding values
+ */
+ve.dm.MWGraphModel.prototype.getDefaultPaddingObject = function () {
+	var i,
+		indexes = [ 'top', 'bottom', 'left', 'right' ],
+		paddingObj = {};
+
+	for ( i = 0; i < indexes.length; i++ ) {
+		paddingObj[ indexes[ i ] ] = ve.dm.MWGraphModel.static.defaultPadding;
+	}
+
+	return paddingObj;
+};
+
+/**
+ * Set a padding value
+ *
+ * @param {string} index The index to change. Can be either top, right, bottom or right
+ * @param {number} value The new value
+ * @fires specChange
+ */
+ve.dm.MWGraphModel.prototype.setPadding = function ( index, value ) {
+	if ( this.isPaddingAutomatic() ) {
+		this.spec.padding = this.getDefaultPaddingObject();
+	}
+
+	this.spec.padding[ index ] = value;
+
+	this.emit( 'specChange', this.spec );
+};
+
+/**
+ * Toggles automatic and manual padding modes
+ *
+ * @param {boolean} auto Padding is now automatic
+ * @fires specChange
+ */
+ve.dm.MWGraphModel.prototype.setPaddingAuto = function ( auto ) {
+	if ( auto ) {
+		this.cachedPadding = ve.copy( this.spec.padding ) || this.getDefaultPaddingObject();
+		ve.dm.MWGraphModel.static.removeProperty( this.spec, [ 'padding' ] );
+	} else {
+		this.spec.padding = ve.copy( this.cachedPadding );
+	}
+
+	this.emit( 'specChange', this.spec );
+};
+
+/**
  * Get the fields for a data pipeline
  *
  * @param {number} [id] The pipeline's id
@@ -375,4 +439,13 @@ ve.dm.MWGraphModel.prototype.removeEntry = function ( index ) {
  */
 ve.dm.MWGraphModel.prototype.hasBeenChanged = function () {
 	return !OO.compare( this.spec, this.originalSpec );
+};
+
+/**
+ * Returns whether the padding is set to be automatic or not
+ *
+ * @return {boolean} The padding is automatic
+ */
+ve.dm.MWGraphModel.prototype.isPaddingAutomatic = function () {
+	return OO.compare( this.spec.padding, undefined );
 };
