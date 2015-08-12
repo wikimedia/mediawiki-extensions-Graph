@@ -257,7 +257,12 @@ ve.ui.MWGraphDialog.prototype.updateDataPage = function () {
 	var pipeline = this.graphModel.getPipeline( 0 ),
 		i, row, rows, inputs, entry, field;
 
-	this.dataTable = new ve.ui.TableWidget( this.graphModel.getPipelineFields( 0 ) );
+	this.dataTable = new ve.ui.TableWidget(
+		this.graphModel.getPipelineFields( 0 ),
+		{
+			hideRowLabels: true
+		}
+	);
 
 	// Iterate over each data entry
 	rows = [];
@@ -344,13 +349,14 @@ ve.ui.MWGraphDialog.prototype.onGraphTypeInputChange = function ( value ) {
 
 /**
  * React to data input change
- * @param {number} [entry] The index of the entry updated
- * @param {string} [field] The field that changed
- * @param {string} [value] The new value for the field
+ * @param {number} index The index of the entry updated
+ * @param {string} key The key of the entry updated
+ * @param {string} field The field that changed
+ * @param {string} value The new value for the field
  */
-ve.ui.MWGraphDialog.prototype.onDataInputChange = function ( entry, field, value ) {
+ve.ui.MWGraphDialog.prototype.onDataInputChange = function ( index, key, field, value ) {
 	if ( !isNaN( value ) ) {
-		this.graphModel.setEntryField( entry, field, parseFloat( value ) );
+		this.graphModel.setEntryField( index, field, parseFloat( value ) );
 	}
 };
 

@@ -17,6 +17,11 @@
 	clear: left;
 	float: left;
 	margin-bottom: -1px;
+	width: 100%;
+}
+
+.ve-ui-rowWidget > .ve-ui-rowWidget-label {
+	float: left;
 }
 
 .ve-ui-rowWidget > .ve-ui-rowWidget-cells {

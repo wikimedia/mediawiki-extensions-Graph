@@ -10,6 +10,10 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
+ * @cfg [string] [key] A unique key for this row. Can be used to easily reference the row instead
+ * of its index in the table.
+ * @cfg {string} [label] The row label to display. If not provided, the row index will be used be default.
+ * If set to null, no label will be displayed.
  * @cfg {OO.ui.TextInputWidget[]} [items] Text inputs to add
  * @cfg {boolean} [deletable] Whether the table should provide deletion UI tools
  * for this row or not. Defaults to true.
@@ -28,6 +32,8 @@ ve.ui.RowWidget = function VeUiRowWidget( config ) {
 	OO.ui.GroupElement.call( this, config );
 
 	// Properties
+	// TODO: The key should be stored in data to leverage getItemFromData in TableWidget
+	this.key = String( config.key );
 	this.rowIndex = 0;
 
 	// Set up group element
@@ -35,6 +41,11 @@ ve.ui.RowWidget = function VeUiRowWidget( config ) {
 		$( '<div>' )
 			.addClass( 've-ui-rowWidget-cells' )
 	);
+
+	// Set up label
+	this.labelCell =  new ve.ui.BlockLabelWidget( {
+		classes: [ 've-ui-rowWidget-label' ]
+	} );
 
 	// Set up delete button
 	if ( config.deletable ) {
@@ -52,7 +63,8 @@ ve.ui.RowWidget = function VeUiRowWidget( config ) {
 	} );
 
 	this.connect( this, {
-		cellChange: 'onCellChange'
+		cellChange: 'onCellChange',
+		labelUpdate: 'onLabelUpdate'
 	} );
 
 	if ( config.deletable ) {
@@ -64,15 +76,20 @@ ve.ui.RowWidget = function VeUiRowWidget( config ) {
 	// Initialization
 	this.$element.addClass( 've-ui-rowWidget' );
 
-	this.$element.append( this.$group );
-
 	if ( Array.isArray( config.items ) ) {
 		this.addItems( config.items );
 	}
 
+	this.$element.append(
+		this.labelCell.$element,
+		this.$group
+	);
+
 	if ( config.deletable ) {
 		this.$element.append( this.deleteButton.$element );
 	}
+
+	this.setLabel( config.label );
 };
 
 /* Inheritance */
@@ -97,15 +114,30 @@ OO.mixinClass( ve.ui.RowWidget, OO.ui.GroupElement );
  * Fired when the delete button for the row is pressed
  */
 
+/**
+ * @event labelUpdate
+ *
+ * Fired when the label might need to be updated
+ */
+
 /* Methods */
 
 /**
- * Set the row index
+ * Get the row key
  *
- * @param {number} index The new index
+ * @return {string} The row key
  */
-ve.ui.RowWidget.prototype.setIndex = function ( index ) {
-	this.rowIndex = index;
+ve.ui.RowWidget.prototype.getKey = function () {
+	return this.key;
+};
+
+/**
+ * Set the row key
+ *
+ * @param {string} key The new key
+ */
+ve.ui.RowWidget.prototype.setKey = function ( key ) {
+	this.key = key;
 };
 
 /**
@@ -115,6 +147,64 @@ ve.ui.RowWidget.prototype.setIndex = function ( index ) {
  */
 ve.ui.RowWidget.prototype.getIndex = function () {
 	return this.rowIndex;
+};
+
+/**
+ * Set the row index
+ *
+ * @param {number} index The new index
+ * @fires labelUpdate
+ */
+ve.ui.RowWidget.prototype.setIndex = function ( index ) {
+	if ( this.rowIndex !== index ) {
+		this.rowIndex = index;
+		this.emit( 'labelUpdate' );
+	}
+};
+
+/**
+ * Get the label displayed on the row. If no custom label is set, the
+ * row index is used instead.
+ *
+ * @return {string} The row label
+ */
+ve.ui.RowWidget.prototype.getLabel = function () {
+	if ( this.label === null ) {
+		return '';
+	} else if ( !this.label ) {
+		return this.rowIndex.toString();
+	} else {
+		return this.label;
+	}
+};
+
+/**
+ * Set the label to be displayed on the widget.
+ *
+ * @param {string} label The new label
+ * @fires labelUpdate
+ */
+ve.ui.RowWidget.prototype.setLabel = function ( label ) {
+	if ( this.label !== label ) {
+		this.label = label;
+		this.emit( 'labelUpdate' );
+	}
+};
+
+/**
+ * Set the value of a particular field
+ *
+ * @param {string} field The field
+ * @param {string} value The new value
+ */
+ve.ui.RowWidget.prototype.setValue = function ( field, value ) {
+	var i, cells = this.getItems();
+
+	for ( i = 0; i < cells.length; i++ ) {
+		if ( cells[i].getData() === field ) {
+			cells[i].setValue( value );
+		}
+	}
 };
 
 /**
@@ -162,4 +252,19 @@ ve.ui.RowWidget.prototype.onCellChange = function ( input, value ) {
  */
 ve.ui.RowWidget.prototype.onDelete = function () {
 	this.emit( 'delete' );
+};
+
+/**
+ * Update the label displayed on the widget
+ */
+ve.ui.RowWidget.prototype.onLabelUpdate = function () {
+	var newLabel = this.label;
+
+	if ( newLabel === null ) {
+		newLabel = '';
+	} else if ( !newLabel ) {
+		newLabel = this.rowIndex.toString();
+	}
+
+	this.labelCell.setLabel( newLabel );
 };

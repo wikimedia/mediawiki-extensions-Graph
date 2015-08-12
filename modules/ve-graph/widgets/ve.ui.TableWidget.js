@@ -10,8 +10,10 @@
  * @param {string[]} fields The labels for the fields
  * @param {Object} [config] Configuration options
  * @cfg {ve.ui.RowWidget[]} [items] Rows to add
+ * @cfg {boolean} [hideHeaders=false] Whether or not to hide table headers. Defaults to false.
+ * @cfg {boolean} [hideRowLabels=false] Whether or not to hide row labels. Defaults to false.
+ * @cfg {boolean} [disableInsertion=false] Whether or not to disable row insertion. Defaults to false.
  */
-
 ve.ui.TableWidget = function VeUiTableWidget( fields, config ) {
 	var i, len,
 		headerRowItems = [],
@@ -29,6 +31,9 @@ ve.ui.TableWidget = function VeUiTableWidget( fields, config ) {
 	// Properties
 	this.fields = fields;
 	this.listeningToInsertionRowChanges = true;
+	this.hideHeaders = !!config.hideHeaders;
+	this.hideRowLabels = !!config.hideRowLabels;
+	this.disableInsertion = !!config.disableInsertion;
 
 	// Set up group element
 	this.setGroupElement(
@@ -37,29 +42,41 @@ ve.ui.TableWidget = function VeUiTableWidget( fields, config ) {
 	);
 
 	// Set up static rows
-	this.headerRow = new ve.ui.RowWidget( {
-		deletable: false
-	} );
-
-	this.insertionRow = new ve.ui.RowWidget( {
-		classes: 've-ui-rowWidget-insertionRow',
-		deletable: false
-	} );
-
-	for ( i = 0, len = fields.length; i < len; i++ ) {
-		headerRowItems.push( new OO.ui.TextInputWidget( {
-			value: fields[i],
-			// TODO: Allow editing of fields
-			disabled: true
-		} ) );
-
-		insertionRowItems.push( new OO.ui.TextInputWidget( {
-			data: fields[i]
-		} ) );
+	if ( !this.hideHeaders ) {
+		this.headerRow = new ve.ui.RowWidget( {
+			deletable: false,
+			label: null
+		} );
+	}
+	if ( !this.disableInsertion ) {
+		this.insertionRow = new ve.ui.RowWidget( {
+			classes: 've-ui-rowWidget-insertionRow',
+			deletable: false,
+			label: null
+		} );
 	}
 
-	this.headerRow.addItems( headerRowItems );
-	this.insertionRow.addItems( insertionRowItems );
+	for ( i = 0, len = fields.length; i < len; i++ ) {
+		if ( !this.hideHeaders ) {
+			headerRowItems.push( new OO.ui.TextInputWidget( {
+				value: fields[i],
+				// TODO: Allow editing of fields
+				disabled: true
+			} ) );
+		}
+		if ( !this.disableInsertion ) {
+			insertionRowItems.push( new OO.ui.TextInputWidget( {
+				data: fields[i]
+			} ) );
+		}
+	}
+
+	if ( !this.hideHeaders ) {
+		this.headerRow.addItems( headerRowItems );
+	}
+	if ( !this.disableInsertion ) {
+		this.insertionRow.addItems( insertionRowItems );
+	}
 
 	// Set up initial rows
 	if ( Array.isArray( config.items ) ) {
@@ -77,18 +94,24 @@ ve.ui.TableWidget = function VeUiTableWidget( fields, config ) {
 		rowDelete: 'onRowDelete'
 	} );
 
-	this.insertionRow.connect( this, {
-		change: 'onInsertionRowChange'
-	} );
+	if ( !this.disableInsertion ) {
+		this.insertionRow.connect( this, {
+			change: 'onInsertionRowChange'
+		} );
+	}
 
 	// Initialization
 	this.$element.addClass( 've-ui-tableWidget' );
 
-	this.$element.append(
-		this.headerRow.$element,
-		this.$group,
-		this.insertionRow.$element
-	);
+	if ( !this.hideHeaders ) {
+		this.$element.append( this.headerRow.$element );
+	}
+	this.$element.append( this.$group );
+	if ( !this.disableInsertion ) {
+		this.$element.append( this.insertionRow.$element );
+	}
+
+	this.$element.toggleClass( 've-ui-tableWidget-no-labels', this.hideRowLabels );
 };
 
 /* Inheritance */
@@ -109,7 +132,8 @@ ve.ui.TableWidget.static.patterns = {
  *
  * Change when the data within the table has been updated.
  *
- * @param {number} The entry index that changed
+ * @param {number} The index of the row that changed
+ * @param {string} The key of the row that changed
  * @param {string} The field that changed
  * @param {string} The new value
  */
@@ -157,6 +181,48 @@ ve.ui.TableWidget.prototype.removeItems = function ( items ) {
 };
 
 /**
+ * Set the value of a particular cell
+ *
+ * @param {number|string} index The row containing the cell to edit. Can be either
+ * the row index or a string key if one has been set for the row.
+ * @param {string} field The field to edit
+ * @param {string} value The new value
+ *
+ */
+ve.ui.TableWidget.prototype.setValue = function ( row, field, value ) {
+	var rowItem;
+
+	if ( $.type( row ) === 'string' ) {
+		rowItem = this.getRowFromKey( row );
+	} else if ( $.type( row ) === 'number' ) {
+		rowItem = this.getItems()[ row ];
+	}
+
+	if ( rowItem ) {
+		rowItem.setValue( field, value );
+	}
+};
+
+/**
+ * Get a row from its key
+ *
+ * @param  {string} key The key to query
+ * @return {OO.ui.RowWidget} The corresponding row, null if no row was found
+ */
+ve.ui.TableWidget.prototype.getRowFromKey = function ( key ) {
+	var i, rows = this.getItems();
+
+	// TODO: Leverage OO.ui.GroupElement.getItemFromData instead of looping rows
+	for ( i = 0; i < rows.length; i++ ) {
+		if ( rows[i].getKey() === key ) {
+			return rows[i];
+		}
+	}
+
+	return null;
+};
+
+/**
  * React to changes bubbled up from event aggregation
  *
  * @private
@@ -167,9 +233,10 @@ ve.ui.TableWidget.prototype.removeItems = function ( items ) {
  */
 ve.ui.TableWidget.prototype.onRowChange = function ( row, input, value ) {
 	var rowIndex = row.getIndex(),
+		rowKey = row.getKey(),
 		field = input.getData();
 
-	this.emit( 'change', rowIndex, field, value );
+	this.emit( 'change', rowIndex, rowKey, field, value );
 };
 
 /**
