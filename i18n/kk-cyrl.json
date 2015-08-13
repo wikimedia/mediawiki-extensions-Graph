@@ -4,5 +4,15 @@
 			"Arystanbek"
 		]
 	},
-	"graph-desc": "&lt;graph> тегіне рұқсат етеді немесе  [http://trifacta.github.io/vega/ Vega] негізіндегі гафиктерді беттерге енгізу"
+	"graph-desc": "&lt;graph&gt; тегіне рұқсат етеді немесе  [http://trifacta.github.io/vega/ Vega] негізіндегі гафиктерді беттерге енгізу",
+	"graph-ve-dialog-edit-apply": "Қолдану",
+	"graph-ve-dialog-edit-cancel": "Қажет емес",
+	"graph-ve-dialog-edit-field-graph-type": "График түрі",
+	"graph-ve-dialog-edit-page-general": "Негізгі",
+	"graph-ve-dialog-edit-title": "Графикті өңдеу",
+	"graph-ve-dialog-edit-type-area": "Аумақ график",
+	"graph-ve-dialog-edit-type-bar": "Бағана график",
+	"graph-ve-dialog-edit-type-line": "Сызықтық график",
+	"graph-ve-dialog-edit-type-unknown": "Белгісіз график түрі",
+	"graph-ve-dialog-button-tooltip": "График"
 }

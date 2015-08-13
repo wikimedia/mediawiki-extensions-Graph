@@ -13,7 +13,7 @@
 	"graph-ve-dialog-edit-field-graph-type": "Label for graph type",
 	"graph-ve-dialog-edit-field-raw-json": "Label for the raw JSON specification in the graph editing dialog",
 	"graph-ve-dialog-edit-json-invalid": "Validation label for the JSON specification string",
-	"graph-ve-dialog-edit-page-general": "Label for the general page in the graph edit dialog",
+	"graph-ve-dialog-edit-page-general": "Label for the general page in the graph edit dialog\n{{Identical|General}}",
 	"graph-ve-dialog-edit-page-raw": "Label for the raw data page in the graph edit dialog",
 	"graph-ve-dialog-edit-title": "Title for the graph editing dialog",
 	"graph-ve-dialog-edit-type-area": "Label for area graph",

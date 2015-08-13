@@ -4,5 +4,22 @@
 			"Pikne"
 		]
 	},
-	"graph-desc": "Võimaldab teha &lt;graph&gt;-siltidest või tervetest lehekülgedest [http://trifacta.github.io/vega/ Vega]-põhiseid diagramme."
+	"graph-desc": "Võimaldab teha &lt;graph&gt;-siltidest või tervetest lehekülgedest [http://trifacta.github.io/vega/ Vega]-põhiseid diagramme.",
+	"graph-ve-dialog-edit-apply": "Rakenda",
+	"graph-ve-dialog-edit-cancel": "Loobu",
+	"graph-ve-dialog-edit-field-graph-type": "Diagrammitüüp",
+	"graph-ve-dialog-edit-field-raw-json": "Toorkujul JSON",
+	"graph-ve-dialog-edit-json-invalid": "Vigane JSON-sõne",
+	"graph-ve-dialog-edit-page-general": "Üldine",
+	"graph-ve-dialog-edit-page-raw": "Toorandmed",
+	"graph-ve-dialog-edit-title": "Diagrammi muutmine",
+	"graph-ve-dialog-edit-type-area": "Kihtdiagramm",
+	"graph-ve-dialog-edit-type-bar": "Tulpdiagramm",
+	"graph-ve-dialog-edit-type-line": "Joondiagramm",
+	"graph-ve-dialog-edit-type-unknown": "Tundmatu diagrammitüüp",
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "Selle diagrammitüübi tugi puudub. Muudatused võivad rikkuda diagrammi väljanägemise. Palun muuda diagrammi toorandmete kujul kaardil \"{{int:graph-ve-dialog-edit-page-raw}}\".",
+	"graph-ve-dialog-button-tooltip": "Diagramm",
+	"graph-ve-no-spec": "Diagrammi spetsifikatsiooni ei leitud",
+	"graph-ve-vega-error": "Vahendil Vega esines selle diagrammi viimistlemisel tõrge.",
+	"graph-ve-vega-error-no-render": "Vahendil Vega ei õnnestunud seda diagrammi viimistleda."
 }
