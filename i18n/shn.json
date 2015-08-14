@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Saosukham"
+		]
+	},
+	"graph-ve-dialog-edit-apply": "ထႅမ်",
+	"graph-ve-dialog-edit-cancel": "ဢမ်ႇႁဵတ်း",
+	"graph-ve-dialog-edit-page-general": "ၵူႈလွင်ႈလွင်ႈ",
+	"graph-ve-dialog-edit-page-raw": "ၶေႃႈမုၼ်းပိူင်လိူင်း",
+	"graph-ve-dialog-edit-title": "ထတ်းလွၵ်းသဵၼ်ႈ",
+	"graph-ve-dialog-edit-type-area": "ဢွင်ႈတီႈ သဵၼ်ႈသၢႆ",
+	"graph-ve-dialog-edit-type-bar": "ႁၢဝ်း သဵၼ်ႈသၢႆ",
+	"graph-ve-dialog-edit-type-line": "သဵၼ်ႈတႅမ်ႈၸၼ်",
+	"graph-ve-dialog-edit-type-unknown": "ဢမ်ႇႁူႉၸၵ်း သဵၼ်ႈသၢႆ ဢၼ်ပေႃႉ",
+	"graph-ve-dialog-button-tooltip": "လွၵ်းသဵၼ်ႈ"
+}

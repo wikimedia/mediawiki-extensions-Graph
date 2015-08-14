@@ -16,5 +16,6 @@
 	"graph-ve-dialog-edit-type-unknown": "Onbekannten Grafiktyp",
 	"graph-ve-dialog-button-tooltip": "Graphik",
 	"graph-ve-no-spec": "Keng Spezifikatioun fir d'Graphik fonnt",
-	"graph-ve-vega-error": "Vega hat e Feeler beim Duerstelle vun dëser Grafik"
+	"graph-ve-vega-error": "Vega hat e Feeler beim Duerstelle vun dëser Grafik",
+	"graph-ve-vega-error-no-render": "Vega konnt dës Graphik net duerstellen"
 }

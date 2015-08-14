@@ -8,7 +8,15 @@
 	"graph-desc": "Permite transformar etiquetas &lt;graph&gt; o páginas enteras en gráficos basados en [http://trifacta.github.io/vega/ Vega]",
 	"graph-ve-dialog-edit-apply": "Aplicar",
 	"graph-ve-dialog-edit-cancel": "Cancelar",
+	"graph-ve-dialog-edit-field-graph-type": "Tipo de gráfico",
+	"graph-ve-dialog-edit-page-general": "General",
+	"graph-ve-dialog-edit-page-raw": "Datos sin procesar",
 	"graph-ve-dialog-edit-title": "Editar gráfico",
+	"graph-ve-dialog-edit-type-area": "Gráfico de áreas",
+	"graph-ve-dialog-edit-type-bar": "Gráfico de barras",
+	"graph-ve-dialog-edit-type-line": "Gráfico de líneas",
+	"graph-ve-dialog-edit-type-unknown": "Tipo de gráfico desconocido",
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "No se admite este tipo de gráfico. Cualquier modificación que se le haga puede arruinar su visualización. Edita el gráfico mediante la especificación de datos sin procesar en la pestaña '{{int:graph-ve-dialog-edit-page-raw}}'.",
 	"graph-ve-dialog-button-tooltip": "Gráfico",
 	"graph-ve-no-spec": "No se encontró ninguna especificación de gráficos"
 }
