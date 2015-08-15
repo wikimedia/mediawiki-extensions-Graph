@@ -5,5 +5,9 @@
 			"WikiPhoenix"
 		]
 	},
-	"graph-desc": "Tillåter taggen &lt;graph&gt; eller hela sidor att bli [http://trifacta.github.io/vega/ Vega]-baserade grafer"
+	"graph-desc": "Tillåter taggen &lt;graph&gt; eller hela sidor att bli [http://trifacta.github.io/vega/ Vega]-baserade grafer",
+	"graph-ve-dialog-edit-cancel": "Avbryt",
+	"graph-ve-dialog-edit-field-graph-type": "Graftyp",
+	"graph-ve-dialog-edit-json-invalid": "Ogiltig JSON-sträng",
+	"graph-ve-dialog-edit-type-bar": "Stapeldiagram"
 }
