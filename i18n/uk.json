@@ -19,6 +19,7 @@
 	"graph-ve-dialog-edit-type-bar": "Гістограма",
 	"graph-ve-dialog-edit-type-line": "Лінійний графік",
 	"graph-ve-dialog-edit-type-unknown": "Невідомий тип графіка",
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "Тип цього графіку не підтримується й будь-які зроблені зміни можуть пошкодити його відображення. Будь ласка, редагуйте графік через вказання сирих даних за допомогою вкладки «{{int:graph-ve-dialog-edit-page-raw}}»",
 	"graph-ve-dialog-button-tooltip": "Графік",
 	"graph-ve-no-spec": "Не знайдено специфікації графів",
 	"graph-ve-vega-error": "У Веги сталася помилка під час візуалізації цього графіка",
