@@ -1,0 +1,40 @@
+/**
+ * HACK: Quick fix for index layout reacting weird when nested inside a page layout
+ * @see https://phabricator.wikimedia.org/T101724
+ * @see https://phabricator.wikimedia.org/T101729
+ */
+.oo-ui-pageLayout > .oo-ui-menuLayout.oo-ui-menuLayout-showMenu.oo-ui-indexLayout > .oo-ui-menuLayout-content {
+	top: 3em !important;
+	z-index: 1;
+}
+
+.oo-ui-indexLayout-stackLayout > .oo-ui-panelLayout {
+	margin-bottom: 1.5em;
+}
+/* End fixes */
+
+.ve-ui-rowWidget {
+	clear: left;
+	float: left;
+	margin-bottom: -1px;
+}
+
+.ve-ui-rowWidget > .ve-ui-rowWidget-cells {
+	float: left;
+	margin-right: -1px;
+}
+
+.ve-ui-rowWidget > .ve-ui-rowWidget-cells > .oo-ui-inputWidget {
+	float: left;
+	margin-right: -1px;
+	width: 8em;
+}
+
+.ve-ui-rowWidget > .ve-ui-rowWidget-delete-button > .oo-ui-buttonElement-button {
+	margin: 0;
+	padding-bottom: 2px;
+}
+
+.ve-ui-rowWidget.ve-ui-rowWidget-insertionRow {
+	background-color: red;
+}

@@ -100,9 +100,10 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 		label: ve.msg( 'graph-ve-dialog-edit-unknown-graph-type-warning' )
 	} );
 
-	this.generalPage.$element
-		.append( graphTypeField.$element )
-		.append( this.unknownGraphTypeWarningLabel.$element );
+	this.generalPage.$element.append(
+		graphTypeField.$element,
+		this.unknownGraphTypeWarningLabel.$element
+	);
 
 	/* Raw JSON page */
 	this.rawPage.getOutlineItem()
@@ -122,8 +123,7 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 		align: 'top'
 	} );
 
-	this.rawPage.$element
-		.append( jsonTextField.$element );
+	this.rawPage.$element.append( jsonTextField.$element );
 
 	// Event handlers
 	this.jsonTextInput.connect( this, {
