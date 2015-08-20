@@ -17,6 +17,8 @@
 ve.ce.MWGraphNode = function VeCeMWGraphNode() {
 	// Parent constructor
 	ve.ce.MWGraphNode.super.apply( this, arguments );
+
+	this.$element.addClass( 'mw-wiki-graph-container' );
 };
 
 /* Inheritance */
@@ -28,6 +30,8 @@ OO.inheritClass( ve.ce.MWGraphNode, ve.ce.MWBlockExtensionNode );
 ve.ce.MWGraphNode.static.name = 'mwGraph';
 
 ve.ce.MWGraphNode.static.primaryCommandName = 'graph';
+
+ve.ce.MWGraphNode.static.tagName = 'div';
 
 /* Static Methods */
 
@@ -41,6 +45,7 @@ ve.ce.MWGraphNode.static.primaryCommandName = 'graph';
  */
 ve.ce.MWGraphNode.static.vegaParseSpec = function ( spec, $node ) {
 	var deferred = $.Deferred(),
+		node = this,
 		canvasNode;
 
 	// Check if the spec is currently valid
@@ -53,7 +58,7 @@ ve.ce.MWGraphNode.static.vegaParseSpec = function ( spec, $node ) {
 				// Once Vega allows for proper rendering validation, this should be
 				// swapped for a validation check.
 				canvasNode = $node[0].children[0].children[0];
-				if ( ve.ce.MWGraphNode.static.isCanvasBlank( canvasNode ) ) {
+				if ( node.isCanvasBlank( canvasNode ) ) {
 					deferred.reject( 'graph-ve-vega-error-no-render' );
 				} else {
 					deferred.resolve();
@@ -75,7 +80,7 @@ ve.ce.MWGraphNode.static.vegaParseSpec = function ( spec, $node ) {
  *
  * @author Austin Brunkhorst http://stackoverflow.com/a/17386803/2055594
  * @param {HTMLElement} canvas The canvas to Check
- * @return True if the canvas is blank, False otherwise
+ * @return {boolean} The canvas is blank
  */
 ve.ce.MWGraphNode.static.isCanvasBlank = function ( canvas ) {
 	var blank = document.createElement( 'canvas' );
@@ -89,61 +94,20 @@ ve.ce.MWGraphNode.static.isCanvasBlank = function ( canvas ) {
 /* Methods */
 
 /**
- * @inheritdoc
- */
-ve.ce.MWGraphNode.prototype.onSetup = function () {
-	// Parent method
-	ve.ce.MWGraphNode.super.prototype.onSetup.call( this );
-
-	// Events
-	this.getModel().connect( this, {
-		specChange: 'onSpecChange'
-	} );
-
-	// Initial rendering
-	this.renderGraph();
-};
-
-/**
- * @inheritdoc
- */
-ve.ce.MWGraphNode.prototype.onTeardown = function () {
-	// Parent method
-	ve.ce.MWGraphNode.super.prototype.onTeardown.call( this );
-
-	// Events
-	this.getModel().disconnect( this );
-};
-
-/**
  * Render a Vega graph inside the node
- *
- * @private
- * @return {jQuery.Promise} Promise that resolves when the graph is rendered.
- * The promise is rejected if there was a problem rendering the graph.
  */
-ve.ce.MWGraphNode.prototype.renderGraph = function () {
-	var element = this.$element[0],
-		spec = this.getModel().getSpec();
+ve.ce.MWGraphNode.prototype.update = function () {
+	var node = this;
 
 	// Clear element
 	this.$element.empty();
 
-	return ve.ce.MWGraphNode.static.vegaParseSpec( spec, this.$element ).then(
+	this.constructor.static.vegaParseSpec( this.getModel().getSpec(), this.$element ).then(
 		null,
 		function ( failMessageKey ) {
-			$( element ).text( ve.msg( failMessageKey ) );
+			node.$element.text( ve.msg( failMessageKey ) );
 		}
 	);
-};
-
-/**
- * React to specification model update
- *
- * @private
- */
-ve.ce.MWGraphNode.prototype.onSpecChange = function () {
-	this.renderGraph();
 };
 
 /* Registration */
