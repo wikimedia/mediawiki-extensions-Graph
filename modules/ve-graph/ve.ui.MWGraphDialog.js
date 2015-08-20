@@ -134,14 +134,10 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 
 	this.rawPage.$element.append( jsonTextField.$element );
 
-	// Event handlers
-	this.jsonTextInput.connect( this, {
-		change: 'onSpecStringInputChange'
-	} );
-
-	this.graphTypeDropdownInput.connect( this, {
-		change: 'onGraphTypeInputChange'
-	} );
+	// Events
+	this.jsonTextInput.connect( this, { change: 'onSpecStringInputChange' } );
+	this.graphTypeDropdownInput.connect( this, { change: 'onGraphTypeInputChange' } );
+	this.rootLayout.connect( this, { set: 'onRootLayoutSet' } );
 
 	// Initialization
 	this.$body.append( this.rootLayout.$element );
@@ -317,7 +313,7 @@ ve.ui.MWGraphDialog.prototype.validateRawData = function ( value ) {
 };
 
 /**
- * React to spec string input change
+ * Handle spec string input change
  *
  * @private
  * @param {string} value The text input value
@@ -338,9 +334,9 @@ ve.ui.MWGraphDialog.prototype.onSpecStringInputChange = function ( value ) {
 };
 
 /**
- * React to graph type changes
+ * Handle graph type changes
  *
- * @param {string} [value] The new graph type
+ * @param {string} value The new graph type
  */
 ve.ui.MWGraphDialog.prototype.onGraphTypeInputChange = function ( value ) {
 	this.unknownGraphTypeWarningLabel.toggle( value === 'unknown' );
@@ -372,7 +368,22 @@ ve.ui.MWGraphDialog.prototype.onDataInputRowDelete = function ( rowIndex ) {
 };
 
 /**
- * React to spec change
+ * Handle page set events on the root layout
+ *
+ * @param {OO.ui.PageLayout} page Set page
+ */
+ve.ui.MWGraphDialog.prototype.onRootLayoutSet = function ( page ) {
+	if ( page.getName() === 'raw' ) {
+		// The raw data may have been changed while not visible,
+		// so recalculate height now it is visible.
+		// HACK: Invalidate value cache
+		this.jsonTextInput.valCache = null;
+		this.jsonTextInput.adjustSize();
+	}
+};
+
+/**
+ * Handle model spec change events
  *
  * @private
  */
