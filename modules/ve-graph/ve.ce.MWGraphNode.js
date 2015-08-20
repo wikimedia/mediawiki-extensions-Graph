@@ -102,12 +102,23 @@ ve.ce.MWGraphNode.prototype.update = function () {
 	// Clear element
 	this.$element.empty();
 
+	if ( this.live ) {
+		this.emit( 'teardown' );
+	}
+
 	this.constructor.static.vegaParseSpec( this.getModel().getSpec(), this.$element[ 0 ] ).then(
-		null,
+		function () {
+			node.$focusable = node.$element.find( 'canvas' );
+		},
 		function ( failMessageKey ) {
 			node.$element.text( ve.msg( failMessageKey ) );
+			node.$focusable = node.$element;
 		}
-	);
+	).always( function () {
+		if ( node.live ) {
+			node.emit( 'setup' );
+		}
+	} );
 };
 
 /* Registration */
