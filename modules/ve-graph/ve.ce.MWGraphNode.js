@@ -39,11 +39,11 @@ ve.ce.MWGraphNode.static.tagName = 'div';
  * Attempt to render the graph through Vega.
  *
  * @param {Object} spec The graph spec
- * @param {jQuery} $node Element to render the graph in
+ * @param {HTMLElement} element Element to render the graph in
  * @return {jQuery.Promise} Promise that resolves when the graph is rendered.
- * Promise is rejected if there was a problem rendering the graph.
+ * Promise is rejected with an error message key if there was a problem rendering the graph.
  */
-ve.ce.MWGraphNode.static.vegaParseSpec = function ( spec, $node ) {
+ve.ce.MWGraphNode.static.vegaParseSpec = function ( spec, element ) {
 	var deferred = $.Deferred(),
 		node = this,
 		canvasNode;
@@ -52,12 +52,12 @@ ve.ce.MWGraphNode.static.vegaParseSpec = function ( spec, $node ) {
 	if ( spec ) {
 		vg.parse.spec( spec, function ( chart ) {
 			try {
-				chart( { el: $node[0] } ).update();
+				chart( { el: element } ).update();
 
 				// HACK: If canvas is blank, this means Vega didn't render properly.
 				// Once Vega allows for proper rendering validation, this should be
 				// swapped for a validation check.
-				canvasNode = $node[0].children[0].children[0];
+				canvasNode = element.children[0].children[0];
 				if ( node.isCanvasBlank( canvasNode ) ) {
 					deferred.reject( 'graph-ve-vega-error-no-render' );
 				} else {
@@ -102,7 +102,7 @@ ve.ce.MWGraphNode.prototype.update = function () {
 	// Clear element
 	this.$element.empty();
 
-	this.constructor.static.vegaParseSpec( this.getModel().getSpec(), this.$element ).then(
+	this.constructor.static.vegaParseSpec( this.getModel().getSpec(), this.$element[0] ).then(
 		null,
 		function ( failMessageKey ) {
 			node.$element.text( ve.msg( failMessageKey ) );
