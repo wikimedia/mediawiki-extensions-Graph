@@ -27,7 +27,7 @@ ve.ui.MWGraphDialogTool.static.name = 'graph';
 
 ve.ui.MWGraphDialogTool.static.group = 'object';
 
-ve.ui.MWGraphDialogTool.static.icon = 'code';
+ve.ui.MWGraphDialogTool.static.icon = 'graph';
 
 ve.ui.MWGraphDialogTool.static.title = OO.ui.deferMsg( 'graph-ve-dialog-button-tooltip' );
 

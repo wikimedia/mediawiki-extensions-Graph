@@ -35,6 +35,7 @@ class GraphHooks {
 					'modules/ve-graph/widgets/ve.ui.TableWidget.js'
 				),
 				'styles' => array(
+					'modules/ve-graph/ve.ui.MWGraphIcons.css',
 					'modules/ve-graph/widgets/ve.ui.BlockLabelWidget.css',
 					'modules/ve-graph/widgets/ve.ui.RowWidget.css',
 					'modules/ve-graph/widgets/ve.ui.TableWidget.css'
