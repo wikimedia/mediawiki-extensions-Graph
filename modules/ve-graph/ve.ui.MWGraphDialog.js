@@ -124,6 +124,9 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 		validate: this.validateRawData
 	} );
 
+	// Make sure JSON is LTR
+	this.jsonTextInput.setRTL( false );
+
 	jsonTextField = new OO.ui.FieldLayout( this.jsonTextInput, {
 		label: ve.msg( 'graph-ve-dialog-edit-field-raw-json' ),
 		align: 'top'
