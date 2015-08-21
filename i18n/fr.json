@@ -4,7 +4,8 @@
 			"Gomoko",
 			"Mattho69",
 			"Djiboun",
-			"Macofe"
+			"Macofe",
+			"Titip1995"
 		]
 	},
 	"graph-desc": "Permet aux balises &lt;graph&gt; ou aux pages complètes de devenir des graphes basés sur [http://trifacta.github.io/vega/ Vega]",
@@ -13,6 +14,7 @@
 	"graph-ve-dialog-edit-field-graph-type": "Type de graphique",
 	"graph-ve-dialog-edit-field-raw-json": "Spécification JSON brut",
 	"graph-ve-dialog-edit-json-invalid": "Chaîne JSON non valide",
+	"graph-ve-dialog-edit-page-data": "Données",
 	"graph-ve-dialog-edit-page-general": "Général",
 	"graph-ve-dialog-edit-page-raw": "Données brutes",
 	"graph-ve-dialog-edit-title": "Edit graphique",

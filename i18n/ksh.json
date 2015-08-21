@@ -7,6 +7,8 @@
 	"graph-desc": "Mähd uß &lt;graph&gt;-Befähle udder jannze Sigge em Wikki Jraffike op dä Basis vum <i lang=\"en\" xml:lang=\"en\" title=\"Vega visualization grammar\">[http://trifacta.github.io/vega/ Vega]</i>.",
 	"graph-ve-dialog-edit-apply": "Aanwände",
 	"graph-ve-dialog-edit-cancel": "Ophühre",
+	"graph-ve-dialog-edit-page-data": "Dahte",
+	"graph-ve-dialog-edit-table-row-delete": "Donn di Kolonn ov di Schpallde fott schmiiße.",
 	"graph-ve-dialog-button-tooltip": "Dijajramm",
 	"graph-ve-vega-error": "Et <i lang=\"en\" xml:lang=\"en\" title=\"Vega visualization grammar\">Vega</i> hädd ene Fähler jefonge beim Ußjävve vun heh dämm Dijajramm.",
 	"graph-ve-vega-error-no-render": "Et <i lang=\"en\" xml:lang=\"en\" title=\"Vega visualization grammar\">Vega</i> kunnt dat Dijajramm nid ußjävve."
