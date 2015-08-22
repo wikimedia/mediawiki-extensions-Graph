@@ -5,7 +5,8 @@
 			"Mattho69",
 			"Djiboun",
 			"Macofe",
-			"Titip1995"
+			"Titip1995",
+			"Wladek92"
 		]
 	},
 	"graph-desc": "Permet aux balises &lt;graph&gt; ou aux pages complètes de devenir des graphes basés sur [http://trifacta.github.io/vega/ Vega]",
@@ -17,6 +18,7 @@
 	"graph-ve-dialog-edit-page-data": "Données",
 	"graph-ve-dialog-edit-page-general": "Général",
 	"graph-ve-dialog-edit-page-raw": "Données brutes",
+	"graph-ve-dialog-edit-table-row-delete": "Supprimer la ligne",
 	"graph-ve-dialog-edit-title": "Edit graphique",
 	"graph-ve-dialog-edit-type-area": "Graphique de zones",
 	"graph-ve-dialog-edit-type-bar": "Graphique en barres",

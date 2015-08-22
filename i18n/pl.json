@@ -7,5 +7,6 @@
 	"graph-ve-dialog-edit-apply": "Zastosuj",
 	"graph-ve-dialog-edit-cancel": "Anuluj",
 	"graph-ve-dialog-edit-json-invalid": "Nieprawidłowy ciąg znaków JSON",
+	"graph-ve-dialog-edit-page-data": "Dane",
 	"graph-ve-dialog-edit-page-raw": "Surowe dane"
 }
