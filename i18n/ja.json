@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sujiniku"
+			"Sujiniku",
+			"Otokoume"
 		]
 	},
-	"graph-ve-dialog-edit-page-data": "データ"
+	"graph-ve-dialog-edit-page-data": "データ",
+	"graph-ve-dialog-edit-table-row-delete": "行を削除します"
 }
