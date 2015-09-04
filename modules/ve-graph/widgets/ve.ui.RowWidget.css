@@ -20,6 +20,13 @@
 	width: 100%;
 }
 
+.ve-ui-rowWidget-label {
+	display: block;
+	margin-right: 5%;
+	padding-top: 0.5em;
+	width: 35%;
+}
+
 .ve-ui-rowWidget > .ve-ui-rowWidget-label {
 	float: left;
 }

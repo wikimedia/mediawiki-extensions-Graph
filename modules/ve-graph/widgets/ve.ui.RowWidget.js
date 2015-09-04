@@ -43,7 +43,7 @@ ve.ui.RowWidget = function VeUiRowWidget( config ) {
 	);
 
 	// Set up label
-	this.labelCell =  new ve.ui.BlockLabelWidget( {
+	this.labelCell = new OO.ui.LabelWidget( {
 		classes: [ 've-ui-rowWidget-label' ]
 	} );
 
