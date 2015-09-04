@@ -45,8 +45,6 @@ OO.inheritClass( ve.dm.MWGraphNode, ve.dm.MWInlineExtensionNode );
 
 ve.dm.MWGraphNode.static.name = 'mwGraph';
 
-ve.dm.MWGraphNode.static.tagName = 'graph';
-
 ve.dm.MWGraphNode.static.extensionName = 'graph';
 
 /* Events */
