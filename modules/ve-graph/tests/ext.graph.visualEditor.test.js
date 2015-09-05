@@ -363,20 +363,20 @@
 	} );
 
 	QUnit.test( 've.ce.MWGraphNode.static', 2, function ( assert ) {
-		var $testElement = $( '<div>' ),
+		var testElement = document.createElement( 'div' ),
 			renderValidTest = assert.async(),
 			renderInvalidTest = assert.async();
 
-		$( '#qunit-fixture' ).append( $testElement );
+		$( '#qunit-fixture' ).append( testElement );
 
-		ve.ce.MWGraphNode.static.vegaParseSpec( sampleSpecs.areaGraph, $testElement ).always(
+		ve.ce.MWGraphNode.static.vegaParseSpec( sampleSpecs.areaGraph, testElement ).always(
 			function () {
 				assert.ok( this.state() === 'resolved', 'Simple graph gets rendered correctly' );
 				renderValidTest();
 			}
 		);
 
-		ve.ce.MWGraphNode.static.vegaParseSpec( sampleSpecs.invalidAxesBarGraph, $testElement ).always(
+		ve.ce.MWGraphNode.static.vegaParseSpec( sampleSpecs.invalidAxesBarGraph, testElement ).always(
 			function ( failMessageKey ) {
 				assert.ok( failMessageKey === 'graph-ve-vega-error', 'Invalid graph triggers an error at rendering' );
 				renderInvalidTest();
