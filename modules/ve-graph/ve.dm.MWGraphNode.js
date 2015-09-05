@@ -8,7 +8,7 @@
  * DataModel MediaWiki graph node.
  *
  * @class
- * @extends ve.dm.MWInlineExtensionNode
+ * @extends ve.dm.MWBlockExtensionNode
  *
  * @constructor
  * @param {Object} [element]
@@ -39,23 +39,13 @@ ve.dm.MWGraphNode = function VeDmMWGraphNode() {
 
 /* Inheritance */
 
-OO.inheritClass( ve.dm.MWGraphNode, ve.dm.MWInlineExtensionNode );
+OO.inheritClass( ve.dm.MWGraphNode, ve.dm.MWBlockExtensionNode );
 
 /* Static Members */
 
 ve.dm.MWGraphNode.static.name = 'mwGraph';
 
 ve.dm.MWGraphNode.static.extensionName = 'graph';
-
-/* Events */
-
-/**
- * @event specChange
- *
- * Change when the specification object is updated
- *
- * @param {Object} The new specification object
- */
 
 /* Static Methods */
 
@@ -102,7 +92,7 @@ ve.dm.MWGraphNode.static.stringifySpec = function ( spec ) {
  * @return {string} The specification JSON string
  */
 ve.dm.MWGraphNode.prototype.getSpecString = function () {
-	return ve.dm.MWGraphNode.static.stringifySpec( this.spec );
+	return this.constructor.static.stringifySpec( this.spec );
 };
 
 /**
@@ -118,27 +108,19 @@ ve.dm.MWGraphNode.prototype.getSpec = function () {
  * Set the specificiation
  *
  * @param {Object} spec The new spec
- * @fires specChange
  */
 ve.dm.MWGraphNode.prototype.setSpec = function ( spec ) {
 	// Consolidate all falsy values to an empty object for consistency
-	spec = spec || {};
-
-	// Check if there are any actual changes
-	if ( !OO.compare( this.spec, spec ) ) {
-		this.spec = spec;
-		this.emit( 'specChange', this.spec );
-	}
+	this.spec = spec || {};
 };
 
 /**
  * Set the specification from a stringified version
  *
  * @param {string} str The new specification JSON string
- * @fires specChange
  */
 ve.dm.MWGraphNode.prototype.setSpecFromString = function ( str ) {
-	this.setSpec( ve.dm.MWGraphNode.static.parseSpecString( str ) );
+	this.setSpec( this.constructor.static.parseSpecString( str ) );
 };
 
 /**
@@ -147,7 +129,6 @@ ve.dm.MWGraphNode.prototype.setSpecFromString = function ( str ) {
  * @param {string} attributeName The attribute being updated
  * @param {Object} from The old value of the attribute
  * @param {Object} to The new value of the attribute
- * @fires specChange
  */
 ve.dm.MWGraphNode.prototype.onAttributeChange = function ( attributeName, from, to ) {
 	if ( attributeName === 'mw' ) {
