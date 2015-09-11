@@ -7,6 +7,10 @@
 		]
 	},
 	"graph-desc": "Allows &lt;graph&gt; tags or entire pages to become [http://trifacta.github.io/vega/ Vega]-based graphs",
+	"graph-category": "Pages with graphs",
+	"graph-category-desc": "The page includes a <code><nowiki><graph></nowiki></code> tag.",
+	"graph-broken-category": "Pages with broken graphs",
+	"graph-broken-category-desc": "The page includes a <code><nowiki><graph></nowiki></code> tag with invalid usage.",
 	"graph-ve-dialog-edit-apply": "Apply",
 	"graph-ve-dialog-edit-cancel": "Cancel",
 	"graph-ve-dialog-edit-field-graph-type": "Graph type",
