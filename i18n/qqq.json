@@ -8,6 +8,10 @@
 		]
 	},
 	"graph-desc": "{{desc|name=Graph|url=https://www.mediawiki.org/wiki/Extension:Graph}}",
+	"graph-category": "Name of the tracking category",
+	"graph-category-desc": "Description on [[Special:TrackingCategories]] for the {{msg-mw|graph-category}} tracking category.",
+	"graph-broken-category": "Name of the tracking category",
+	"graph-broken-category-desc": "Description on [[Special:TrackingCategories]] for the {{msg-mw|graph-broken-category}} tracking category.",
 	"graph-ve-dialog-edit-apply": "Label for the apply button in the graph editing dialog\n{{Identical|Apply}}",
 	"graph-ve-dialog-edit-cancel": "Label for the cancel button in the graph editing dialog\n{{Identical|Cancel}}",
 	"graph-ve-dialog-edit-field-graph-type": "Label for graph type",

@@ -46,6 +46,9 @@ class Singleton {
 	}
 
 	public static function finalizeParserOutput( ParserOutput $output, $isPreview ) {
+		if ( $output->getExtensionData( 'graph_specs_broken' ) ) {
+			$output->addTrackingCategory( 'graph-broken-category' );
+		}
 		$specs = $output->getExtensionData( 'graph_specs' );
 		if ( $specs !== null ) {
 			global $wgGraphImgServiceAlways, $wgGraphImgServiceUrl;
@@ -60,6 +63,7 @@ class Singleton {
 			}
 			$output->setProperty( 'graph_specs',
 				FormatJson::encode( $specs, false, FormatJson::ALL_OK ) );
+			$output->addTrackingCategory( 'graph-tracking-category' );
 		}
 	}
 
@@ -91,6 +95,7 @@ class Singleton {
 
 		$status = FormatJson::parse( $jsonText, FormatJson::TRY_FIXING | FormatJson::STRIP_COMMENTS );
 		if ( !$status->isOK() ) {
+			$parserOutput->setExtensionData( 'graph_specs_broken', true );
 			return $status->getWikiText();
 		}
 
