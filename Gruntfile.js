@@ -8,6 +8,7 @@
 module.exports = function ( grunt ) {
 	var conf = grunt.file.readJSON( 'extension.json' );
 
+	grunt.loadNpmTasks( 'grunt-contrib-csslint' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
@@ -27,6 +28,12 @@ module.exports = function ( grunt ) {
 		},
 		jscs: {
 			src: '<%= jshint.all %>'
+		},
+		csslint: {
+			options: {
+				csslintrc: '.csslintrc'
+			},
+			all: 'modules/ve-graph/**/*.css'
 		},
 		watch: {
 			files: [
@@ -49,7 +56,7 @@ module.exports = function ( grunt ) {
 		}
 	} );
 
-	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'jsonlint', 'banana' ] );
+	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'jsonlint', 'csslint', 'banana' ] );
 	grunt.registerTask( 'test', 'lint' );
 	grunt.registerTask( 'default', 'test' );
 };
