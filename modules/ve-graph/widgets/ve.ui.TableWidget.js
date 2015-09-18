@@ -59,14 +59,14 @@ ve.ui.TableWidget = function VeUiTableWidget( fields, config ) {
 	for ( i = 0, len = fields.length; i < len; i++ ) {
 		if ( !this.hideHeaders ) {
 			headerRowItems.push( new OO.ui.TextInputWidget( {
-				value: fields[i],
+				value: fields[ i ],
 				// TODO: Allow editing of fields
 				disabled: true
 			} ) );
 		}
 		if ( !this.disableInsertion ) {
 			insertionRowItems.push( new OO.ui.TextInputWidget( {
-				data: fields[i]
+				data: fields[ i ]
 			} ) );
 		}
 	}
@@ -160,7 +160,7 @@ ve.ui.TableWidget.prototype.addItems = function ( items ) {
 
 	for ( i = 0, len = items.length; i < len; i++ ) {
 		// Assign row index to every new row
-		items[i].setIndex( startingIndex + i );
+		items[ i ].setIndex( startingIndex + i );
 	}
 };
 
@@ -176,14 +176,14 @@ ve.ui.TableWidget.prototype.removeItems = function ( items ) {
 
 	// Refresh row indexes for every remaining row
 	for ( i = 0, len = rows.length; i < len; i++ ) {
-		rows[i].setIndex( i );
+		rows[ i ].setIndex( i );
 	}
 };
 
 /**
  * Set the value of a particular cell
  *
- * @param {number|string} index The row containing the cell to edit. Can be either
+ * @param {number|string} row The row containing the cell to edit. Can be either
  * the row index or a string key if one has been set for the row.
  * @param {string} field The field to edit
  * @param {string} value The new value
@@ -214,8 +214,8 @@ ve.ui.TableWidget.prototype.getRowFromKey = function ( key ) {
 
 	// TODO: Leverage OO.ui.GroupElement.getItemFromData instead of looping rows
 	for ( i = 0; i < rows.length; i++ ) {
-		if ( rows[i].getKey() === key ) {
-			return rows[i];
+		if ( rows[ i ].getKey() === key ) {
+			return rows[ i ];
 		}
 	}
 
@@ -256,7 +256,7 @@ ve.ui.TableWidget.prototype.onInsertionRowChange = function ( input, value ) {
 		// Create new data row
 		for ( i = 0, len = this.fields.length; i < len; i++ ) {
 			newInput = new OO.ui.TextInputWidget( {
-				data: this.fields[i],
+				data: this.fields[ i ],
 				// FIXME: Allow other insertion validation patterns via a config property
 				validate: ve.ui.TableWidget.static.patterns.validate,
 				inputFilter: self.filterCellInput
@@ -264,7 +264,7 @@ ve.ui.TableWidget.prototype.onInsertionRowChange = function ( input, value ) {
 
 			// If this is the field being changed, set its value to the new input
 			// and tag it so we can focus it once it's added to the table
-			if ( input.getData() === this.fields[i] ) {
+			if ( input.getData() === this.fields[ i ] ) {
 				inputToFocus = newInput;
 			}
 
@@ -309,5 +309,5 @@ ve.ui.TableWidget.prototype.onRowDelete = function ( row ) {
  */
 ve.ui.TableWidget.prototype.filterCellInput = function ( value ) {
 	var matches = value.match( ve.ui.TableWidget.static.patterns.filter );
-	return ( Array.isArray( matches ) ) ? matches[0] : '';
+	return ( Array.isArray( matches ) ) ? matches[ 0 ] : '';
 };

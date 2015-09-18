@@ -49,10 +49,10 @@
 		$content.find( '.mw-wiki-graph' ).each( function () {
 			var graphId = $( this ).data( 'graph-id' ),
 				el = this;
-			if ( !specs[graphId] ) {
+			if ( !specs[ graphId ] ) {
 				mw.log.warn( graphId );
 			} else {
-				vg.parse.spec( specs[graphId], function ( chart ) {
+				vg.parse.spec( specs[ graphId ], function ( chart ) {
 					if ( chart ) {
 						chart( { el: el } ).update();
 					}

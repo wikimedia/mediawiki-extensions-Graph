@@ -57,7 +57,7 @@ ve.ce.MWGraphNode.static.vegaParseSpec = function ( spec, element ) {
 				// HACK: If canvas is blank, this means Vega didn't render properly.
 				// Once Vega allows for proper rendering validation, this should be
 				// swapped for a validation check.
-				canvasNode = element.children[0].children[0];
+				canvasNode = element.children[ 0 ].children[ 0 ];
 				if ( node.isCanvasBlank( canvasNode ) ) {
 					deferred.reject( 'graph-ve-vega-error-no-render' );
 				} else {
@@ -102,7 +102,7 @@ ve.ce.MWGraphNode.prototype.update = function () {
 	// Clear element
 	this.$element.empty();
 
-	this.constructor.static.vegaParseSpec( this.getModel().getSpec(), this.$element[0] ).then(
+	this.constructor.static.vegaParseSpec( this.getModel().getSpec(), this.$element[ 0 ] ).then(
 		null,
 		function ( failMessageKey ) {
 			node.$element.text( ve.msg( failMessageKey ) );

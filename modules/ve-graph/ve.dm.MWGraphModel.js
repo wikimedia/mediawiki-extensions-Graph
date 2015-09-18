@@ -113,7 +113,7 @@ ve.dm.MWGraphModel.static.updateSpec = function ( spec, params ) {
 
 	// Remove undefined properties from spec
 	for ( i = 0; i < undefinedProperties.length; i++ ) {
-		undefinedProperty = undefinedProperties[i].split( '.' );
+		undefinedProperty = undefinedProperties[ i ].split( '.' );
 		ve.dm.MWGraphModel.static.removeProperty( spec, $.extend( [], undefinedProperty ) );
 		ve.dm.MWGraphModel.static.removeProperty( params, $.extend( [], undefinedProperty ) );
 	}
@@ -131,20 +131,22 @@ ve.dm.MWGraphModel.static.updateSpec = function ( spec, params ) {
  * @private
  * @param {Object} obj The object to iterate
  * @param {string} [stack] The parent property of the root property of obj. Used internally for recursion.
- * @param {array} [list] The list of properties to return. Used internally for recursion.
- * @return {array} The list of properties to return.
+ * @param {string[]} [list] The list of properties to return. Used internally for recursion.
+ * @return {string[]} The list of properties to return.
  */
 ve.dm.MWGraphModel.static.getUndefinedProperties = function ( obj, stack, list ) {
+	var property;
+
 	list = list || [];
 
 	// Append . to the stack if it's defined
 	stack = ( stack === undefined ) ? '' : stack + '.';
 
-	for ( var property in obj ) {
+	for ( property in obj ) {
 		if ( obj.hasOwnProperty( property ) ) {
-			if ( $.type( obj[property] ) === 'object' || $.type( obj[property] ) === 'array' ) {
-				ve.dm.MWGraphModel.static.getUndefinedProperties( obj[property], stack + property, list );
-			} else if ( obj[property] === undefined ) {
+			if ( $.type( obj[ property ] ) === 'object' || $.type( obj[ property ] ) === 'array' ) {
+				ve.dm.MWGraphModel.static.getUndefinedProperties( obj[ property ], stack + property, list );
+			} else if ( obj[ property ] === undefined ) {
 				list.push( stack + property );
 			}
 		}
@@ -283,7 +285,7 @@ ve.dm.MWGraphModel.prototype.getOriginalSpecString = function () {
  * @return {string} The graph type
  */
 ve.dm.MWGraphModel.prototype.getGraphType = function () {
-	var markType = this.spec.marks[0].type;
+	var markType = this.spec.marks[ 0 ].type;
 
 	switch ( markType ) {
 		case 'area':
@@ -301,17 +303,17 @@ ve.dm.MWGraphModel.prototype.getGraphType = function () {
  * Get the fields for a data pipeline
  *
  * @param {number} [id] The pipeline's id
- * @returns {Object} The fields for the pipeline
+ * @return {string[]} The fields for the pipeline
  */
 ve.dm.MWGraphModel.prototype.getPipelineFields = function ( id ) {
-	return Object.keys( this.spec.data[ id ].values[0] );
+	return Object.keys( this.spec.data[ id ].values[ 0 ] );
 };
 
 /**
  * Get a data pipeline
  *
  * @param {number} [id] The pipeline's id
- * @returns {Object} The data pipeline within the spec
+ * @return {Object} The data pipeline within the spec
  */
 ve.dm.MWGraphModel.prototype.getPipeline = function ( id ) {
 	return this.spec.data[ id ];
@@ -326,10 +328,10 @@ ve.dm.MWGraphModel.prototype.getPipeline = function ( id ) {
  * @fires specChange
  */
 ve.dm.MWGraphModel.prototype.setEntryField = function ( entry, field, value ) {
-	if ( this.spec.data[0].values[ entry ] === undefined ) {
-		this.spec.data[0].values[ entry ] = this.buildNewEntry( 0 );
+	if ( this.spec.data[ 0 ].values[ entry ] === undefined ) {
+		this.spec.data[ 0 ].values[ entry ] = this.buildNewEntry( 0 );
 	}
-	this.spec.data[0].values[ entry ][ field ] = value;
+	this.spec.data[ 0 ].values[ entry ][ field ] = value;
 
 	this.emit( 'specChange', this.spec );
 };
@@ -339,7 +341,7 @@ ve.dm.MWGraphModel.prototype.setEntryField = function ( entry, field, value ) {
  *
  * @private
  * @param {number} [pipelineId] The ID of the pipeline the entry is intended for
- * @returns {Object} The new entry
+ * @return {Object} The new entry
  */
 ve.dm.MWGraphModel.prototype.buildNewEntry = function ( pipelineId ) {
 	var fields = this.getPipelineFields( pipelineId ),
@@ -347,7 +349,7 @@ ve.dm.MWGraphModel.prototype.buildNewEntry = function ( pipelineId ) {
 		i;
 
 	for ( i = 0; i < fields.length; i++ ) {
-		newEntry[ fields[i] ] = '';
+		newEntry[ fields[ i ] ] = '';
 	}
 
 	return newEntry;
@@ -361,7 +363,7 @@ ve.dm.MWGraphModel.prototype.buildNewEntry = function ( pipelineId ) {
  */
 ve.dm.MWGraphModel.prototype.removeEntry = function ( index ) {
 	// FIXME: Support multiple pipelines
-	this.spec.data[0].values.splice( index, 1 );
+	this.spec.data[ 0 ].values.splice( index, 1 );
 
 	this.emit( 'specChange', this.spec );
 };

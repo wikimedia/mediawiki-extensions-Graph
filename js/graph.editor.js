@@ -2,15 +2,16 @@
 	var oldContent = '';
 	mw.hook( 'codeEditor.configure' ).add( function ( session ) {
 		function refreshGraph() {
-			try {
-				var spec,
-					el = $( '.mw-wiki-graph' ).get( 0 ),
-					content = session.getValue();
+			var spec,
+				el = $( '.mw-wiki-graph' ).get( 0 ),
+				content = session.getValue();
 
-				if ( typeof vg === 'undefined' || oldContent === content ) {
-					return;
-				}
-				oldContent = content;
+			if ( typeof vg === 'undefined' || oldContent === content ) {
+				return;
+			}
+			oldContent = content;
+
+			try {
 
 				spec = $.parseJSON( content );
 				if ( spec === null ) {
