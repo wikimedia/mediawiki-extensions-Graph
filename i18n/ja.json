@@ -5,6 +5,10 @@
 			"Otokoume"
 		]
 	},
+	"graph-tracking-category": "グラフのあるページ",
+	"graph-tracking-category-desc": "そのページは <code><nowiki><graph></nowiki></code> タグを含んでいます。",
+	"graph-broken-category": "破損したグラフのあるページ",
+	"graph-broken-category-desc": "そのページは <code><nowiki><graph></nowiki></code> タグを含んでいます、無効な使用法と共に。",
 	"graph-ve-dialog-edit-page-data": "データ",
 	"graph-ve-dialog-edit-table-row-delete": "行を削除します"
 }

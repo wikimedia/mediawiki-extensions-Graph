@@ -5,6 +5,10 @@
 		]
 	},
 	"graph-desc": "Mähd uß &lt;graph&gt;-Befähle udder jannze Sigge em Wikki Jraffike op dä Basis vum <i lang=\"en\" xml:lang=\"en\" title=\"Vega visualization grammar\">[http://trifacta.github.io/vega/ Vega]</i>.",
+	"graph-tracking-category": "Sigge met Dijajramme.",
+	"graph-tracking-category-desc": "en dä Sigg es ene <code><nowiki><graph></nowiki></code> Befähl dren.",
+	"graph-broken-category": "Sigge met kappodde Jraffike",
+	"graph-broken-category-desc": "en dä Sigg es ene <code><nowiki><graph></nowiki></code> Befähl dren, wi hä ävver nit jebruch wähde kann.",
 	"graph-ve-dialog-edit-apply": "Aanwände",
 	"graph-ve-dialog-edit-cancel": "Ophühre",
 	"graph-ve-dialog-edit-page-data": "Dahte",

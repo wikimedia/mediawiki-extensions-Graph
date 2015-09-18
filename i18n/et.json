@@ -5,6 +5,10 @@
 		]
 	},
 	"graph-desc": "Võimaldab teha &lt;graph&gt;-siltidest või tervetest lehekülgedest [http://trifacta.github.io/vega/ Vega]-põhiseid diagramme.",
+	"graph-tracking-category": "Diagrammidega leheküljed",
+	"graph-tracking-category-desc": "Leheküljel on silt <code><nowiki><graph></nowiki></code>.",
+	"graph-broken-category": "Katkiste diagrammidega leheküljed",
+	"graph-broken-category-desc": "Leheküljel on kasutatud silti <code><nowiki><graph></nowiki></code> vigaselt.",
 	"graph-ve-dialog-edit-apply": "Rakenda",
 	"graph-ve-dialog-edit-cancel": "Loobu",
 	"graph-ve-dialog-edit-field-graph-type": "Diagrammitüüp",

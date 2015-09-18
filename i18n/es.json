@@ -6,9 +6,15 @@
 		]
 	},
 	"graph-desc": "Permite transformar etiquetas &lt;graph&gt; o páginas enteras en gráficos basados en [http://trifacta.github.io/vega/ Vega]",
+	"graph-tracking-category": "Páginas con gráficos",
+	"graph-tracking-category-desc": "La página incluye una etiqueta <code><nowiki><graph></nowiki></code>.",
+	"graph-broken-category": "Páginas con gráficos rotos",
+	"graph-broken-category-desc": "La página incluye una etiqueta <code><nowiki><graph></nowiki></code> con uso no válido.",
 	"graph-ve-dialog-edit-apply": "Aplicar",
 	"graph-ve-dialog-edit-cancel": "Cancelar",
 	"graph-ve-dialog-edit-field-graph-type": "Tipo de gráfico",
+	"graph-ve-dialog-edit-field-raw-json": "Especificación JSON en bruto",
+	"graph-ve-dialog-edit-json-invalid": "Cadena JSON no válida",
 	"graph-ve-dialog-edit-page-data": "Datos",
 	"graph-ve-dialog-edit-page-general": "General",
 	"graph-ve-dialog-edit-page-raw": "Datos sin procesar",
@@ -20,5 +26,7 @@
 	"graph-ve-dialog-edit-type-unknown": "Tipo de gráfico desconocido",
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "No se admite este tipo de gráfico. Cualquier modificación que se le haga puede arruinar su visualización. Edita el gráfico mediante la especificación de datos sin procesar en la pestaña '{{int:graph-ve-dialog-edit-page-raw}}'.",
 	"graph-ve-dialog-button-tooltip": "Gráfico",
-	"graph-ve-no-spec": "No se encontró ninguna especificación de gráficos"
+	"graph-ve-no-spec": "No se encontró ninguna especificación de gráficos",
+	"graph-ve-vega-error": "Vega ha encontrado un error al representar este gráfico",
+	"graph-ve-vega-error-no-render": "Vega fue incapaz de representar este gráfico"
 }

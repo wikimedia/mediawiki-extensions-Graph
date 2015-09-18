@@ -4,6 +4,8 @@
 			"Chrumps"
 		]
 	},
+	"graph-tracking-category-desc": "Strona zawiera znacznik <code><nowiki><graph></nowiki></code>.",
+	"graph-broken-category-desc": "Strona zawiera nieprawidłowo zastosowany znacznik <code><nowiki><graph></nowiki></code>.",
 	"graph-ve-dialog-edit-apply": "Zastosuj",
 	"graph-ve-dialog-edit-cancel": "Anuluj",
 	"graph-ve-dialog-edit-json-invalid": "Nieprawidłowy ciąg znaków JSON",

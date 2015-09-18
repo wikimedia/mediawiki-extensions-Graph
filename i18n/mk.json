@@ -5,6 +5,10 @@
 		]
 	},
 	"graph-desc": "Одозможува ознаки &lt;graph&gt; или цели страници да станат графикони на основа на [http://trifacta.github.io/vega/ Vega]",
+	"graph-tracking-category": "Страници со графикони",
+	"graph-tracking-category-desc": "Страницава содржи ознака <code><nowiki><graph></nowiki></code>.",
+	"graph-broken-category": "Страници со расипани графикони",
+	"graph-broken-category-desc": "Страницава содржи ознака <code><nowiki><graph></nowiki></code> која се употребува неправилно.",
 	"graph-ve-dialog-edit-apply": "Примени",
 	"graph-ve-dialog-edit-cancel": "Откажи",
 	"graph-ve-dialog-edit-field-graph-type": "Вид на графикон",
