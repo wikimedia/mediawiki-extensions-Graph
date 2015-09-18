@@ -201,8 +201,8 @@ ve.ui.RowWidget.prototype.setValue = function ( field, value ) {
 	var i, cells = this.getItems();
 
 	for ( i = 0; i < cells.length; i++ ) {
-		if ( cells[i].getData() === field ) {
-			cells[i].setValue( value );
+		if ( cells[ i ].getData() === field ) {
+			cells[ i ].setValue( value );
 		}
 	}
 };
@@ -215,7 +215,7 @@ ve.ui.RowWidget.prototype.reset = function () {
 		cells = this.getItems();
 
 	for ( i = 0, len = cells.length; i < len; i++ ) {
-		cells[i].setValue( '' );
+		cells[ i ].setValue( '' );
 	}
 };
 

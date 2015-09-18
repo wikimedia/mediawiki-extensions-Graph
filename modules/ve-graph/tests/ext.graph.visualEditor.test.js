@@ -2,10 +2,10 @@
  * VisualEditor MWGraphNode tests.
  */
 
+QUnit.module( 'ext.graph.visualEditor' );
+
 ( function () {
 	'use strict';
-
-	QUnit.module( 'ext.graph.visualEditor' );
 
 	/* Sample specs */
 
@@ -355,11 +355,11 @@
 				'<div typeof="mw:Extension/graph"></div>'
 			),
 			documentNode = view.getDocument().getDocumentNode(),
-			node = documentNode.children[0].children[0];
+			node = documentNode.children[ 0 ].children[ 0 ];
 
 		assert.equal( node.type, 'mwGraph', 'Parsoid HTML graphs are properly recognized as graph nodes' );
 
-		assert.equal( $( node.$element[0] ).text(), ve.msg( 'graph-ve-no-spec' ), 'A null spec displays an error message' );
+		assert.equal( $( node.$element[ 0 ] ).text(), ve.msg( 'graph-ve-no-spec' ), 'A null spec displays an error message' );
 	} );
 
 	QUnit.test( 've.ce.MWGraphNode.static', 2, function ( assert ) {

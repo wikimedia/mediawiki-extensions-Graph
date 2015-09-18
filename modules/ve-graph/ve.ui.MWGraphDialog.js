@@ -266,7 +266,7 @@ ve.ui.MWGraphDialog.prototype.updateDataPage = function () {
 	// Iterate over each data entry
 	rows = [];
 	for ( i = 0; i < pipeline.values.length; i++ ) {
-		entry = pipeline.values[i];
+		entry = pipeline.values[ i ];
 		row = new ve.ui.RowWidget();
 		inputs = [];
 
@@ -274,7 +274,7 @@ ve.ui.MWGraphDialog.prototype.updateDataPage = function () {
 			if ( entry.hasOwnProperty( field ) ) {
 				inputs.push( new OO.ui.TextInputWidget( {
 					data: field,
-					value: entry[field],
+					value: entry[ field ],
 					validate: /^[0-9]+$/,
 					inputFilter: this.dataTable.filterCellInput
 				} ) );
@@ -348,6 +348,7 @@ ve.ui.MWGraphDialog.prototype.onGraphTypeInputChange = function ( value ) {
 
 /**
  * React to data input change
+ *
  * @param {number} index The index of the entry updated
  * @param {string} key The key of the entry updated
  * @param {string} field The field that changed
@@ -361,6 +362,7 @@ ve.ui.MWGraphDialog.prototype.onDataInputChange = function ( index, key, field, 
 
 /**
  * React to data input row deletion
+ *
  * @param {number} [rowIndex] The index of the row deleted
  */
 ve.ui.MWGraphDialog.prototype.onDataInputRowDelete = function ( rowIndex ) {
