@@ -79,5 +79,9 @@
 		"GraphImgServiceAlways": false,
 		"GraphImgServiceUrl": false
 	},
+	"TrackingCategories": [
+		"graph-tracking-category",
+		"graph-broken-category"
+	],
 	"manifest_version": 1
 }

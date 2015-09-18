@@ -26,7 +26,8 @@ class Singleton {
 	}
 
 	public static function onParserAfterParse( Parser $parser ) {
-		self::finalizeParserOutput( $parser->getOutput(), $parser->getOptions()->getIsPreview() );
+		self::finalizeParserOutput( $parser->getOutput(), $parser->getTitle(),
+			$parser->getOptions()->getIsPreview() );
 		return true;
 	}
 
@@ -45,9 +46,9 @@ class Singleton {
 			$parser->getOutput(), $parser->getOptions()->getIsPreview() );
 	}
 
-	public static function finalizeParserOutput( ParserOutput $output, $isPreview ) {
+	public static function finalizeParserOutput( ParserOutput $output, $title, $isPreview ) {
 		if ( $output->getExtensionData( 'graph_specs_broken' ) ) {
-			$output->addTrackingCategory( 'graph-broken-category' );
+			$output->addTrackingCategory( 'graph-broken-category', $title );
 		}
 		$specs = $output->getExtensionData( 'graph_specs' );
 		if ( $specs !== null ) {
@@ -63,7 +64,7 @@ class Singleton {
 			}
 			$output->setProperty( 'graph_specs',
 				FormatJson::encode( $specs, false, FormatJson::ALL_OK ) );
-			$output->addTrackingCategory( 'graph-tracking-category' );
+			$output->addTrackingCategory( 'graph-tracking-category', $title );
 		}
 	}
 
@@ -168,6 +169,6 @@ class Content extends JCContent {
 		$output->setText( $html );
 
 		// Since we invoke parser manually, the ParserAfterParse never gets called, do it manually
-		Singleton::finalizeParserOutput( $output, $options->getIsPreview() );
+		Singleton::finalizeParserOutput( $output, $title, $options->getIsPreview() );
 	}
 }
