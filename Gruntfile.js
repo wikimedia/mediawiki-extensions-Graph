@@ -35,7 +35,12 @@ module.exports = function ( grunt ) {
 			],
 			tasks: 'lint'
 		},
-		banana: conf.MessagesDirs,
+		banana: {
+			options: {
+				disallowDuplicateTranslations: false
+			},
+			all: conf.MessagesDirs.Graph
+		},
 		jsonlint: {
 			all: [
 				'**/*.json',
