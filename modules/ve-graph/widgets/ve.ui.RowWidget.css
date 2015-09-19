@@ -1,18 +1,3 @@
-/**
- * HACK: Quick fix for index layout reacting weird when nested inside a page layout
- * @see https://phabricator.wikimedia.org/T101724
- * @see https://phabricator.wikimedia.org/T101729
- */
-.oo-ui-pageLayout > .oo-ui-menuLayout.oo-ui-menuLayout-showMenu.oo-ui-indexLayout > .oo-ui-menuLayout-content {
-	top: 3em !important;
-	z-index: 1;
-}
-
-.oo-ui-indexLayout-stackLayout > .oo-ui-panelLayout {
-	margin-bottom: 1.5em;
-}
-/* End fixes */
-
 .ve-ui-rowWidget {
 	clear: left;
 	float: left;
