@@ -2,9 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Vitorvicentevalente",
-			"Macofe"
+			"Macofe",
+			"Jkb8"
 		]
 	},
+	"graph-broken-category": "Páginas com gráficos quebrados",
+	"graph-broken-category-desc": "A página inclui uma etiqueta <code><nowiki><graph></nowiki></code> com uso não válido.",
 	"graph-ve-dialog-edit-apply": "Aplicar",
 	"graph-ve-dialog-edit-cancel": "Cancelar",
 	"graph-ve-dialog-edit-page-data": "Dados",
