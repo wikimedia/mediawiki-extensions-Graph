@@ -6,10 +6,15 @@
 			"Djiboun",
 			"Macofe",
 			"Titip1995",
-			"Wladek92"
+			"Wladek92",
+			"Orlodrim"
 		]
 	},
 	"graph-desc": "Permet aux balises &lt;graph&gt; ou aux pages complètes de devenir des graphes basés sur [http://trifacta.github.io/vega/ Vega]",
+	"graph-tracking-category": "Pages avec des graphiques",
+	"graph-tracking-category-desc": "La page contient une balise <code><nowiki><graph></nowiki></code>.",
+	"graph-broken-category": "Pages avec des graphiques contenant des erreurs",
+	"graph-broken-category-desc": "La page utilise la balise <code><nowiki><graph></nowiki></code> avec un contenu invalide.",
 	"graph-ve-dialog-edit-apply": "Appliquer",
 	"graph-ve-dialog-edit-cancel": "Annuler",
 	"graph-ve-dialog-edit-field-graph-type": "Type de graphique",
@@ -19,7 +24,7 @@
 	"graph-ve-dialog-edit-page-general": "Général",
 	"graph-ve-dialog-edit-page-raw": "Données brutes",
 	"graph-ve-dialog-edit-table-row-delete": "Supprimer la ligne",
-	"graph-ve-dialog-edit-title": "Edit graphique",
+	"graph-ve-dialog-edit-title": "Éditer le graphique",
 	"graph-ve-dialog-edit-type-area": "Graphique de zones",
 	"graph-ve-dialog-edit-type-bar": "Graphique en barres",
 	"graph-ve-dialog-edit-type-line": "Graphique en lignes",

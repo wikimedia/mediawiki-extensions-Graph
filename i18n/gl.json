@@ -6,6 +6,9 @@
 		]
 	},
 	"graph-desc": "Permite que as etiquetas &lt;graph&gt; ou páxinas enteiras se convirtan en gráficos basados en [http://trifacta.github.io/vega/ Vega]",
+	"graph-tracking-category": "Páxinas con gráficos",
+	"graph-broken-category": "Páxinas con gráficos rotos",
+	"graph-broken-category-desc": "A páxina inclúe unha etiqueta <code><nowiki><graph></nowiki></code> con uso non válido.",
 	"graph-ve-dialog-edit-apply": "Aplicar",
 	"graph-ve-dialog-edit-cancel": "Cancelar",
 	"graph-ve-dialog-edit-field-graph-type": "Tipo de gráfico",
