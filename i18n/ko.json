@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"SeoJeongHo"
+			"SeoJeongHo",
+			"Hwangjy9"
 		]
 	},
-	"graph-ve-dialog-edit-cancel": "취소"
+	"graph-ve-dialog-edit-cancel": "취소",
+	"graph-ve-dialog-edit-title": "그래프 편집",
+	"graph-ve-dialog-edit-type-bar": "막대그래프",
+	"graph-ve-dialog-edit-type-line": "선 그래프",
+	"graph-ve-dialog-button-tooltip": "그래프"
 }

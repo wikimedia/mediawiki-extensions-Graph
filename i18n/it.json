@@ -8,6 +8,7 @@
 		]
 	},
 	"graph-desc": "Permette il tag &lt;graph> o intere pagine di diventare grafici basati su [http://trifacta.github.io/vega/ Vega]",
+	"graph-broken-category-desc": "La pagina include un tag <code><nowiki><graph></nowiki></code> con utilizzo non valido.",
 	"graph-ve-dialog-edit-apply": "Applica",
 	"graph-ve-dialog-edit-cancel": "Annulla",
 	"graph-ve-dialog-edit-title": "Modifica grafico",

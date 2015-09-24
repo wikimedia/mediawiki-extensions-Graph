@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Okras"
+			"Okras",
+			"INS Pirat"
 		]
 	},
-	"graph-desc": "Позволяет тегам &lt;graph&gt; или целым страницам становиться графами на основе [http://trifacta.github.io/vega/ Vega]"
+	"graph-desc": "Позволяет тегам &lt;graph&gt; или целым страницам становиться графами на основе [http://trifacta.github.io/vega/ Vega]",
+	"graph-broken-category-desc": "На этой странице неверно используется тег <code><nowiki><graph></nowiki></code>."
 }
