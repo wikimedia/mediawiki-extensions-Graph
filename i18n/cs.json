@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mormegil"
+			"Mormegil",
+			"Matěj Suchánek"
 		]
 	},
 	"graph-desc": "Vytváří ze značek &lt;graph&gt; nebo celých stránek grafy pomocí [http://trifacta.github.io/vega/ Vega]",
+	"graph-tracking-category": "Stránky s grafy",
+	"graph-broken-category": "Stránky s rozbitými grafy",
 	"graph-ve-no-spec": "Nenalezena žádná specifikace grafu"
 }
