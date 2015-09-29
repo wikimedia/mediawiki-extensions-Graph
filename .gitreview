@@ -2,6 +2,6 @@
 host=gerrit.wikimedia.org
 port=29418
 project=mediawiki/extensions/Graph.git
-defaultbranch=master
+defaultbranch=REL1_26
 defaultrebase=0
 
