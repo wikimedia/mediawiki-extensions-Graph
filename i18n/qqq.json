@@ -44,5 +44,8 @@
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "Warning label about unsupported graph types",
 	"graph-ve-no-spec": "Label to display on a graph node when no spec is found",
 	"graph-ve-vega-error": "Label to display on a graph node when Vega encounters an unknown error",
-	"graph-ve-vega-error-no-render": "Label to display on a graph node when Vega is unable to render"
+	"graph-ve-vega-error-no-render": "Label to display on a graph node when Vega is unable to render",
+	"graph-switch-button": "Button to turn the static graph image into an interactive graph",
+	"graph-loading": "Label to indicate when the interactive graph is loading",
+	"graph-loading-done": "Label to indicate when the interactive graph has loaded"
 }
