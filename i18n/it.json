@@ -4,10 +4,13 @@
 			"Beta16",
 			"Alexmar983",
 			"Macofe",
-			"Statix64"
+			"Statix64",
+			"Lucas2"
 		]
 	},
 	"graph-desc": "Permette il tag &lt;graph> o intere pagine di diventare grafici basati su [http://trifacta.github.io/vega/ Vega]",
+	"graph-tracking-category": "Pagine con grafici",
+	"graph-broken-category": "Pagine con errori nei grafici",
 	"graph-broken-category-desc": "La pagina include un tag <code><nowiki><graph></nowiki></code> con utilizzo non valido.",
 	"graph-ve-dialog-edit-apply": "Applica",
 	"graph-ve-dialog-edit-cancel": "Annulla",
