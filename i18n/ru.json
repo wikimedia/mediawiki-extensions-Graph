@@ -2,9 +2,39 @@
 	"@metadata": {
 		"authors": [
 			"Okras",
-			"INS Pirat"
+			"INS Pirat",
+			"Putnik"
 		]
 	},
 	"graph-desc": "Позволяет тегам &lt;graph&gt; или целым страницам становиться графами на основе [http://trifacta.github.io/vega/ Vega]",
-	"graph-broken-category-desc": "На этой странице неверно используется тег <code><nowiki><graph></nowiki></code>."
+	"graph-tracking-category": "Страницы с графиками",
+	"graph-tracking-category-desc": "Страница включает в себя тег <code><nowiki><graph></nowiki></code>.",
+	"graph-broken-category": "Страницы со сломанными графиками",
+	"graph-broken-category-desc": "На этой странице неверно используется тег <code><nowiki><graph></nowiki></code>.",
+	"graph-ve-dialog-edit-apply": "Применить",
+	"graph-ve-dialog-edit-cancel": "Отмена",
+	"graph-ve-dialog-edit-field-graph-type": "Тип графа",
+	"graph-ve-dialog-edit-field-raw-json": "Исходный код в JSON",
+	"graph-ve-dialog-edit-json-invalid": "Некорректная JSON-строка",
+	"graph-ve-dialog-edit-padding-auto": "Автоматический отступ",
+	"graph-ve-dialog-edit-padding-fieldset": "Отступ",
+	"graph-ve-dialog-edit-padding-table-bottom": "Снизу",
+	"graph-ve-dialog-edit-padding-table-left": "Слева",
+	"graph-ve-dialog-edit-padding-table-right": "Справа",
+	"graph-ve-dialog-edit-padding-table-top": "Сверху",
+	"graph-ve-dialog-edit-padding-table-unit": "Пиксели",
+	"graph-ve-dialog-edit-page-data": "Данные",
+	"graph-ve-dialog-edit-page-general": "Общие",
+	"graph-ve-dialog-edit-page-raw": "Исходные данные",
+	"graph-ve-dialog-edit-table-row-delete": "Удалить строку",
+	"graph-ve-dialog-edit-title": "Редактировать граф",
+	"graph-ve-dialog-edit-type-area": "Площадной график",
+	"graph-ve-dialog-edit-type-bar": "Гистограмма",
+	"graph-ve-dialog-edit-type-line": "Линейный график",
+	"graph-ve-dialog-edit-type-unknown": "Неизвестный тип графика",
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "Тип этого графика не поддерживается, и вносимые в них изменения могут сломать его отображение. Пожалуйста, отредактируйте график через указание исходных данных на вкладке «{{int:graph-ve-dialog-edit-page-raw}}».",
+	"graph-ve-dialog-button-tooltip": "График",
+	"graph-ve-no-spec": "Не найдена спецификация графика",
+	"graph-ve-vega-error": "В Vega произошла ошибка при отрисовке этого графика",
+	"graph-ve-vega-error-no-render": "Vega был не в состоянии отрисовать этот график"
 }
