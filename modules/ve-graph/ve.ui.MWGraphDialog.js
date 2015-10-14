@@ -67,7 +67,8 @@ ve.ui.MWGraphDialog.prototype.getBodyHeight = function () {
  * @inheritdoc
  */
 ve.ui.MWGraphDialog.prototype.initialize = function () {
-	var graphTypeField, jsonTextField;
+	var graphTypeField, paddingAutoField, paddingFieldset,
+		jsonTextField;
 
 	// Parent method
 	ve.ui.MWGraphDialog.super.prototype.initialize.call( this );
@@ -86,7 +87,7 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 		this.generalPage, this.dataPage, this.rawPage
 	] );
 
-	/* Graph type page */
+	/* General page */
 	this.generalPage.getOutlineItem()
 		.setIcon( 'parameter' )
 		.setLabel( ve.msg( 'graph-ve-dialog-edit-page-general' ) );
@@ -101,9 +102,72 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 		label: ve.msg( 'graph-ve-dialog-edit-unknown-graph-type-warning' )
 	} );
 
+	this.paddingAutoCheckbox = new OO.ui.CheckboxInputWidget( {
+		value: 'paddingAuto'
+	} );
+
+	paddingAutoField = new OO.ui.FieldLayout( this.paddingAutoCheckbox, {
+		label: ve.msg( 'graph-ve-dialog-edit-padding-auto' )
+	} );
+
+	this.paddingTable = new ve.ui.TableWidget( [ ve.msg( 'graph-ve-dialog-edit-padding-table-unit' ) ], {
+		items: ( function ( rowData ) {
+				var rows = [],
+					row, i;
+
+				for ( i = 0; i < rowData.length; i++ ) {
+					row = new ve.ui.RowWidget( {
+						key: rowData[ i ].key,
+						label: rowData[ i ].label,
+						deletable: false
+					} );
+
+					row.addItems( [
+						new OO.ui.TextInputWidget( {
+							data: 0,
+							validate: /^[0-9]+$/
+						} )
+					] );
+
+					rows.push( row );
+				}
+
+				return rows;
+			}( [
+				{
+					key: 'top',
+					label: ve.msg( 'graph-ve-dialog-edit-padding-table-top' )
+				},
+				{
+					key: 'bottom',
+					label: ve.msg( 'graph-ve-dialog-edit-padding-table-bottom' )
+				},
+				{
+					key: 'left',
+					label: ve.msg( 'graph-ve-dialog-edit-padding-table-left' )
+				},
+				{
+					key: 'right',
+					label: ve.msg( 'graph-ve-dialog-edit-padding-table-right' )
+				}
+			] ) ),
+		disableInsertion: true,
+		hideHeaders: true
+	} );
+
+	paddingFieldset = new OO.ui.FieldsetLayout( {
+		label: ve.msg( 'graph-ve-dialog-edit-padding-fieldset' )
+	} );
+
+	paddingFieldset.addItems( [
+		paddingAutoField,
+		this.paddingTable
+	] );
+
 	this.generalPage.$element.append(
 		graphTypeField.$element,
-		this.unknownGraphTypeWarningLabel.$element
+		this.unknownGraphTypeWarningLabel.$element,
+		paddingFieldset.$element
 	);
 
 	/* Data page */
@@ -135,9 +199,16 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 	this.rawPage.$element.append( jsonTextField.$element );
 
 	// Events
-	this.jsonTextInput.connect( this, { change: 'onSpecStringInputChange' } );
-	this.graphTypeDropdownInput.connect( this, { change: 'onGraphTypeInputChange' } );
 	this.rootLayout.connect( this, { set: 'onRootLayoutSet' } );
+
+	this.graphTypeDropdownInput.connect( this, { change: 'onGraphTypeInputChange' } );
+
+	this.paddingAutoCheckbox.connect( this, { change: 'onPaddingAutoCheckboxChange' } );
+	this.paddingTable.connect( this, {
+		change: 'onPaddingTableChange'
+	} );
+
+	this.jsonTextInput.connect( this, { change: 'onSpecStringInputChange' } );
 
 	// Initialization
 	this.$body.append( this.rootLayout.$element );
@@ -213,7 +284,9 @@ ve.ui.MWGraphDialog.prototype.getActionProcess = function ( action ) {
  * @private
  */
 ve.ui.MWGraphDialog.prototype.setupFormValues = function () {
-	var graphType = this.graphModel.getGraphType(),
+	var padding,
+		paddings = this.graphModel.getPaddingObject(),
+		graphType = this.graphModel.getGraphType(),
 		options = [
 			{
 				data: 'bar',
@@ -241,6 +314,14 @@ ve.ui.MWGraphDialog.prototype.setupFormValues = function () {
 	this.graphTypeDropdownInput
 		.setOptions( options )
 		.setValue( graphType );
+
+	// Padding
+	this.paddingAutoCheckbox.setSelected( this.graphModel.isPaddingAutomatic() );
+	for ( padding in paddings ) {
+		if ( paddings.hasOwnProperty( padding ) ) {
+			this.paddingTable.setValue( padding, 0, paddings[ padding ] );
+		}
+	}
 
 	// Data
 	this.updateDataPage();
@@ -347,7 +428,7 @@ ve.ui.MWGraphDialog.prototype.onGraphTypeInputChange = function ( value ) {
 };
 
 /**
- * React to data input change
+ * Handle data input changes
  *
  * @param {number} index The index of the entry updated
  * @param {string} key The key of the entry updated
@@ -361,7 +442,7 @@ ve.ui.MWGraphDialog.prototype.onDataInputChange = function ( index, key, field, 
 };
 
 /**
- * React to data input row deletion
+ * Handle data input row deletions
  *
  * @param {number} [rowIndex] The index of the row deleted
  */
@@ -385,12 +466,50 @@ ve.ui.MWGraphDialog.prototype.onRootLayoutSet = function ( page ) {
 };
 
 /**
+ * Handle auto padding mode changes
+ *
+ * @param {boolean} value New mode value
+ */
+ve.ui.MWGraphDialog.prototype.onPaddingAutoCheckboxChange = function ( value ) {
+	this.graphModel.setPaddingAuto( value );
+};
+
+/**
+ * Handle padding table data changes
+ *
+ * @param {number} index The index of the row that changed
+ * @param {string} key The key of the row that changed
+ * @param {string} field The field that changed
+ * @param {string} value The new value
+ */
+ve.ui.MWGraphDialog.prototype.onPaddingTableChange = function ( index, key, field, value ) {
+	this.graphModel.setPadding( key, parseInt( value ) );
+};
+
+/**
  * Handle model spec change events
  *
  * @private
  */
 ve.ui.MWGraphDialog.prototype.onSpecChange = function () {
+	var padding,
+		paddingAuto = this.graphModel.isPaddingAutomatic(),
+		paddingObj = this.graphModel.getPaddingObject();
+
 	this.jsonTextInput.setValue( this.graphModel.getSpecString() );
+
+	if ( paddingAuto ) {
+		// Clear padding table if set to automatic
+		this.paddingTable.clear();
+	} else {
+		// Fill padding table with model values if set to manual
+		for ( padding in paddingObj ) {
+			if ( paddingObj.hasOwnProperty( padding ) ) {
+				this.paddingTable.setValue( padding, 0, paddingObj[ padding ] );
+			}
+		}
+	}
+	this.paddingTable.setDisabled( paddingAuto );
 
 	this.checkChanges();
 };

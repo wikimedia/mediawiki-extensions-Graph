@@ -64,7 +64,8 @@ ve.ui.RowWidget = function VeUiRowWidget( config ) {
 
 	this.connect( this, {
 		cellChange: 'onCellChange',
-		labelUpdate: 'onLabelUpdate'
+		labelUpdate: 'onLabelUpdate',
+		disable: 'onDisable'
 	} );
 
 	if ( config.deletable ) {
@@ -208,9 +209,9 @@ ve.ui.RowWidget.prototype.setValue = function ( field, value ) {
 };
 
 /**
- * Reset the field values
+ * Clear the field values
  */
-ve.ui.RowWidget.prototype.reset = function () {
+ve.ui.RowWidget.prototype.clear = function () {
 	var i, len,
 		cells = this.getItems();
 
@@ -267,4 +268,18 @@ ve.ui.RowWidget.prototype.onLabelUpdate = function () {
 	}
 
 	this.labelCell.setLabel( newLabel );
+};
+
+/**
+ * Handle disabled state changes
+ *
+ * @param  {boolean} disabled The new disabled state
+ */
+ve.ui.RowWidget.prototype.onDisable = function ( disabled ) {
+	var i,
+		cells = this.getItems();
+
+	for ( i = 0; i < cells.length; i++ ) {
+		cells[ i ].setDisabled( disabled );
+	}
 };
