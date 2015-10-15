@@ -22,5 +22,17 @@
 	"graph-ve-dialog-edit-padding-table-right": "Vpravo",
 	"graph-ve-dialog-edit-padding-table-top": "Nahoře",
 	"graph-ve-dialog-edit-page-data": "Data",
-	"graph-ve-no-spec": "Nenalezena žádná specifikace grafu"
+	"graph-ve-dialog-edit-page-general": "Obecné",
+	"graph-ve-dialog-edit-page-raw": "Surová data",
+	"graph-ve-dialog-edit-table-row-delete": "Smazat řádek",
+	"graph-ve-dialog-edit-title": "Editovat graf",
+	"graph-ve-dialog-edit-type-area": "Plošný graf",
+	"graph-ve-dialog-edit-type-bar": "Sloupcový graf",
+	"graph-ve-dialog-edit-type-line": "Čárový graf",
+	"graph-ve-dialog-edit-type-unknown": "Neznámý typ grafu",
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "Typ tohoto grafu není podporován a jakékoli provedené změny mohou jeho zobrazování rozbít. Graf prosím editujte pomocí surového datové specifikace na záložce „{{int:graph-ve-dialog-edit-page-raw}}“.",
+	"graph-ve-dialog-button-tooltip": "Graf",
+	"graph-ve-no-spec": "Nenalezena žádná specifikace grafu",
+	"graph-ve-vega-error": "Při vykreslování tohoto grafu narazila Vega na chybu",
+	"graph-ve-vega-error-no-render": "Vega nebyla schopna vykreslit tento graf"
 }
