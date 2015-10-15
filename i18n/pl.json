@@ -9,6 +9,9 @@
 	"graph-ve-dialog-edit-apply": "Zastosuj",
 	"graph-ve-dialog-edit-cancel": "Anuluj",
 	"graph-ve-dialog-edit-json-invalid": "Nieprawidłowy ciąg znaków JSON",
+	"graph-ve-dialog-edit-padding-auto": "Automatyczne wcięcie",
+	"graph-ve-dialog-edit-padding-fieldset": "Wcięcie",
+	"graph-ve-dialog-edit-padding-table-unit": "Piksele",
 	"graph-ve-dialog-edit-page-data": "Dane",
 	"graph-ve-dialog-edit-page-raw": "Surowe dane",
 	"graph-ve-dialog-edit-table-row-delete": "Usuwanie wiersza"

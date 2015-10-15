@@ -32,9 +32,9 @@
 	"graph-ve-dialog-edit-type-bar": "Гистограмма",
 	"graph-ve-dialog-edit-type-line": "Линейный график",
 	"graph-ve-dialog-edit-type-unknown": "Неизвестный тип графика",
-	"graph-ve-dialog-edit-unknown-graph-type-warning": "Тип этого графика не поддерживается, и вносимые в них изменения могут сломать его отображение. Пожалуйста, отредактируйте график через указание исходных данных на вкладке «{{int:graph-ve-dialog-edit-page-raw}}».",
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "Тип этого графика не поддерживается, и любые вносимые изменения могут нарушить его отображение. Пожалуйста, отредактируйте исходные данные графика напрямую на вкладке «{{int:graph-ve-dialog-edit-page-raw}}».",
 	"graph-ve-dialog-button-tooltip": "График",
 	"graph-ve-no-spec": "Не найдена спецификация графика",
 	"graph-ve-vega-error": "В Vega произошла ошибка при отрисовке этого графика",
-	"graph-ve-vega-error-no-render": "Vega был не в состоянии отрисовать этот график"
+	"graph-ve-vega-error-no-render": "Vega не смог построить этот график"
 }
