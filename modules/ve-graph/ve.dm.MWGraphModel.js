@@ -221,6 +221,7 @@ ve.dm.MWGraphModel.prototype.applyChanges = function ( node, surfaceModel ) {
 			{ mw: mwData }
 		)
 	);
+	surfaceModel.applyStaging();
 };
 
 /**

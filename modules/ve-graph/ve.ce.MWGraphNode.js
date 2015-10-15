@@ -49,7 +49,7 @@ ve.ce.MWGraphNode.static.vegaParseSpec = function ( spec, element ) {
 		canvasNode;
 
 	// Check if the spec is currently valid
-	if ( spec ) {
+	if ( !ve.isEmptyObject( spec ) ) {
 		vg.parse.spec( spec, function ( chart ) {
 			try {
 				chart( { el: element } ).update();

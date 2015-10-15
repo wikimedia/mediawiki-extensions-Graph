@@ -335,7 +335,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 		var node = new ve.dm.MWGraphNode(),
 			specString = JSON.stringify( sampleSpecs.areaGraph );
 
-		assert.deepEqual( node.getSpec(), null, 'MWGraphNode spec is initialized to null' );
+		assert.deepEqual( node.getSpec(), ve.dm.MWGraphNode.static.defaultSpec, 'MWGraphNode spec is initialized to the default spec' );
 
 		node.setSpecFromString( specString );
 		assert.deepEqual( node.getSpec(), sampleSpecs.areaGraph, 'Basic valid spec is parsed' );
@@ -355,10 +355,19 @@ QUnit.module( 'ext.graph.visualEditor' );
 				'<div typeof="mw:Extension/graph"></div>'
 			),
 			documentNode = view.getDocument().getDocumentNode(),
-			node = documentNode.children[ 0 ].children[ 0 ];
+			node = documentNode.children[ 0 ],
+			mwData = ve.copy( node.getModel().getAttribute( 'mw' ) );
 
 		assert.equal( node.type, 'mwGraph', 'Parsoid HTML graphs are properly recognized as graph nodes' );
 
+		ve.setProp( mwData, 'body', 'extsrc', undefined );
+		view.getModel().change(
+			ve.dm.Transaction.newFromAttributeChanges(
+				view.getModel().getDocument(),
+				node.getOffset(),
+				{ mw: mwData }
+			)
+		);
 		assert.equal( $( node.$element[ 0 ] ).text(), ve.msg( 'graph-ve-no-spec' ), 'A null spec displays an error message' );
 	} );
 

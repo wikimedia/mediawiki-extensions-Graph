@@ -19,13 +19,14 @@ ve.ui.MWGraphDialog = function VeUiMWGraphDialog() {
 
 	// Properties
 	this.graphModel = null;
+	this.mode = '';
 	this.cachedRawData = null;
 	this.changingJsonTextInput = false;
 };
 
 /* Inheritance */
 
-OO.inheritClass( ve.ui.MWGraphDialog, ve.ui.NodeDialog );
+OO.inheritClass( ve.ui.MWGraphDialog, ve.ui.MWExtensionDialog );
 
 /* Static properties */
 
@@ -39,10 +40,16 @@ ve.ui.MWGraphDialog.static.size = 'large';
 
 ve.ui.MWGraphDialog.static.actions = [
 	{
-		action: 'apply',
+		action: 'done',
 		label: OO.ui.deferMsg( 'graph-ve-dialog-edit-apply' ),
 		flags: [ 'progressive', 'primary' ],
 		modes: 'edit'
+	},
+	{
+		action: 'done',
+		label: OO.ui.deferMsg( 'visualeditor-dialog-action-insert' ),
+		flags: [ 'constructive', 'primary' ],
+		modes: 'insert'
 	},
 	{
 		label: OO.ui.deferMsg( 'graph-ve-dialog-edit-cancel' ),
@@ -221,10 +228,27 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
  * @inheritdoc
  */
 ve.ui.MWGraphDialog.prototype.getSetupProcess = function ( data ) {
-	var spec;
-
 	return ve.ui.MWGraphDialog.super.prototype.getSetupProcess.call( this, data )
 		.next( function () {
+			var spec, newElement;
+
+			this.getFragment().getSurface().pushStaging();
+
+			// Create new graph node if not present (insert mode)
+			if ( !this.selectedNode ) {
+				this.setMode( 'insert' );
+
+				newElement = this.getNewElement();
+				this.fragment = this.getFragment().insertContent( [
+					newElement,
+					{ type: '/' + newElement.type }
+				] );
+				this.getFragment().select();
+				this.selectedNode = this.getFragment().getSelectedNode();
+			} else {
+				this.setMode( 'edit' );
+			}
+
 			// Set up model
 			spec = ve.copy( this.selectedNode.getSpec() );
 
@@ -248,8 +272,8 @@ ve.ui.MWGraphDialog.prototype.getSetupProcess = function ( data ) {
 /**
  * @inheritdoc
  */
-ve.ui.MWGraphDialog.prototype.getTeardownProcess = function () {
-	return ve.ui.MWGraphDialog.super.prototype.getTeardownProcess.call( this )
+ve.ui.MWGraphDialog.prototype.getTeardownProcess = function ( data ) {
+	return ve.ui.MWGraphDialog.super.prototype.getTeardownProcess.call( this, data )
 		.first( function () {
 			// Kill model
 			this.graphModel.disconnect( this );
@@ -262,6 +286,11 @@ ve.ui.MWGraphDialog.prototype.getTeardownProcess = function () {
 			this.dataTable.$element.remove();
 
 			this.dataTable = null;
+
+			// Kill staging
+			if ( data === undefined ) {
+				this.getFragment().getSurface().popStaging();
+			}
 		}, this );
 };
 
@@ -270,7 +299,7 @@ ve.ui.MWGraphDialog.prototype.getTeardownProcess = function () {
  */
 ve.ui.MWGraphDialog.prototype.getActionProcess = function ( action ) {
 	switch ( action ) {
-		case 'apply':
+		case 'done':
 			return new OO.ui.Process( function () {
 				this.graphModel.applyChanges( this.selectedNode, this.getFragment().getSurface() );
 				this.close( { action: action } );
@@ -531,9 +560,21 @@ ve.ui.MWGraphDialog.prototype.checkChanges = function () {
 		areChangesValid;
 
 	this.jsonTextInput.isValid().done( function ( isJsonTextInputValid ) {
-		areChangesValid = ( hasModelBeenChanged && isJsonTextInputValid );
-		self.actions.setAbilities( { apply: areChangesValid } );
+		areChangesValid = self.mode === 'insert' ||
+						( hasModelBeenChanged && isJsonTextInputValid );
+		self.actions.setAbilities( { done: areChangesValid } );
 	} );
+};
+
+/**
+ * Sets and caches the mode of the dialog.
+ *
+ * @private
+ * @param {string} mode The new mode, either `edit` or `insert`
+ */
+ve.ui.MWGraphDialog.prototype.setMode = function ( mode ) {
+	this.actions.setMode( mode );
+	this.mode = mode;
 };
 
 /* Registration */

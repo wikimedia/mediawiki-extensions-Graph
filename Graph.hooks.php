@@ -25,9 +25,9 @@ class GraphHooks {
 		$addModules = array(
 			'ext.graph.visualEditor' => $graphModuleTemplate + array(
 				'scripts' => array(
+					'modules/ve-graph/ve.ce.MWGraphNode.js',
 					'modules/ve-graph/ve.dm.MWGraphModel.js',
 					'modules/ve-graph/ve.dm.MWGraphNode.js',
-					'modules/ve-graph/ve.ce.MWGraphNode.js',
 					'modules/ve-graph/ve.ui.MWGraphDialog.js',
 					'modules/ve-graph/ve.ui.MWGraphDialogTool.js',
 					'modules/ve-graph/widgets/ve.ui.RowWidget.js',
