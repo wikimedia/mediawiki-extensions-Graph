@@ -6,6 +6,8 @@
 		]
 	},
 	"graph-ve-dialog-edit-cancel": "취소",
+	"graph-ve-dialog-edit-padding-table-bottom": "아래",
+	"graph-ve-dialog-edit-padding-table-unit": "픽셀",
 	"graph-ve-dialog-edit-title": "그래프 편집",
 	"graph-ve-dialog-edit-type-bar": "막대그래프",
 	"graph-ve-dialog-edit-type-line": "선 그래프",
