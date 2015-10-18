@@ -2,11 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"SeoJeongHo",
-			"Hwangjy9"
+			"Hwangjy9",
+			"Yearning"
 		]
 	},
 	"graph-ve-dialog-edit-cancel": "취소",
+	"graph-ve-dialog-edit-padding-fieldset": "간격",
 	"graph-ve-dialog-edit-padding-table-bottom": "아래",
+	"graph-ve-dialog-edit-padding-table-right": "오른쪽",
 	"graph-ve-dialog-edit-padding-table-unit": "픽셀",
 	"graph-ve-dialog-edit-title": "그래프 편집",
 	"graph-ve-dialog-edit-type-bar": "막대그래프",

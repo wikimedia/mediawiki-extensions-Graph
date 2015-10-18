@@ -10,6 +10,11 @@
 	"graph-ve-dialog-edit-cancel": "Avbryt",
 	"graph-ve-dialog-edit-field-graph-type": "Graftyp",
 	"graph-ve-dialog-edit-json-invalid": "Ogiltig JSON-sträng",
+	"graph-ve-dialog-edit-padding-table-bottom": "Nederkant",
+	"graph-ve-dialog-edit-padding-table-left": "Vänster",
+	"graph-ve-dialog-edit-padding-table-right": "Höger",
+	"graph-ve-dialog-edit-padding-table-top": "Överkant",
+	"graph-ve-dialog-edit-padding-table-unit": "Bildpunkter",
 	"graph-ve-dialog-edit-table-row-delete": "Radera rad",
 	"graph-ve-dialog-edit-type-bar": "Stapeldiagram"
 }

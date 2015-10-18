@@ -4,5 +4,10 @@
 			"Zygimantus"
 		]
 	},
-	"graph-broken-category": "Puslapiai su sugedusiais grafikais"
+	"graph-broken-category": "Puslapiai su sugedusiais grafikais",
+	"graph-ve-dialog-edit-padding-table-bottom": "Apačioje",
+	"graph-ve-dialog-edit-padding-table-left": "Kairėje",
+	"graph-ve-dialog-edit-padding-table-right": "Dešinėje",
+	"graph-ve-dialog-edit-padding-table-top": "Viršuje",
+	"graph-ve-dialog-edit-padding-table-unit": "Pikseliai"
 }
