@@ -4,5 +4,7 @@
 			"Siebrand"
 		]
 	},
-	"graph-desc": "Maakt het mogelijk om het label &lt;graph> of hele pagina's op [http://trifacta.github.io/vega/ Vega] gebaseerde grafieken te laten worden"
+	"graph-desc": "Maakt het mogelijk om het label &lt;graph> of hele pagina's op [http://trifacta.github.io/vega/ Vega] gebaseerde grafieken te laten worden",
+	"graph-tracking-category-desc": "De pagina bevat het label <code><nowiki><graph></nowiki></code>.",
+	"graph-broken-category-desc": "De pagina bevat een label <code><nowiki><graph></nowiki></code> dat onjuist wordt gebruikt."
 }
