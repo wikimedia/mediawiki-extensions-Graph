@@ -5,5 +5,9 @@
 		]
 	},
 	"graph-ve-dialog-edit-apply": "Aplicar",
-	"graph-ve-dialog-edit-cancel": "Cancel·la"
+	"graph-ve-dialog-edit-cancel": "Cancel·la",
+	"graph-ve-dialog-edit-padding-table-bottom": "Avall",
+	"graph-ve-dialog-edit-padding-table-left": "Esquerra",
+	"graph-ve-dialog-edit-padding-table-right": "Dreta",
+	"graph-ve-dialog-edit-padding-table-top": "Amunt"
 }
