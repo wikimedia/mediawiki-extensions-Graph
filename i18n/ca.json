@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Macofe"
+			"Macofe",
+			"Paucabot"
 		]
 	},
+	"graph-tracking-category": "Pàgines amb gràfics",
+	"graph-broken-category": "Pàgines amb gràfics que no funcionen",
 	"graph-ve-dialog-edit-apply": "Aplicar",
 	"graph-ve-dialog-edit-cancel": "Cancel·la",
 	"graph-ve-dialog-edit-padding-table-bottom": "Avall",
