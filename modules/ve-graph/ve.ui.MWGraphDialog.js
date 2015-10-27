@@ -180,16 +180,19 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 		.setIcon( 'code' )
 		.setLabel( ve.msg( 'graph-ve-dialog-edit-page-raw' ) );
 
-	this.jsonTextInput = new ve.ui.WhitespacePreservingTextInputWidget( {
+	this.jsonTextInput = new ve.ui.MWAceEditorWidget( {
 		autosize: true,
 		classes: [ 've-ui-mwGraphDialog-json' ],
-		maxRows: 25,
+		maxRows: 22,
 		multiline: true,
 		validate: this.validateRawData
 	} );
 
 	// Make sure JSON is LTR
-	this.jsonTextInput.setRTL( false );
+	this.jsonTextInput
+		.setLanguage( 'json' )
+		.toggleLineNumbers( false )
+		.setRTL( false );
 
 	jsonTextField = new OO.ui.FieldLayout( this.jsonTextInput, {
 		label: ve.msg( 'graph-ve-dialog-edit-field-raw-json' ),
