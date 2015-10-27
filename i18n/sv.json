@@ -3,10 +3,16 @@
 		"authors": [
 			"Lokal Profil",
 			"WikiPhoenix",
-			"Josve05a"
+			"Josve05a",
+			"GameOn",
+			"MagnusA"
 		]
 	},
 	"graph-desc": "Tillåter taggen &lt;graph&gt; eller hela sidor att bli [http://trifacta.github.io/vega/ Vega]-baserade grafer",
+	"graph-tracking-category": "Sidor med grafer",
+	"graph-tracking-category-desc": "Den här sidan innehåller en <code><nowiki><graph></nowiki></code>-tagg.",
+	"graph-broken-category": "Sidor med trasiga grafer",
+	"graph-broken-category-desc": "Den är sidan innehåller en <code><nowiki><graph></nowiki></code>-tagg som används felaktigt.",
 	"graph-ve-dialog-edit-cancel": "Avbryt",
 	"graph-ve-dialog-edit-field-graph-type": "Graftyp",
 	"graph-ve-dialog-edit-json-invalid": "Ogiltig JSON-sträng",
