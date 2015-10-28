@@ -4,7 +4,7 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.GroupElement
+ * @mixins OO.ui.mixin.GroupElement
  *
  * @constructor
  * @param {string[]} fields The labels for the fields
@@ -26,7 +26,7 @@ ve.ui.TableWidget = function VeUiTableWidget( fields, config ) {
 	ve.ui.TableWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.GroupElement.call( this, config );
+	OO.ui.mixin.GroupElement.call( this, config );
 
 	// Properties
 	this.fields = fields;
@@ -118,7 +118,7 @@ ve.ui.TableWidget = function VeUiTableWidget( fields, config ) {
 /* Inheritance */
 
 OO.inheritClass( ve.ui.TableWidget, OO.ui.Widget );
-OO.mixinClass( ve.ui.TableWidget, OO.ui.GroupElement );
+OO.mixinClass( ve.ui.TableWidget, OO.ui.mixin.GroupElement );
 
 /* Static Properties */
 ve.ui.TableWidget.static.patterns = {
@@ -157,7 +157,7 @@ ve.ui.TableWidget.prototype.addItems = function ( items ) {
 		startingIndex = this.items.length;
 
 	// Parent function
-	OO.ui.GroupElement.prototype.addItems.call( this, items );
+	OO.ui.mixin.GroupElement.prototype.addItems.call( this, items );
 
 	for ( i = 0, len = items.length; i < len; i++ ) {
 		// Assign row index to every new row
@@ -173,7 +173,7 @@ ve.ui.TableWidget.prototype.removeItems = function ( items ) {
 		rows = this.getItems();
 
 	// Parent function
-	OO.ui.GroupElement.prototype.removeItems.call( this, items );
+	OO.ui.mixin.GroupElement.prototype.removeItems.call( this, items );
 
 	// Refresh row indexes for every remaining row
 	for ( i = 0, len = rows.length; i < len; i++ ) {
@@ -224,7 +224,7 @@ ve.ui.TableWidget.prototype.clear = function () {
 ve.ui.TableWidget.prototype.getRowFromKey = function ( key ) {
 	var i, rows = this.getItems();
 
-	// TODO: Leverage OO.ui.GroupElement.getItemFromData instead of looping rows
+	// TODO: Leverage OO.ui.mixin.GroupElement#getItemFromData instead of looping rows
 	for ( i = 0; i < rows.length; i++ ) {
 		if ( rows[ i ].getKey() === key ) {
 			return rows[ i ];

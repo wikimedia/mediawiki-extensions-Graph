@@ -6,7 +6,7 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.GroupElement
+ * @mixins OO.ui.mixin.GroupElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -29,7 +29,7 @@ ve.ui.RowWidget = function VeUiRowWidget( config ) {
 	ve.ui.RowWidget.super.call( this, config );
 
 	// Mixin constructor
-	OO.ui.GroupElement.call( this, config );
+	OO.ui.mixin.GroupElement.call( this, config );
 
 	// Properties
 	// TODO: The key should be stored in data to leverage getItemFromData in TableWidget
@@ -96,7 +96,7 @@ ve.ui.RowWidget = function VeUiRowWidget( config ) {
 /* Inheritance */
 
 OO.inheritClass( ve.ui.RowWidget, OO.ui.Widget );
-OO.mixinClass( ve.ui.RowWidget, OO.ui.GroupElement );
+OO.mixinClass( ve.ui.RowWidget, OO.ui.mixin.GroupElement );
 
 /* Events */
 
