@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"V.narsikar"
+		]
+	},
+	"graph-ve-dialog-edit-padding-table-bottom": "खाली",
+	"graph-ve-dialog-edit-padding-table-left": "डावीकडे",
+	"graph-ve-dialog-edit-padding-table-right": "उजवीकडे",
+	"graph-ve-dialog-edit-padding-table-top": "वर",
+	"graph-ve-dialog-edit-padding-table-unit": "पिक्सेल्स"
+}
