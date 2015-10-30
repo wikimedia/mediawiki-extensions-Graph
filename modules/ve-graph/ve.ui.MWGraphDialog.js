@@ -330,7 +330,7 @@ ve.ui.MWGraphDialog.prototype.setupFormValues = function () {
 	this.updateDataPage();
 
 	// JSON text input
-	this.jsonTextInput.setValue( this.graphModel.getSpecString() );
+	this.jsonTextInput.setValue( this.graphModel.getSpecString() ).clearUndoStack();
 };
 
 /**
