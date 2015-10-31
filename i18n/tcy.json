@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bharathesha Alasandemajalu"
+			"Bharathesha Alasandemajalu",
+			"రహ్మానుద్దీన్"
 		]
 	},
-	"graph-ve-dialog-edit-padding-table-bottom": "ತಿರ್ ತ್ತ್",
+	"graph-ve-dialog-edit-padding-table-bottom": "ತಿರ್‍ತ್ತ್",
 	"graph-ve-dialog-edit-padding-table-left": "ಎಡ",
 	"graph-ve-dialog-edit-padding-table-right": "ಬಲ",
 	"graph-ve-dialog-edit-padding-table-top": "ಮಿತ್ತ್"
