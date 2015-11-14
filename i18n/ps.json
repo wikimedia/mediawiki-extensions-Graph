@@ -5,7 +5,9 @@
 		]
 	},
 	"graph-ve-dialog-edit-padding-table-bottom": "لاندې",
+	"graph-ve-dialog-edit-padding-table-left": "کيڼ",
 	"graph-ve-dialog-edit-padding-table-right": "ښي",
 	"graph-ve-dialog-edit-padding-table-top": "سر",
+	"graph-ve-dialog-edit-padding-table-unit": "پېکسلونه",
 	"graph-ve-dialog-edit-page-data": "اومتوک"
 }
