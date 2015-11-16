@@ -26,10 +26,8 @@
 	width: 8em;
 }
 
+.ve-ui-rowWidget > .ve-ui-rowWidget-cells > .oo-ui-inputWidget > input,
 .ve-ui-rowWidget > .ve-ui-rowWidget-delete-button > .oo-ui-buttonElement-button {
 	margin: 0;
-}
-
-.ve-ui-rowWidget.ve-ui-rowWidget-insertionRow {
-	background-color: red;
+	border-radius: 0;
 }
