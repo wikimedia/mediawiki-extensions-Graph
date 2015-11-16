@@ -464,7 +464,7 @@ ve.ui.MWGraphDialog.prototype.onRootLayoutSet = function ( page ) {
 		// so recalculate height now it is visible.
 		// HACK: Invalidate value cache
 		this.jsonTextInput.valCache = null;
-		this.jsonTextInput.adjustSize();
+		this.jsonTextInput.adjustSize( true );
 	}
 };
 
