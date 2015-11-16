@@ -465,6 +465,9 @@ ve.ui.MWGraphDialog.prototype.onRootLayoutSet = function ( page ) {
 		// HACK: Invalidate value cache
 		this.jsonTextInput.valCache = null;
 		this.jsonTextInput.adjustSize( true );
+		this.setSize( 'larger' );
+	} else {
+		this.setSize( 'large' );
 	}
 };
 
