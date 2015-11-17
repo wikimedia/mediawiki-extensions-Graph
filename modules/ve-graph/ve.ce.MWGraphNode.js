@@ -106,18 +106,20 @@ ve.ce.MWGraphNode.prototype.update = function () {
 		this.emit( 'teardown' );
 	}
 
-	this.constructor.static.vegaParseSpec( this.getModel().getSpec(), this.$element[ 0 ] ).then(
-		function () {
-			node.$focusable = node.$element.find( 'canvas' );
-		},
-		function ( failMessageKey ) {
-			node.$element.text( ve.msg( failMessageKey ) );
-			node.$focusable = node.$element;
-		}
-	).always( function () {
-		if ( node.live ) {
-			node.emit( 'setup' );
-		}
+	mw.loader.using( 'ext.graph' ).done( function () {
+		node.constructor.static.vegaParseSpec( node.getModel().getSpec(), node.$element[ 0 ] ).then(
+			function () {
+				node.$focusable = node.$element.find( 'canvas' );
+			},
+			function ( failMessageKey ) {
+				node.$element.text( ve.msg( failMessageKey ) );
+				node.$focusable = node.$element;
+			}
+		).always( function () {
+			if ( node.live ) {
+				node.emit( 'setup' );
+			}
+		} );
 	} );
 };
 

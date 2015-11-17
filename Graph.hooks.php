@@ -39,8 +39,7 @@ class GraphHooks {
 					'modules/ve-graph/widgets/ve.ui.TableWidget.css'
 				),
 				'dependencies' => array(
-					'ext.visualEditor.mwcore',
-					'ext.graph'
+					'ext.visualEditor.mwcore'
 				),
 				'messages' => array(
 					'graph-ve-dialog-edit-field-graph-type',
