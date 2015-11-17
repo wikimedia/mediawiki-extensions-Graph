@@ -43,8 +43,6 @@ class GraphHooks {
 					'ext.graph'
 				),
 				'messages' => array(
-					'graph-ve-dialog-edit-apply',
-					'graph-ve-dialog-edit-cancel',
 					'graph-ve-dialog-edit-field-graph-type',
 					'graph-ve-dialog-edit-field-raw-json',
 					'graph-ve-dialog-edit-json-invalid',

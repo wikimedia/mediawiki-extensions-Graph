@@ -11,8 +11,6 @@
 	"graph-tracking-category-desc": "The page includes a <code><nowiki><graph></nowiki></code> tag.",
 	"graph-broken-category": "Pages with broken graphs",
 	"graph-broken-category-desc": "The page includes a <code><nowiki><graph></nowiki></code> tag with invalid usage.",
-	"graph-ve-dialog-edit-apply": "Apply",
-	"graph-ve-dialog-edit-cancel": "Cancel",
 	"graph-ve-dialog-edit-field-graph-type": "Graph type",
 	"graph-ve-dialog-edit-field-raw-json": "Raw JSON specification",
 	"graph-ve-dialog-edit-json-invalid": "Invalid JSON string",

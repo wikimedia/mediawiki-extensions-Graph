@@ -41,7 +41,7 @@ ve.ui.MWGraphDialog.static.size = 'large';
 ve.ui.MWGraphDialog.static.actions = [
 	{
 		action: 'done',
-		label: OO.ui.deferMsg( 'graph-ve-dialog-edit-apply' ),
+		label: OO.ui.deferMsg( 'visualeditor-dialog-action-done' ),
 		flags: [ 'progressive', 'primary' ],
 		modes: 'edit'
 	},
@@ -52,7 +52,7 @@ ve.ui.MWGraphDialog.static.actions = [
 		modes: 'insert'
 	},
 	{
-		label: OO.ui.deferMsg( 'graph-ve-dialog-edit-cancel' ),
+		label: OO.ui.deferMsg( 'visualeditor-dialog-action-cancel' ),
 		flags: 'safe',
 		modes: [ 'edit', 'insert' ]
 	}
