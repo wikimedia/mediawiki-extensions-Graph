@@ -10,8 +10,6 @@
 	"graph-tracking-category-desc": "Tato stránka obsahuje značku <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Stránky s rozbitými grafy",
 	"graph-broken-category-desc": "Tato stránka obsahuje chybně použitou značku <code><nowiki><graph></nowiki></code>.",
-	"graph-ve-dialog-edit-apply": "Použít",
-	"graph-ve-dialog-edit-cancel": "Storno",
 	"graph-ve-dialog-edit-field-graph-type": "Typ grafu",
 	"graph-ve-dialog-edit-field-raw-json": "Surová specifikace JSON",
 	"graph-ve-dialog-edit-json-invalid": "Neplatný řetězec JSON",
