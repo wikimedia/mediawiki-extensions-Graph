@@ -61,7 +61,9 @@ ve.dm.MWGraphModel.static.graphConfigs = {
 					interpolate: undefined,
 					stroke: undefined,
 					strokeWidth: undefined,
-					width: { scale: 'x', band: true, offset: -1 }
+					// HACK: Boolean values set to true need to be wrapped
+					// in strings until T118883 is resolved
+					width: { scale: 'x', band: 'true', offset: -1 }
 				}
 			}
 		},
