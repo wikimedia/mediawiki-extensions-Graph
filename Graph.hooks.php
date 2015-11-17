@@ -42,8 +42,10 @@ class GraphHooks {
 					'ext.visualEditor.mwcore'
 				),
 				'messages' => array(
+					'graph-ve-dialog-button-tooltip',
 					'graph-ve-dialog-edit-field-graph-type',
 					'graph-ve-dialog-edit-field-raw-json',
+					'graph-ve-dialog-edit-height',
 					'graph-ve-dialog-edit-json-invalid',
 					'graph-ve-dialog-edit-padding-auto',
 					'graph-ve-dialog-edit-padding-fieldset',
@@ -55,14 +57,16 @@ class GraphHooks {
 					'graph-ve-dialog-edit-page-data',
 					'graph-ve-dialog-edit-page-general',
 					'graph-ve-dialog-edit-page-raw',
+					'graph-ve-dialog-edit-size-fieldset',
+					'graph-ve-dialog-edit-size-table-unit',
 					'graph-ve-dialog-edit-table-row-delete',
 					'graph-ve-dialog-edit-title',
 					'graph-ve-dialog-edit-type-area',
 					'graph-ve-dialog-edit-type-bar',
 					'graph-ve-dialog-edit-type-line',
 					'graph-ve-dialog-edit-type-unknown',
+					'graph-ve-dialog-edit-width',
 					'graph-ve-dialog-edit-unknown-graph-type-warning',
-					'graph-ve-dialog-button-tooltip',
 					'graph-ve-no-spec',
 					'graph-ve-vega-error',
 					'graph-ve-vega-error-no-render'

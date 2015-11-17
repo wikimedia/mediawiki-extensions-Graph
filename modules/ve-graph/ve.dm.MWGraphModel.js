@@ -307,6 +307,42 @@ ve.dm.MWGraphModel.prototype.getGraphType = function () {
 };
 
 /**
+ * Get graph size
+ *
+ * @return {Object} The graph width and height
+ */
+ve.dm.MWGraphModel.prototype.getSize = function () {
+	return {
+		width: this.spec.width,
+		height: this.spec.height
+	};
+};
+
+/**
+ * Set the graph width
+ *
+ * @param {number} value The new width
+ * @fires specChange
+ */
+ve.dm.MWGraphModel.prototype.setWidth = function ( value ) {
+	this.spec.width = value;
+
+	this.emit( 'specChange', this.spec );
+};
+
+/**
+ * Set the graph height
+ *
+ * @param {number} value The new height
+ * @fires specChange
+ */
+ve.dm.MWGraphModel.prototype.setHeight = function ( value ) {
+	this.spec.height = value;
+
+	this.emit( 'specChange', this.spec );
+};
+
+/**
  * Get the padding values of the graph
  *
  * @return {Object} The paddings

@@ -74,7 +74,9 @@ ve.ui.MWGraphDialog.prototype.getBodyHeight = function () {
  * @inheritdoc
  */
 ve.ui.MWGraphDialog.prototype.initialize = function () {
-	var graphTypeField, paddingAutoField, paddingFieldset,
+	var graphTypeField,
+		sizeFieldset,
+		paddingAutoField, paddingFieldset,
 		jsonTextField;
 
 	// Parent method
@@ -108,6 +110,16 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 	this.unknownGraphTypeWarningLabel = new OO.ui.LabelWidget( {
 		label: ve.msg( 'graph-ve-dialog-edit-unknown-graph-type-warning' )
 	} );
+
+	this.sizeWidget = new ve.ui.DimensionsWidget();
+
+	sizeFieldset = new OO.ui.FieldsetLayout( {
+		label: ve.msg( 'graph-ve-dialog-edit-size-fieldset' )
+	} );
+
+	sizeFieldset.addItems( [
+		this.sizeWidget
+	] );
 
 	this.paddingAutoCheckbox = new OO.ui.CheckboxInputWidget( {
 		value: 'paddingAuto'
@@ -174,6 +186,7 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 	this.generalPage.$element.append(
 		graphTypeField.$element,
 		this.unknownGraphTypeWarningLabel.$element,
+		sizeFieldset.$element,
 		paddingFieldset.$element
 	);
 
@@ -212,6 +225,11 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 	this.rootLayout.connect( this, { set: 'onRootLayoutSet' } );
 
 	this.graphTypeDropdownInput.connect( this, { change: 'onGraphTypeInputChange' } );
+
+	this.sizeWidget.connect( this, {
+		widthChange: 'onSizeWidgetWidthChange',
+		heightChange: 'onSizeWidgetHeightChange'
+	} );
 
 	this.paddingAutoCheckbox.connect( this, { change: 'onPaddingAutoCheckboxChange' } );
 	this.paddingTable.connect( this, {
@@ -316,9 +334,9 @@ ve.ui.MWGraphDialog.prototype.getActionProcess = function ( action ) {
  * @private
  */
 ve.ui.MWGraphDialog.prototype.setupFormValues = function () {
-	var padding,
+	var graphType = this.graphModel.getGraphType(),
+		graphSize = this.graphModel.getSize(),
 		paddings = this.graphModel.getPaddingObject(),
-		graphType = this.graphModel.getGraphType(),
 		options = [
 			{
 				data: 'bar',
@@ -336,7 +354,8 @@ ve.ui.MWGraphDialog.prototype.setupFormValues = function () {
 		unknownGraphTypeOption = {
 			data: 'unknown',
 			label: ve.msg( 'graph-ve-dialog-edit-type-unknown' )
-		};
+		},
+		padding;
 
 	// Graph type
 	if ( graphType === 'unknown' ) {
@@ -346,6 +365,10 @@ ve.ui.MWGraphDialog.prototype.setupFormValues = function () {
 	this.graphTypeDropdownInput
 		.setOptions( options )
 		.setValue( graphType );
+
+	// Size
+	this.sizeWidget.setWidth( graphSize.width );
+	this.sizeWidget.setHeight( graphSize.height );
 
 	// Padding
 	this.paddingAutoCheckbox.setSelected( this.graphModel.isPaddingAutomatic() );
@@ -507,6 +530,24 @@ ve.ui.MWGraphDialog.prototype.onRootLayoutSet = function ( page ) {
  */
 ve.ui.MWGraphDialog.prototype.onPaddingAutoCheckboxChange = function ( value ) {
 	this.graphModel.setPaddingAuto( value );
+};
+
+/**
+ * Handle size widget width changes
+ *
+ * @param {string} value The new value
+ */
+ve.ui.MWGraphDialog.prototype.onSizeWidgetWidthChange = function ( value ) {
+	this.graphModel.setWidth( parseInt( value ) );
+};
+
+/**
+ * Handle size widget height changes
+ *
+ * @param {string} value The new value
+ */
+ve.ui.MWGraphDialog.prototype.onSizeWidgetHeightChange = function ( value ) {
+	this.graphModel.setHeight( parseInt( value ) );
 };
 
 /**
