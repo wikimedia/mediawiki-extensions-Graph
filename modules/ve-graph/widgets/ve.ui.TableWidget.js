@@ -169,13 +169,13 @@ ve.ui.TableWidget.prototype.addItems = function ( items ) {
  * @inheritdoc
  */
 ve.ui.TableWidget.prototype.removeItems = function ( items ) {
-	var i, len,
-		rows = this.getItems();
+	var i, len, rows;
 
 	// Parent function
 	OO.ui.mixin.GroupElement.prototype.removeItems.call( this, items );
 
 	// Refresh row indexes for every remaining row
+	rows = this.getItems();
 	for ( i = 0, len = rows.length; i < len; i++ ) {
 		rows[ i ].setIndex( i );
 	}

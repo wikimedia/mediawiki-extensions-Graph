@@ -54,7 +54,11 @@ ve.dm.MWGraphModel.static.graphConfigs = {
 		scale: {
 			name: 'x',
 			type: 'linear'
-		}
+		},
+		fields: [
+			'x',
+			'y'
+		]
 	},
 
 	bar: {
@@ -75,7 +79,11 @@ ve.dm.MWGraphModel.static.graphConfigs = {
 		scale: {
 			name: 'x',
 			type: 'ordinal'
-		}
+		},
+		fields: [
+			'x',
+			'y'
+		]
 	},
 
 	line: {
@@ -94,7 +102,11 @@ ve.dm.MWGraphModel.static.graphConfigs = {
 		scale: {
 			name: 'x',
 			type: 'linear'
-		}
+		},
+		fields: [
+			'x',
+			'y'
+		]
 	}
 };
 
@@ -189,6 +201,17 @@ ve.dm.MWGraphModel.static.removeProperty = function ( obj, prop ) {
 		// We don't need to bubble errors here since hitting a missing property
 		// will not exist anyway in the object anyway
 	}
+};
+
+/**
+ * Check if a spec currently has something in its dataset
+ *
+ * @param {Object} spec The spec
+ * @return {boolean} The spec has some data in its dataset
+ */
+ve.dm.MWGraphModel.static.specHasData = function ( spec ) {
+	// FIXME: Support multiple pipelines
+	return !!spec.data[ 0 ].values.length;
 };
 
 /* Methods */
@@ -414,7 +437,15 @@ ve.dm.MWGraphModel.prototype.setPaddingAuto = function ( auto ) {
  * @return {string[]} The fields for the pipeline
  */
 ve.dm.MWGraphModel.prototype.getPipelineFields = function ( id ) {
-	return Object.keys( this.spec.data[ id ].values[ 0 ] );
+	var firstEntry = ve.getProp( this.spec, 'data', id, 'values', 0 );
+
+	// Get the fields directly from the pipeline data if the pipeline exists and
+	// has data, otherwise default back on the fields intended for this graph type
+	if ( firstEntry ) {
+		return Object.keys( firstEntry );
+	} else {
+		return ve.dm.MWGraphModel.static.graphConfigs[ this.getGraphType() ].fields;
+	}
 };
 
 /**

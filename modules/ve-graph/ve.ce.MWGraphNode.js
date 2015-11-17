@@ -65,7 +65,11 @@ ve.ce.MWGraphNode.static.vegaParseSpec = function ( spec, element ) {
 		canvasNode, view;
 
 	// Check if the spec is currently valid
-	if ( !ve.isEmptyObject( spec ) ) {
+	if ( ve.isEmptyObject( spec ) ) {
+		deferred.reject( 'graph-ve-no-spec' );
+	} else if ( !ve.dm.MWGraphModel.static.specHasData( spec ) ) {
+		deferred.reject( 'graph-ve-empty-graph' );
+	} else {
 		vg.parse.spec( spec, function ( chart ) {
 			try {
 				view = chart( { el: element } ).update();
@@ -84,8 +88,6 @@ ve.ce.MWGraphNode.static.vegaParseSpec = function ( spec, element ) {
 				deferred.reject( 'graph-ve-vega-error' );
 			}
 		} );
-	} else {
-		deferred.reject( 'graph-ve-no-spec' );
 	}
 
 	return deferred.promise();
