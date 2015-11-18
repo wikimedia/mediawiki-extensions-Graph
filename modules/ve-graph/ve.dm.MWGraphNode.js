@@ -9,6 +9,7 @@
  *
  * @class
  * @extends ve.dm.MWBlockExtensionNode
+ * @mixins ve.dm.ResizableNode
  *
  * @constructor
  * @param {Object} [element]
@@ -18,6 +19,9 @@ ve.dm.MWGraphNode = function VeDmMWGraphNode() {
 
 	// Parent constructor
 	ve.dm.MWGraphNode.super.apply( this, arguments );
+
+	// Mixin constructors
+	ve.dm.ResizableNode.call( this );
 
 	// Properties
 	this.spec = null;
@@ -42,6 +46,7 @@ ve.dm.MWGraphNode = function VeDmMWGraphNode() {
 /* Inheritance */
 
 OO.inheritClass( ve.dm.MWGraphNode, ve.dm.MWBlockExtensionNode );
+OO.mixinClass( ve.dm.MWGraphNode, ve.dm.ResizableNode );
 
 /* Static Members */
 
@@ -177,6 +182,26 @@ ve.dm.MWGraphNode.static.stringifySpec = function ( spec ) {
 };
 
 /* Methods */
+
+/**
+ * @inheritdoc
+ */
+ve.dm.MWGraphNode.prototype.createScalable = function () {
+	var width = ve.getProp( this, 'spec', 'width' ),
+		height = ve.getProp( this, 'spec', 'height' );
+
+	return new ve.dm.Scalable( {
+		currentDimensions: {
+			width: width,
+			height: height
+		},
+		minDimensions: {
+			width: 60,
+			height: 60
+		},
+		fixedRatio: false
+	} );
+};
 
 /**
  * Get the specification string

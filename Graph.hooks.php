@@ -34,12 +34,14 @@ class GraphHooks {
 					'modules/ve-graph/widgets/ve.ui.TableWidget.js'
 				),
 				'styles' => array(
+					'modules/ve-graph/ve.ce.MWGraphNode.css',
 					'modules/ve-graph/ve.ui.MWGraphIcons.css',
 					'modules/ve-graph/widgets/ve.ui.RowWidget.css',
 					'modules/ve-graph/widgets/ve.ui.TableWidget.css'
 				),
 				'dependencies' => array(
-					'ext.visualEditor.mwcore'
+					'ext.visualEditor.mwcore',
+					'ext.visualEditor.mwimage.core'
 				),
 				'messages' => array(
 					'graph-ve-dialog-button-tooltip',
