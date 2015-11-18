@@ -5,7 +5,7 @@
 			"Elisardojm"
 		]
 	},
-	"graph-desc": "Permite que as etiquetas &lt;graph&gt; ou páxinas enteiras se convirtan en gráficos basados en [http://trifacta.github.io/vega/ Vega]",
+	"graph-desc": "Permite que as etiquetas &lt;graph&gt; ou páxinas enteiras se convirtan en gráficos basados en [http://vega.github.io/ Vega]",
 	"graph-tracking-category": "Páxinas con gráficos",
 	"graph-tracking-category-desc": "A páxina inclúe unha etiqueta <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Páxinas con gráficos rotos",

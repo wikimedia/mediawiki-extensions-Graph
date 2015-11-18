@@ -4,7 +4,7 @@
 			"Pikne"
 		]
 	},
-	"graph-desc": "Võimaldab teha &lt;graph&gt;-siltidest või tervetest lehekülgedest [http://trifacta.github.io/vega/ Vega]-põhiseid diagramme.",
+	"graph-desc": "Võimaldab teha &lt;graph&gt;-siltidest või tervetest lehekülgedest [http://vega.github.io/ Vega]-põhiseid diagramme.",
 	"graph-tracking-category": "Diagrammidega leheküljed",
 	"graph-tracking-category-desc": "Leheküljel on silt <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Katkiste diagrammidega leheküljed",

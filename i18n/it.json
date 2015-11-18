@@ -8,7 +8,7 @@
 			"Lucas2"
 		]
 	},
-	"graph-desc": "Permette il tag &lt;graph> o intere pagine di diventare grafici basati su [http://trifacta.github.io/vega/ Vega]",
+	"graph-desc": "Permette il tag &lt;graph> o intere pagine di diventare grafici basati su [http://vega.github.io/ Vega]",
 	"graph-tracking-category": "Pagine con grafici",
 	"graph-tracking-category-desc": "La pagina include un tag <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Pagine con errori nei grafici",

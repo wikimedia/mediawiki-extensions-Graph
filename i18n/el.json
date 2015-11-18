@@ -4,5 +4,5 @@
 			"Geraki"
 		]
 	},
-	"graph-desc": "Επιτρέπει ετικέτες &lt;graph> ή ολόκληρες σελίδες να γίνονται γραφήματα με βάση το [http://trifacta.github.io/vega/ Vega]"
+	"graph-desc": "Επιτρέπει ετικέτες &lt;graph> ή ολόκληρες σελίδες να γίνονται γραφήματα με βάση το [http://vega.github.io/ Vega]"
 }

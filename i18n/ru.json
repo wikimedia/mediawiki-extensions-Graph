@@ -7,7 +7,7 @@
 			"Frhdkazan"
 		]
 	},
-	"graph-desc": "Позволяет тегам &lt;graph&gt; или целым страницам становиться графами на основе [http://trifacta.github.io/vega/ Vega]",
+	"graph-desc": "Позволяет тегам &lt;graph&gt; или целым страницам становиться графами на основе [http://vega.github.io/ Vega]",
 	"graph-tracking-category": "Страницы с графиками",
 	"graph-tracking-category-desc": "Страница включает в себя тег <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Страницы со сломанными графиками",

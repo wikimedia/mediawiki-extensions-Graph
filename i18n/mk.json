@@ -4,7 +4,7 @@
 			"Bjankuloski06"
 		]
 	},
-	"graph-desc": "Одозможува ознаки &lt;graph&gt; или цели страници да станат графикони на основа на [http://trifacta.github.io/vega/ Vega]",
+	"graph-desc": "Одозможува ознаки &lt;graph&gt; или цели страници да станат графикони на основа на [http://vega.github.io/ Vega]",
 	"graph-tracking-category": "Страници со графикони",
 	"graph-tracking-category-desc": "Страницава содржи ознака <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Страници со расипани графикони",

@@ -4,7 +4,7 @@
 			"Minh Nguyen"
 		]
 	},
-	"graph-desc": "Cho phép các thẻ &lt;graph&gt; hoặc toàn bộ trang trở thành biểu đồ dùng [http://trifacta.github.io/vega/ Vega]",
+	"graph-desc": "Cho phép các thẻ &lt;graph&gt; hoặc toàn bộ trang trở thành biểu đồ dùng [http://vega.github.io/ Vega]",
 	"graph-tracking-category": "Trang có biểu đồ",
 	"graph-tracking-category-desc": "Các trang này có thẻ <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Trang có biểu đồ hỏng",

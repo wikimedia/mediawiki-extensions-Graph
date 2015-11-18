@@ -5,7 +5,7 @@
 			"Purodha"
 		]
 	},
-	"graph-desc": "Erlaubt &lt;graph&gt;-Tags oder wandelt ganze Seiten in [http://trifacta.github.io/vega/ Vega]-basierte Diagramme um",
+	"graph-desc": "Erlaubt &lt;graph&gt;-Tags oder wandelt ganze Seiten in [http://vega.github.io/ Vega]-basierte Diagramme um",
 	"graph-tracking-category": "Seiten mit Diagrammen",
 	"graph-tracking-category-desc": "Die Seite enthält eine <code><nowiki><graph></nowiki></code>-Markierung.",
 	"graph-broken-category": "Seiten mit defekten Diagrammen",

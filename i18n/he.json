@@ -4,7 +4,7 @@
 			"Amire80"
 		]
 	},
-	"graph-desc": "מאפשרת לתגי &lt;graph&gt; או לדפים שלמים להיות תרשים שמבוססים על [http://trifacta.github.io/vega/ Vega]",
+	"graph-desc": "מאפשרת לתגי &lt;graph&gt; או לדפים שלמים להיות תרשים שמבוססים על [http://vega.github.io/ Vega]",
 	"graph-tracking-category": "דפים עם תרשימים",
 	"graph-tracking-category-desc": "הדף הזה מכיל תג <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "דפים עם תרשימים מקולקלים",

@@ -7,7 +7,7 @@
 			"Dars"
 		]
 	},
-	"graph-desc": "Дозволяє &lt;graph&gt; тегам або цілим сторінкам стати графіками на основі [http://trifacta.github.io/vega/ Vega]",
+	"graph-desc": "Дозволяє &lt;graph&gt; тегам або цілим сторінкам стати графіками на основі [http://vega.github.io/ Vega]",
 	"graph-tracking-category": "Сторінки з графіками",
 	"graph-tracking-category-desc": "Сторінка включає теґ <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Сторінки зі зламаними графіками",

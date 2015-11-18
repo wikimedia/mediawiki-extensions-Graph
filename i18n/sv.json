@@ -8,7 +8,7 @@
 			"MagnusA"
 		]
 	},
-	"graph-desc": "Tillåter taggen &lt;graph&gt; eller hela sidor att bli [http://trifacta.github.io/vega/ Vega]-baserade grafer",
+	"graph-desc": "Tillåter taggen &lt;graph&gt; eller hela sidor att bli [http://vega.github.io/ Vega]-baserade grafer",
 	"graph-tracking-category": "Sidor med grafer",
 	"graph-tracking-category-desc": "Den här sidan innehåller en <code><nowiki><graph></nowiki></code>-tagg.",
 	"graph-broken-category": "Sidor med trasiga grafer",

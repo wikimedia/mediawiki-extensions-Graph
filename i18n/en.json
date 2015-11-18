@@ -6,7 +6,7 @@
 			"Frédéric Bolduc"
 		]
 	},
-	"graph-desc": "Allows &lt;graph&gt; tags or entire pages to become [http://trifacta.github.io/vega/ Vega]-based graphs",
+	"graph-desc": "Allows &lt;graph&gt; tags or entire pages to become [http://vega.github.io/ Vega]-based graphs",
 	"graph-tracking-category": "Pages with graphs",
 	"graph-tracking-category-desc": "The page includes a <code><nowiki><graph></nowiki></code> tag.",
 	"graph-broken-category": "Pages with broken graphs",

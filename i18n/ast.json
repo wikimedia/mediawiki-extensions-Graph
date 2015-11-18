@@ -4,7 +4,7 @@
 			"Xuacu"
 		]
 	},
-	"graph-desc": "Permite convertir etiquetes &lt;graph&gt; o páxines completes en gráficos basaos en [http://trifacta.github.io/vega/ Vega]",
+	"graph-desc": "Permite convertir etiquetes &lt;graph&gt; o páxines completes en gráficos basaos en [http://vega.github.io/ Vega]",
 	"graph-ve-dialog-edit-height": "Altor",
 	"graph-ve-dialog-edit-size-fieldset": "Tamañu",
 	"graph-ve-dialog-edit-size-table-unit": "Pixels",

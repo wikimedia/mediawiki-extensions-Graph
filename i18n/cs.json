@@ -5,7 +5,7 @@
 			"Matěj Suchánek"
 		]
 	},
-	"graph-desc": "Vytváří ze značek &lt;graph&gt; nebo celých stránek grafy pomocí [http://trifacta.github.io/vega/ Vega]",
+	"graph-desc": "Vytváří ze značek &lt;graph&gt; nebo celých stránek grafy pomocí [http://vega.github.io/ Vega]",
 	"graph-tracking-category": "Stránky s grafy",
 	"graph-tracking-category-desc": "Tato stránka obsahuje značku <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Stránky s rozbitými grafy",
