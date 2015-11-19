@@ -9,6 +9,7 @@
 	"graph-tracking-category-desc": "Các trang này có thẻ <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Trang có biểu đồ hỏng",
 	"graph-broken-category-desc": "Các trang này có thẻ <code><nowiki><graph></nowiki></code> được sử dụng một cách không hợp lệ.",
+	"graph-ve-dialog-button-tooltip": "Biểu đồ",
 	"graph-ve-dialog-edit-field-graph-type": "Loại biểu đồ",
 	"graph-ve-dialog-edit-field-raw-json": "Mã nguồn JSON",
 	"graph-ve-dialog-edit-json-invalid": "Chuỗi JSON không hợp lệ",
@@ -29,7 +30,6 @@
 	"graph-ve-dialog-edit-type-line": "Biểu đồ tuyến tính",
 	"graph-ve-dialog-edit-type-unknown": "Loại biểu đồ không rõ",
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "Loại biểu đồ này không được hỗ trợ. Việc sửa đổi nó có thể làm nó hư khi được hiển thị. Xin hãy sửa đổi mã nguồn gốc của biểu đồ dùng thẻ “{{int:graph-ve-dialog-edit-page-raw}}”.",
-	"graph-ve-dialog-button-tooltip": "Biểu đồ",
 	"graph-ve-no-spec": "Không tìm thấy bản định rõ biểu đồ",
 	"graph-ve-vega-error": "Vega đã gặp lỗi khi kết xuất biểu đồ này",
 	"graph-ve-vega-error-no-render": "Vega không thể kết xuất biểu đồ này"

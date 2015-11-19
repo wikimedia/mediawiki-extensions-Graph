@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mavrikant"
+			"Mavrikant",
+			"HakanIST"
 		]
 	},
-	"graph-ve-dialog-edit-apply": "Uygula",
-	"graph-ve-dialog-edit-cancel": "İptal",
-	"graph-ve-dialog-edit-page-general": "Genel"
+	"graph-ve-dialog-edit-page-general": "Genel",
+	"graph-ve-dialog-edit-size-fieldset": "Boyut"
 }

@@ -9,11 +9,14 @@
 	"graph-tracking-category-desc": "そのページは <code><nowiki><graph></nowiki></code> タグを含んでいます。",
 	"graph-broken-category": "破損したグラフのあるページ",
 	"graph-broken-category-desc": "そのページは <code><nowiki><graph></nowiki></code> タグを含んでいます、無効な使用法と共に。",
+	"graph-ve-dialog-edit-height": "高さ",
 	"graph-ve-dialog-edit-padding-table-bottom": "ボトム",
 	"graph-ve-dialog-edit-padding-table-left": "左",
 	"graph-ve-dialog-edit-padding-table-right": "右寄せ",
 	"graph-ve-dialog-edit-padding-table-top": "トップ",
 	"graph-ve-dialog-edit-padding-table-unit": "ピクセル",
 	"graph-ve-dialog-edit-page-data": "データ",
+	"graph-ve-dialog-edit-size-fieldset": "サイズ",
+	"graph-ve-dialog-edit-size-table-unit": "ピクセル",
 	"graph-ve-dialog-edit-table-row-delete": "行を削除します"
 }
