@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"MaGa"
+		]
+	},
+	"graph-tracking-category": "Stranice koje sadrže grafikone",
+	"graph-tracking-category-desc": "Ova stranica sadrži oznaku <code><nowiki><graph></nowiki></code>.",
+	"graph-ve-dialog-button-tooltip": "Grafikon",
+	"graph-ve-dialog-edit-field-graph-type": "Vrsta grafikona",
+	"graph-ve-dialog-edit-field-raw-json": "Neobrađena JSON specifikacija",
+	"graph-ve-dialog-edit-json-invalid": "Krivi JSON niz",
+	"graph-ve-dialog-edit-padding-auto": "Automatska podloga",
+	"graph-ve-dialog-edit-padding-fieldset": "Podloga",
+	"graph-ve-dialog-edit-padding-table-bottom": "Dno",
+	"graph-ve-dialog-edit-padding-table-left": "Lijevo",
+	"graph-ve-dialog-edit-padding-table-right": "Desno",
+	"graph-ve-dialog-edit-padding-table-top": "Vrh",
+	"graph-ve-dialog-edit-padding-table-unit": "Pikseli",
+	"graph-ve-dialog-edit-page-data": "Podatci",
+	"graph-ve-dialog-edit-page-general": "Opće",
+	"graph-ve-dialog-edit-page-raw": "Neobrađeni podatci",
+	"graph-ve-dialog-edit-table-row-delete": "Ukloni stupac",
+	"graph-ve-dialog-edit-title": "Uredi grafikon",
+	"graph-ve-dialog-edit-type-area": "Površinski grafikon",
+	"graph-ve-dialog-edit-type-bar": "Stupčasti grafikon",
+	"graph-ve-dialog-edit-type-line": "Linijski grafikon",
+	"graph-ve-dialog-edit-type-unknown": "Nepoznata vrsta grafikona",
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "Ova vrsta grafikona nije podržana, i izmjene mogu rezultirati krivim prikazom. Molimo uredite grafikon preko specifikacije neobrađenih podataka na kartici  '{{int:graph-ve-dialog-edit-page-raw}}'."
+}

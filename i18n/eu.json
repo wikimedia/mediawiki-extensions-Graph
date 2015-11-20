@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sator"
+			"Sator",
+			"Subi"
 		]
 	},
-	"graph-ve-dialog-edit-apply": "Ezarri",
-	"graph-ve-dialog-edit-cancel": "Utzi",
-	"graph-ve-dialog-button-tooltip": "Grafikoa"
+	"graph-ve-dialog-button-tooltip": "Grafikoa",
+	"graph-ve-dialog-edit-size-table-unit": "Pixelak",
+	"graph-ve-dialog-edit-width": "Zabalera"
 }

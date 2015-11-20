@@ -4,7 +4,11 @@
 			"Milicevic01"
 		]
 	},
+	"graph-ve-dialog-edit-height": "Висина",
 	"graph-ve-dialog-edit-padding-table-left": "Лево",
 	"graph-ve-dialog-edit-padding-table-right": "Десно",
-	"graph-ve-dialog-edit-padding-table-unit": "Пиксели"
+	"graph-ve-dialog-edit-padding-table-unit": "Пиксели",
+	"graph-ve-dialog-edit-size-fieldset": "Величина",
+	"graph-ve-dialog-edit-size-table-unit": "Пиксели",
+	"graph-ve-dialog-edit-width": "Ширина"
 }
