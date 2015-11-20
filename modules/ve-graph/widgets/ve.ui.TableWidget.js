@@ -7,17 +7,20 @@
  * @mixins OO.ui.mixin.GroupElement
  *
  * @constructor
- * @param {string[]} fields The labels for the fields
  * @param {Object} [config] Configuration options
- * @cfg {ve.ui.RowWidget[]} [items] Rows to add
- * @cfg {boolean} [hideHeaders=false] Whether or not to hide table headers. Defaults to false.
- * @cfg {boolean} [hideRowLabels=false] Whether or not to hide row labels. Defaults to false.
- * @cfg {boolean} [disableInsertion=false] Whether or not to disable row insertion. Defaults to false.
+ * @cfg {Array} [rows] An array of objects containing `key` and `label` properties for every row
+ * @cfg {Array} [cols] An array of objects containing `key` and `label` properties for every column
+ * @cfg {Array} [data] An array containing all values of the table
+ * @cfg {RegExp|Function|string} [validate] Validation pattern to apply on every cell
+ * @cfg {boolean} [showHeaders=true] Whether or not to show table headers. Defaults to true.
+ * @cfg {boolean} [showRowLabels=true] Whether or not to show row labels. Defaults to true.
+ * @cfg {boolean} [allowRowInsertion=true] Whether or not to enable row insertion. Defaults to true.
+ * @cfg {boolean} [allowRowDeletion=true] Allow row deletion. Defaults to true.
  */
-ve.ui.TableWidget = function VeUiTableWidget( fields, config ) {
-	var i, len,
-		headerRowItems = [],
-		insertionRowItems = [];
+ve.ui.TableWidget = function VeUiTableWidget( config ) {
+	var headerRowItems = [],
+		insertionRowItems = [],
+		columnProps, i, len;
 
 	// Configuration initialization
 	config = config || {};
@@ -28,12 +31,11 @@ ve.ui.TableWidget = function VeUiTableWidget( fields, config ) {
 	// Mixin constructors
 	OO.ui.mixin.GroupElement.call( this, config );
 
+	// Set up model
+	this.model = new ve.dm.TableWidgetModel( config );
+
 	// Properties
-	this.fields = fields;
 	this.listeningToInsertionRowChanges = true;
-	this.hideHeaders = !!config.hideHeaders;
-	this.hideRowLabels = !!config.hideRowLabels;
-	this.disableInsertion = !!config.disableInsertion;
 
 	// Set up group element
 	this.setGroupElement(
@@ -42,39 +44,38 @@ ve.ui.TableWidget = function VeUiTableWidget( fields, config ) {
 	);
 
 	// Set up static rows
-	if ( !this.hideHeaders ) {
+	columnProps = this.model.getAllColumnProperties();
+
+	if ( this.model.getTableProperties().showHeaders ) {
 		this.headerRow = new ve.ui.RowWidget( {
 			deletable: false,
 			label: null
 		} );
+
+		for ( i = 0, len = columnProps.length; i < len; i++ ) {
+			headerRowItems.push( new OO.ui.TextInputWidget( {
+				value: columnProps[ i ].key ? columnProps[ i ].key : columnProps[ i ].index,
+				// TODO: Allow editing of fields
+				disabled: true
+			} ) );
+		}
+
+		this.headerRow.addItems( headerRowItems );
 	}
-	if ( !this.disableInsertion ) {
+
+	if ( this.model.getTableProperties().allowRowInsertion ) {
 		this.insertionRow = new ve.ui.RowWidget( {
 			classes: 've-ui-rowWidget-insertionRow',
 			deletable: false,
 			label: null
 		} );
-	}
 
-	for ( i = 0, len = fields.length; i < len; i++ ) {
-		if ( !this.hideHeaders ) {
-			headerRowItems.push( new OO.ui.TextInputWidget( {
-				value: fields[ i ],
-				// TODO: Allow editing of fields
-				disabled: true
-			} ) );
-		}
-		if ( !this.disableInsertion ) {
+		for ( i = 0, len = columnProps.length; i < len; i++ ) {
 			insertionRowItems.push( new OO.ui.TextInputWidget( {
-				data: fields[ i ]
+				data: columnProps[ i ].key ? columnProps[ i ].key : columnProps[ i ].index
 			} ) );
 		}
-	}
 
-	if ( !this.hideHeaders ) {
-		this.headerRow.addItems( headerRowItems );
-	}
-	if ( !this.disableInsertion ) {
 		this.insertionRow.addItems( insertionRowItems );
 	}
 
@@ -84,35 +85,49 @@ ve.ui.TableWidget = function VeUiTableWidget( fields, config ) {
 	}
 
 	// Events
+	this.model.connect( this, {
+		valueChange: 'onValueChange',
+		insertRow: 'onInsertRow',
+		insertColumn: 'onInsertColumn',
+		removeRow: 'onRemoveRow',
+		removeColumn: 'onRemoveColumn',
+		clear: 'onClear'
+	} );
+
 	this.aggregate( {
-		change: 'rowChange',
-		delete: 'rowDelete'
+		inputChange: 'rowInputChange',
+		deleteButtonClick: 'rowDeleteButtonClick'
 	} );
 
 	this.connect( this, {
-		rowChange: 'onRowChange',
-		rowDelete: 'onRowDelete',
-		disable: 'onDisable'
+		disable: 'onDisabledChange',
+		rowInputChange: 'onRowInputChange',
+		rowDeleteButtonClick: 'onRowDeleteButtonClick'
 	} );
 
-	if ( !this.disableInsertion ) {
+	if ( this.model.getTableProperties().allowRowInsertion ) {
 		this.insertionRow.connect( this, {
-			change: 'onInsertionRowChange'
+			inputChange: 'onInsertionRowInputChange'
 		} );
 	}
 
 	// Initialization
 	this.$element.addClass( 've-ui-tableWidget' );
 
-	if ( !this.hideHeaders ) {
+	if ( this.model.getTableProperties().showHeaders ) {
 		this.$element.append( this.headerRow.$element );
 	}
 	this.$element.append( this.$group );
-	if ( !this.disableInsertion ) {
+	if ( this.model.getTableProperties().allowRowInsertion ) {
 		this.$element.append( this.insertionRow.$element );
 	}
 
-	this.$element.toggleClass( 've-ui-tableWidget-no-labels', this.hideRowLabels );
+	this.$element.toggleClass(
+		've-ui-tableWidget-no-labels',
+		!this.model.getTableProperties().showRowLabels
+	);
+
+	this.model.setupTable();
 };
 
 /* Inheritance */
@@ -134,22 +149,130 @@ ve.ui.TableWidget.static.patterns = {
  * Change when the data within the table has been updated.
  *
  * @param {number} The index of the row that changed
- * @param {string} The key of the row that changed
- * @param {string} The field that changed
+ * @param {string} The key of the row that changed, or `undefined` if it doesn't exist
+ * @param {number} The index of the column that changed
+ * @param {string} The key of the column that changed, or `undefined` if it doesn't exist
  * @param {string} The new value
  */
 
 /**
- * @event deleteRow
+ * @event removeRow
  *
- * Fires when a row is deleted within the table
+ * Fires when a row is removed from the table
  *
  * @param {number} The index of the row being deleted
+ * @param {string} The key of the row being deleted
  */
 
 /* Methods */
 
 /**
+ * Set the value of a particular cell
+ *
+ * @param {number|string} row The row containing the cell to edit. Can be either
+ * the row index or string key if one has been set for the row.
+ * @param {number|string} col The column containing the cell to edit. Can be either
+ * the column index or string key if one has been set for the column.
+ * @param {mixed} value The new value
+ */
+ve.ui.TableWidget.prototype.setValue = function ( row, col, value ) {
+	this.model.setValue( row, col, value );
+};
+
+/**
+ * Set the table data
+ *
+ * @param {Array} data The new table data
+ * @return {boolean} The data has been successfully changed
+ */
+ve.ui.TableWidget.prototype.setData = function ( data ) {
+	if ( !Array.isArray( data ) ) {
+		return false;
+	}
+
+	this.model.setData( data );
+	return true;
+};
+
+/**
+ * Inserts a row into the table. If the row isn't added at the end of the table,
+ * all the following data will be shifted back one row.
+ *
+ * @param {Array} [data] The data to insert to the row.
+ * @param {number} [index] The index in which to insert the new row.
+ * If unset or set to null, the row will be added at the end of the table.
+ * @param {string} [key] A key to quickly select this row.
+ * If unset or set to null, no key will be set.
+ * @param {string} [label] A label to display next to the row.
+ * If unset or set to null, the key will be used if there is one.
+ */
+ve.ui.TableWidget.prototype.insertRow = function ( data, index, key, label ) {
+	this.model.insertRow( data, index, key, label );
+};
+
+/**
+ * Inserts a column into the table. If the column isn't added at the end of the table,
+ * all the following data will be shifted back one column.
+ *
+ * @param {Array} [data] The data to insert to the column.
+ * @param {number} [index] The index in which to insert the new column.
+ * If unset or set to null, the column will be added at the end of the table.
+ * @param {string} [key] A key to quickly select this column.
+ * If unset or set to null, no key will be set.
+ * @param {string} [label] A label to display next to the column.
+ * If unset or set to null, the key will be used if there is one.
+ */
+ve.ui.TableWidget.prototype.insertColumn = function ( data, index, key, label ) {
+	this.model.insertColumn( data, index, key, label );
+};
+
+/**
+ * Removes a row from the table. If the row removed isn't at the end of the table,
+ * all the following rows will be shifted back one row.
+ *
+ * @param {number|string} key The key or numerical index of the row to remove.
+ */
+ve.ui.TableWidget.prototype.removeRow = function ( key ) {
+	this.model.removeRow( key );
+};
+
+/**
+ * Removes a column from the table. If the column removed isn't at the end of the table,
+ * all the following columns will be shifted back one column.
+ *
+ * @param {number|string} key The key or numerical index of the column to remove.
+ */
+ve.ui.TableWidget.prototype.removeColumn = function ( key ) {
+	this.model.removeColumn( key );
+};
+
+/**
+ * Clears all values from the table, without wiping any row or column properties.
+ */
+ve.ui.TableWidget.prototype.clear = function () {
+	this.model.clear();
+};
+
+/**
+ * Clears the table data, as well as all row and column properties
+ */
+ve.ui.TableWidget.prototype.clearWithProperties = function () {
+	this.model.clearWithProperties();
+};
+
+/**
+ * Filter cell input once it is changed
+ *
+ * @param {string} value The input value
+ * @return {string} The filtered input
+ */
+ve.ui.TableWidget.prototype.filterCellInput = function ( value ) {
+	var matches = value.match( ve.ui.TableWidget.static.patterns.filter );
+	return ( Array.isArray( matches ) ) ? matches[ 0 ] : '';
+};
+
+/**
+ * @private
  * @inheritdoc
  */
 ve.ui.TableWidget.prototype.addItems = function ( items ) {
@@ -166,6 +289,7 @@ ve.ui.TableWidget.prototype.addItems = function ( items ) {
 };
 
 /**
+ * @private
  * @inheritdoc
  */
 ve.ui.TableWidget.prototype.removeItems = function ( items ) {
@@ -182,114 +306,193 @@ ve.ui.TableWidget.prototype.removeItems = function ( items ) {
 };
 
 /**
- * Set the value of a particular cell
- *
- * @param {number|string} row The row containing the cell to edit. Can be either
- * the row index or a string key if one has been set for the row.
- * @param {string} field The field to edit
- * @param {string} value The new value
- *
- */
-ve.ui.TableWidget.prototype.setValue = function ( row, field, value ) {
-	var rowItem;
-
-	if ( $.type( row ) === 'string' ) {
-		rowItem = this.getRowFromKey( row );
-	} else if ( $.type( row ) === 'number' ) {
-		rowItem = this.getItems()[ row ];
-	}
-
-	if ( rowItem ) {
-		rowItem.setValue( field, value );
-	}
-};
-
-/**
- * Clears all values from the table
- */
-ve.ui.TableWidget.prototype.clear = function () {
-	var i, rows = this.getItems();
-
-	for ( i = 0; i < rows.length; i++ ) {
-		rows[ i ].clear();
-	}
-};
-
-/**
- * Get a row from its key
- *
- * @param  {string} key The key to query
- * @return {OO.ui.RowWidget} The corresponding row, null if no row was found
- */
-ve.ui.TableWidget.prototype.getRowFromKey = function ( key ) {
-	var i, rows = this.getItems();
-
-	// TODO: Leverage OO.ui.mixin.GroupElement#getItemFromData instead of looping rows
-	for ( i = 0; i < rows.length; i++ ) {
-		if ( rows[ i ].getKey() === key ) {
-			return rows[ i ];
-		}
-	}
-
-	return null;
-};
-
-/**
- * React to changes bubbled up from event aggregation
+ * Handle model value changes
  *
  * @private
- * @param {Object} row The row that changed
- * @param {Object} input The input within the row that changed
+ * @param {number} row The row index of the changed cell
+ * @param {number} col The column index of the changed cell
+ * @param {mixed} value The new value
+ * @fires change
+ */
+ve.ui.TableWidget.prototype.onValueChange = function ( row, col, value ) {
+	var rowProps = this.model.getRowProperties( row ),
+		colProps = this.model.getColumnProperties( col );
+
+	this.getItems()[ row ].setValue( col, value );
+
+	this.emit( 'change', row, rowProps.key, col, colProps.key, value );
+};
+
+/**
+ * Handle model row insertions
+ *
+ * @private
+ * @param {Array} data The initial data
+ * @param {number} index The index in which the new row was inserted
+ * @param {string} key The row key
+ * @param {string} label The row label
+ * @fires change
+ */
+ve.ui.TableWidget.prototype.onInsertRow = function ( data, index, key, label ) {
+	var colProps = this.model.getAllColumnProperties(),
+		newRow = new ve.ui.RowWidget( {
+			label: label,
+			deletable: this.model.getTableProperties().allowRowDeletion
+		} ),
+		i, len, cellKey, cellValue;
+
+	// TODO: Move this logic to RowWidget
+	// TODO: Handle index parameter. Right now all new rows are inserted at the end
+	for ( i = 0, len = colProps.length; i < len; i++ ) {
+		cellKey = ( colProps[ i ].key ) ? colProps[ i ].key : i;
+		cellValue = i < data.length ? data[ i ] : '';
+
+		newRow.addItems( [
+			new OO.ui.TextInputWidget( {
+				validate: this.model.getValidationPattern(),
+				value: cellValue
+			} )
+		] );
+	}
+
+	this.addItems( [ newRow ] );
+
+	// If this is the first data being added, refresh headers and insertion row
+	if ( this.model.getAllRowProperties().length === 1 ) {
+		this.refreshTableMarginals();
+	}
+
+	for ( i = 0, len = data.length; i < len; i++ ) {
+		this.emit( 'change', index, key, i, colProps[ i ].key, data[ i ] );
+	}
+};
+
+/**
+ * Handle model column insertions
+ *
+ * @private
+ * @param {Array} data The initial data
+ */
+ve.ui.TableWidget.prototype.onInsertColumn = function ( data ) {
+	var items = this.getItems(),
+		i, len;
+
+	// TODO: Move this logic to RowWidget
+	// TODO: Handle index parameter. Right now all new columns are inserted at the end
+	for ( i = 0, len = items.length; i < len; i++ ) {
+		items[ i ].addItems( [
+			new OO.ui.TextInputWidget( {
+				validate: this.model.getValidationPattern(),
+				value: data[ i ]
+			} )
+		] );
+
+		if ( this.model.getTableProperties().handleRowInsertion ) {
+			this.insertionRow.addItems( [
+				new OO.ui.TextInputWidget( {
+					validate: this.model.getValidationPattern()
+				} )
+			] );
+		}
+	}
+};
+
+/**
+ * Handle model row removals
+ *
+ * @private
+ * @param {number} index The removed row index
+ * @param {string} key The removed row key
+ * @fires removeRow
+ */
+ve.ui.TableWidget.prototype.onRemoveRow = function ( index, key ) {
+	this.removeItems( [ this.getItems()[ index ] ] );
+	this.emit( 'removeRow', index, key );
+};
+
+/**
+ * Handle model column removals
+ *
+ * @private
+ * @param {number} index The removed column index
+ */
+ve.ui.TableWidget.prototype.onRemoveColumn = function ( index ) {
+	var i, items = this.getItems();
+
+	for ( i = 0; i < items.length; i++ ) {
+		items[ i ].removeColumn( index );
+	}
+};
+
+/**
+ * Handle model table clears
+ *
+ * @private
+ * @param {boolean} withProperties Clear row/column properties
+ */
+ve.ui.TableWidget.prototype.onClear = function ( withProperties ) {
+	var i, len, rows;
+
+	if ( withProperties ) {
+		this.removeItems( this.getItems() );
+	} else {
+		rows = this.getItems();
+
+		for ( i = 0, len = rows.length; i < len; i++ ) {
+			rows[ i ].clear();
+		}
+	}
+};
+
+/**
+ * React to input changes bubbled up from event aggregation
+ *
+ * @private
+ * @param {ve.ui.RowWidget} row The row that changed
+ * @param {number} colIndex The column index of the cell that changed
  * @param {string} value The new value of the input
  * @fires change
  */
-ve.ui.TableWidget.prototype.onRowChange = function ( row, input, value ) {
-	var rowIndex = row.getIndex(),
-		rowKey = row.getKey(),
-		field = input.getData();
+ve.ui.TableWidget.prototype.onRowInputChange = function ( row, colIndex, value ) {
+	var items = this.getItems(),
+		i, len, rowIndex;
 
-	this.emit( 'change', rowIndex, rowKey, field, value );
+	for ( i = 0, len = items.length; i < len; i++ ) {
+		if ( row === items[ i ] ) {
+			rowIndex = i;
+			break;
+		}
+	}
+
+	this.model.setValue( rowIndex, colIndex, value );
 };
 
 /**
- * React to new row input
+ * React to new row input changes
  *
  * @private
- * @param {OO.ui.TextInputWidget} input The input that fired the change
+ * @param {number} colIndex The column index of the input that fired the change
  * @param {string} value The new row value
  */
-ve.ui.TableWidget.prototype.onInsertionRowChange = function ( input, value ) {
-	var i, len, inputToFocus, newInput,
-		self = this,
-		newRow = new ve.ui.RowWidget(),
-		inputs = [];
+ve.ui.TableWidget.prototype.onInsertionRowInputChange = function ( colIndex, value ) {
+	var insertionRowItems = this.insertionRow.getItems(),
+		newRowData = [],
+		i, len, lastRow;
 
 	if ( this.listeningToInsertionRowChanges ) {
-		// Create new data row
-		for ( i = 0, len = this.fields.length; i < len; i++ ) {
-			newInput = new OO.ui.TextInputWidget( {
-				data: this.fields[ i ],
-				// FIXME: Allow other insertion validation patterns via a config property
-				validate: ve.ui.TableWidget.static.patterns.validate,
-				inputFilter: self.filterCellInput
-			} );
-
-			// If this is the field being changed, set its value to the new input
-			// and tag it so we can focus it once it's added to the table
-			if ( input.getData() === this.fields[ i ] ) {
-				inputToFocus = newInput;
+		for ( i = 0, len = insertionRowItems.length; i < len; i++ ) {
+			if ( i === colIndex ) {
+				newRowData.push( value );
+			} else {
+				newRowData.push( '' );
 			}
-
-			inputs.push( newInput );
 		}
 
-		// Add new row to table
-		newRow.addItems( inputs );
-		this.addItems( [ newRow ] );
+		this.insertRow( newRowData );
 
-		// Focus new input and trigger data entry
-		inputToFocus.setValue( value );
-		inputToFocus.focus();
+		// Focus newly inserted row
+		lastRow = this.getItems().slice( -1 )[ 0 ];
+		lastRow.getItems()[ colIndex ].focus();
 
 		// Reset insertion row
 		this.listeningToInsertionRowChanges = false;
@@ -299,28 +502,34 @@ ve.ui.TableWidget.prototype.onInsertionRowChange = function ( input, value ) {
 };
 
 /**
- * React to row deletion input
+ * Handle row deletion input
  *
  * @private
  * @param {ve.ui.RowWidget} row The row that asked for the deletion
- * @fires deleteRow
  */
-ve.ui.TableWidget.prototype.onRowDelete = function ( row ) {
-	var rowIndex = row.getIndex();
+ve.ui.TableWidget.prototype.onRowDeleteButtonClick = function ( row ) {
+	var items = this.getItems(),
+		i = -1,
+		len;
 
-	this.removeItems( [ row ] );
+	for ( i = 0, len = items.length; i < len; i++ ) {
+		if ( items[ i ] === row ) {
+			break;
+		}
+	}
 
-	this.emit( 'deleteRow', rowIndex );
+	this.removeRow( i );
 };
 
 /**
  * Handle disabled state changes
  *
- * @param  {boolean} disabled New disabled state
+ * @private
+ * @param {boolean} disabled The new state
  */
-ve.ui.TableWidget.prototype.onDisable = function ( disabled ) {
-	var i,
-		rows = this.getItems();
+ve.ui.TableWidget.prototype.onDisabledChange = function ( disabled ) {
+	var rows = this.getItems(),
+		i;
 
 	for ( i = 0; i < rows.length; i++ ) {
 		rows[ i ].setDisabled( disabled );
@@ -328,12 +537,39 @@ ve.ui.TableWidget.prototype.onDisable = function ( disabled ) {
 };
 
 /**
- * Filter cell input once it is changed
- *
- * @param {string} value The input value
- * @return {string} The filtered input
+ * Refresh table header and insertion row
  */
-ve.ui.TableWidget.prototype.filterCellInput = function ( value ) {
-	var matches = value.match( ve.ui.TableWidget.static.patterns.filter );
-	return ( Array.isArray( matches ) ) ? matches[ 0 ] : '';
+ve.ui.TableWidget.prototype.refreshTableMarginals = function () {
+	var tableProps = this.model.getTableProperties(),
+		columnProps = this.model.getAllColumnProperties(),
+		rowItems,
+		i, len;
+
+	if ( tableProps.showHeaders ) {
+		this.headerRow.removeItems( this.headerRow.getItems() );
+		rowItems = [];
+
+		for ( i = 0, len = columnProps.length; i < len; i++ ) {
+			rowItems.push( new OO.ui.TextInputWidget( {
+				value: columnProps[ i ].key ? columnProps[ i ].key : columnProps[ i ].index,
+				// TODO: Allow editing of fields
+				disabled: true
+			} ) );
+		}
+
+		this.headerRow.addItems( rowItems );
+	}
+
+	if ( tableProps.allowRowInsertion ) {
+		this.insertionRow.removeItems( this.insertionRow.getItems() );
+		rowItems = [];
+
+		for ( i = 0, len = columnProps.length; i < len; i++ ) {
+			rowItems.push( new OO.ui.TextInputWidget( {
+				data: columnProps[ i ].key ? columnProps[ i ].key : columnProps[ i ].index
+			} ) );
+		}
+
+		this.insertionRow.addItems( rowItems );
+	}
 };
