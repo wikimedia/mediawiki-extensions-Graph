@@ -596,15 +596,18 @@ ve.ui.MWGraphDialog.prototype.onSpecChange = function () {
  * @private
  */
 ve.ui.MWGraphDialog.prototype.checkChanges = function () {
-	var self = this,
-		hasModelBeenChanged = this.graphModel.hasBeenChanged(),
-		areChangesValid;
+	var self = this;
 
-	this.jsonTextInput.isValid().done( function ( isJsonTextInputValid ) {
-		areChangesValid = self.mode === 'insert' ||
-						( hasModelBeenChanged && isJsonTextInputValid );
-		self.actions.setAbilities( { done: areChangesValid } );
-	} );
+	this.jsonTextInput.getValidity().then(
+		function () {
+			self.actions.setAbilities( {
+				done: ( self.mode === 'insert' ) || self.graphModel.hasBeenChanged()
+			} );
+		},
+		function () {
+			self.actions.setAbilities( { done: false } );
+		}
+	);
 };
 
 /**

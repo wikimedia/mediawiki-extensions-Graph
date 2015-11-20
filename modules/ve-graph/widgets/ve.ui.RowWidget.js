@@ -238,10 +238,8 @@ ve.ui.RowWidget.prototype.onCellChange = function ( input, value ) {
 	// don't get passed through.
 	var self = this;
 
-	input.isValid().done( function ( isValid ) {
-		if ( isValid ) {
-			self.emit( 'change', input, value );
-		}
+	input.getValidity().done( function () {
+		self.emit( 'change', input, value );
 	} );
 };
 
