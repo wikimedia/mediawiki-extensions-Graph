@@ -1,0 +1,40 @@
+{
+	"@metadata": {
+		"authors": [
+			"Danmichaelo"
+		]
+	},
+	"graph-desc": "Tillater [http://trifacta.github.io/vega/ Vega]-baserte diagrammer i  &lt;graph&gt;-tagger eller som hele sider.",
+	"graph-tracking-category": "Sider med diagrammer",
+	"graph-tracking-category-desc": "Denne siden inkluderer en <code><nowiki><graph></nowiki></code>-tagg.",
+	"graph-broken-category": "Sider med defekte diagrammer",
+	"graph-broken-category-desc": "Denne siden inkluderer en <code><nowiki><graph></nowiki></code>-tagg med feil.",
+	"graph-ve-dialog-button-tooltip": "Graf",
+	"graph-ve-dialog-edit-field-graph-type": "Graftype",
+	"graph-ve-dialog-edit-field-raw-json": "Rå JSON-spesifikasjon",
+	"graph-ve-dialog-edit-height": "Høyde",
+	"graph-ve-dialog-edit-json-invalid": "Ugyldig JSON-streng",
+	"graph-ve-dialog-edit-padding-auto": "Automatisk padding",
+	"graph-ve-dialog-edit-padding-fieldset": "Padding",
+	"graph-ve-dialog-edit-padding-table-bottom": "Bunn",
+	"graph-ve-dialog-edit-padding-table-left": "Venstre",
+	"graph-ve-dialog-edit-padding-table-right": "Høyre",
+	"graph-ve-dialog-edit-padding-table-top": "Topp",
+	"graph-ve-dialog-edit-padding-table-unit": "Piksler",
+	"graph-ve-dialog-edit-page-data": "Data",
+	"graph-ve-dialog-edit-page-general": "Generelt",
+	"graph-ve-dialog-edit-page-raw": "Rådata",
+	"graph-ve-dialog-edit-size-fieldset": "Størrelse",
+	"graph-ve-dialog-edit-size-table-unit": "Piksler",
+	"graph-ve-dialog-edit-table-row-delete": "Slett rad",
+	"graph-ve-dialog-edit-title": "Rediger graf",
+	"graph-ve-dialog-edit-type-area": "Overflatediagram",
+	"graph-ve-dialog-edit-type-bar": "Søylediagram",
+	"graph-ve-dialog-edit-type-line": "Linjediagram",
+	"graph-ve-dialog-edit-type-unknown": "Ukjent diagramtype",
+	"graph-ve-dialog-edit-width": "Bredde",
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "Denne diagramtypen er ikke støttet, så redigering av den kan føre til at den går i stykker. Du kan fremdeles redigere rådataene under fanen  '{{int:graph-ve-dialog-edit-page-raw}}'.",
+	"graph-ve-no-spec": "Ingen diagramspesifikasjon ble funnet",
+	"graph-ve-vega-error": "Vega støtte på et problem under opptegning av diagrammet",
+	"graph-ve-vega-error-no-render": "Vega klarte ikke å tegne opp diagrammet"
+}

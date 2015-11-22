@@ -1,0 +1,35 @@
+{
+	"@metadata": {
+		"authors": [
+			"Դավիթ Սարոյան"
+		]
+	},
+	"graph-tracking-category": "Գրաֆիկներով էջեր",
+	"graph-tracking-category-desc": "Էջում կա <code><nowiki><graph></nowiki></code> թեգ",
+	"graph-broken-category": "Կոտրված գրաֆիկներով էջեր",
+	"graph-broken-category-desc": "Էջը պարունակում է սխալ կիրառմամբ <code><nowiki><graph></nowiki></code> թեգ",
+	"graph-ve-dialog-button-tooltip": "Գրաֆիկ",
+	"graph-ve-dialog-edit-field-graph-type": "Գրաֆիկի տեսակ",
+	"graph-ve-dialog-edit-field-raw-json": "Հում JSON կարգավորումներ",
+	"graph-ve-dialog-edit-height": "Բարձրություն",
+	"graph-ve-dialog-edit-json-invalid": "Սխալ JSON հաջորդականություն",
+	"graph-ve-dialog-edit-padding-auto": "Ավտոմատ հեռավորություն",
+	"graph-ve-dialog-edit-padding-fieldset": "Հեռավորություն",
+	"graph-ve-dialog-edit-padding-table-bottom": "Վերև",
+	"graph-ve-dialog-edit-padding-table-left": "Ձախ",
+	"graph-ve-dialog-edit-padding-table-right": "Աջ",
+	"graph-ve-dialog-edit-padding-table-top": "Վերև",
+	"graph-ve-dialog-edit-padding-table-unit": "Պիքսելներ",
+	"graph-ve-dialog-edit-page-data": "Տվյալներ",
+	"graph-ve-dialog-edit-page-general": "Ընդհանուր",
+	"graph-ve-dialog-edit-page-raw": "Ելակետային տվյալներ",
+	"graph-ve-dialog-edit-size-fieldset": "Չափս",
+	"graph-ve-dialog-edit-size-table-unit": "Պիքսելներ",
+	"graph-ve-dialog-edit-table-row-delete": "Հեռացնել տողը",
+	"graph-ve-dialog-edit-title": "Խմբագրել գրաֆիկը",
+	"graph-ve-dialog-edit-type-area": "Մակերեսային գրաֆիկ",
+	"graph-ve-dialog-edit-type-bar": "Սյունակներով գրաֆիկ",
+	"graph-ve-dialog-edit-type-line": "Գծային գրաֆիկ",
+	"graph-ve-dialog-edit-type-unknown": "Գրաֆիկի անհայտ տեսակ",
+	"graph-ve-dialog-edit-width": "Լայնություն"
+}

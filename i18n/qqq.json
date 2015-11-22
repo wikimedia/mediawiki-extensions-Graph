@@ -29,7 +29,7 @@
 	"graph-ve-dialog-edit-page-general": "Label for the general page in the graph edit dialog\n{{Identical|General}}",
 	"graph-ve-dialog-edit-page-raw": "Label for the raw data page in the graph edit dialog",
 	"graph-ve-dialog-edit-size-fieldset": "Label for graph edit dialog size fieldset\n{{Identical|Size}}",
-	"graph-ve-dialog-edit-size-table-unit": "Label for size measuring unit in graph editing tool",
+	"graph-ve-dialog-edit-size-table-unit": "Label for size measuring unit in graph editing tool\n{{Identical|Pixel}}",
 	"graph-ve-dialog-edit-table-row-delete": "Tooltip for the delete row button in table widgets",
 	"graph-ve-dialog-edit-title": "Title for the graph editing dialog",
 	"graph-ve-dialog-edit-type-area": "Label for area graph",
