@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Chrumps"
+			"Chrumps",
+			"The Polish"
 		]
 	},
+	"graph-tracking-category": "Strony z diagramami",
 	"graph-tracking-category-desc": "Strona zawiera znacznik <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category-desc": "Strona zawiera nieprawidłowo zastosowany znacznik <code><nowiki><graph></nowiki></code>.",
 	"graph-ve-dialog-edit-height": "Wysokość",

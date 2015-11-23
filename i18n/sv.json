@@ -13,14 +13,17 @@
 	"graph-tracking-category-desc": "Den här sidan innehåller en <code><nowiki><graph></nowiki></code>-tagg.",
 	"graph-broken-category": "Sidor med trasiga grafer",
 	"graph-broken-category-desc": "Den är sidan innehåller en <code><nowiki><graph></nowiki></code>-tagg som används felaktigt.",
-	"graph-ve-dialog-edit-cancel": "Avbryt",
 	"graph-ve-dialog-edit-field-graph-type": "Graftyp",
+	"graph-ve-dialog-edit-height": "Höjd",
 	"graph-ve-dialog-edit-json-invalid": "Ogiltig JSON-sträng",
 	"graph-ve-dialog-edit-padding-table-bottom": "Nederkant",
 	"graph-ve-dialog-edit-padding-table-left": "Vänster",
 	"graph-ve-dialog-edit-padding-table-right": "Höger",
 	"graph-ve-dialog-edit-padding-table-top": "Överkant",
 	"graph-ve-dialog-edit-padding-table-unit": "Bildpunkter",
+	"graph-ve-dialog-edit-size-fieldset": "Storlek",
+	"graph-ve-dialog-edit-size-table-unit": "Bildpunkter",
 	"graph-ve-dialog-edit-table-row-delete": "Radera rad",
-	"graph-ve-dialog-edit-type-bar": "Stapeldiagram"
+	"graph-ve-dialog-edit-type-bar": "Stapeldiagram",
+	"graph-ve-dialog-edit-width": "Bredd"
 }
