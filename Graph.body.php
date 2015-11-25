@@ -54,10 +54,29 @@ class Singleton {
 		if ( $specs !== null ) {
 			global $wgGraphImgServiceAlways, $wgGraphImgServiceUrl;
 			if ( $isPreview || !$wgGraphImgServiceUrl || !$wgGraphImgServiceAlways ) {
-				global $wgGraphDataDomains, $wgGraphUrlBlacklist, $wgGraphIsTrusted;
-				$output->addModules( 'ext.graph' );
+				// We can only load one version of vega lib - either 1 or 2
+				// If the default version is 1, and if any of the graphs need Vega2,
+				// we treat all graphs as Vega2 and load corresponding libraries.
+				// All this should go away once we drop Vega1 support.
+				global $wgGraphDefaultVegaVer;
+				$vegaVer = $wgGraphDefaultVegaVer;
+				if ( $vegaVer === 1 ) {
+					foreach ( $specs as $spec ) {
+						if ( property_exists( $spec, 'version' ) ) {
+							$ver = $spec->version;
+							if ( is_numeric( $ver ) && $ver > 1 ) {
+								$vegaVer = 2;
+								break;
+							}
+						}
+					}
+				}
+
+				$output->addModules( 'ext.graph.vega' . $vegaVer );
 				$output->addJsConfigVars( 'wgGraphSpecs', $specs );
+
 				// TODO: these 3 js vars should be per domain if 'ext.graph' is added, not per page
+				global $wgGraphDataDomains, $wgGraphUrlBlacklist, $wgGraphIsTrusted;
 				$output->addJsConfigVars( 'wgGraphDataDomains', $wgGraphDataDomains );
 				$output->addJsConfigVars( 'wgGraphUrlBlacklist', $wgGraphUrlBlacklist );
 				$output->addJsConfigVars( 'wgGraphIsTrusted', $wgGraphIsTrusted );

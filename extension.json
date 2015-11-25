@@ -25,17 +25,41 @@
 	},
 	"ResourceModules": {
 		"ext.graph": {
-			"scripts": [
-				"lib/d3.js",
-				"lib/topojson.js",
-				"lib/vega.js",
-				"js/graph.js"
-			],
 			"styles": [
 				"styles/common.less"
 			],
 			"dependencies": [
 				"mediawiki.Uri"
+			],
+			"targets": [
+				"mobile",
+				"desktop"
+			]
+		},
+		"ext.graph.vega1": {
+			"scripts": [
+				"lib/d3.js",
+				"lib/topojson.js",
+				"lib/vega1/vega.js",
+				"js/graph1.js"
+			],
+			"dependencies": [
+				"ext.graph"
+			],
+			"targets": [
+				"mobile",
+				"desktop"
+			]
+		},
+		"ext.graph.vega2": {
+			"scripts": [
+				"lib/d3.js",
+				"lib/topojson.js",
+				"lib/vega2/vega.js",
+				"js/graph2.js"
+			],
+			"dependencies": [
+				"ext.graph"
 			],
 			"targets": [
 				"mobile",
@@ -78,6 +102,7 @@
 	],
 	"config": {
 		"GraphDataDomains": [],
+		"GraphDefaultVegaVer": 1,
 		"GraphUrlBlacklist": false,
 		"GraphIsTrusted": false,
 		"GraphImgServiceAlways": false,
