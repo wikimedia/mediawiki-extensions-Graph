@@ -1,4 +1,11 @@
 <?php
+/**
+ *
+ * @license MIT
+ * @file
+ *
+ * @author Yuri Astrakhan
+ */
 
 namespace Graph;
 
@@ -6,6 +13,12 @@ use ApiBase;
 use FormatJson;
 use Title;
 
+/**
+ * This class implements action=graph api, allowing client-side graphs to get the spec,
+ * regardless of how it is stored (page-props or other storage)
+ * Class ApiGraph
+ * @package Graph
+ */
 class ApiGraph extends ApiBase {
 
 	public function execute() {
@@ -16,14 +29,14 @@ class ApiGraph extends ApiBase {
 			$this->dieUsage( "Invalid title given.", "invalidtitle" );
 		}
 
-		$row = $this->getDB()->selectRow( 'page_props', 'pp_value', array(
+		$ppValue = $this->getDB()->selectField( 'page_props', 'pp_value', array(
 			'pp_page' => $title->getArticleID(),
 			'pp_propname' => 'graph_specs',
 		), __METHOD__ );
 
 		$graph = false;
-		if ( $row ) {
-			$st = FormatJson::parse( $row->pp_value );
+		if ( $ppValue ) {
+			$st = FormatJson::parse( $ppValue );
 			if ( $st->isOK() ) {
 				$allGraphs = $st->getValue();
 				$hash = $params['hash'];
