@@ -15,9 +15,13 @@
 		]
 	},
 	"AutoloadClasses": {
+		"Graph\\ApiGraph": "ApiGraph.php",
 		"Graph\\Singleton": "Graph.body.php",
 		"Graph\\Content": "Graph.body.php",
 		"GraphHooks": "Graph.hooks.php"
+	},
+	"APIModules": {
+		"graph": "Graph\\ApiGraph"
 	},
 	"ResourceModules": {
 		"ext.graph": {
