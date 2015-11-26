@@ -9,8 +9,7 @@
 	"graph-tracking-category-desc": "en dä Sigg es ene <code><nowiki><graph></nowiki></code> Befähl dren.",
 	"graph-broken-category": "Sigge met kappodde Jraffike",
 	"graph-broken-category-desc": "en dä Sigg es ene <code><nowiki><graph></nowiki></code> Befähl dren, wi hä ävver nit jebruch wähde kann.",
-	"graph-ve-dialog-edit-apply": "Aanwände",
-	"graph-ve-dialog-edit-cancel": "Ophühre",
+	"graph-ve-dialog-button-tooltip": "Dijajramm",
 	"graph-ve-dialog-edit-padding-table-bottom": "Onge",
 	"graph-ve-dialog-edit-padding-table-left": "Lengks",
 	"graph-ve-dialog-edit-padding-table-right": "Rääschs",
@@ -18,7 +17,6 @@
 	"graph-ve-dialog-edit-padding-table-unit": "Pixelle",
 	"graph-ve-dialog-edit-page-data": "Dahte",
 	"graph-ve-dialog-edit-table-row-delete": "Donn di Kolonn ov di Schpallde fott schmiiße.",
-	"graph-ve-dialog-button-tooltip": "Dijajramm",
 	"graph-ve-vega-error": "Et <i lang=\"en\" xml:lang=\"en\" title=\"Vega visualization grammar\">Vega</i> hädd ene Fähler jefonge beim Ußjävve vun heh dämm Dijajramm.",
 	"graph-ve-vega-error-no-render": "Et <i lang=\"en\" xml:lang=\"en\" title=\"Vega visualization grammar\">Vega</i> kunnt dat Dijajramm nid ußjävve."
 }

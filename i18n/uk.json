@@ -12,8 +12,7 @@
 	"graph-tracking-category-desc": "Сторінка включає теґ <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Сторінки зі зламаними графіками",
 	"graph-broken-category-desc": "Сторінка включає неправильно використаний теґ <code><nowiki><graph></nowiki></code>.",
-	"graph-ve-dialog-edit-apply": "Застосувати",
-	"graph-ve-dialog-edit-cancel": "Скасувати",
+	"graph-ve-dialog-button-tooltip": "Графік",
 	"graph-ve-dialog-edit-field-graph-type": "Тип графіка",
 	"graph-ve-dialog-edit-field-raw-json": "Специфікація сирого JSON",
 	"graph-ve-dialog-edit-json-invalid": "Неправильний рядок JSON",
@@ -27,7 +26,6 @@
 	"graph-ve-dialog-edit-type-line": "Лінійний графік",
 	"graph-ve-dialog-edit-type-unknown": "Невідомий тип графіка",
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "Тип цього графіку не підтримується й будь-які зроблені зміни можуть пошкодити його відображення. Будь ласка, редагуйте графік через вказання сирих даних за допомогою вкладки «{{int:graph-ve-dialog-edit-page-raw}}»",
-	"graph-ve-dialog-button-tooltip": "Графік",
 	"graph-ve-no-spec": "Не знайдено специфікації графів",
 	"graph-ve-vega-error": "У Веги сталася помилка під час візуалізації цього графіка",
 	"graph-ve-vega-error-no-render": "Вега не в змозі відобразити цей графік"
