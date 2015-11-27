@@ -10,6 +10,8 @@
 	"graph-tracking-category-desc": "La página incluye una etiqueta <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Páginas con gráficos rotos",
 	"graph-broken-category-desc": "La página incluye una etiqueta <code><nowiki><graph></nowiki></code> con uso no válido.",
+	"apihelp-graph-param-hash": "Valor de hash del gráfico",
+	"apihelp-graph-param-title": "Título del artículo con el gráfico",
 	"graph-ve-dialog-button-tooltip": "Gráfico",
 	"graph-ve-dialog-edit-field-graph-type": "Tipo de gráfico",
 	"graph-ve-dialog-edit-field-raw-json": "Especificación JSON en bruto",
