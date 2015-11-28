@@ -56,9 +56,13 @@ class Singleton {
 		}
 		$specs = $output->getExtensionData( 'graph_specs' );
 		if ( $specs !== null ) {
-
-			$output->setProperty( 'graph_specs',
-					FormatJson::encode( $specs, false, FormatJson::ALL_OK ) );
+			// Store all graph specs as either plain-text or gzip-ed blob in page properties
+			global $wgGraphEnableGZip;
+			$ppValue = FormatJson::encode( $specs, false, FormatJson::ALL_OK );
+			if ( $wgGraphEnableGZip ) {
+				$ppValue = gzencode( $ppValue, 9 );
+			}
+			$output->setProperty( 'graph_specs', $ppValue );
 			$output->addTrackingCategory( 'graph-tracking-category', $title );
 
 			// We can only load one version of vega lib - either 1 or 2

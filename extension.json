@@ -116,6 +116,7 @@
 	"config": {
 		"GraphDataDomains": [],
 		"GraphDefaultVegaVer": 1,
+		"GraphEnableGZip": false,
 		"GraphUrlBlacklist": false,
 		"GraphIsTrusted": false,
 		"GraphImgServiceUrl": false

@@ -36,6 +36,11 @@ class ApiGraph extends ApiBase {
 
 		$graph = false;
 		if ( $ppValue ) {
+			// Copied from TemplateDataBlob.php:newFromDatabase()
+			// Handle GZIP compression. \037\213 is the header for GZIP files.
+			if ( substr( $ppValue, 0, 2 ) === "\037\213" ) {
+				$ppValue = gzdecode( $ppValue );
+			}
 			$st = FormatJson::parse( $ppValue );
 			if ( $st->isOK() ) {
 				$allGraphs = $st->getValue();
