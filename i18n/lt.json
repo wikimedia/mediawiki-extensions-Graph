@@ -5,9 +5,13 @@
 		]
 	},
 	"graph-broken-category": "Puslapiai su sugedusiais grafikais",
+	"graph-ve-dialog-edit-height": "Aukštis",
 	"graph-ve-dialog-edit-padding-table-bottom": "Apačioje",
 	"graph-ve-dialog-edit-padding-table-left": "Kairėje",
 	"graph-ve-dialog-edit-padding-table-right": "Dešinėje",
 	"graph-ve-dialog-edit-padding-table-top": "Viršuje",
-	"graph-ve-dialog-edit-padding-table-unit": "Pikseliai"
+	"graph-ve-dialog-edit-padding-table-unit": "Pikseliai",
+	"graph-ve-dialog-edit-size-fieldset": "Dydis",
+	"graph-ve-dialog-edit-size-table-unit": "Pikseliai",
+	"graph-ve-dialog-edit-width": "Plotis"
 }
