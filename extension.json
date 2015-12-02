@@ -24,6 +24,25 @@
 		"graph": "Graph\\ApiGraph"
 	},
 	"ResourceModules": {
+		"ext.graph.loader": {
+			"scripts": [
+				"js/graph-loader.js"
+			],
+			"styles": [
+			  "styles/common.less"
+			],
+			"messages": [
+				"graph-loading",
+				"graph-loading-done"
+			],
+			"dependencies": [
+				"mediawiki.Uri"
+			],
+			"targets": [
+				"mobile",
+				"desktop"
+			]
+		},
 		"ext.graph": {
 			"styles": [
 				"styles/common.less"

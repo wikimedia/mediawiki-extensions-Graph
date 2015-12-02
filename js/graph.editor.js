@@ -3,7 +3,7 @@
 	mw.hook( 'codeEditor.configure' ).add( function ( session ) {
 		function refreshGraph() {
 			var spec,
-				el = $( '.mw-wiki-graph' ).get( 0 ),
+				el = $( '.mw-graph' ).get( 0 ),
 				content = session.getValue();
 
 			if ( typeof vg === 'undefined' || oldContent === content ) {

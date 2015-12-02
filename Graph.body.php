@@ -42,8 +42,9 @@ class Singleton {
 	                                   array $args, Parser $parser, \PPFrame $frame ) {
 		// expand template arguments and other wiki markup
 		$input = $parser->recursivePreprocess( $input, $frame );
+
 		return self::buildHtml( $input, $parser->getTitle(), $parser->getRevisionId(),
-			$parser->getOutput(), $parser->getOptions()->getIsPreview() );
+			$parser->getOutput(), $parser->getOptions()->getIsPreview(), $args );
 	}
 
 	public static function finalizeParserOutput( ParserOutput $output, $title, $isPreview ) {
@@ -52,38 +53,34 @@ class Singleton {
 		}
 		$specs = $output->getExtensionData( 'graph_specs' );
 		if ( $specs !== null ) {
-			global $wgGraphImgServiceAlways, $wgGraphImgServiceUrl;
-			if ( $isPreview || !$wgGraphImgServiceUrl || !$wgGraphImgServiceAlways ) {
-				// We can only load one version of vega lib - either 1 or 2
-				// If the default version is 1, and if any of the graphs need Vega2,
-				// we treat all graphs as Vega2 and load corresponding libraries.
-				// All this should go away once we drop Vega1 support.
-				global $wgGraphDefaultVegaVer;
-				$vegaVer = $wgGraphDefaultVegaVer;
-				if ( $vegaVer === 1 ) {
-					foreach ( $specs as $spec ) {
-						if ( property_exists( $spec, 'version' ) ) {
-							$ver = $spec->version;
-							if ( is_numeric( $ver ) && $ver > 1 ) {
-								$vegaVer = 2;
-								break;
-							}
-						}
-					}
-				}
 
-				$output->addModules( 'ext.graph.vega' . $vegaVer );
-				$output->addJsConfigVars( 'wgGraphSpecs', $specs );
+			$output->setProperty( 'graph_specs',
+					FormatJson::encode( $specs, false, FormatJson::ALL_OK ) );
+			$output->addTrackingCategory( 'graph-tracking-category', $title );
 
+			// We can only load one version of vega lib - either 1 or 2
+			// If the default version is 1, and if any of the graphs need Vega2,
+			// we treat all graphs as Vega2 and load corresponding libraries.
+			// All this should go away once we drop Vega1 support.
+
+			$liveSpecs = $output->getExtensionData( 'graph_live_specs' );
+			$interact = $output->getExtensionData( 'graph_interact' );
+
+			if ( $liveSpecs || $interact ) {
 				// TODO: these 3 js vars should be per domain if 'ext.graph' is added, not per page
 				global $wgGraphDataDomains, $wgGraphUrlBlacklist, $wgGraphIsTrusted;
 				$output->addJsConfigVars( 'wgGraphDataDomains', $wgGraphDataDomains );
 				$output->addJsConfigVars( 'wgGraphUrlBlacklist', $wgGraphUrlBlacklist );
 				$output->addJsConfigVars( 'wgGraphIsTrusted', $wgGraphIsTrusted );
+
+				$vegaVer = $output->getExtensionData( 'graph_vega2' ) ? 2 : 1;
+				if ( $liveSpecs ) {
+					$output->addModules( 'ext.graph.vega' . $vegaVer );
+					$output->addJsConfigVars( 'wgGraphSpecs', $liveSpecs );
+				} else {
+					$output->addModules( 'ext.graph.loader' );
+				}
 			}
-			$output->setProperty( 'graph_specs',
-				FormatJson::encode( $specs, false, FormatJson::ALL_OK ) );
-			$output->addTrackingCategory( 'graph-tracking-category', $title );
 		}
 	}
 
@@ -108,9 +105,11 @@ class Singleton {
 	 * @param int $revid
 	 * @param ParserOutput $parserOutput
 	 * @param bool $isPreview
+	 * @param array $args
 	 * @return string
 	 */
-	public static function buildHtml( $jsonText, $title, $revid, $parserOutput, $isPreview ) {
+	public static function buildHtml( $jsonText, $title, $revid, $parserOutput, $isPreview,
+									  $args = null ) {
 		global $wgGraphImgServiceUrl, $wgServerName, $wgGraphImgServiceAlways;
 
 		$status = FormatJson::parse( $jsonText, FormatJson::TRY_FIXING | FormatJson::STRIP_COMMENTS );
@@ -119,18 +118,43 @@ class Singleton {
 			return $status->getWikiText();
 		}
 
+		$isInteractive = isset( $args['mode'] ) && $args['mode'] === 'interactive';
+		$data = $status->getValue();
+
+		// Figure out which vega version to use
+		global $wgGraphDefaultVegaVer;
+		$useVega2 = false;
+		if ( property_exists( $data, 'version' ) ) {
+			$ver = is_numeric( $data->version ) ? $data->version : 0;
+		} else {
+			$ver = false;
+		}
+		if ( $wgGraphDefaultVegaVer > 1 || $isInteractive ) {
+			if ( $ver === false ) {
+				// If version is not set, but we need to force vega2, insert it automatically
+				$data->version = 2;
+			}
+			$useVega2 = true;
+		} elseif ( $ver !== false ) {
+			$useVega2 = $ver > 1;
+		}
+		if ( $useVega2 ) {
+			$parserOutput->setExtensionData( 'graph_vega2', true );
+		}
+
 		// Calculate hash and store graph definition in graph_specs extension data
 		$specs = $parserOutput->getExtensionData( 'graph_specs' ) ?: array();
-		$data = $status->getValue();
 		// Make sure that multiple json blobs that only differ in spacing hash the same
 		$hash = sha1( FormatJson::encode( $data, false, FormatJson::ALL_OK ) );
 		$specs[$hash] = $data;
 		$parserOutput->setExtensionData( 'graph_specs', $specs );
 
-		$html = '';
+		$useGraphoid = !$isPreview && $wgGraphImgServiceUrl;
+		$loadLive = $isPreview || !$wgGraphImgServiceAlways;
+		$loadOnClick = !$loadLive && $useGraphoid && $isInteractive;
 
-		// Graphoid service image URL
-		if ( $wgGraphImgServiceUrl ) {
+		$imgTag = '';
+		if ( $useGraphoid ) {
 			$server = rawurlencode( $wgServerName );
 			$title = !$title ? '' : rawurlencode( $title->getPrefixedDBkey() );
 			$revid = rawurlencode( (string)$revid ) ?: '0';
@@ -138,22 +162,37 @@ class Singleton {
 
 			// TODO: Use "width" and "height" from the definition if available
 			// In some cases image might still be larger - need to investigate
-			$html .= Html::rawElement( 'img', array(
-				'class' => 'mw-wiki-graph-img',
-				'src' => $url,
+			$imgTag = Html::rawElement( 'img', array(
+				'class' => 'mw-graph-img',
+				'src' => $url
 			) );
 		}
 
-		if ( $isPreview || !$wgGraphImgServiceUrl || !$wgGraphImgServiceAlways ) {
-			$html .= Html::element( 'div', array(
-				'class' => 'mw-wiki-graph',
-				'data-graph-id' => $hash,
+		$liveTag = '';
+		$containerClass = 'mw-graph-container';
+		if ( $loadOnClick ) {
+			$containerClass .= ' mw-graph-static';
+			$liveTag = Html::rawElement( 'div', array(
+				'class' => 'mw-graph-switch-button',
+			), wfMessage( 'graph-switch-button' )->text() );
+			$parserOutput->setExtensionData( 'graph_interact', true );
+		} else if ( $loadLive ) {
+			$liveTag = Html::element( 'div', array(
+				'class' => 'mw-graph'
 			) );
+			$liveSpecs = $parserOutput->getExtensionData( 'graph_live_specs' ) ?: array();
+			$liveSpecs[$hash] = $data;
+			$parserOutput->setExtensionData( 'graph_live_specs', $liveSpecs );
 		}
 
-		return Html::rawElement( 'div', array(
-			'class' => 'mw-wiki-graph-container',
-		), $html );
+		$attribs = array( 'class' => $containerClass );
+		if ( $loadOnClick || $loadLive ) {
+			// No point to set graph id unless we will use it on the client
+			$attribs['data-graph-id'] = $hash;
+		}
+		$container = Html::rawElement( 'div', $attribs, $imgTag . $liveTag );
+
+		return Html::rawElement( 'div', array(), $container );
 	}
 }
 

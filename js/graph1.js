@@ -46,8 +46,8 @@
 			};
 		}
 
-		$content.find( '.mw-wiki-graph' ).each( function () {
-			var graphId = $( this ).data( 'graph-id' ),
+		$content.find( '.mw-graph' ).each( function () {
+			var graphId = $( this.parentNode ).data( 'graph-id' ),
 				el = this;
 			if ( !specs[ graphId ] ) {
 				mw.log.warn( graphId );

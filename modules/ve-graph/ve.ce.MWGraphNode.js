@@ -16,7 +16,7 @@
  * @param {Object} [config] Configuration options
  */
 ve.ce.MWGraphNode = function VeCeMWGraphNode( model, config ) {
-	this.$graph = $( '<div>' ).addClass( 'mw-wiki-graph' );
+	this.$graph = $( '<div>' ).addClass( 'mw-graph' );
 	this.$plot = $( '<div>' ).addClass( 've-ce-mwGraphNode-plot' );
 
 	// Parent constructor
@@ -26,7 +26,7 @@ ve.ce.MWGraphNode = function VeCeMWGraphNode( model, config ) {
 	ve.ce.MWResizableNode.call( this, this.$plot, config );
 
 	this.$element
-		.addClass( 'mw-wiki-graph-container' )
+		.addClass( 'mw-graph-container' )
 		.append( this.$graph );
 
 	this.showHandles( [ 'se' ] );
