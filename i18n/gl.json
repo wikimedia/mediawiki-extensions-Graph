@@ -10,6 +10,7 @@
 	"graph-tracking-category-desc": "A páxina inclúe unha etiqueta <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Páxinas con gráficos rotos",
 	"graph-broken-category-desc": "A páxina inclúe unha etiqueta <code><nowiki><graph></nowiki></code> con uso non válido.",
+	"apihelp-graph-param-title": "Título do artigo co gráfico",
 	"graph-ve-dialog-button-tooltip": "Gráfico",
 	"graph-ve-dialog-edit-field-graph-type": "Tipo de gráfico",
 	"graph-ve-dialog-edit-field-raw-json": "Especificación de JSON cru",
@@ -37,5 +38,8 @@
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "Non se admite este tipo de gráfico. Calquera modificación que se lle faga pode arruinar a súa visualización. Edite o gráfico mediante a especificación de datos sen procesar na lapela '{{int:graph-ve-dialog-edit-page-raw}}'.",
 	"graph-ve-no-spec": "Non se atopou ningunha especificación de gráficos",
 	"graph-ve-vega-error": "Vega atopou un erro renderizando este gráfico",
-	"graph-ve-vega-error-no-render": "Vega non foi capaz de renderizar este gráfico"
+	"graph-ve-vega-error-no-render": "Vega non foi capaz de renderizar este gráfico",
+	"graph-switch-button": "Facer interactivo",
+	"graph-loading": "Cargando...",
+	"graph-loading-done": "Feito!"
 }

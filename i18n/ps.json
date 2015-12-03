@@ -13,5 +13,7 @@
 	"graph-ve-dialog-edit-page-data": "اومتوک",
 	"graph-ve-dialog-edit-size-fieldset": "کچه",
 	"graph-ve-dialog-edit-size-table-unit": "پېکسلونه",
-	"graph-ve-dialog-edit-width": "سوروالی"
+	"graph-ve-dialog-edit-width": "سوروالی",
+	"graph-loading": "رابرسېرېږي...",
+	"graph-loading-done": "ترسره شو!"
 }

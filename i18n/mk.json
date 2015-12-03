@@ -40,5 +40,8 @@
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "Овој тип на графикон не е поддржан, па така сите измени во него можат да го расипат исписот. Менувајте го преку одредниците во сировите податоци во јазичето „{{int:graph-ve-dialog-edit-page-raw}}“.",
 	"graph-ve-no-spec": "Не пронајдов определба за графикот",
 	"graph-ve-vega-error": "Вега наиде на грешка при исцртувањето на графиконов",
-	"graph-ve-vega-error-no-render": "Вега не можеше да го исцрта графиконов"
+	"graph-ve-vega-error-no-render": "Вега не можеше да го исцрта графиконов",
+	"graph-switch-button": "Направи интерактивно",
+	"graph-loading": "Вчитувам...",
+	"graph-loading-done": "Готово!"
 }

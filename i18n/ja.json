@@ -19,5 +19,6 @@
 	"graph-ve-dialog-edit-size-fieldset": "サイズ",
 	"graph-ve-dialog-edit-size-table-unit": "ピクセル",
 	"graph-ve-dialog-edit-table-row-delete": "行を削除します",
-	"graph-ve-dialog-edit-width": "幅"
+	"graph-ve-dialog-edit-width": "幅",
+	"graph-loading": "読み込み中..."
 }

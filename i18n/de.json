@@ -37,5 +37,8 @@
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "Der Typ dieses Diagramms wird nicht unterstützt und Veränderungen am Diagramm zerstören die Anzeige. Bitte bearbeite das Diagramm mithilfe der Rohdatenangabe in der Registerkarte „{{int:graph-ve-dialog-edit-page-raw}}“.",
 	"graph-ve-no-spec": "Keine Diagramm-Spezifikation gefunden",
 	"graph-ve-vega-error": "Vega hat einen Fehler beim Rendern dieses Diagramms entdeckt",
-	"graph-ve-vega-error-no-render": "Vega konnte dieses Diagramm nicht darstellen"
+	"graph-ve-vega-error-no-render": "Vega konnte dieses Diagramm nicht darstellen",
+	"graph-switch-button": "Interaktiv machen",
+	"graph-loading": "Lade …",
+	"graph-loading-done": "Fertig!"
 }
