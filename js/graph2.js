@@ -39,22 +39,37 @@
 		return url;
 	};
 
+	/**
+	 * Set up drawing canvas inside the given element and draw graph data
+	 *
+	 * @param {HTMLElement} element
+	 * @param {Object|string} data graph spec
+	 * @param {Function} [callback] function(error) called when drawing is done
+	 */
+	mw.drawVegaGraph = function ( element, data, callback ) {
+		vg.parse.spec( data, function ( error, chart ) {
+			if ( !error ) {
+				chart( { el: element } ).update();
+			}
+			if ( callback ) {
+				callback( error );
+			} else if ( error ) {
+				mw.log( error );
+			}
+		} );
+	};
+
 	mw.hook( 'wikipage.content' ).add( function ( $content ) {
 		var specs = mw.config.get( 'wgGraphSpecs' );
 		if ( !specs ) {
 			return;
 		}
 		$content.find( '.mw-graph' ).each( function () {
-			var graphId = $( this.parentNode ).data( 'graph-id' ),
-				el = this;
-			if ( !specs[ graphId ] ) {
+			var graphId = $( this.parentNode ).data( 'graph-id' );
+			if ( !specs.hasOwnProperty( graphId ) ) {
 				mw.log.warn( graphId );
 			} else {
-				vg.parse.spec( specs[ graphId ], function ( chart ) {
-					if ( chart ) {
-						chart( { el: el } ).update();
-					}
-				} );
+				mw.drawVegaGraph( this, specs[ graphId ] );
 			}
 		} );
 	} );

@@ -171,7 +171,7 @@ class Singleton {
 		$liveTag = '';
 		$containerClass = 'mw-graph-container';
 		if ( $loadOnClick ) {
-			$containerClass .= ' mw-graph-static';
+			$containerClass .= ' mw-graph-interactable';
 			$liveTag = Html::rawElement( 'div', array(
 				'class' => 'mw-graph-switch-button',
 			), wfMessage( 'graph-switch-button' )->text() );
