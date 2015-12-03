@@ -118,7 +118,7 @@ ve.ce.MWGraphNode.prototype.update = function () {
 	// Clear element
 	this.$graph.empty();
 
-	mw.loader.using( 'ext.graph' ).done( function () {
+	mw.loader.using( 'ext.graph.vega1' ).done( function () {
 		node.$plot.detach();
 
 		node.constructor.static.vegaParseSpec( node.getModel().getSpec(), node.$graph[ 0 ] ).then(
