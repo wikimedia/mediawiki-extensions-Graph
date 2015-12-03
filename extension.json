@@ -124,7 +124,6 @@
 		"GraphDefaultVegaVer": 1,
 		"GraphUrlBlacklist": false,
 		"GraphIsTrusted": false,
-		"GraphImgServiceAlways": false,
 		"GraphImgServiceUrl": false
 	},
 	"TrackingCategories": [

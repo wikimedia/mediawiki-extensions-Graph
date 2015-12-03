@@ -1,43 +1,28 @@
-.mw-graph, .mw-graph-img {
-	display: inline-block;
-}
-
-/* If a JavaScript-based rendering is available, and the client
-   is JavaScript-capable, hide the static image. */
-.client-js .mw-graph-container .mw-graph-img {
-
-}
-
-/* If the client is not JavaScript capable, hide the placeholder
-  for the JavaScript-based rendering. */
-.client-nojs .mw-graph-container .mw-graph {
-	display: none;
-}
-
-
 @import "mediawiki.ui/variables";
 
 @c-graph-main: @colorConstructive;
 
 .client-js {
-  .mw-graph-container {
+  .mw-graph {
     display: inline-block;
     border: 1px solid transparent;
     position: relative;
+
+    .mw-graph-img {
+      display: inline-block;
+    }
   }
 
-  .mw-graph-container.mw-graph-interactable {
+  .mw-graph.mw-graph-interactable {
 
-    .mw-graph-switch-button {
+    .mw-graph-switch {
       position: absolute;
       top: 0;
       left: auto;
       right: 0;
       text-align: center;
       background-color: lighten(@c-graph-main, 65%);
-      padding: 3px 10px;
       font-size: 12px;
-      color: @colorGray5;
       color: @c-graph-main;
       font-weight: bold;
       display: none;
@@ -49,7 +34,7 @@
     &:hover {
       cursor: pointer;
 
-      .mw-graph-switch-button {
+      .mw-graph-switch {
         display: block;
 
         &:hover {
@@ -60,7 +45,7 @@
       }
     }
 
-    .mw-graph-switch-button.loading {
+    .mw-graph-switch.mw-graph-loading {
       display: block;
       background: @colorGrayLighter;
       color: @colorWhite;

@@ -44,18 +44,14 @@
 	 *
 	 * @param {HTMLElement} element
 	 * @param {Object|string} data graph spec
-	 * @param {Function} [callback] function(error) called when drawing is done
+	 * @param {Function} callback function(error) called when drawing is done
 	 */
 	mw.drawVegaGraph = function ( element, data, callback ) {
 		vg.parse.spec( data, function ( error, chart ) {
 			if ( !error ) {
 				chart( { el: element } ).update();
 			}
-			if ( callback ) {
-				callback( error );
-			} else if ( error ) {
-				mw.log( error );
-			}
+			callback( error );
 		} );
 	};
 
@@ -64,12 +60,16 @@
 		if ( !specs ) {
 			return;
 		}
-		$content.find( '.mw-graph' ).each( function () {
-			var graphId = $( this.parentNode ).data( 'graph-id' );
+		$content.find( '.mw-graph.mw-graph-always' ).each( function () {
+			var graphId = $( this ).data( 'graph-id' );
 			if ( !specs.hasOwnProperty( graphId ) ) {
 				mw.log.warn( graphId );
 			} else {
-				mw.drawVegaGraph( this, specs[ graphId ] );
+				mw.drawVegaGraph( this, specs[ graphId ], function ( error ) {
+					if ( error ) {
+						mw.log.warn( error );
+					}
+				} );
 			}
 		} );
 	} );

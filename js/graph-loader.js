@@ -3,18 +3,16 @@
 	mw.hook( 'wikipage.content' ).add( function () {
 
 		// Make graph containers clickable
-		$( '#mw-content-text' ).on( 'click', '.mw-graph-container.mw-graph-interactable', function () {
+		$( '#mw-content-text' ).on( 'click', '.mw-graph.mw-graph-interactable', function () {
 			var $this = $( this ),
-				$button = $this.find( '.mw-graph-switch-button' );
+				$button = $this.find( '.mw-graph-switch' );
 
 			// Prevent multiple clicks
 			$this.off( 'click' );
 
 			// Add a class to decorate loading
-			$this.addClass( 'mw-graph-loading' );
-
+			$button.addClass( 'mw-graph-loading' );
 			$button.text( mw.message( 'graph-loading' ).text() );
-			$button.addClass( 'loading' );
 
 			// Replace the image with the graph
 			loadAndReplaceWithGraph( $this );
@@ -39,17 +37,17 @@
 					hash: $el.data( 'graphId' )
 				} ).done( function ( data ) {
 					mw.drawVegaGraph( $el[ 0 ], data.graph, function ( error ) {
-						var $img = $el.find( 'img' ),
-							$button = $el.find( '.mw-graph-switch-button' );
-
+						var $button = $el.find( '.mw-graph-switch' );
 						if ( !error ) {
+							$el.find( 'img' ).remove();
 							$button.text( mw.message( 'graph-loading-done' ).text() );
 							setTimeout( function () {
 								$button.remove();
 								$el.removeClass( 'mw-graph-loading' );
 								$el.removeClass( 'mw-graph-interactable' );
 							}, 1500 );
-							$img.remove();
+						} else {
+							mw.log.warn( error );
 						}
 						// TODO: handle error by showing some message
 					} );

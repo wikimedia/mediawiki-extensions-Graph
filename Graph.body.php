@@ -110,7 +110,7 @@ class Singleton {
 	 */
 	public static function buildHtml( $jsonText, $title, $revid, $parserOutput, $isPreview,
 									  $args = null ) {
-		global $wgGraphImgServiceUrl, $wgServerName, $wgGraphImgServiceAlways;
+		global $wgGraphImgServiceUrl, $wgServerName;
 
 		$status = FormatJson::parse( $jsonText, FormatJson::TRY_FIXING | FormatJson::STRIP_COMMENTS );
 		if ( !$status->isOK() ) {
@@ -149,50 +149,46 @@ class Singleton {
 		$specs[$hash] = $data;
 		$parserOutput->setExtensionData( 'graph_specs', $specs );
 
-		$useGraphoid = !$isPreview && $wgGraphImgServiceUrl;
-		$loadLive = $isPreview || !$wgGraphImgServiceAlways;
-		$loadOnClick = !$loadLive && $useGraphoid && $isInteractive;
+		$attribs = array( 'class' => 'mw-graph' );
 
-		$imgTag = '';
-		if ( $useGraphoid ) {
+		$width = property_exists( $data, 'width' ) && is_int( $data->width ) ? $data->width : 0;
+		$height = property_exists( $data, 'height' ) && is_int( $data->height ) ? $data->height : 0;
+		if ( $width && $height ) {
+			$attribs['style'] = "width:{$width}px;height:{$height}px";
+		}
+
+		if ( $isPreview || !$wgGraphImgServiceUrl ) {
+			// Always do client-side rendering
+			$attribs['class'] .= ' mw-graph-always';
+			$attribs['data-graph-id'] = $hash;
+			$liveSpecs = $parserOutput->getExtensionData( 'graph_live_specs' ) ?: array();
+			$liveSpecs[$hash] = $data;
+			$parserOutput->setExtensionData( 'graph_live_specs', $liveSpecs );
+			$html = ''; // will be injected with a <canvas> tag
+		} else {
+			// Image from Graphoid
 			$server = rawurlencode( $wgServerName );
 			$title = !$title ? '' : rawurlencode( $title->getPrefixedDBkey() );
 			$revid = rawurlencode( (string)$revid ) ?: '0';
 			$url = sprintf( $wgGraphImgServiceUrl, $server, $title, $revid, $hash );
-
-			// TODO: Use "width" and "height" from the definition if available
-			// In some cases image might still be larger - need to investigate
-			$imgTag = Html::rawElement( 'img', array(
-				'class' => 'mw-graph-img',
-				'src' => $url
+			$html = Html::rawElement( 'img', array(
+					'class' => 'mw-graph-img',
+					'src' => $url
 			) );
+
+			if ( $isInteractive ) {
+				// Allow image to interactive switchover
+				$attribs['class'] .= ' mw-graph-interactable';
+				$attribs['data-graph-id'] = $hash;
+				$parserOutput->setExtensionData( 'graph_interact', true );
+				// Add a "make interactive" button
+				$html .= Html::rawElement( 'div', array(
+						'class' => 'mw-graph-switch',
+				), wfMessage( 'graph-switch-button' )->text() );
+			}
 		}
 
-		$liveTag = '';
-		$containerClass = 'mw-graph-container';
-		if ( $loadOnClick ) {
-			$containerClass .= ' mw-graph-interactable';
-			$liveTag = Html::rawElement( 'div', array(
-				'class' => 'mw-graph-switch-button',
-			), wfMessage( 'graph-switch-button' )->text() );
-			$parserOutput->setExtensionData( 'graph_interact', true );
-		} else if ( $loadLive ) {
-			$liveTag = Html::element( 'div', array(
-				'class' => 'mw-graph'
-			) );
-			$liveSpecs = $parserOutput->getExtensionData( 'graph_live_specs' ) ?: array();
-			$liveSpecs[$hash] = $data;
-			$parserOutput->setExtensionData( 'graph_live_specs', $liveSpecs );
-		}
-
-		$attribs = array( 'class' => $containerClass );
-		if ( $loadOnClick || $loadLive ) {
-			// No point to set graph id unless we will use it on the client
-			$attribs['data-graph-id'] = $hash;
-		}
-		$container = Html::rawElement( 'div', $attribs, $imgTag . $liveTag );
-
-		return Html::rawElement( 'div', array(), $container );
+		return Html::rawElement( 'div', $attribs, $html );
 	}
 }
 
