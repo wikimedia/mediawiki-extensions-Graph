@@ -26,7 +26,7 @@
 	"ResourceModules": {
 		"ext.graph.loader": {
 			"scripts": [
-				"js/graph-loader.js"
+				"modules/graph-loader.js"
 			],
 			"styles": [
 			  "styles/common.less"
@@ -60,7 +60,7 @@
 				"lib/d3.js",
 				"lib/topojson.js",
 				"lib/vega1/vega.js",
-				"js/graph1.js"
+				"modules/graph1.js"
 			],
 			"dependencies": [
 				"ext.graph"
@@ -75,7 +75,7 @@
 				"lib/d3.js",
 				"lib/topojson.js",
 				"lib/vega2/vega.js",
-				"js/graph2.js"
+				"modules/graph2.js"
 			],
 			"dependencies": [
 				"ext.graph"
@@ -87,7 +87,7 @@
 		},
 		"ext.graph.editor": {
 			"scripts": [
-				"js/graph.editor.js"
+				"modules/graph.editor.js"
 			],
 			"targets": [
 				"mobile",
