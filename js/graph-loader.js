@@ -33,6 +33,7 @@
 			// Lazy loading dependencies
 			mw.loader.using( 'ext.graph.vega2', function () {
 				new mw.Api().get( {
+					formatversion: 2,
 					action: 'graph',
 					title: mw.config.get( 'wgPageName' ),
 					hash: $el.data( 'graphId' )
