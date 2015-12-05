@@ -40,5 +40,7 @@
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "此图表的类型不受支持，任何对此的修改将破坏其显示效果。请通过在“{{int:graph-ve-dialog-edit-page-raw}}”标签上的原始数据规范编辑图表。",
 	"graph-ve-no-spec": "找不到图表规范",
 	"graph-ve-vega-error": "Vega在渲染此图表时遇到错误",
-	"graph-ve-vega-error-no-render": "Vega无法渲染此图表"
+	"graph-ve-vega-error-no-render": "Vega无法渲染此图表",
+	"graph-loading": "正在载入...",
+	"graph-loading-done": "完成！"
 }

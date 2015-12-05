@@ -46,6 +46,6 @@
 	"graph-ve-vega-error": "Label to display on a graph node when Vega encounters an unknown error",
 	"graph-ve-vega-error-no-render": "Label to display on a graph node when Vega is unable to render",
 	"graph-switch-button": "Button to turn the static graph image into an interactive graph",
-	"graph-loading": "Label to indicate when the interactive graph is loading",
-	"graph-loading-done": "Label to indicate when the interactive graph has loaded"
+	"graph-loading": "Label to indicate when the interactive graph is loading\n{{Identical|Loading}}",
+	"graph-loading-done": "Label to indicate when the interactive graph has loaded\n{{Identical|Done}}"
 }

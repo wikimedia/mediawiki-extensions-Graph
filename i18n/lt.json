@@ -13,5 +13,7 @@
 	"graph-ve-dialog-edit-padding-table-unit": "Pikseliai",
 	"graph-ve-dialog-edit-size-fieldset": "Dydis",
 	"graph-ve-dialog-edit-size-table-unit": "Pikseliai",
-	"graph-ve-dialog-edit-width": "Plotis"
+	"graph-ve-dialog-edit-width": "Plotis",
+	"graph-loading": "Įkeliama…",
+	"graph-loading-done": "Atlikta!"
 }

@@ -12,5 +12,7 @@
 	"graph-ve-dialog-edit-padding-table-right": "Direita",
 	"graph-ve-dialog-edit-page-data": "Dados",
 	"graph-ve-dialog-edit-size-fieldset": "Tamanho",
-	"graph-ve-no-spec": "Nenhum gráfico especificado encontrado"
+	"graph-ve-no-spec": "Nenhum gráfico especificado encontrado",
+	"graph-loading": "A carregar…",
+	"graph-loading-done": "Concluído!"
 }

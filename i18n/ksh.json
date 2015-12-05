@@ -18,5 +18,7 @@
 	"graph-ve-dialog-edit-page-data": "Dahte",
 	"graph-ve-dialog-edit-table-row-delete": "Donn di Kolonn ov di Schpallde fott schmiiße.",
 	"graph-ve-vega-error": "Et <i lang=\"en\" xml:lang=\"en\" title=\"Vega visualization grammar\">Vega</i> hädd ene Fähler jefonge beim Ußjävve vun heh dämm Dijajramm.",
-	"graph-ve-vega-error-no-render": "Et <i lang=\"en\" xml:lang=\"en\" title=\"Vega visualization grammar\">Vega</i> kunnt dat Dijajramm nid ußjävve."
+	"graph-ve-vega-error-no-render": "Et <i lang=\"en\" xml:lang=\"en\" title=\"Vega visualization grammar\">Vega</i> kunnt dat Dijajramm nid ußjävve.",
+	"graph-loading": "Ben aam Lahde&nbsp;…",
+	"graph-loading-done": "Jedonn!"
 }
