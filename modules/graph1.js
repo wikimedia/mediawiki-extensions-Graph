@@ -8,7 +8,6 @@
 		if ( originalSanitize === false ) {
 			// Make sure we only initialize graphs once
 			vg.config.domainWhiteList = mw.config.get( 'wgGraphDataDomains' );
-			vg.config.urlBlackList = mw.config.get( 'wgGraphUrlBlacklist' );
 			if ( !mw.config.get( 'wgGraphIsTrusted' ) ) {
 				vg.config.dataHeaders = { 'Treat-as-Untrusted': 1 };
 			}
@@ -25,21 +24,6 @@
 				url.path = decodeURIComponent( url.path );
 				url = url.toString();
 				if ( !url ) {
-					return false;
-				}
-				if ( !vg.config.urlBlackListRe ) {
-					// Lazy initialize urlBlackListRe
-					if ( vg.config.urlBlackList ) {
-						vg.config.urlBlackListRe = vg.config.urlBlackList.map( function ( s ) {
-							return new RegExp( s );
-						} );
-					} else {
-						vg.config.urlBlackListRe = [];
-					}
-				}
-				if ( vg.config.urlBlackListRe.some( function ( re ) {
-					return re.test( url );
-				} ) ) {
 					return false;
 				}
 				return url;

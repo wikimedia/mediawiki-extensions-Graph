@@ -75,9 +75,8 @@ class Singleton {
 
 			if ( $liveSpecs || $interact ) {
 				// TODO: these 3 js vars should be per domain if 'ext.graph' is added, not per page
-				global $wgGraphDataDomains, $wgGraphUrlBlacklist, $wgGraphIsTrusted;
+				global $wgGraphDataDomains, $wgGraphIsTrusted;
 				$output->addJsConfigVars( 'wgGraphDataDomains', $wgGraphDataDomains );
-				$output->addJsConfigVars( 'wgGraphUrlBlacklist', $wgGraphUrlBlacklist );
 				$output->addJsConfigVars( 'wgGraphIsTrusted', $wgGraphIsTrusted );
 
 				$output->addModuleStyles( 'ext.graph' );
