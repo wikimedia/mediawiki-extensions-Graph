@@ -31,5 +31,7 @@
 	"graph-ve-dialog-edit-width": "Breet",
 	"graph-ve-no-spec": "Keng Spezifikatioun fir d'Graphik fonnt",
 	"graph-ve-vega-error": "Vega hat e Feeler beim Duerstelle vun dëser Grafik",
-	"graph-ve-vega-error-no-render": "Vega konnt dës Graphik net duerstellen"
+	"graph-ve-vega-error-no-render": "Vega konnt dës Graphik net duerstellen",
+	"graph-loading": "Lueden...",
+	"graph-loading-done": "Fäerdeg!"
 }
