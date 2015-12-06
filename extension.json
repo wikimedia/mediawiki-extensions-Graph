@@ -24,31 +24,25 @@
 		"graph": "Graph\\ApiGraph"
 	},
 	"ResourceModules": {
-		"ext.graph.loader": {
-			"scripts": [
-				"modules/graph-loader.js"
-			],
+		"ext.graph": {
 			"styles": [
-			  "styles/common.less"
-			],
-			"messages": [
-				"graph-loading",
-				"graph-loading-done"
-			],
-			"dependencies": [
-				"mediawiki.Uri"
+				"styles/common.less"
 			],
 			"targets": [
 				"mobile",
 				"desktop"
 			]
 		},
-		"ext.graph": {
-			"styles": [
-				"styles/common.less"
+		"ext.graph.loader": {
+			"scripts": [
+				"modules/graph-loader.js"
+			],
+			"messages": [
+				"graph-loading",
+				"graph-loading-done"
 			],
 			"dependencies": [
-				"mediawiki.Uri"
+				"mediawiki.api"
 			],
 			"targets": [
 				"mobile",
@@ -63,7 +57,7 @@
 				"modules/graph1.js"
 			],
 			"dependencies": [
-				"ext.graph"
+				"mediawiki.Uri"
 			],
 			"targets": [
 				"mobile",
@@ -78,7 +72,7 @@
 				"modules/graph2.js"
 			],
 			"dependencies": [
-				"ext.graph"
+				"mediawiki.Uri"
 			],
 			"targets": [
 				"mobile",
