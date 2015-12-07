@@ -43,7 +43,8 @@
 	"graph-ve-no-spec": "No graph specification found",
 	"graph-ve-vega-error": "Vega has encountered an error rendering this graph",
 	"graph-ve-vega-error-no-render": "Vega was unable to render this graph",
-	"graph-switch-button": "Make interactive",
+	"graph-interactive-title": "Interactive",
+	"graph-switch-button": "Play",
 	"graph-loading": "Loading...",
 	"graph-loading-done": "Done!"
 }

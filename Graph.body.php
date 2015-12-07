@@ -120,6 +120,7 @@ class Singleton {
 		}
 
 		$isInteractive = isset( $args['mode'] ) && $args['mode'] === 'interactive';
+		$graphTitle = isset( $args['title'] ) ? $args['title'] : '';
 		$data = $status->getValue();
 
 		// Figure out which vega version to use
@@ -182,10 +183,25 @@ class Singleton {
 				$attribs['class'] .= ' mw-graph-interactable';
 				$attribs['data-graph-id'] = $hash;
 				$parserOutput->setExtensionData( 'graph_interact', true );
+
 				// Add a "make interactive" button
-				$html .= Html::rawElement( 'div', array(
-						'class' => 'mw-graph-switch',
-				), wfMessage( 'graph-switch-button' )->text() );
+				$buttonSpan = Html::rawElement( 'span', null, wfMessage( 'graph-switch-button' )->text() );
+				$buttonIcon = Html::rawElement( 'i', array( 'class' => 'icon-play' ), '&#9658;' );
+
+				$button = Html::rawElement( 'div', array(
+					'class' => 'mw-graph-switch',
+				), $buttonIcon . $buttonSpan );
+
+				$layoverContent =
+					Html::rawElement( 'p', null, wfMessage( 'graph-interactive-title' )->text() ) .
+					Html::element( 'p', array( 'class' => 'mw-graph-title' ), $graphTitle ) .
+					Html::rawElement( 'div', null, $button );
+
+				$layover = Html::rawElement( 'div', array(
+					'class' => 'mw-graph-layover',
+				), Html::rawElement( 'div', null, $layoverContent ) );
+
+				$html .= $layover;
 			}
 		}
 
