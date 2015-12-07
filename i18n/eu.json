@@ -2,11 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Sator",
-			"Subi"
+			"Subi",
+			"An13sa"
 		]
 	},
 	"graph-ve-dialog-button-tooltip": "Grafikoa",
+	"graph-ve-dialog-edit-height": "Altuera",
+	"graph-ve-dialog-edit-size-fieldset": "Tamaina",
 	"graph-ve-dialog-edit-size-table-unit": "Pixelak",
 	"graph-ve-dialog-edit-width": "Zabalera",
-	"graph-loading": "Kargatzen..."
+	"graph-loading": "Kargatzen...",
+	"graph-loading-done": "Egina!"
 }
