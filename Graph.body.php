@@ -73,6 +73,7 @@ class Singleton {
 				$output->addJsConfigVars( 'wgGraphUrlBlacklist', $wgGraphUrlBlacklist );
 				$output->addJsConfigVars( 'wgGraphIsTrusted', $wgGraphIsTrusted );
 
+				$output->addModuleStyles( 'ext.graph' );
 				$vegaVer = $output->getExtensionData( 'graph_vega2' ) ? 2 : 1;
 				if ( $liveSpecs ) {
 					$output->addModules( 'ext.graph.vega' . $vegaVer );
