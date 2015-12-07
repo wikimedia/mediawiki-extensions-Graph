@@ -187,18 +187,15 @@ ve.dm.MWGraphNode.static.stringifySpec = function ( spec ) {
  * @inheritdoc
  */
 ve.dm.MWGraphNode.prototype.createScalable = function () {
-	var width = ve.getProp( this, 'spec', 'width' ),
-		height = ve.getProp( this, 'spec', 'height' );
+	var width = ve.getProp( this.spec, 'width' ),
+		height = ve.getProp( this.spec, 'height' );
 
 	return new ve.dm.Scalable( {
 		currentDimensions: {
 			width: width,
 			height: height
 		},
-		minDimensions: {
-			width: 60,
-			height: 60
-		},
+		minDimensions: ve.dm.MWGraphModel.static.minDimensions,
 		fixedRatio: false
 	} );
 };
