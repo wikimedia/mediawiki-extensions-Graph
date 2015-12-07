@@ -32,6 +32,11 @@ OO.mixinClass( ve.dm.MWGraphModel, OO.EventEmitter );
 
 ve.dm.MWGraphModel.static.defaultPadding = 30;
 
+ve.dm.MWGraphModel.static.minDimensions = {
+	width: 60,
+	height: 60
+};
+
 ve.dm.MWGraphModel.static.graphConfigs = {
 	area: {
 		mark: {

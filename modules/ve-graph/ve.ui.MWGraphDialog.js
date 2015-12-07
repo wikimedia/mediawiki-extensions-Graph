@@ -111,15 +111,16 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 		label: ve.msg( 'graph-ve-dialog-edit-unknown-graph-type-warning' )
 	} );
 
-	this.sizeWidget = new ve.ui.DimensionsWidget();
+	this.sizeWidget = new ve.ui.MediaSizeWidget( null, {
+		noDefaultDimensions: true,
+		noOriginalDimensions: true
+	} );
 
 	sizeFieldset = new OO.ui.FieldsetLayout( {
 		label: ve.msg( 'graph-ve-dialog-edit-size-fieldset' )
 	} );
 
-	sizeFieldset.addItems( [
-		this.sizeWidget
-	] );
+	sizeFieldset.addItems( [ this.sizeWidget ] );
 
 	this.paddingAutoCheckbox = new OO.ui.CheckboxInputWidget( {
 		value: 'paddingAuto'
@@ -223,14 +224,8 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 
 	// Events
 	this.rootLayout.connect( this, { set: 'onRootLayoutSet' } );
-
 	this.graphTypeDropdownInput.connect( this, { change: 'onGraphTypeInputChange' } );
-
-	this.sizeWidget.connect( this, {
-		widthChange: 'onSizeWidgetWidthChange',
-		heightChange: 'onSizeWidgetHeightChange'
-	} );
-
+	this.sizeWidget.connect( this, { change: 'onSizeWidgetChange' } );
 	this.paddingAutoCheckbox.connect( this, { change: 'onPaddingAutoCheckboxChange' } );
 	this.paddingTable.connect( this, {
 		change: 'onPaddingTableChange'
@@ -367,8 +362,14 @@ ve.ui.MWGraphDialog.prototype.setupFormValues = function () {
 		.setValue( graphType );
 
 	// Size
-	this.sizeWidget.setWidth( graphSize.width );
-	this.sizeWidget.setHeight( graphSize.height );
+	this.sizeWidget.setScalable( new ve.dm.Scalable( {
+		currentDimensions: {
+			width: graphSize.width,
+			height: graphSize.height
+		},
+		minDimensions: ve.dm.MWGraphModel.static.minDimensions,
+		fixedRatio: false
+	} ) );
 
 	// Padding
 	this.paddingAutoCheckbox.setSelected( this.graphModel.isPaddingAutomatic() );
@@ -533,21 +534,16 @@ ve.ui.MWGraphDialog.prototype.onPaddingAutoCheckboxChange = function ( value ) {
 };
 
 /**
- * Handle size widget width changes
+ * Handle size widget changes
  *
- * @param {string} value The new value
+ * @param {Object} dimensions New dimensions
  */
-ve.ui.MWGraphDialog.prototype.onSizeWidgetWidthChange = function ( value ) {
-	this.graphModel.setWidth( parseInt( value ) );
-};
-
-/**
- * Handle size widget height changes
- *
- * @param {string} value The new value
- */
-ve.ui.MWGraphDialog.prototype.onSizeWidgetHeightChange = function ( value ) {
-	this.graphModel.setHeight( parseInt( value ) );
+ve.ui.MWGraphDialog.prototype.onSizeWidgetChange = function ( dimensions ) {
+	if ( this.sizeWidget.isValid() ) {
+		this.graphModel.setWidth( dimensions.width );
+		this.graphModel.setHeight( dimensions.height );
+	}
+	this.checkChanges();
 };
 
 /**
@@ -596,16 +592,23 @@ ve.ui.MWGraphDialog.prototype.onSpecChange = function () {
  * @private
  */
 ve.ui.MWGraphDialog.prototype.checkChanges = function () {
-	var self = this;
+	var dialog = this;
 
+	// Synchronous validation
+	if ( !this.sizeWidget.isValid() ) {
+		this.actions.setAbilities( { done: false } );
+		return;
+	}
+
+	// Asynchronous validation
 	this.jsonTextInput.getValidity().then(
 		function () {
-			self.actions.setAbilities( {
-				done: ( self.mode === 'insert' ) || self.graphModel.hasBeenChanged()
+			dialog.actions.setAbilities( {
+				done: ( dialog.mode === 'insert' ) || dialog.graphModel.hasBeenChanged()
 			} );
 		},
 		function () {
-			self.actions.setAbilities( { done: false } );
+			dialog.actions.setAbilities( { done: false } );
 		}
 	);
 };
