@@ -3,7 +3,7 @@
 	mw.hook( 'wikipage.content' ).add( function () {
 
 		// Make graph containers clickable
-		$( '#mw-content-text' ).on( 'click', '.mw-graph.mw-graph-interactable', function () {
+		$( '#bodyContent' ).on( 'click', '.mw-graph.mw-graph-interactable', function () {
 			var $this = $( this ),
 				$button = $this.find( '.mw-graph-switch' );
 
