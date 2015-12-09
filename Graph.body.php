@@ -156,7 +156,7 @@ class Singleton {
 		$width = property_exists( $data, 'width' ) && is_int( $data->width ) ? $data->width : 0;
 		$height = property_exists( $data, 'height' ) && is_int( $data->height ) ? $data->height : 0;
 		if ( $width && $height ) {
-			$attribs['style'] = "width:{$width}px;height:{$height}px";
+			$attribs['style'] = "min-width:{$width}px;min-height:{$height}px";
 		}
 
 		if ( $isPreview || !$wgGraphImgServiceUrl ) {
