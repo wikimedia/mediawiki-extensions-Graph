@@ -48,7 +48,8 @@
 	"graph-ve-no-spec": "Spécification de graphe introuvable",
 	"graph-ve-vega-error": "Vega a rencontré une erreur lors du rendu de ce graphe",
 	"graph-ve-vega-error-no-render": "Vega n’a pas pu faire un rendu de ce graphe",
-	"graph-switch-button": "Rendre interactif",
+	"graph-interactive-title": "Interactif",
+	"graph-switch-button": "Animer",
 	"graph-loading": "Chargement en cours…",
 	"graph-loading-done": "Fait !"
 }

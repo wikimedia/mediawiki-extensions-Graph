@@ -39,7 +39,7 @@
 	"graph-ve-no-spec": "Non se atopou ningunha especificación de gráficos",
 	"graph-ve-vega-error": "Vega atopou un erro renderizando este gráfico",
 	"graph-ve-vega-error-no-render": "Vega non foi capaz de renderizar este gráfico",
-	"graph-switch-button": "Facer interactivo",
+	"graph-interactive-title": "Facer interactivo",
 	"graph-loading": "Cargando...",
 	"graph-loading-done": "Feito!"
 }

@@ -39,5 +39,7 @@
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "Тип этого графика не поддерживается, и любые вносимые изменения могут нарушить его отображение. Пожалуйста, отредактируйте исходные данные графика напрямую на вкладке «{{int:graph-ve-dialog-edit-page-raw}}».",
 	"graph-ve-no-spec": "Не найдена спецификация графика",
 	"graph-ve-vega-error": "В Vega произошла ошибка при отрисовке этого графика",
-	"graph-ve-vega-error-no-render": "Vega не смог построить этот график"
+	"graph-ve-vega-error-no-render": "Vega не смог построить этот график",
+	"graph-loading": "Загрузка…",
+	"graph-loading-done": "Готово!"
 }

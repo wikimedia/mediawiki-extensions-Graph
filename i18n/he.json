@@ -41,7 +41,8 @@
 	"graph-ve-no-spec": "לא נמצאו הגדרות תרשים",
 	"graph-ve-vega-error": "וגה מצאה שגיאה בתיצוג התרשים הזה",
 	"graph-ve-vega-error-no-render": "וגה לא הצליחה לתצג את התרשים הזה",
-	"graph-switch-button": "להפוף להידודי",
+	"graph-interactive-title": "הידודי",
+	"graph-switch-button": "לנגן",
 	"graph-loading": "טעינה...",
 	"graph-loading-done": "בוצע!"
 }

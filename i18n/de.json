@@ -38,7 +38,8 @@
 	"graph-ve-no-spec": "Keine Diagramm-Spezifikation gefunden",
 	"graph-ve-vega-error": "Vega hat einen Fehler beim Rendern dieses Diagramms entdeckt",
 	"graph-ve-vega-error-no-render": "Vega konnte dieses Diagramm nicht darstellen",
-	"graph-switch-button": "Interaktiv machen",
+	"graph-interactive-title": "Interaktiv",
+	"graph-switch-button": "Abspielen",
 	"graph-loading": "Lade …",
 	"graph-loading-done": "Fertig!"
 }
