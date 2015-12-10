@@ -13,6 +13,8 @@
 	"graph-tracking-category-desc": "Description on [[Special:TrackingCategories]] for the {{msg-mw|graph-tracking-category}} tracking category.",
 	"graph-broken-category": "Name of the tracking category",
 	"graph-broken-category-desc": "Description on [[Special:TrackingCategories]] for the {{msg-mw|graph-broken-category}} tracking category.",
+	"graph-obsolete-category": "Name of the tracking category",
+	"graph-obsolete-category-desc": "Description on [[Special:TrackingCategories]] for the {{msg-mw|graph-obsolete-category}} tracking category.",
 	"apihelp-graph-description": "{{doc-apihelp-description|graph}}",
 	"apihelp-graph-example": "{{doc-apihelp-example|graph}}",
 	"apihelp-graph-param-hash": "{{doc-apihelp-param|graph|hash}}",

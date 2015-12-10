@@ -11,6 +11,8 @@
 	"graph-tracking-category-desc": "The page includes a <code><nowiki><graph></nowiki></code> tag.",
 	"graph-broken-category": "Pages with broken graphs",
 	"graph-broken-category-desc": "The page includes a <code><nowiki><graph></nowiki></code> tag with invalid usage.",
+	"graph-obsolete-category": "Pages with obsolete Vega 1.0 graphs",
+	"graph-obsolete-category-desc": "The page includes a <code><nowiki><graph></nowiki></code> tag that should be updated to version 2.",
 	"apihelp-graph-description": "Access graph tag functionality.",
 	"apihelp-graph-example": "Get the graph JSON by hash and title",
 	"apihelp-graph-param-hash": "Hash value of the graph",

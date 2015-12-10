@@ -122,6 +122,7 @@
 	},
 	"TrackingCategories": [
 		"graph-tracking-category",
+		"graph-obsolete-category",
 		"graph-broken-category"
 	],
 	"manifest_version": 1

@@ -51,6 +51,9 @@ class Singleton {
 		if ( $output->getExtensionData( 'graph_specs_broken' ) ) {
 			$output->addTrackingCategory( 'graph-broken-category', $title );
 		}
+		if ( $output->getExtensionData( 'graph_specs_obsolete' ) ) {
+			$output->addTrackingCategory( 'graph-obsolete-category', $title );
+		}
 		$specs = $output->getExtensionData( 'graph_specs' );
 		if ( $specs !== null ) {
 
@@ -142,6 +145,8 @@ class Singleton {
 		}
 		if ( $useVega2 ) {
 			$parserOutput->setExtensionData( 'graph_vega2', true );
+		} else {
+			$parserOutput->setExtensionData( 'graph_specs_obsolete', true );
 		}
 
 		// Calculate hash and store graph definition in graph_specs extension data
