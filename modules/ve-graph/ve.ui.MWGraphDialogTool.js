@@ -2,18 +2,18 @@
  * MediaWiki UserInterface graph tool.
  *
  * @class
- * @extends ve.ui.DialogTool
+ * @extends ve.ui.FragmentWindowTool
  * @constructor
  * @param {OO.ui.ToolGroup} toolGroup
  * @param {Object} [config] Configuration options
  */
-ve.ui.MWGraphDialogTool = function VeUiMWGraphDialogTool( toolGroup, config ) {
-	ve.ui.DialogTool.call( this, toolGroup, config );
+ve.ui.MWGraphDialogTool = function VeUiMWGraphDialogTool() {
+	ve.ui.MWGraphDialogTool.super.apply( this, arguments );
 };
 
 /* Inheritance */
 
-OO.inheritClass( ve.ui.MWGraphDialogTool, ve.ui.DialogTool );
+OO.inheritClass( ve.ui.MWGraphDialogTool, ve.ui.FragmentWindowTool );
 
 /* Static properties */
 
