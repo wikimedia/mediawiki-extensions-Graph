@@ -4,6 +4,8 @@
 			"V.narsikar"
 		]
 	},
+	"graph-obsolete-category": "अप्रचलित Vega 1.0 आलेख असणारी पाने",
+	"graph-obsolete-category-desc": "या पानात <code><nowiki><graph></nowiki></code>अशी खूणपताका अंतर्भूत आहे,जी version 2 ला अद्यतन करावयास हवी.",
 	"graph-ve-dialog-edit-height": "उंची",
 	"graph-ve-dialog-edit-padding-table-bottom": "खाली",
 	"graph-ve-dialog-edit-padding-table-left": "डावीकडे",
@@ -13,7 +15,8 @@
 	"graph-ve-dialog-edit-size-fieldset": "आकार",
 	"graph-ve-dialog-edit-size-table-unit": "पिक्सेल्स",
 	"graph-ve-dialog-edit-width": "रूंदी",
-	"graph-interactive-title": "देवाण-घेवाणयोग्य करा",
+	"graph-interactive-title": "देवाण-घेवाणयोग्य",
+	"graph-switch-button": "खेळा",
 	"graph-loading": "भारण करीत आहे...",
 	"graph-loading-done": "झाले!"
 }

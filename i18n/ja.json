@@ -9,6 +9,8 @@
 	"graph-tracking-category-desc": "そのページは <code><nowiki><graph></nowiki></code> タグを含んでいます。",
 	"graph-broken-category": "破損したグラフのあるページ",
 	"graph-broken-category-desc": "そのページは <code><nowiki><graph></nowiki></code> タグを含んでいます、無効な使用法と共に。",
+	"graph-obsolete-category": "廃止されたVega 1.0のグラフを使用するページ",
+	"graph-obsolete-category-desc": "このページには、バージョン 2 へ更新すべき <code><nowiki><graph></nowiki></code> タグが含まれています。",
 	"graph-ve-dialog-edit-height": "高さ",
 	"graph-ve-dialog-edit-padding-table-bottom": "ボトム",
 	"graph-ve-dialog-edit-padding-table-left": "左",
@@ -20,5 +22,7 @@
 	"graph-ve-dialog-edit-size-table-unit": "ピクセル",
 	"graph-ve-dialog-edit-table-row-delete": "行を削除します",
 	"graph-ve-dialog-edit-width": "幅",
+	"graph-interactive-title": "インタラクティブ",
+	"graph-switch-button": "再生",
 	"graph-loading": "読み込み中..."
 }

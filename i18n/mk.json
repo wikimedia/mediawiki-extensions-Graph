@@ -9,6 +9,8 @@
 	"graph-tracking-category-desc": "Страницава содржи ознака <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Страници со расипани графикони",
 	"graph-broken-category-desc": "Страницава содржи ознака <code><nowiki><graph></nowiki></code> која се употребува неправилно.",
+	"graph-obsolete-category": "Страници со застарени графикони од Vega 1.0",
+	"graph-obsolete-category-desc": "Оваа страница содржи ознака <code><nowiki><graph></nowiki></code> што треба да се поднови на верзија 2.",
 	"apihelp-graph-description": "Пристап до функцијата за ознаки за графици.",
 	"apihelp-graph-example": "Дај JSON за графикон по тараба и наслов",
 	"apihelp-graph-param-hash": "Тарабна вредност на графиконот",

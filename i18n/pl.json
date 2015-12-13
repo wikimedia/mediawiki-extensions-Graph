@@ -8,6 +8,7 @@
 	"graph-tracking-category": "Strony z diagramami",
 	"graph-tracking-category-desc": "Strona zawiera znacznik <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category-desc": "Strona zawiera nieprawidłowo zastosowany znacznik <code><nowiki><graph></nowiki></code>.",
+	"graph-obsolete-category-desc": "Strona zawiera znacznik <code><nowiki><graph></nowiki></code>, który powinien zostać zaktualizowany do wersji 2.",
 	"graph-ve-dialog-edit-height": "Wysokość",
 	"graph-ve-dialog-edit-json-invalid": "Nieprawidłowy ciąg znaków JSON",
 	"graph-ve-dialog-edit-padding-auto": "Automatyczne wcięcie",

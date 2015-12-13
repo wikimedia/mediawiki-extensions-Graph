@@ -9,6 +9,8 @@
 	"graph-tracking-category-desc": "הדף הזה מכיל תג <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "דפים עם תרשימים מקולקלים",
 	"graph-broken-category-desc": "הדף הזה מכיל תג <code><nowiki><graph></nowiki></code> עם שימוש בלתי־תקין.",
+	"graph-obsolete-category": "דפים עם תרשימים מיושנים של Vega 1.0",
+	"graph-obsolete-category-desc": "הדף הזה מכיל תג <code><nowiki><graph></nowiki></code> שצריך לעדכן לגרסה 2.",
 	"apihelp-graph-description": "גישה לפונקצינליות של תגי תרשימים.",
 	"apihelp-graph-example": "קבלת ה־JSON של התרשים באמצעות גיבוב וכותרת",
 	"apihelp-graph-param-hash": "ערך הגיבוב של התרשים",
