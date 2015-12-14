@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			1490493253
+			1490493253,
+			"Robin van der Vliet"
 		]
 	},
+	"graph-ve-dialog-edit-size-fieldset": "Grandeco",
+	"graph-switch-button": "Ludi",
 	"graph-loading-done": "Farita!"
 }
