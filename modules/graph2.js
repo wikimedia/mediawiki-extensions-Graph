@@ -4,18 +4,23 @@
 	// Make sure we only initialize graphs once
 	vg.config.load.domainWhiteList = mw.config.get( 'wgGraphDataDomains' );
 	vg.config.load.urlBlackList = mw.config.get( 'wgGraphUrlBlacklist' );
-	if ( !mw.config.get( 'wgGraphIsTrusted' ) ) {
-		vg.util.load.headers = { 'Treat-as-Untrusted': 1 };
-	}
 
 	originalSanitize = vg.util.load.sanitizeUrl.bind( vg.util.load );
-	vg.util.load.sanitizeUrl = function ( /* opt */ ) {
+	vg.util.load.sanitizeUrl = function ( opt ) {
 		var url = originalSanitize.apply( vg.util.load, arguments );
 		if ( !url ) {
 			return false;
 		}
 		// Normalize url by parsing and re-encoding it
 		url = new mw.Uri( url );
+		if ( !mw.config.get( 'wgGraphIsTrusted' ) &&
+			window.location.hostname.toLowerCase() === url.host.toLowerCase()
+		) {
+			// Only send this header when hostname is the same
+			// This is broader than the same-origin policy, but playing on the safer side
+			opt.headers = { 'Treat-as-Untrusted': 1 };
+		}
+
 		url.path = decodeURIComponent( url.path );
 		url = url.toString();
 		if ( !url ) {
