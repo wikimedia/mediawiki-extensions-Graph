@@ -16,5 +16,8 @@
 	"graph-ve-dialog-edit-page-data": "Подаци",
 	"graph-ve-dialog-edit-size-fieldset": "Величина",
 	"graph-ve-dialog-edit-size-table-unit": "Пиксели",
-	"graph-ve-dialog-edit-width": "Ширина"
+	"graph-ve-dialog-edit-width": "Ширина",
+	"graph-switch-button": "Пусти",
+	"graph-loading": "Учитавам…",
+	"graph-loading-done": "Готово!"
 }
