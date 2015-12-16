@@ -51,9 +51,10 @@
 			case 'http':
 			case 'https':
 				// Will disable this as soon as all graphs have been switched to custom protocols
-				url.path = decodeURIComponent( url.path );
-				opt.url = url.toString();
-				return originalSanitize.call( vg.util.load, opt );
+				// unless mw.config.get( 'wgGraphIsTrusted' ) is true
+				path = decodeURIComponent( url.path );
+				query = url.query;
+				break;
 
 			case 'wikiapi':
 				// wikiapi:///?action=query&list=allpages
