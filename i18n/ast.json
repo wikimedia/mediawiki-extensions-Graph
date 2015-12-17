@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Xuacu"
+			"Xuacu",
+			"Enolp"
 		]
 	},
 	"graph-desc": "Permite convertir etiquetes &lt;graph&gt; o páxines completes en gráficos basaos en [http://vega.github.io/ Vega]",
@@ -9,5 +10,7 @@
 	"graph-ve-dialog-edit-size-fieldset": "Tamañu",
 	"graph-ve-dialog-edit-size-table-unit": "Pixels",
 	"graph-ve-dialog-edit-width": "Anchor",
-	"graph-ve-no-spec": "No s'alcontró nenguna especificación de gráficos"
+	"graph-ve-no-spec": "No s'alcontró nenguna especificación de gráficos",
+	"graph-loading": "Cargando...",
+	"graph-loading-done": "¡Fecho!"
 }
