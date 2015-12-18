@@ -55,6 +55,7 @@ ve.dm.MWGraphNode.static.name = 'mwGraph';
 ve.dm.MWGraphNode.static.extensionName = 'graph';
 
 ve.dm.MWGraphNode.static.defaultSpec = {
+	version: 1,
 	width: 400,
 	height: 200,
 	data: [
