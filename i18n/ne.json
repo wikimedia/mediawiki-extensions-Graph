@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nirmal Dulal"
+			"Nirmal Dulal",
+			"सरोज कुमार ढकाल"
 		]
 	},
-	"graph-ve-dialog-edit-cancel": "रद्ध गर्ने"
+	"graph-loading": "लोड हुँदैछ...",
+	"graph-loading-done": "सकियो!"
 }
