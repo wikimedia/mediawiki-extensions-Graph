@@ -11,6 +11,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 
 	var sampleSpecs = {
 		areaGraph: {
+			version: 1,
 			width: 500,
 			height: 200,
 			padding: {
@@ -95,6 +96,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 		},
 
 		stackedAreaGraph: {
+			version: 1,
 			width: 500,
 			height: 200,
 			padding: {
@@ -245,6 +247,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 		},
 
 		invalidAxesBarGraph: {
+			version: 1,
 			width: 500,
 			height: 200,
 			padding: {
@@ -404,6 +407,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 				]
 			},
 			areaGraphRemovalExpected = {
+				version: 1,
 				width: 500,
 				height: 200,
 				padding: {
