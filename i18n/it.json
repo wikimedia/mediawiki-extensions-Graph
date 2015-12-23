@@ -5,7 +5,8 @@
 			"Alexmar983",
 			"Macofe",
 			"Statix64",
-			"Lucas2"
+			"Lucas2",
+			"Fringio"
 		]
 	},
 	"graph-desc": "Permette il tag &lt;graph> o intere pagine di diventare grafici basati su [http://vega.github.io/ Vega]",
@@ -13,7 +14,7 @@
 	"graph-tracking-category-desc": "La pagina include un tag <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Pagine con errori nei grafici",
 	"graph-broken-category-desc": "La pagina include un tag <code><nowiki><graph></nowiki></code> con utilizzo non valido.",
-	"graph-obsolete-category": "Pagina con grafici obsoleti Vega 1.0",
+	"graph-obsolete-category": "Pagine con grafici obsoleti Vega 1.0",
 	"graph-obsolete-category-desc": "La pagina include un tag <code><nowiki><graph></nowiki></code> che dovrebbe essere aggiornato alla versione 2.",
 	"apihelp-graph-param-title": "Titolo della voce con il grafico",
 	"graph-ve-dialog-button-tooltip": "Grafico",
