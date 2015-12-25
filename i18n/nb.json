@@ -36,5 +36,6 @@
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "Denne diagramtypen er ikke støttet, så redigering av den kan føre til at den går i stykker. Du kan fremdeles redigere rådataene under fanen  '{{int:graph-ve-dialog-edit-page-raw}}'.",
 	"graph-ve-no-spec": "Ingen diagramspesifikasjon ble funnet",
 	"graph-ve-vega-error": "Vega støtte på et problem under opptegning av diagrammet",
-	"graph-ve-vega-error-no-render": "Vega klarte ikke å tegne opp diagrammet"
+	"graph-ve-vega-error-no-render": "Vega klarte ikke å tegne opp diagrammet",
+	"graph-loading": "Laster…"
 }
