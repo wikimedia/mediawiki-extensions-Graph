@@ -9,6 +9,8 @@
 	"graph-tracking-category-desc": "Denne siden inkluderer en <code><nowiki><graph></nowiki></code>-tagg.",
 	"graph-broken-category": "Sider med defekte diagrammer",
 	"graph-broken-category-desc": "Denne siden inkluderer en <code><nowiki><graph></nowiki></code>-tagg med feil.",
+	"graph-obsolete-category": "Sider med utdaterte Vega 1.0-diagram",
+	"graph-obsolete-category-desc": "Denne siden inneholder en <code><nowiki><graph></nowiki></code>-tag that som bør oppgraderes til versjon 2.",
 	"graph-ve-dialog-button-tooltip": "Graf",
 	"graph-ve-dialog-edit-field-graph-type": "Graftype",
 	"graph-ve-dialog-edit-field-raw-json": "Rå JSON-spesifikasjon",
@@ -37,5 +39,7 @@
 	"graph-ve-no-spec": "Ingen diagramspesifikasjon ble funnet",
 	"graph-ve-vega-error": "Vega støtte på et problem under opptegning av diagrammet",
 	"graph-ve-vega-error-no-render": "Vega klarte ikke å tegne opp diagrammet",
+	"graph-interactive-title": "Interaktiv",
+	"graph-switch-button": "Spill av",
 	"graph-loading": "Laster…"
 }

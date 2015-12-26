@@ -13,6 +13,7 @@
 	"graph-broken-category-desc": "Die Seite enthält eine <code><nowiki><graph></nowiki></code>-Markierung mit einer ungültigen Verwendung.",
 	"graph-obsolete-category": "Seiten mit veralteten Vega-1.0-Grafiken",
 	"graph-obsolete-category-desc": "Die Seite enthält eine <code><nowiki><graph></nowiki></code>-Markierung, die auf die Version 2 aktualisiert werden sollte.",
+	"apihelp-graph-example": "Ruft das Grafik-JSON nach Prüfsumme und Titel ab",
 	"apihelp-graph-param-hash": "Prüfsummenwert der Grafik",
 	"apihelp-graph-param-title": "Titel des Artikels mit der Grafik",
 	"graph-ve-dialog-button-tooltip": "Diagramm",
