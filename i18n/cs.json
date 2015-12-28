@@ -11,6 +11,7 @@
 	"graph-broken-category": "Stránky s rozbitými grafy",
 	"graph-broken-category-desc": "Tato stránka obsahuje chybně použitou značku <code><nowiki><graph></nowiki></code>.",
 	"graph-obsolete-category": "Stránky se zastaralými grafy Vega 1.0",
+	"graph-obsolete-category-desc": "Stránka obsahuje značku <code><nowiki><graph></nowiki></code>, která by měla být aktualizována na verzi 2.",
 	"graph-ve-dialog-button-tooltip": "Graf",
 	"graph-ve-dialog-edit-field-graph-type": "Typ grafu",
 	"graph-ve-dialog-edit-field-raw-json": "Surová specifikace JSON",
@@ -39,6 +40,8 @@
 	"graph-ve-no-spec": "Nenalezena žádná specifikace grafu",
 	"graph-ve-vega-error": "Při vykreslování tohoto grafu narazila Vega na chybu",
 	"graph-ve-vega-error-no-render": "Vega nebyla schopna vykreslit tento graf",
+	"graph-interactive-title": "Interaktivní",
+	"graph-switch-button": "Spustit",
 	"graph-loading": "Načítá se…",
 	"graph-loading-done": "Hotovo!"
 }
