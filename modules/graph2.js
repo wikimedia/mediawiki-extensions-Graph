@@ -45,6 +45,7 @@
 	originalSanitize = vg.util.load.sanitizeUrl.bind( vg.util.load );
 	vg.util.load.sanitizeUrl = function ( opt ) {
 		var path, query,
+			location = window.location,
 			url = new mw.Uri( opt.url );
 
 		switch ( url.protocol ) {
@@ -103,20 +104,24 @@
 				break;
 		}
 
+		if ( location.hostname.toLowerCase() === url.host.toLowerCase() ) {
+			if ( !mw.config.get( 'wgGraphIsTrusted' ) ) {
+				// Only send this header when hostname is the same
+				// This is broader than the same-origin policy, but playing on the safer side
+				opt.headers = { 'Treat-as-Untrusted': 1 };
+			}
+		} else if ( opt.isApiCall ) {
+			// All CORS api calls require origin parameter
+			// It would be better to use location.origin, but apparently it's not universal yet
+			query.origin = location.protocol + '//' + location.host;
+		}
+
 		opt.url = new mw.Uri( {
 			host: url.host,
 			port: url.port,
 			path: path,
 			query: query
 		} ).toString();
-
-		if ( !mw.config.get( 'wgGraphIsTrusted' ) &&
-			window.location.hostname.toLowerCase() === url.host.toLowerCase()
-		) {
-			// Only send this header when hostname is the same
-			// This is broader than the same-origin policy, but playing on the safer side
-			opt.headers = { 'Treat-as-Untrusted': 1 };
-		}
 
 		return originalSanitize.call( vg.util.load, opt );
 	};
