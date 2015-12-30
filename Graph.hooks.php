@@ -103,7 +103,8 @@ class GraphHooks {
 					'modules/ve-graph/tests/ext.graph.visualEditor.test.js'
 				),
 				'dependencies' => array(
-					'ext.graph.visualEditor'
+					'ext.graph.visualEditor',
+					'ext.graph.vega1'
 				),
 				'localBasePath' => __DIR__,
 				'remoteExtPath' => 'Graph'
