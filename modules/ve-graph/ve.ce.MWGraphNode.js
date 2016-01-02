@@ -120,7 +120,9 @@ ve.ce.MWGraphNode.prototype.update = function () {
 	// Clear element
 	this.$graph.empty();
 
-	mw.loader.using( 'ext.graph.vega1' ).done( function () {
+	this.$element.toggleClass( 'mw-graph-vega1', this.getModel().isGraphLegacy() );
+
+	mw.loader.using( 'ext.graph.vega2' ).done( function () {
 		node.$plot.detach();
 
 		node.constructor.static.vegaParseSpec( node.getModel().getSpec(), node.$graph[ 0 ] ).then(
@@ -128,9 +130,7 @@ ve.ce.MWGraphNode.prototype.update = function () {
 				// HACK: We need to know which padding values Vega computes in case
 				// of automatic padding, but it isn't properly exposed in the view
 				node.$graph.append( node.$plot );
-				// jscs:disable disallowDanglingUnderscores
-				node.$plot.css( view._padding );
-				// jscs:enable disallowDanglingUnderscores
+				node.$plot.css( view._padding ); // jscs:ignore disallowDanglingUnderscores
 			},
 			function ( failMessageKey ) {
 				node.$graph.text( ve.msg( failMessageKey ) );
