@@ -6,7 +6,11 @@
  * @ingroup Extensions
  */
 
-class GraphHooks {
+namespace Graph;
+
+use ResourceLoader;
+
+class Hooks {
 	/**
 	 * Conditionally register the ext.graph.VisualEditor module if VisualEditor
 	 * has been loaded
@@ -91,7 +95,7 @@ class GraphHooks {
 	 * only if that module is loaded
 	 *
 	 * @param array $testModules The array of registered test modules
-	 * @param ResourceLoader $resourceLoader The reference to the resource laoder
+	 * @param ResourceLoader $resourceLoader The reference to the resource loader
 	 * @return true
 	 */
 	public static function onResourceLoaderTestModules( array &$testModules, ResourceLoader &$resourceLoader ) {

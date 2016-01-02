@@ -15,10 +15,10 @@
 		]
 	},
 	"AutoloadClasses": {
-		"Graph\\ApiGraph": "ApiGraph.php",
-		"Graph\\Singleton": "Graph.body.php",
-		"Graph\\Content": "Graph.body.php",
-		"GraphHooks": "Graph.hooks.php"
+		"Graph\\ApiGraph": "includes/ApiGraph.php",
+		"Graph\\Singleton": "includes/Graph.body.php",
+		"Graph\\Content": "includes/Graph.body.php",
+		"Graph\\Hooks": "includes/Graph.hooks.php"
 	},
 	"APIModules": {
 		"graph": "Graph\\ApiGraph"
@@ -104,10 +104,10 @@
 			"Graph\\Singleton::onParserAfterParse"
 		],
 		"ResourceLoaderRegisterModules": [
-			"GraphHooks::onResourceLoaderRegisterModules"
+			"Graph\\Hooks::onResourceLoaderRegisterModules"
 		],
 		"ResourceLoaderTestModules": [
-			"GraphHooks::onResourceLoaderTestModules"
+			"Graph\\Hooks::onResourceLoaderTestModules"
 		]
 	},
 	"VisualEditorPluginModules": [
