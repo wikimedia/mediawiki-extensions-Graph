@@ -193,7 +193,7 @@ class Singleton {
 				$parserOutput->setExtensionData( 'graph_interact', true );
 
 				// Add a "make interactive" button
-				$buttonSpan = Html::rawElement( 'span', null, wfMessage( 'graph-switch-button' )->text() );
+				$buttonSpan = Html::rawElement( 'span', null, wfMessage( 'graph-switch-button' )->inContentLanguage()->text() );
 				$buttonIcon = Html::rawElement( 'i', array( 'class' => 'icon-play' ), '&#9658;' );
 
 				$button = Html::rawElement( 'div', array(
@@ -201,7 +201,7 @@ class Singleton {
 				), $buttonIcon . $buttonSpan );
 
 				$layoverContent =
-					Html::rawElement( 'p', null, wfMessage( 'graph-interactive-title' )->text() ) .
+					Html::rawElement( 'p', null, wfMessage( 'graph-interactive-title' )->inContentLanguage()->text() ) .
 					Html::element( 'p', array( 'class' => 'mw-graph-title' ), $graphTitle ) .
 					Html::rawElement( 'div', null, $button );
 
