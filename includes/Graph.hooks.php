@@ -22,7 +22,7 @@ class Hooks {
 		$resourceModules = $resourceLoader->getConfig()->get( 'ResourceModules' );
 
 		$graphModuleTemplate = array(
-			'localBasePath' => __DIR__,
+			'localBasePath' => dirname( __DIR__ ),
 			'remoteExtPath' => 'Graph'
 		);
 
@@ -110,7 +110,7 @@ class Hooks {
 					'ext.graph.visualEditor',
 					'ext.graph.vega1'
 				),
-				'localBasePath' => __DIR__,
+				'localBasePath' => dirname( __DIR__ ),
 				'remoteExtPath' => 'Graph'
 			);
 		}
