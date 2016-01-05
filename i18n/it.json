@@ -10,6 +10,7 @@
 		]
 	},
 	"graph-desc": "Permette il tag &lt;graph> o intere pagine di diventare grafici basati su [http://vega.github.io/ Vega]",
+	"graphsandbox": "Pagina per le prove sui grafici",
 	"graph-tracking-category": "Pagine con grafici",
 	"graph-tracking-category-desc": "La pagina include un tag <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Pagine con errori nei grafici",
@@ -17,6 +18,7 @@
 	"graph-obsolete-category": "Pagine con grafici obsoleti Vega 1.0",
 	"graph-obsolete-category-desc": "La pagina include un tag <code><nowiki><graph></nowiki></code> che dovrebbe essere aggiornato alla versione 2.",
 	"apihelp-graph-param-title": "Titolo della voce con il grafico",
+	"apihelp-graph-param-text": "Testo del grafico da convertire in JSON. Deve essere pubblicato e utilizzato senza titolo e parametri hash",
 	"graph-ve-dialog-button-tooltip": "Grafico",
 	"graph-ve-dialog-edit-field-graph-type": "Tipo di grafico",
 	"graph-ve-dialog-edit-height": "Altezza",

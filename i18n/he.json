@@ -5,6 +5,7 @@
 		]
 	},
 	"graph-desc": "מאפשרת לתגי &lt;graph&gt; או לדפים שלמים להיות תרשים שמבוססים על [http://vega.github.io/ Vega]",
+	"graphsandbox": "ארגז חול לתרשימים",
 	"graph-tracking-category": "דפים עם תרשימים",
 	"graph-tracking-category-desc": "הדף הזה מכיל תג <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "דפים עם תרשימים מקולקלים",
@@ -15,6 +16,7 @@
 	"apihelp-graph-example": "קבלת ה־JSON של התרשים באמצעות גיבוב וכותרת",
 	"apihelp-graph-param-hash": "ערך הגיבוב של התרשים",
 	"apihelp-graph-param-title": "כותרת הערך עם התרשים",
+	"apihelp-graph-param-text": "טקסט התרשים שיומר ל־JSON. צריך להישלח ב־POST ולשמש בלי הפרמטרים title ו־hash",
 	"graph-ve-dialog-button-tooltip": "תרשים",
 	"graph-ve-dialog-edit-field-graph-type": "סוג התרשים",
 	"graph-ve-dialog-edit-field-raw-json": "הגדרה ב־JSON גולמי",

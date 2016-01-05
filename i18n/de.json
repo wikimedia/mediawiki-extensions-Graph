@@ -7,6 +7,7 @@
 		]
 	},
 	"graph-desc": "Erlaubt &lt;graph&gt;-Tags oder wandelt ganze Seiten in [http://vega.github.io/ Vega]-basierte Diagramme um",
+	"graphsandbox": "Grafikspielwiese",
 	"graph-tracking-category": "Seiten mit Diagrammen",
 	"graph-tracking-category-desc": "Die Seite enthält eine <code><nowiki><graph></nowiki></code>-Markierung.",
 	"graph-broken-category": "Seiten mit defekten Diagrammen",
