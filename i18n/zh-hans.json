@@ -5,6 +5,7 @@
 		]
 	},
 	"graph-desc": "允许&lt;graph&gt;标签或全部页面成为基于[http://vega.github.io/ Vega]的图形",
+	"graphsandbox": "图表沙盒",
 	"graph-tracking-category": "有图表的页面",
 	"graph-tracking-category-desc": "页面包含<code><nowiki><graph></nowiki></code>标签。",
 	"graph-broken-category": "有损坏图表的页面",

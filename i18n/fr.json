@@ -23,6 +23,7 @@
 	"apihelp-graph-example": "Obtenir le JSON du graphe par hachage et titre",
 	"apihelp-graph-param-hash": "Valeur de hachage du graphe",
 	"apihelp-graph-param-title": "Titre de l’article avec le graphe",
+	"apihelp-graph-param-text": "Texte du graphe à convertir en JSON. Doit être posté et utilisé sans titre ni paramètres de hachage",
 	"graph-ve-dialog-button-tooltip": "Graphe",
 	"graph-ve-dialog-edit-field-graph-type": "Type de graphique",
 	"graph-ve-dialog-edit-field-raw-json": "Spécification JSON brut",
