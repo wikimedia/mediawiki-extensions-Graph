@@ -131,14 +131,16 @@
 	 *
 	 * @param {HTMLElement} element
 	 * @param {Object|string} data graph spec
-	 * @param {Function} callback function(error) called when drawing is done
+	 * @param {Function} [callback] function(error) called when drawing is done
 	 */
 	mw.drawVegaGraph = function ( element, data, callback ) {
 		vg.parse.spec( data, function ( error, chart ) {
 			if ( !error ) {
 				chart( { el: element } ).update();
 			}
-			callback( error );
+			if ( callback ) {
+				callback( error );
+			}
 		} );
 	};
 
