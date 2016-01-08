@@ -30,9 +30,5 @@
 	"graph-ve-dialog-edit-type-area": "面グラフ",
 	"graph-ve-dialog-edit-type-bar": "棒グラフ",
 	"graph-ve-dialog-edit-type-line": "線グラフ",
-	"graph-ve-dialog-edit-width": "幅",
-	"graph-interactive-title": "インタラクティブ",
-	"graph-switch-button": "再生",
-	"graph-loading": "読み込み中...",
-	"graph-loading-done": "完了!"
+	"graph-ve-dialog-edit-width": "幅"
 }

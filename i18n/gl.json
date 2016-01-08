@@ -43,9 +43,5 @@
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "Non se admite este tipo de gráfico. Calquera modificación que se lle faga pode arruinar a súa visualización. Edite o gráfico mediante a especificación de datos sen procesar na lapela \"{{int:graph-ve-dialog-edit-page-raw}}\".",
 	"graph-ve-no-spec": "Non se atopou ningunha especificación de gráficos",
 	"graph-ve-vega-error": "Vega atopou un erro renderizando este gráfico",
-	"graph-ve-vega-error-no-render": "Vega non foi capaz de renderizar este gráfico",
-	"graph-interactive-title": "Interactivo",
-	"graph-switch-button": "Reproducir",
-	"graph-loading": "Cargando...",
-	"graph-loading-done": "Feito!"
+	"graph-ve-vega-error-no-render": "Vega non foi capaz de renderizar este gráfico"
 }

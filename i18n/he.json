@@ -44,9 +44,5 @@
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "אין תמיכה בסוג התרשים הזה, וכל שינוי עלול לקלקל את התצוגה שלו. נא לערוך את התרשים דרך מפרט הנתונים הגולמיים או דרך לשונית \"{{int:graph-ve-dialog-edit-page-raw}}\".",
 	"graph-ve-no-spec": "לא נמצאו הגדרות תרשים",
 	"graph-ve-vega-error": "וגה מצאה שגיאה בתיצוג התרשים הזה",
-	"graph-ve-vega-error-no-render": "וגה לא הצליחה לתצג את התרשים הזה",
-	"graph-interactive-title": "הידודי",
-	"graph-switch-button": "לנגן",
-	"graph-loading": "טעינה...",
-	"graph-loading-done": "בוצע!"
+	"graph-ve-vega-error-no-render": "וגה לא הצליחה לתצג את התרשים הזה"
 }

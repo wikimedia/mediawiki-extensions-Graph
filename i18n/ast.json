@@ -45,9 +45,5 @@
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "Nun hai encontu pa esti tipu de gráfica, y cualquier cambéu que se-y faiga puede frañar la so vista. Edita la gráfica por aciu de la especificación de datos ensin procesar na llingüeta «{{int:graph-ve-dialog-edit-page-raw}}».",
 	"graph-ve-no-spec": "No s'alcontró nenguna especificación de gráficos",
 	"graph-ve-vega-error": "Vega atopó un error al representar esta gráfica",
-	"graph-ve-vega-error-no-render": "Vega nun pudo representar esta gráfica",
-	"graph-interactive-title": "Interactiva",
-	"graph-switch-button": "Reproducir",
-	"graph-loading": "Cargando...",
-	"graph-loading-done": "¡Fecho!"
+	"graph-ve-vega-error-no-render": "Vega nun pudo representar esta gráfica"
 }

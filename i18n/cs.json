@@ -6,6 +6,7 @@
 		]
 	},
 	"graph-desc": "Vytváří ze značek &lt;graph&gt; nebo celých stránek grafy pomocí [http://vega.github.io/ Vega]",
+	"graphsandbox": "Pískoviště pro grafy",
 	"graph-tracking-category": "Stránky s grafy",
 	"graph-tracking-category-desc": "Tato stránka obsahuje značku <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Stránky s rozbitými grafy",
@@ -39,9 +40,5 @@
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "Typ tohoto grafu není podporován a jakékoli provedené změny mohou jeho zobrazování rozbít. Graf prosím editujte pomocí surového datové specifikace na záložce „{{int:graph-ve-dialog-edit-page-raw}}“.",
 	"graph-ve-no-spec": "Nenalezena žádná specifikace grafu",
 	"graph-ve-vega-error": "Při vykreslování tohoto grafu narazila Vega na chybu",
-	"graph-ve-vega-error-no-render": "Vega nebyla schopna vykreslit tento graf",
-	"graph-interactive-title": "Interaktivní",
-	"graph-switch-button": "Spustit",
-	"graph-loading": "Načítá se…",
-	"graph-loading-done": "Hotovo!"
+	"graph-ve-vega-error-no-render": "Vega nebyla schopna vykreslit tento graf"
 }

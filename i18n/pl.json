@@ -6,6 +6,7 @@
 			"Michał Sobkowski"
 		]
 	},
+	"graphsandbox": "Brudnopis graficzny",
 	"graph-tracking-category": "Strony z diagramami",
 	"graph-tracking-category-desc": "Strona zawiera znacznik <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Strony z zepsutymi diagramami",
@@ -22,7 +23,5 @@
 	"graph-ve-dialog-edit-size-fieldset": "Rozmiar",
 	"graph-ve-dialog-edit-size-table-unit": "Piksele",
 	"graph-ve-dialog-edit-table-row-delete": "Usuwanie wiersza",
-	"graph-ve-dialog-edit-width": "Szerokość",
-	"graph-loading": "Ładowanie...",
-	"graph-loading-done": "Gotowe!"
+	"graph-ve-dialog-edit-width": "Szerokość"
 }

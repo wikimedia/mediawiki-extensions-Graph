@@ -39,9 +39,5 @@
 	"graph-ve-dialog-edit-type-line": "Grafico a linee",
 	"graph-ve-dialog-edit-type-unknown": "Tipo di grafico sconosciuto",
 	"graph-ve-dialog-edit-width": "Larghezza",
-	"graph-ve-no-spec": "Nessuna specifica grafica è stata trovata",
-	"graph-interactive-title": "Interattivo",
-	"graph-switch-button": "Riproduci",
-	"graph-loading": "Caricamento in corso...",
-	"graph-loading-done": "Fatto!"
+	"graph-ve-no-spec": "Nessuna specifica grafica è stata trovata"
 }
