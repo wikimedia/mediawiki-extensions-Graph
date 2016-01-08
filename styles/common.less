@@ -2,6 +2,10 @@
 @import "mediawiki.mixins";
 @import "mediawiki.mixins.animation";
 
+@darkColor:  #2B333F;
+@darkColorOpac: rgba(43,51,63,0.7);
+@colorWhiteOpac: rgba(255,255,255,0.7);
+
 .client-js {
 
   .mw-graph {
@@ -20,8 +24,23 @@
     &:hover {
       cursor: pointer;
 
+      .mw-graph-hover-title {
+        display: block;
+      }
+
       .mw-graph-layover {
         display: block;
+        background: @colorWhiteOpac;
+      }
+
+      .mw-graph-switch {
+        &.mw-graph-loading {
+          background-color: @colorWhite;
+        }
+
+        &:hover {
+          background-color: @colorWhite;
+        }
       }
 
     }
@@ -30,34 +49,29 @@
   /* white layover */
   .mw-graph-layover {
     display: block;
-    background: rgba(255,255,255, .7);
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 30px;
     z-index: 1;
 
     /* center the container vertically */
     &> div {
       position: absolute;
-      top: ~"calc(50% - 78px)";
-      left: 0;
-      right: 0;
+      left: 10px;
+      top: 10px;
     }
 
-    p, div {
+    .mw-graph-hover-title {
+      display: none;
+      position: absolute;
+      top: ~"calc(50% - 17px)";
+      left: 1em;
+      right: 1em;
       text-align: center;
-      font-weight: 700;
-    }
-    p:not(.mw-graph-title) {
-      text-transform: uppercase;
-    }
-    p.mw-graph-title {
       font-size: 150%;
-      margin-top: 5px;
-      margin-bottom: 30px;
+      background-color: @colorWhite;
     }
   }
 
@@ -76,16 +90,21 @@
     text-align: center;
     cursor: pointer;
     white-space: nowrap;
-    line-height: 30px;
+    line-height: 1em;
     padding: .5em;
-    width: 100px;
+    width: 60px;
   }
 
   /* Play button style */
   .mw-graph-switch {
-    background-color: @colorProgressive;
-    border-color: @colorProgressive;
-    color: @colorWhite;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #333;
+    border-radius: .3em;
+
+    color: @darkColor;
+    background-color: @colorWhite;
+    background-color: @colorWhiteOpac;
 
     &:hover {
       background: @colorProgressiveHighlight;
@@ -108,10 +127,8 @@
       top: 4px;
       left: 0;
       bottom: 0;
-      margin-right: 10px;
-      font-size: 170%;
+      font-size: 160%;
       font-style: normal;
-      line-height: 25px;
     }
 
   }
@@ -121,10 +138,18 @@
 
     color: @colorGray5;
     background-color: @colorWhite;
+    border-color: @colorProgressiveActive;
 
     &:hover {
-      background: @colorGrayLighter;
+      border-color: #333;
     }
+    .transition(~"background 0s ease");
+    background-position: 50% 50%;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    /* @embed */
+    background-image: url(../includes/ajax-loader.gif);
+    display: block;
   }
 
 }

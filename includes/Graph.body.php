@@ -204,7 +204,9 @@ class Singleton {
 			$url = sprintf( $wgGraphImgServiceUrl, $server, $title, $revid, $hash );
 			$html = Html::rawElement( 'img', array(
 					'class' => 'mw-graph-img',
-					'src' => $url
+					'src' => $url,
+					'alt' => $graphTitle,
+					'title' => $graphTitle,
 			) );
 
 			if ( $isInteractive ) {
@@ -213,21 +215,19 @@ class Singleton {
 				$attribs = self::buildDivAttributes( 'interactable', $data, $hash );
 
 				// Add a "make interactive" button
-				$buttonSpan = Html::rawElement( 'span', null, wfMessage( 'graph-switch-button' )->inContentLanguage()->text() );
 				$buttonIcon = Html::rawElement( 'i', array( 'class' => 'icon-play' ), '&#9658;' );
 
 				$button = Html::rawElement( 'div', array(
 					'class' => 'mw-graph-switch',
-				), $buttonIcon . $buttonSpan );
+				), $buttonIcon );
 
-				$layoverContent =
-					Html::rawElement( 'p', null, wfMessage( 'graph-interactive-title' )->inContentLanguage()->text() ) .
-					Html::element( 'p', array( 'class' => 'mw-graph-title' ), $graphTitle ) .
-					Html::rawElement( 'div', null, $button );
+				$hoverTitle = Html::element( 'div', array( 'class' => 'mw-graph-hover-title' ), $graphTitle );
+
+				$layoverContent = $hoverTitle . $button;
 
 				$layover = Html::rawElement( 'div', array(
 					'class' => 'mw-graph-layover',
-				), Html::rawElement( 'div', null, $layoverContent ) );
+				), $layoverContent );
 
 				$html .= $layover;
 			} else {

@@ -12,8 +12,8 @@
 
 			// Add a class to decorate loading
 			$button.hide()
+				.html( '' )
 				.addClass( 'mw-graph-loading' )
-				.text( mw.message( 'graph-loading' ).text() )
 				.show();
 
 			// Replace the image with the graph
@@ -39,15 +39,10 @@
 					hash: $el.data( 'graphId' )
 				} ).done( function ( data ) {
 					mw.drawVegaGraph( $el[ 0 ], data.graph, function ( error ) {
-						var $button = $el.find( '.mw-graph-switch' ),
-							$layover = $el.find( '.mw-graph-layover' );
+						var $layover = $el.find( '.mw-graph-layover' );
 						if ( !error ) {
 							$el.find( 'img' ).remove();
-							$button.text( mw.message( 'graph-loading-done' ).text() );
-							setTimeout( function () {
-								$layover.remove();
-								$el.removeClass( 'mw-graph-loading mw-graph-interactable' );
-							}, 800 );
+							$layover.remove();
 						} else {
 							mw.log.warn( error );
 						}
