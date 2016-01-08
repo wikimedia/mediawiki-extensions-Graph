@@ -40,8 +40,7 @@ class Singleton {
 	}
 
 	public static function onParserAfterParse( Parser $parser ) {
-		self::finalizeParserOutput( $parser->getOutput(), $parser->getTitle(),
-			$parser->getOptions()->getIsPreview() );
+		self::finalizeParserOutput( $parser, $parser->getTitle(), $parser->getOutput() );
 		return true;
 	}
 
@@ -61,7 +60,7 @@ class Singleton {
 			$parser->getOutput(), $parser->getOptions()->getIsPreview(), $args );
 	}
 
-	public static function finalizeParserOutput( ParserOutput $output, $title, $isPreview ) {
+	public static function finalizeParserOutput( Parser $parser, $title, ParserOutput $output ) {
 		if ( $output->getExtensionData( 'graph_specs_broken' ) ) {
 			$output->addTrackingCategory( 'graph-broken-category', $title );
 		}
@@ -86,6 +85,11 @@ class Singleton {
 
 			$liveSpecs = $output->getExtensionData( 'graph_live_specs' );
 			$interact = $output->getExtensionData( 'graph_interact' );
+
+			if ( $parser->getOptions()->getIsPreview() ) {
+				// Preview generates HTML that is different from normal
+				$parser->disableCache();
+			}
 
 			if ( $liveSpecs || $interact ) {
 				// TODO: these 3 js vars should be per domain if 'ext.graph' is added, not per page
@@ -266,6 +270,6 @@ class Content extends JCContent {
 		$output->setText( $html );
 
 		// Since we invoke parser manually, the ParserAfterParse never gets called, do it manually
-		Singleton::finalizeParserOutput( $output, $title, $options->getIsPreview() );
+		Singleton::finalizeParserOutput( $parser, $title, $output );
 	}
 }
