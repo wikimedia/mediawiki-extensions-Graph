@@ -88,28 +88,35 @@ class ApiGraph extends ApiBase {
 	 * @return string
 	 */
 	private function getFromStorage( $title, $hash ) {
-		$title = Title::newFromText( $title );
-		if ( !$title || !$title->exists() || !$title->userCan( 'read', $this->getUser() ) ) {
-			$this->dieUsage( "Invalid title given.", "invalidtitle" );
-		}
+		/** @var $wgMemc \BagOStuff */
+		global $wgMemc;
+		$graph = $wgMemc->get( Singleton::makeCacheKey( $hash ) );
+		// NOTE: Very strange wgMemc feature: Even though we store the data structure into wgMemc
+		// by JSON-encoding and gzip-ing it, when we get it out it is already in the original form.
 
-		$ppValue = $this->getDB()->selectField( 'page_props', 'pp_value', array(
-			'pp_page' => $title->getArticleID(),
-			'pp_propname' => 'graph_specs',
-		), __METHOD__ );
-
-		$graph = false;
-		if ( $ppValue ) {
-			// Copied from TemplateDataBlob.php:newFromDatabase()
-			// Handle GZIP compression. \037\213 is the header for GZIP files.
-			if ( substr( $ppValue, 0, 2 ) === "\037\213" ) {
-				$ppValue = gzdecode( $ppValue );
+		if ( !$graph ) {
+			$title = Title::newFromText( $title );
+			if ( !$title || !$title->exists() || !$title->userCan( 'read', $this->getUser() ) ) {
+				$this->dieUsage( "Invalid title given.", "invalidtitle" );
 			}
-			$st = FormatJson::parse( $ppValue );
-			if ( $st->isOK() ) {
-				$allGraphs = $st->getValue();
-				if ( property_exists( $allGraphs, $hash ) ) {
-					$graph = $allGraphs->$hash;
+
+			$ppValue = $this->getDB()->selectField( 'page_props', 'pp_value', array(
+				'pp_page' => $title->getArticleID(),
+				'pp_propname' => 'graph_specs',
+			), __METHOD__ );
+
+			if ( $ppValue ) {
+				// Copied from TemplateDataBlob.php:newFromDatabase()
+				// Handle GZIP compression. \037\213 is the header for GZIP files.
+				if ( substr( $ppValue, 0, 2 ) === "\037\213" ) {
+					$ppValue = gzdecode( $ppValue );
+				}
+				$st = FormatJson::parse( $ppValue );
+				if ( $st->isOK() ) {
+					$allGraphs = $st->getValue();
+					if ( property_exists( $allGraphs, $hash ) ) {
+						$graph = $allGraphs->$hash;
+					}
 				}
 			}
 		}

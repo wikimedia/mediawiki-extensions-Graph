@@ -185,9 +185,12 @@ class Singleton {
 		// Calculate hash and store graph definition in graph_specs extension data
 		$specs = $parserOutput->getExtensionData( 'graph_specs' ) ?: array();
 		// Make sure that multiple json blobs that only differ in spacing hash the same
-		$hash = sha1( FormatJson::encode( $data, false, FormatJson::ALL_OK ) );
+		$dataAsStr = FormatJson::encode( $data, false, FormatJson::ALL_OK );
+		$hash = sha1( $dataAsStr );
 		$specs[$hash] = $data;
 		$parserOutput->setExtensionData( 'graph_specs', $specs );
+
+		self::saveDataToCache( $hash, $dataAsStr );
 
 		if ( $isPreview || !$wgGraphImgServiceUrl ) {
 			// Always do client-side rendering
@@ -197,6 +200,7 @@ class Singleton {
 			$parserOutput->setExtensionData( 'graph_live_specs', $liveSpecs );
 			$html = ''; // will be injected with a <canvas> tag
 		} else {
+
 			// Image from Graphoid
 			$server = rawurlencode( $wgServerName );
 			$title = !$title ? '' : rawurlencode( $title->getPrefixedDBkey() );
@@ -239,6 +243,27 @@ class Singleton {
 
 		return Html::rawElement( 'div', $attribs, $html );
 	}
+
+	/**
+	 * Store graph data in the memcached
+	 * @param $hash string
+	 * @param $data string Graph spec after json encoding
+	 */
+	private static function saveDataToCache( $hash, $data ) {
+		/** @var $wgMemc \BagOStuff */
+		global $wgMemc;
+		$wgMemc->add( self::makeCacheKey( $hash ), gzencode( $data, 9 ) );
+	}
+
+	/**
+	 * @param $hash
+	 * @return mixed
+	 */
+	public static function makeCacheKey( $hash ) {
+		/** @var $wgMemc \BagOStuff */
+		global $wgMemc;
+		return $wgMemc->makeKey( 'graph-data', $hash );
+	}
 }
 
 /**
@@ -262,6 +287,7 @@ class Content extends JCContent {
 
 	protected function fillParserOutput( Title $title, $revId, ParserOptions $options, $generateHtml,
 	                                     ParserOutput &$output ) {
+		/** @var $wgParser Parser */
 		global $wgParser;
 		$text = $this->getNativeData();
 		$parser = $wgParser->getFreshParser();
