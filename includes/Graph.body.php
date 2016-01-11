@@ -202,34 +202,36 @@ class Singleton {
 			$title = !$title ? '' : rawurlencode( $title->getPrefixedDBkey() );
 			$revid = rawurlencode( (string)$revid ) ?: '0';
 			$url = sprintf( $wgGraphImgServiceUrl, $server, $title, $revid, $hash );
-			$html = Html::rawElement( 'img', array(
-					'class' => 'mw-graph-img',
-					'src' => $url,
-					'alt' => $graphTitle,
-					'title' => $graphTitle,
-			) );
+			$imgAttrs = array(
+				'class' => 'mw-graph-img',
+				'src' => $url,
+			);
+			if ( $graphTitle ) {
+				// only add alt tag if we have some descriptive text
+				$imgAttrs['alt'] = $graphTitle;
+			}
+			$html = Html::rawElement( 'img', $imgAttrs );
 
 			if ( $isInteractive ) {
 				// Allow image to interactive switchover
 				$parserOutput->setExtensionData( 'graph_interact', true );
 				$attribs = self::buildDivAttributes( 'interactable', $data, $hash );
 
+				// add the overlay title
+				if ( $graphTitle ) {
+					$hoverTitle = Html::element( 'div', array( 'class' => 'mw-graph-hover-title' ),
+						$graphTitle );
+				} else {
+					$hoverTitle = '';
+				}
+
 				// Add a "make interactive" button
-				$buttonIcon = Html::rawElement( 'i', array( 'class' => 'icon-play' ), '&#9658;' );
+				$button = Html::rawElement( 'div', array( 'class' => 'mw-graph-switch' ),
+					Html::rawElement( 'i', array( 'class' => 'icon-play' ), '&#9658;' ) );
 
-				$button = Html::rawElement( 'div', array(
-					'class' => 'mw-graph-switch',
-				), $buttonIcon );
-
-				$hoverTitle = Html::element( 'div', array( 'class' => 'mw-graph-hover-title' ), $graphTitle );
-
-				$layoverContent = $hoverTitle . $button;
-
-				$layover = Html::rawElement( 'div', array(
+				$html .= Html::rawElement( 'div', array(
 					'class' => 'mw-graph-layover',
-				), $layoverContent );
-
-				$html .= $layover;
+				), $hoverTitle . $button );
 			} else {
 				$attribs = self::buildDivAttributes( '', $data );
 			}
