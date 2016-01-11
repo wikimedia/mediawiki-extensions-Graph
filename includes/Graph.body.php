@@ -185,12 +185,11 @@ class Singleton {
 		// Calculate hash and store graph definition in graph_specs extension data
 		$specs = $parserOutput->getExtensionData( 'graph_specs' ) ?: array();
 		// Make sure that multiple json blobs that only differ in spacing hash the same
-		$dataAsStr = FormatJson::encode( $data, false, FormatJson::ALL_OK );
-		$hash = sha1( $dataAsStr );
+		$hash = sha1( FormatJson::encode( $data, false, FormatJson::ALL_OK ) );
 		$specs[$hash] = $data;
 		$parserOutput->setExtensionData( 'graph_specs', $specs );
 
-		self::saveDataToCache( $hash, $dataAsStr );
+		self::saveDataToCache( $hash, $data );
 
 		if ( $isPreview || !$wgGraphImgServiceUrl ) {
 			// Always do client-side rendering
@@ -252,7 +251,7 @@ class Singleton {
 	private static function saveDataToCache( $hash, $data ) {
 		/** @var $wgMemc \BagOStuff */
 		global $wgMemc;
-		$wgMemc->add( self::makeCacheKey( $hash ), gzencode( $data, 9 ) );
+		$wgMemc->add( self::makeCacheKey( $hash ), $data );
 	}
 
 	/**
