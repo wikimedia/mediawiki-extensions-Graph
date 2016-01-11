@@ -41,6 +41,8 @@ class ApiGraph extends ApiBase {
 			}
 			$graph = $this->preprocess( $params['text'] );
 		}
+
+		$this->getMain()->setCacheMode( 'public' );
 		$this->getResult()->addValue( null, $this->getModuleName(), $graph );
 	}
 
