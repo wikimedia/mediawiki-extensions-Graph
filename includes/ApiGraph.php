@@ -76,7 +76,7 @@ class ApiGraph extends ApiBase {
 		$text = $wgParser->getFreshParser()->preprocess( $text, $title, new ParserOptions() );
 		$st = FormatJson::parse( $text );
 		if ( !$st->isOK() ) {
-			$this->dieUsage( "Graph is not valid.", "invalidtext" );
+			$this->dieUsage( 'Graph is not valid.', 'invalidtext' );
 		}
 		return $st->getValue();
 	}
@@ -97,7 +97,7 @@ class ApiGraph extends ApiBase {
 		if ( !$graph ) {
 			$title = Title::newFromText( $title );
 			if ( !$title || !$title->exists() || !$title->userCan( 'read', $this->getUser() ) ) {
-				$this->dieUsage( "Invalid title given.", "invalidtitle" );
+				$this->dieUsage( 'Invalid title given.', 'invalidtitle' );
 			}
 
 			$ppValue = $this->getDB()->selectField( 'page_props', 'pp_value', array(
@@ -121,7 +121,7 @@ class ApiGraph extends ApiBase {
 			}
 		}
 		if ( !$graph ) {
-			$this->dieUsage( "No graph found.", "invalidhash" );
+			$this->dieUsage( 'No graph found.', 'invalidhash' );
 		}
 		return $graph;
 	}
