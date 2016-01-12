@@ -44,6 +44,7 @@ class Hooks {
 					'modules/ve-graph/widgets/ve.ui.TableWidget.css'
 				),
 				'dependencies' => array(
+					'ext.graph.data',
 					'ext.visualEditor.mwcore',
 					'ext.visualEditor.mwimage.core'
 				),
