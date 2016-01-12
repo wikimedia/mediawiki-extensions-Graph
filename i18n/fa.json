@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Reza1615"
+			"Reza1615",
+			"Ebraminio"
 		]
 	},
-	"graph-ve-dialog-edit-apply": "اعمال",
-	"graph-ve-dialog-edit-cancel": "انصراف",
+	"graph-tracking-category": "صفحه‌های دارای گراف",
+	"graph-broken-category": "صفحه‌های دارای گراف شکسته",
+	"graph-obsolete-category": "صفحه‌های با گراف منسوخ وگا ۱.۰",
+	"graph-ve-dialog-button-tooltip": "گراف",
 	"graph-ve-dialog-edit-page-data": "داده‌ها",
-	"graph-ve-dialog-edit-page-general": "عمومی",
-	"graph-ve-dialog-button-tooltip": "گراف"
+	"graph-ve-dialog-edit-page-general": "عمومی"
 }

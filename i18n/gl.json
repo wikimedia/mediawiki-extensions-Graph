@@ -16,6 +16,7 @@
 	"apihelp-graph-example": "Obter o JSON do gráfico por función hash e título",
 	"apihelp-graph-param-hash": "Valor hash do gráfico",
 	"apihelp-graph-param-title": "Título do artigo co gráfico",
+	"apihelp-graph-param-text": "Texto do gráfico a converter a JSON. Debe ser enviado e usado sen título nin parámetros de resumo (hash)",
 	"graph-ve-dialog-button-tooltip": "Gráfico",
 	"graph-ve-dialog-edit-field-graph-type": "Tipo de gráfico",
 	"graph-ve-dialog-edit-field-raw-json": "Especificación de JSON cru",
