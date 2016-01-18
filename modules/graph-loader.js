@@ -1,9 +1,9 @@
 ( function ( $, mw ) {
 
-	mw.hook( 'wikipage.content' ).add( function () {
+	mw.hook( 'wikipage.content' ).add( function ( $content ) {
 
 		// Make graph containers clickable
-		$( '#bodyContent' ).on( 'click', '.mw-graph.mw-graph-interactable', function () {
+		$content.find( '.mw-graph.mw-graph-interactable' ).on( 'click', function () {
 			var $this = $( this ),
 				$button = $this.find( '.mw-graph-switch' );
 
