@@ -46,6 +46,7 @@
 						} else {
 							mw.log.warn( error );
 						}
+						$el.removeClass( 'mw-graph-interactable' );
 						// TODO: handle error by showing some message
 					} );
 				} );
