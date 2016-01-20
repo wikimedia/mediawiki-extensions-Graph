@@ -161,22 +161,12 @@ class Singleton {
 
 		// Figure out which vega version to use
 		global $wgGraphDefaultVegaVer;
-		$useVega2 = false;
-		if ( property_exists( $data, 'version' ) ) {
-			$ver = is_numeric( $data->version ) ? $data->version : 0;
+		if ( property_exists( $data, 'version' ) && is_numeric( $data->version ) ) {
+			$data->version = $data->version < 2 ? 1 : 2;
 		} else {
-			$ver = false;
+			$data->version = $wgGraphDefaultVegaVer;
 		}
-		if ( $wgGraphDefaultVegaVer > 1 || $isInteractive ) {
-			if ( $ver === false ) {
-				// If version is not set, but we need to force vega2, insert it automatically
-				$data->version = 2;
-			}
-			$useVega2 = true;
-		} elseif ( $ver !== false ) {
-			$useVega2 = $ver > 1;
-		}
-		if ( $useVega2 ) {
+		if ( $data->version === 2 ) {
 			$parserOutput->setExtensionData( 'graph_vega2', true );
 		} else {
 			$parserOutput->setExtensionData( 'graph_specs_obsolete', true );
