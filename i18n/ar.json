@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"زكريا"
+			"زكريا",
+			"Meno25"
 		]
 	},
+	"graphsandbox": "ملعب الرسومات",
 	"graph-ve-dialog-button-tooltip": "مخطط"
 }
