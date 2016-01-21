@@ -11,10 +11,7 @@
 			$this.off( 'click' );
 
 			// Add a class to decorate loading
-			$button.hide()
-				.html( '' )
-				.addClass( 'mw-graph-loading' )
-				.show();
+			$button.addClass( 'mw-graph-loading' );
 
 			// Replace the image with the graph
 			loadAndReplaceWithGraph( $this );
