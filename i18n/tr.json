@@ -3,12 +3,13 @@
 		"authors": [
 			"Mavrikant",
 			"HakanIST",
-			"Sayginer"
+			"Sayginer",
+			"McAang"
 		]
 	},
+	"graph-ve-dialog-button-tooltip": "Grafik",
 	"graph-ve-dialog-edit-height": "Yükseklik",
 	"graph-ve-dialog-edit-page-general": "Genel",
 	"graph-ve-dialog-edit-size-fieldset": "Boyut",
-	"graph-ve-dialog-edit-width": "Genişlik",
-	"graph-interactive-title": "İnteraktif"
+	"graph-ve-dialog-edit-width": "Genişlik"
 }
