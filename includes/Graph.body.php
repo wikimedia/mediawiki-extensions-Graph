@@ -92,15 +92,11 @@ class Singleton {
 			}
 
 			if ( $liveSpecs || $interact ) {
-				// TODO: these 3 js vars should be per domain if 'ext.graph' is added, not per page
-				global $wgGraphDataDomains, $wgGraphIsTrusted;
-				$output->addJsConfigVars( 'wgGraphDataDomains', $wgGraphDataDomains );
-				$output->addJsConfigVars( 'wgGraphIsTrusted', $wgGraphIsTrusted );
-
-				$output->addModuleStyles( 'ext.graph' );
-				$vegaVer = $output->getExtensionData( 'graph_vega2' ) ? 2 : 1;
+				$output->addModuleStyles( 'ext.graph.styles' );
 				if ( $liveSpecs ) {
-					$output->addModules( 'ext.graph.vega' . $vegaVer );
+					// Module: ext.graph.vega1, ext.graph.vega2
+					$output->addModules( 'ext.graph.vega' .
+						$output->getExtensionData( 'graph_vega2' ) ? 2 : 1 );
 					$output->addJsConfigVars( 'wgGraphSpecs', $liveSpecs );
 				} else {
 					$output->addModules( 'ext.graph.loader' );
