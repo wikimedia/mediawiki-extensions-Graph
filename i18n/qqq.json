@@ -46,6 +46,7 @@
 	"graph-ve-dialog-edit-type-unknown": "Label for unknown graph type",
 	"graph-ve-dialog-edit-width": "Label for graph width field\n{{Identical|Width}}",
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "Warning label about unsupported graph types",
+	"graph-ve-empty-graph": "Message shown to editors in place of an empty graph",
 	"graph-ve-no-spec": "Label to display on a graph node when no spec is found",
 	"graph-ve-vega-error": "Label to display on a graph node when Vega encounters an unknown error",
 	"graph-ve-vega-error-no-render": "Label to display on a graph node when Vega is unable to render"

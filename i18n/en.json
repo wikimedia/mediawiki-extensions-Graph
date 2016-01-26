@@ -44,6 +44,7 @@
 	"graph-ve-dialog-edit-type-unknown": "Unknown graph type",
 	"graph-ve-dialog-edit-width": "Width",
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "The type of this graph is unsupported, and any modifications made to it may break its display. Please edit the graph through the raw data specification on the \"{{int:graph-ve-dialog-edit-page-raw}}\" tab.",
+	"graph-ve-empty-graph": "Empty graph",
 	"graph-ve-no-spec": "No graph specification found",
 	"graph-ve-vega-error": "Vega has encountered an error rendering this graph",
 	"graph-ve-vega-error-no-render": "Vega was unable to render this graph"

@@ -74,6 +74,7 @@ class Hooks {
 					'graph-ve-dialog-edit-type-unknown',
 					'graph-ve-dialog-edit-width',
 					'graph-ve-dialog-edit-unknown-graph-type-warning',
+					'graph-ve-empty-graph',
 					'graph-ve-no-spec',
 					'graph-ve-vega-error',
 					'graph-ve-vega-error-no-render'
