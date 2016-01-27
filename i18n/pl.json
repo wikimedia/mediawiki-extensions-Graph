@@ -23,5 +23,6 @@
 	"graph-ve-dialog-edit-size-fieldset": "Rozmiar",
 	"graph-ve-dialog-edit-size-table-unit": "Piksele",
 	"graph-ve-dialog-edit-table-row-delete": "Usuwanie wiersza",
-	"graph-ve-dialog-edit-width": "Szerokość"
+	"graph-ve-dialog-edit-width": "Szerokość",
+	"graph-ve-empty-graph": "Pusty wykres"
 }

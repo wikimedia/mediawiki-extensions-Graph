@@ -2,9 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Nirmal Dulal",
-			"सरोज कुमार ढकाल"
+			"सरोज कुमार ढकाल",
+			"जनक राज भट्ट"
 		]
 	},
-	"graph-loading": "लोड हुँदैछ...",
-	"graph-loading-done": "सकियो!"
+	"graph-ve-empty-graph": "खाली ग्राफ"
 }

@@ -44,6 +44,7 @@
 	"graph-ve-dialog-edit-type-unknown": "Tipo de gráfico desconocido",
 	"graph-ve-dialog-edit-width": "Anchura",
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "No se admite este tipo de gráfico. Cualquier modificación que se le haga puede arruinar su visualización. Edita el gráfico mediante la especificación de datos sin procesar en la pestaña \"{{int:graph-ve-dialog-edit-page-raw}}\".",
+	"graph-ve-empty-graph": "Gráfico vacío",
 	"graph-ve-no-spec": "No se encontró ninguna especificación de gráficos",
 	"graph-ve-vega-error": "Vega ha encontrado un error al representar este gráfico",
 	"graph-ve-vega-error-no-render": "Vega fue incapaz de representar este gráfico"

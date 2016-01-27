@@ -1,17 +1,32 @@
 {
 	"@metadata": {
 		"authors": [
-			"Siebrand"
+			"Siebrand",
+			"Sjoerddebruin"
 		]
 	},
 	"graph-desc": "Maakt het mogelijk om het label &lt;graph> of hele pagina's op [http://vega.github.io/ Vega] gebaseerde grafieken te laten worden",
 	"graph-tracking-category-desc": "De pagina bevat het label <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category-desc": "De pagina bevat een label <code><nowiki><graph></nowiki></code> dat onjuist wordt gebruikt.",
+	"graph-ve-dialog-button-tooltip": "Grafiek",
+	"graph-ve-dialog-edit-field-graph-type": "Soort grafiek",
 	"graph-ve-dialog-edit-padding-auto": "Automatische opvulling",
 	"graph-ve-dialog-edit-padding-fieldset": "Opvulling",
 	"graph-ve-dialog-edit-padding-table-bottom": "Onderaan",
 	"graph-ve-dialog-edit-padding-table-left": "Links",
 	"graph-ve-dialog-edit-padding-table-right": "Rechts",
 	"graph-ve-dialog-edit-padding-table-top": "Bovenaan",
-	"graph-ve-dialog-edit-padding-table-unit": "Pixels"
+	"graph-ve-dialog-edit-padding-table-unit": "Pixels",
+	"graph-ve-dialog-edit-page-data": "Gegevens",
+	"graph-ve-dialog-edit-page-general": "Algemeen",
+	"graph-ve-dialog-edit-page-raw": "Ruwe gegevens",
+	"graph-ve-dialog-edit-size-fieldset": "Grootte",
+	"graph-ve-dialog-edit-size-table-unit": "Pixels",
+	"graph-ve-dialog-edit-table-row-delete": "Rij verwijderen",
+	"graph-ve-dialog-edit-title": "Grafiek bewerken",
+	"graph-ve-dialog-edit-type-area": "Vlakdiagram",
+	"graph-ve-dialog-edit-type-bar": "Staafgrafiek",
+	"graph-ve-dialog-edit-type-line": "Lijngrafiek",
+	"graph-ve-dialog-edit-width": "Breedte",
+	"graph-ve-empty-graph": "Lege grafiek"
 }

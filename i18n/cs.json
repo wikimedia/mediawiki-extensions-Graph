@@ -38,6 +38,7 @@
 	"graph-ve-dialog-edit-type-unknown": "Neznámý typ grafu",
 	"graph-ve-dialog-edit-width": "Šířka",
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "Typ tohoto grafu není podporován a jakékoli provedené změny mohou jeho zobrazování rozbít. Graf prosím editujte pomocí surového datové specifikace na záložce „{{int:graph-ve-dialog-edit-page-raw}}“.",
+	"graph-ve-empty-graph": "Prázdný graf",
 	"graph-ve-no-spec": "Nenalezena žádná specifikace grafu",
 	"graph-ve-vega-error": "Při vykreslování tohoto grafu narazila Vega na chybu",
 	"graph-ve-vega-error-no-render": "Vega nebyla schopna vykreslit tento graf"
