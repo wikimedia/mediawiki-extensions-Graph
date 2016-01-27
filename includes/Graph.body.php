@@ -96,7 +96,7 @@ class Singleton {
 				if ( $liveSpecs ) {
 					// Module: ext.graph.vega1, ext.graph.vega2
 					$output->addModules( 'ext.graph.vega' .
-						$output->getExtensionData( 'graph_vega2' ) ? 2 : 1 );
+						( $output->getExtensionData( 'graph_vega2' ) ? 2 : 1 ) );
 					$output->addJsConfigVars( 'wgGraphSpecs', $liveSpecs );
 				} else {
 					$output->addModules( 'ext.graph.loader' );
