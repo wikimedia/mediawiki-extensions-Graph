@@ -69,12 +69,8 @@ class Singleton {
 		}
 		$specs = $output->getExtensionData( 'graph_specs' );
 		if ( $specs !== null ) {
-			// Store all graph specs as either plain-text or gzip-ed blob in page properties
-			global $wgGraphEnableGZip;
-			$ppValue = FormatJson::encode( $specs, false, FormatJson::ALL_OK );
-			if ( $wgGraphEnableGZip ) {
-				$ppValue = gzencode( $ppValue, 9 );
-			}
+			// Store all graph specs as gzip-ed blob in page properties
+			$ppValue = gzencode( FormatJson::encode( $specs, false, FormatJson::ALL_OK ), 9 );
 			$output->setProperty( 'graph_specs', $ppValue );
 			$output->addTrackingCategory( 'graph-tracking-category', $title );
 
