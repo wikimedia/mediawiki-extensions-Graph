@@ -75,7 +75,7 @@
 				"lib/d3.js",
 				"lib/topojson.js",
 				"lib/vega2/vega.js",
-				"modules/graph2.js"
+				"lib/graph2.compiled.js"
 			],
 			"dependencies": [
 				"ext.graph.data",
@@ -128,7 +128,8 @@
 		"ext.graph.visualEditor"
 	],
 	"config": {
-		"GraphDataDomains": [],
+		"GraphHttpDomains": [],
+		"GraphHttpsDomains": [],
 		"GraphDefaultVegaVer": 1,
 		"GraphIsTrusted": false,
 		"GraphImgServiceUrl": false
