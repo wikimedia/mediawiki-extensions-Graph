@@ -25,5 +25,6 @@
 	"graph-ve-dialog-edit-size-table-unit": "Bildpunkter",
 	"graph-ve-dialog-edit-table-row-delete": "Radera rad",
 	"graph-ve-dialog-edit-type-bar": "Stapeldiagram",
-	"graph-ve-dialog-edit-width": "Bredd"
+	"graph-ve-dialog-edit-width": "Bredd",
+	"graph-ve-empty-graph": "Tom graf"
 }
