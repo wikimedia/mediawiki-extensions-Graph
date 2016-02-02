@@ -30,5 +30,6 @@
 	"graph-ve-dialog-edit-type-area": "面グラフ",
 	"graph-ve-dialog-edit-type-bar": "棒グラフ",
 	"graph-ve-dialog-edit-type-line": "線グラフ",
-	"graph-ve-dialog-edit-width": "幅"
+	"graph-ve-dialog-edit-width": "幅",
+	"graph-ve-empty-graph": "カラのグラフ"
 }
