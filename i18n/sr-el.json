@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Milicevic01"
+		]
+	},
+	"graph-ve-dialog-edit-padding-table-left": "Levo",
+	"graph-ve-dialog-edit-padding-table-right": "Desno",
+	"graph-ve-dialog-edit-padding-table-unit": "Pikseli"
+}
