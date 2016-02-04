@@ -4,7 +4,17 @@
 			"Milicevic01"
 		]
 	},
+	"graph-tracking-category": "Stranice sa grafikonima",
+	"graph-tracking-category-desc": "Stranice koje imaju oznaku <code><nowiki><graph></nowiki></code>.",
+	"graph-broken-category": "Stranice sa pokvarenim grafikonima",
+	"graph-broken-category-desc": "Stranice koje imaju greške u korišćenju oznake <code><nowiki><graph></nowiki></code>.",
+	"graph-ve-dialog-button-tooltip": "Grafikon",
+	"graph-ve-dialog-edit-height": "Visina",
 	"graph-ve-dialog-edit-padding-table-left": "Levo",
 	"graph-ve-dialog-edit-padding-table-right": "Desno",
-	"graph-ve-dialog-edit-padding-table-unit": "Pikseli"
+	"graph-ve-dialog-edit-padding-table-unit": "Pikseli",
+	"graph-ve-dialog-edit-page-data": "Podaci",
+	"graph-ve-dialog-edit-size-fieldset": "Veličina",
+	"graph-ve-dialog-edit-size-table-unit": "Pikseli",
+	"graph-ve-dialog-edit-width": "Širina"
 }
