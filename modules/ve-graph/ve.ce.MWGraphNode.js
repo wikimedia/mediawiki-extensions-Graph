@@ -49,6 +49,8 @@ ve.ce.MWGraphNode.static.primaryCommandName = 'graph';
 
 ve.ce.MWGraphNode.static.tagName = 'div';
 
+ve.ce.MWGraphNode.static.iconWhenInvisible = null;
+
 /* Static Methods */
 
 /**
