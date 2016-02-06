@@ -101,6 +101,63 @@
 			],
 			"messages": [ "ok" ],
 			"targets": [ "desktop" ]
+		},
+		"ext.graph.visualEditor": {
+			"scripts": [
+				"modules/ve-graph/ve.ce.MWGraphNode.js",
+				"modules/ve-graph/ve.dm.MWGraphModel.js",
+				"modules/ve-graph/ve.dm.MWGraphNode.js",
+				"modules/ve-graph/ve.ui.MWGraphDialog.js",
+				"modules/ve-graph/ve.ui.MWGraphDialogTool.js",
+				"modules/ve-graph/widgets/ve.ui.RowWidget.js",
+				"modules/ve-graph/widgets/ve.ui.TableWidget.js"
+			],
+			"styles": [
+				"modules/ve-graph/ve.ce.MWGraphNode.css",
+				"modules/ve-graph/ve.ui.MWGraphIcons.css",
+				"modules/ve-graph/widgets/ve.ui.RowWidget.css",
+				"modules/ve-graph/widgets/ve.ui.TableWidget.css"
+			],
+			"dependencies": [
+				"ext.graph.data",
+				"ext.visualEditor.mwcore",
+				"ext.visualEditor.mwimage.core"
+			],
+			"messages": [
+				"graph-ve-dialog-button-tooltip",
+				"graph-ve-dialog-edit-field-graph-type",
+				"graph-ve-dialog-edit-field-raw-json",
+				"graph-ve-dialog-edit-height",
+				"graph-ve-dialog-edit-json-invalid",
+				"graph-ve-dialog-edit-padding-auto",
+				"graph-ve-dialog-edit-padding-fieldset",
+				"graph-ve-dialog-edit-padding-table-bottom",
+				"graph-ve-dialog-edit-padding-table-left",
+				"graph-ve-dialog-edit-padding-table-right",
+				"graph-ve-dialog-edit-padding-table-top",
+				"graph-ve-dialog-edit-padding-table-unit",
+				"graph-ve-dialog-edit-page-data",
+				"graph-ve-dialog-edit-page-general",
+				"graph-ve-dialog-edit-page-raw",
+				"graph-ve-dialog-edit-size-fieldset",
+				"graph-ve-dialog-edit-size-table-unit",
+				"graph-ve-dialog-edit-table-row-delete",
+				"graph-ve-dialog-edit-title",
+				"graph-ve-dialog-edit-type-area",
+				"graph-ve-dialog-edit-type-bar",
+				"graph-ve-dialog-edit-type-line",
+				"graph-ve-dialog-edit-type-unknown",
+				"graph-ve-dialog-edit-width",
+				"graph-ve-dialog-edit-unknown-graph-type-warning",
+				"graph-ve-empty-graph",
+				"graph-ve-no-spec",
+				"graph-ve-vega-error",
+				"graph-ve-vega-error-no-render"
+			],
+			"targets": [
+				"mobile",
+				"desktop"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {
@@ -116,9 +173,6 @@
 		],
 		"ParserAfterParse": [
 			"Graph\\Singleton::onParserAfterParse"
-		],
-		"ResourceLoaderRegisterModules": [
-			"Graph\\Hooks::onResourceLoaderRegisterModules"
 		],
 		"ResourceLoaderTestModules": [
 			"Graph\\Hooks::onResourceLoaderTestModules"
