@@ -9,8 +9,7 @@
 	wrapper = new VegaWrapper(
 		vg.util.load, true,
 		mw.config.get( 'wgGraphIsTrusted' ),
-		mw.config.get( 'wgGraphHttpDomains' ),
-		mw.config.get( 'wgGraphHttpsDomains' ),
+		mw.config.get( 'wgGraphAllowedDomains' ),
 		false,
 		function ( warning ) {
 			mw.log.warn( warning );
@@ -21,6 +20,10 @@
 			if ( uri.port ) {
 				uri.host += ':' + uri.port;
 				delete uri.port;
+			}
+			// If url begins with   protocol:///...  mark it as having relative host
+			if ( /^[a-z]+:\/\/\//.test( opt.url ) ) {
+				uri.isRelativeHost = true;
 			}
 			// Node's path includes the query, whereas pathname is without the query
 			// Standardizing on pathname

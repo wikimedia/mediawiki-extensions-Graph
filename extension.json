@@ -182,8 +182,7 @@
 		"ext.graph.visualEditor"
 	],
 	"config": {
-		"GraphHttpDomains": [],
-		"GraphHttpsDomains": [],
+		"GraphAllowedDomains": {},
 		"GraphDefaultVegaVer": 1,
 		"GraphIsTrusted": false,
 		"GraphImgServiceUrl": false
