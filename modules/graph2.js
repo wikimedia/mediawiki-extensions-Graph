@@ -30,11 +30,26 @@
 			uri.pathname = uri.path;
 			delete uri.path;
 			return uri;
-		}, function ( uri ) {
+		}, function ( uri, opt ) {
 			// Format URL back into a string
 			// Revert path into pathname
 			uri.path = uri.pathname;
 			delete uri.pathname;
+
+			if ( location.host.toLowerCase() === uri.host.toLowerCase() ) {
+				if ( !mw.config.get( 'wgGraphIsTrusted' ) ) {
+					// Only send this header when hostname is the same.
+					// This is broader than the same-origin policy,
+					// but playing on the safer side.
+					opt.headers = { 'Treat-as-Untrusted': 1 };
+				} else if ( opt.isApiCall ) {
+					// All CORS api calls require origin parameter.
+					// It would be better to use location.origin,
+					// but apparently it's not universal yet.
+					uri.query.origin = location.protocol + '//' + location.host;
+				}
+			}
+
 			return uri.toString();
 		} );
 
