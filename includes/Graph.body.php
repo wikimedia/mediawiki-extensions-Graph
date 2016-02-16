@@ -53,9 +53,6 @@ class Singleton {
 	 */
 	public static function onGraphTag( $input, /** @noinspection PhpUnusedParameterInspection */
 	                                   array $args, Parser $parser, \PPFrame $frame ) {
-		// expand template arguments and other wiki markup
-		$input = $parser->recursivePreprocess( $input, $frame );
-
 		return self::buildHtml( $input, $parser->getTitle(), $parser->getRevisionId(),
 			$parser->getOutput(), $parser->getOptions()->getIsPreview(), $args );
 	}
