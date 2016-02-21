@@ -8,14 +8,19 @@
 			"Piramidion"
 		]
 	},
-	"graph-desc": "Дозволяє &lt;graph&gt; тегам або цілим сторінкам стати графіками на основі [http://vega.github.io/ Vega]",
+	"graph-desc": "Дозволяє тегам &lt;graph&gt; або цілим сторінкам стати графіками на основі [http://vega.github.io/ Vega]",
+	"graphsandbox": "Пісочниця для графіків",
 	"graph-tracking-category": "Сторінки з графіками",
 	"graph-tracking-category-desc": "Сторінка включає теґ <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Сторінки зі зламаними графіками",
 	"graph-broken-category-desc": "Сторінка включає неправильно використаний теґ <code><nowiki><graph></nowiki></code>.",
 	"graph-obsolete-category": "Сторінки з застарілими графіками Vega 1.0",
 	"graph-obsolete-category-desc": "Ця сторінка містить тег <code><nowiki><graph></nowiki></code>, який треба оновити до версії 2.",
+	"apihelp-graph-description": "Отримати доступ до функціоналу тегів graph.",
+	"apihelp-graph-example": "Отримати графік у JSON-форматі за хешем та назвою",
+	"apihelp-graph-param-hash": "Хеш-значення графіка",
 	"apihelp-graph-param-title": "Назва статті з графіком",
+	"apihelp-graph-param-text": "Текст графіка, який має бути переведений у JSON. Має бути опублікований та використовуватись без параметрів назви та хешу.",
 	"graph-ve-dialog-button-tooltip": "Графік",
 	"graph-ve-dialog-edit-field-graph-type": "Тип графіка",
 	"graph-ve-dialog-edit-field-raw-json": "Специфікація сирого JSON",
@@ -40,12 +45,9 @@
 	"graph-ve-dialog-edit-type-line": "Лінійний графік",
 	"graph-ve-dialog-edit-type-unknown": "Невідомий тип графіка",
 	"graph-ve-dialog-edit-width": "Ширина",
-	"graph-ve-dialog-edit-unknown-graph-type-warning": "Тип цього графіку не підтримується й будь-які зроблені зміни можуть пошкодити його відображення. Будь ласка, редагуйте графік через вказання сирих даних за допомогою вкладки «{{int:graph-ve-dialog-edit-page-raw}}»",
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "Тип цього графіку не підтримується й будь-які зроблені зміни можуть пошкодити його відображення. Будь ласка, редагуйте графік через вказання сирих даних за допомогою вкладки «{{int:graph-ve-dialog-edit-page-raw}}».",
+	"graph-ve-empty-graph": "Порожній графік",
 	"graph-ve-no-spec": "Не знайдено специфікації графів",
 	"graph-ve-vega-error": "У Веги сталася помилка під час візуалізації цього графіка",
-	"graph-ve-vega-error-no-render": "Вега не в змозі відобразити цей графік",
-	"graph-interactive-title": "Інтерактивно",
-	"graph-switch-button": "Відтворити",
-	"graph-loading": "Завантаження…",
-	"graph-loading-done": "Готово!"
+	"graph-ve-vega-error-no-render": "Вега не в змозі відобразити цей графік"
 }
