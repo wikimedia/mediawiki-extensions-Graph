@@ -8,7 +8,7 @@
     "test": "grunt test"
   },
   "manual-dev-Dependencies (fails to install in Jenkins, install manually)": {
-    "vega": "^2.4.0"
+    "vega": "git+https://github.com/nyurik/vega"
   },
   "devDependencies": {
     "graph-shared": "git+http://git@github.com/nyurik/graph-shared",
