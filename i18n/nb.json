@@ -5,6 +5,7 @@
 		]
 	},
 	"graph-desc": "Tillater [http://trifacta.github.io/vega/ Vega]-baserte diagrammer i  &lt;graph&gt;-tagger eller som hele sider.",
+	"graphsandbox": "Diagramsandkasse",
 	"graph-tracking-category": "Sider med diagrammer",
 	"graph-tracking-category-desc": "Denne siden inkluderer en <code><nowiki><graph></nowiki></code>-tagg.",
 	"graph-broken-category": "Sider med defekte diagrammer",
@@ -35,11 +36,9 @@
 	"graph-ve-dialog-edit-type-line": "Linjediagram",
 	"graph-ve-dialog-edit-type-unknown": "Ukjent diagramtype",
 	"graph-ve-dialog-edit-width": "Bredde",
-	"graph-ve-dialog-edit-unknown-graph-type-warning": "Denne diagramtypen er ikke støttet, så redigering av den kan føre til at den går i stykker. Du kan fremdeles redigere rådataene under fanen  '{{int:graph-ve-dialog-edit-page-raw}}'.",
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "Denne diagramtypen er ikke støttet, så redigering av den kan føre til at den går i stykker. Du kan fremdeles redigere rådataene under fanen «{{int:graph-ve-dialog-edit-page-raw}}».",
+	"graph-ve-empty-graph": "Tomt diagram",
 	"graph-ve-no-spec": "Ingen diagramspesifikasjon ble funnet",
 	"graph-ve-vega-error": "Vega støtte på et problem under opptegning av diagrammet",
-	"graph-ve-vega-error-no-render": "Vega klarte ikke å tegne opp diagrammet",
-	"graph-interactive-title": "Interaktiv",
-	"graph-switch-button": "Spill av",
-	"graph-loading": "Laster…"
+	"graph-ve-vega-error-no-render": "Vega klarte ikke å tegne opp diagrammet"
 }
