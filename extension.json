@@ -96,10 +96,11 @@
 			],
 			"dependencies": [
 				"jquery.throttle-debounce",
+				"mediawiki.confirmCloseWindow",
 				"ext.codeEditor",
 				"ext.graph.vega2"
 			],
-			"messages": [ "ok" ],
+			"messages": [ "ok", "editwarning-warning" ],
 			"targets": [ "desktop" ]
 		},
 		"ext.graph.visualEditor": {

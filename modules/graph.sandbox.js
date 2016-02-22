@@ -1,5 +1,5 @@
 ( function ( $, mw ) {
-	var oldContent;
+	var oldContent, ccw;
 
 	$( function () {
 		$( '#mw-graph-sandbox' ).width( '100%' ).height( 700 ).split( { orientation: 'vertical', limit: 100, position: '40%' } );
@@ -11,6 +11,16 @@
 		var $errorLog = $( '#mw-graph-log' )[ 0 ],
 			$json = $( '#mw-graph-json' )[ 0 ],
 			$graph = $( '.mw-graph' )[ 0 ];
+
+		if ( ccw ) {
+			ccw.release();
+		}
+		ccw = mw.confirmCloseWindow( {
+			test: function () {
+				return session.getValue().length > 0;
+			},
+			message: mw.msg( 'editwarning-warning' )
+		} );
 
 		session.on( 'change', $.debounce( 300, function () {
 			var content = session.getValue();
