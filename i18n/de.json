@@ -21,7 +21,7 @@
 	"apihelp-graph-param-title": "Titel des Artikels mit der Grafik",
 	"graph-ve-dialog-button-tooltip": "Diagramm",
 	"graph-ve-dialog-edit-field-graph-type": "Diagrammtyp",
-	"graph-ve-dialog-edit-field-raw-json": "Rohes-JSON-Spezifikation",
+	"graph-ve-dialog-edit-field-raw-json": "Unverarbeitete JSON-Spezifikation",
 	"graph-ve-dialog-edit-height": "Höhe",
 	"graph-ve-dialog-edit-json-invalid": "Ungültige JSON-Zeichenfolge",
 	"graph-ve-dialog-edit-padding-auto": "Automatische Auffüllung",
