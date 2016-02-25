@@ -2,13 +2,34 @@
 	"@metadata": {
 		"authors": [
 			"Reza1615",
-			"Ebraminio"
+			"Ebraminio",
+			"Ladsgroup"
 		]
 	},
+	"graphsandbox": "صفحه تمرین گراف",
 	"graph-tracking-category": "صفحه‌های دارای گراف",
 	"graph-broken-category": "صفحه‌های دارای گراف شکسته",
 	"graph-obsolete-category": "صفحه‌های با گراف منسوخ وگا ۱.۰",
 	"graph-ve-dialog-button-tooltip": "گراف",
+	"graph-ve-dialog-edit-field-graph-type": "نوع گراف",
+	"graph-ve-dialog-edit-height": "ارتفاع",
+	"graph-ve-dialog-edit-padding-table-bottom": "پایین",
+	"graph-ve-dialog-edit-padding-table-left": "چپ",
+	"graph-ve-dialog-edit-padding-table-right": "راست",
+	"graph-ve-dialog-edit-padding-table-top": "بالا",
+	"graph-ve-dialog-edit-padding-table-unit": "پیسکل",
 	"graph-ve-dialog-edit-page-data": "داده‌ها",
-	"graph-ve-dialog-edit-page-general": "عمومی"
+	"graph-ve-dialog-edit-page-general": "عمومی",
+	"graph-ve-dialog-edit-page-raw": "اطلاعات خام",
+	"graph-ve-dialog-edit-size-fieldset": "اندازه",
+	"graph-ve-dialog-edit-size-table-unit": "پیکسل",
+	"graph-ve-dialog-edit-table-row-delete": "حذف سطر",
+	"graph-ve-dialog-edit-title": "ویرایش گراف",
+	"graph-ve-dialog-edit-type-area": "گراف سطح",
+	"graph-ve-dialog-edit-type-bar": "گراف میله‌ای",
+	"graph-ve-dialog-edit-type-line": "گراف خطی",
+	"graph-ve-dialog-edit-type-unknown": "نوع گراف ناشناخته",
+	"graph-ve-dialog-edit-width": "عرض",
+	"graph-ve-empty-graph": "گراف خالی",
+	"graph-ve-no-spec": "نوع گرافی یافت نشد"
 }
