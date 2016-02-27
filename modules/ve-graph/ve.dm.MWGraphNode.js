@@ -55,7 +55,7 @@ ve.dm.MWGraphNode.static.name = 'mwGraph';
 ve.dm.MWGraphNode.static.extensionName = 'graph';
 
 ve.dm.MWGraphNode.static.defaultSpec = {
-	version: 1,
+	version: 2,
 	width: 400,
 	height: 200,
 	data: [
@@ -89,7 +89,7 @@ ve.dm.MWGraphNode.static.defaultSpec = {
 			zero: false,
 			domain: {
 				data: 'table',
-				field: 'data.x'
+				field: 'x'
 			}
 		},
 		{
@@ -99,7 +99,7 @@ ve.dm.MWGraphNode.static.defaultSpec = {
 			nice: true,
 			domain: {
 				data: 'table',
-				field: 'data.y'
+				field: 'y'
 			}
 		}
 	],
@@ -123,11 +123,11 @@ ve.dm.MWGraphNode.static.defaultSpec = {
 				enter: {
 					x: {
 						scale: 'x',
-						field: 'data.x'
+						field: 'x'
 					},
 					y: {
 						scale: 'y',
-						field: 'data.y'
+						field: 'y'
 					},
 					y2: {
 						scale: 'y',
@@ -249,6 +249,15 @@ ve.dm.MWGraphNode.prototype.onAttributeChange = function ( attributeName, from, 
 	if ( attributeName === 'mw' ) {
 		this.setSpecFromString( to.body.extsrc );
 	}
+};
+
+/**
+ * Is this graph using a legacy version of Vega?
+ *
+ * @return {boolean}
+ */
+ve.dm.MWGraphNode.prototype.isGraphLegacy = function () {
+	return !!( this.spec && this.spec.hasOwnProperty( 'version' ) && this.spec.version < 2 );
 };
 
 /* Registration */
