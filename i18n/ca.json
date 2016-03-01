@@ -2,15 +2,37 @@
 	"@metadata": {
 		"authors": [
 			"Macofe",
-			"Paucabot"
+			"Paucabot",
+			"Vriullop"
 		]
 	},
+	"graphsandbox": "Proves de gràfics",
 	"graph-tracking-category": "Pàgines amb gràfics",
+	"graph-tracking-category-desc": "La pàgina inclou una etiqueta <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Pàgines amb gràfics que no funcionen",
-	"graph-ve-dialog-edit-apply": "Aplicar",
-	"graph-ve-dialog-edit-cancel": "Cancel·la",
+	"graph-broken-category-desc": "La pàgina inclou una etiqueta <code><nowiki><graph></nowiki></code> usada de forma no vàlida.",
+	"graph-obsolete-category": "Pàgines amb gràfics Vega 1.0 obsolets",
+	"graph-obsolete-category-desc": "La pàgina inclou una etiqueta <code><nowiki><graph></nowiki></code> que s'hauria d'actualitzar a la versió 2.",
+	"graph-ve-dialog-button-tooltip": "Gràfic",
+	"graph-ve-dialog-edit-field-graph-type": "Tipus de gràfic",
+	"graph-ve-dialog-edit-height": "Alçada",
+	"graph-ve-dialog-edit-padding-auto": "Farciment automàtic",
+	"graph-ve-dialog-edit-padding-fieldset": "Farciment",
 	"graph-ve-dialog-edit-padding-table-bottom": "Avall",
 	"graph-ve-dialog-edit-padding-table-left": "Esquerra",
 	"graph-ve-dialog-edit-padding-table-right": "Dreta",
-	"graph-ve-dialog-edit-padding-table-top": "Amunt"
+	"graph-ve-dialog-edit-padding-table-top": "Amunt",
+	"graph-ve-dialog-edit-padding-table-unit": "Píxels",
+	"graph-ve-dialog-edit-page-data": "Dades",
+	"graph-ve-dialog-edit-page-general": "General",
+	"graph-ve-dialog-edit-page-raw": "Dades sense tractar",
+	"graph-ve-dialog-edit-size-fieldset": "Mida",
+	"graph-ve-dialog-edit-size-table-unit": "Píxels",
+	"graph-ve-dialog-edit-table-row-delete": "Suprimeix la fila",
+	"graph-ve-dialog-edit-type-area": "Gràfic d'àrees",
+	"graph-ve-dialog-edit-type-bar": "Gràfic de barres",
+	"graph-ve-dialog-edit-type-line": "Gràfic de línies",
+	"graph-ve-dialog-edit-type-unknown": "Tipus de gràfic desconegut",
+	"graph-ve-dialog-edit-width": "Amplada",
+	"graph-ve-empty-graph": "Gràfic buit"
 }
