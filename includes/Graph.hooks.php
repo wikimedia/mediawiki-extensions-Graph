@@ -22,7 +22,10 @@ class Hooks {
 	public static function onResourceLoaderTestModules( array &$testModules, ResourceLoader &$resourceLoader ) {
 		$resourceModules = $resourceLoader->getConfig()->get( 'ResourceModules' );
 
-		if ( isset( $resourceModules[ 'ext.graph.visualEditor' ] ) || $resourceLoader->isModuleRegistered( 'ext.graph.visualEditor' ) ) {
+		if (
+			isset( $resourceModules[ 'ext.visualEditor.mediawiki' ] ) ||
+			$resourceLoader->isModuleRegistered( 'ext.visualEditor.mediawiki' )
+		) {
 			$testModules['qunit']['ext.graph.visualEditor.test'] = array(
 				'scripts' => array(
 					'modules/ve-graph/tests/ext.graph.visualEditor.test.js'
