@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nike"
+			"Nike",
+			"Stryn"
 		]
 	},
+	"graph-tracking-category": "Sivut, joissa on kaavioita",
 	"graph-ve-dialog-edit-table-row-delete": "Poista rivi"
 }

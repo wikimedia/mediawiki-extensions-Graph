@@ -2,8 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"Silraks",
-			"Papuass"
+			"Papuass",
+			"Stryn"
 		]
 	},
-	"graphsandbox": "Grafiku smilškaste"
+	"graphsandbox": "Grafiku smilškaste",
+	"graph-tracking-category": "Lapas ar grafu"
 }
