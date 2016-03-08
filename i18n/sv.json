@@ -9,11 +9,13 @@
 		]
 	},
 	"graph-desc": "Tillåter taggen &lt;graph&gt; eller hela sidor att bli [http://vega.github.io/ Vega]-baserade grafer",
+	"graphsandbox": "Diagramsandlåda",
 	"graph-tracking-category": "Sidor med grafer",
 	"graph-tracking-category-desc": "Den här sidan innehåller en <code><nowiki><graph></nowiki></code>-tagg.",
 	"graph-broken-category": "Sidor med trasiga grafer",
 	"graph-broken-category-desc": "Den är sidan innehåller en <code><nowiki><graph></nowiki></code>-tagg som används felaktigt.",
-	"graph-ve-dialog-edit-field-graph-type": "Graftyp",
+	"graph-ve-dialog-button-tooltip": "Diagram",
+	"graph-ve-dialog-edit-field-graph-type": "Diagramtyp",
 	"graph-ve-dialog-edit-height": "Höjd",
 	"graph-ve-dialog-edit-json-invalid": "Ogiltig JSON-sträng",
 	"graph-ve-dialog-edit-padding-table-bottom": "Nederkant",
@@ -24,7 +26,11 @@
 	"graph-ve-dialog-edit-size-fieldset": "Storlek",
 	"graph-ve-dialog-edit-size-table-unit": "Bildpunkter",
 	"graph-ve-dialog-edit-table-row-delete": "Radera rad",
+	"graph-ve-dialog-edit-title": "Redigera diagram",
+	"graph-ve-dialog-edit-type-area": "Ytdiagram",
 	"graph-ve-dialog-edit-type-bar": "Stapeldiagram",
+	"graph-ve-dialog-edit-type-line": "Linjediagram",
+	"graph-ve-dialog-edit-type-unknown": "Okänd diagramtyp",
 	"graph-ve-dialog-edit-width": "Bredd",
 	"graph-ve-empty-graph": "Tom graf"
 }
