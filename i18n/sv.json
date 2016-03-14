@@ -5,7 +5,8 @@
 			"WikiPhoenix",
 			"Josve05a",
 			"GameOn",
-			"MagnusA"
+			"MagnusA",
+			"Ainali"
 		]
 	},
 	"graph-desc": "Tillåter taggen &lt;graph&gt; eller hela sidor att bli [http://vega.github.io/ Vega]-baserade grafer",
@@ -14,8 +15,14 @@
 	"graph-tracking-category-desc": "Den här sidan innehåller en <code><nowiki><graph></nowiki></code>-tagg.",
 	"graph-broken-category": "Sidor med trasiga grafer",
 	"graph-broken-category-desc": "Den är sidan innehåller en <code><nowiki><graph></nowiki></code>-tagg som används felaktigt.",
+	"graph-obsolete-category": "Sidor med föråldrade Vega 1.0 grafer",
+	"graph-obsolete-category-desc": "Sidan innehåller en <code><nowiki><graph></nowiki></code> tagg som bör uppdateras till version 2.",
+	"apihelp-graph-example": "Få JSON för grafen genom hash och titel",
+	"apihelp-graph-param-hash": "Hash-värde på grafen",
+	"apihelp-graph-param-title": "Titel på artikeln med grafen",
 	"graph-ve-dialog-button-tooltip": "Diagram",
 	"graph-ve-dialog-edit-field-graph-type": "Diagramtyp",
+	"graph-ve-dialog-edit-field-raw-json": "Rå JSON-specifikation",
 	"graph-ve-dialog-edit-height": "Höjd",
 	"graph-ve-dialog-edit-json-invalid": "Ogiltig JSON-sträng",
 	"graph-ve-dialog-edit-padding-table-bottom": "Nederkant",
@@ -23,6 +30,9 @@
 	"graph-ve-dialog-edit-padding-table-right": "Höger",
 	"graph-ve-dialog-edit-padding-table-top": "Överkant",
 	"graph-ve-dialog-edit-padding-table-unit": "Bildpunkter",
+	"graph-ve-dialog-edit-page-data": "Data",
+	"graph-ve-dialog-edit-page-general": "Allmänt",
+	"graph-ve-dialog-edit-page-raw": "Rådata",
 	"graph-ve-dialog-edit-size-fieldset": "Storlek",
 	"graph-ve-dialog-edit-size-table-unit": "Bildpunkter",
 	"graph-ve-dialog-edit-table-row-delete": "Radera rad",
@@ -32,5 +42,8 @@
 	"graph-ve-dialog-edit-type-line": "Linjediagram",
 	"graph-ve-dialog-edit-type-unknown": "Okänd diagramtyp",
 	"graph-ve-dialog-edit-width": "Bredd",
-	"graph-ve-empty-graph": "Tom graf"
+	"graph-ve-empty-graph": "Tom graf",
+	"graph-ve-no-spec": "Ingen graf-specifikation hittades",
+	"graph-ve-vega-error": "Det uppstod ett fel när Vega renderade denna graf",
+	"graph-ve-vega-error-no-render": "Vega kunde inte rendera denna graf"
 }
