@@ -42,10 +42,6 @@
 			"scripts": [
 				"modules/graph-loader.js"
 			],
-			"messages": [
-				"graph-loading",
-				"graph-loading-done"
-			],
 			"dependencies": [
 				"mediawiki.api"
 			],
