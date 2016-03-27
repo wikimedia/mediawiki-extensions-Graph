@@ -3,16 +3,17 @@
 		"authors": [
 			"Vitorvicentevalente",
 			"Macofe",
-			"Jkb8"
+			"Jkb8",
+			"Luan"
 		]
 	},
+	"graph-tracking-category": "Páginas com gráficos",
 	"graph-broken-category": "Páginas com gráficos quebrados",
 	"graph-broken-category-desc": "A página inclui uma etiqueta <code><nowiki><graph></nowiki></code> com uso não válido.",
+	"graph-obsolete-category": "Páginas com gráficos Vega 1.0 obsoletos",
 	"graph-ve-dialog-edit-padding-table-left": "Esquerda",
 	"graph-ve-dialog-edit-padding-table-right": "Direita",
 	"graph-ve-dialog-edit-page-data": "Dados",
 	"graph-ve-dialog-edit-size-fieldset": "Tamanho",
-	"graph-ve-no-spec": "Nenhum gráfico especificado encontrado",
-	"graph-loading": "A carregar…",
-	"graph-loading-done": "Concluído!"
+	"graph-ve-no-spec": "Nenhum gráfico especificado encontrado"
 }

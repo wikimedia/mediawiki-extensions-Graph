@@ -3,7 +3,8 @@
 		"authors": [
 			"Macofe",
 			"Fitoschido",
-			"SinNovedades"
+			"SinNovedades",
+			"Luan"
 		]
 	},
 	"graph-desc": "Permite transformar etiquetas &lt;graph&gt; o páginas enteras en gráficos basados en [http://vega.github.io/ Vega]",
