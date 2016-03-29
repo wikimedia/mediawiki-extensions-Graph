@@ -34,8 +34,6 @@ ve.ui.MWGraphDialog.static.name = 'graph';
 
 ve.ui.MWGraphDialog.static.title = OO.ui.deferMsg( 'graph-ve-dialog-edit-title' );
 
-ve.ui.MWGraphDialog.static.icon = 'code';
-
 ve.ui.MWGraphDialog.static.size = 'large';
 
 ve.ui.MWGraphDialog.static.actions = [
