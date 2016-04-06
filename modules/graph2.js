@@ -6,14 +6,16 @@
 	var wrapper,
 		VegaWrapper = require( 'graph-shared' );
 
-	wrapper = new VegaWrapper(
-		vg.util, true,
-		mw.config.get( 'wgGraphIsTrusted' ),
-		mw.config.get( 'wgGraphAllowedDomains' ),
-		false,
-		function ( warning ) {
+	wrapper = new VegaWrapper( {
+		datalib: vg.util,
+		useXhr: true,
+		isTrusted: mw.config.get( 'wgGraphIsTrusted' ),
+		domains: mw.config.get( 'wgGraphAllowedDomains' ),
+		domainMap: false,
+		logger: function ( warning ) {
 			mw.log.warn( warning );
-		}, function ( opt ) {
+		},
+		parseUrl: function ( opt ) {
 			// Parse URL
 			var uri = new mw.Uri( opt.url );
 			// reduce confusion, only keep expected values
@@ -34,7 +36,8 @@
 			uri.pathname = uri.path;
 			delete uri.path;
 			return uri;
-		}, function ( uri, opt ) {
+		},
+		formatUrl: function ( uri, opt ) {
 			// Format URL back into a string
 			// Revert path into pathname
 			uri.path = uri.pathname;
@@ -54,12 +57,12 @@
 				uri.query.origin = location.protocol + '//' + location.host;
 			}
 
-			if ( uri.protocol[ uri.protocol.length - 1 ] === ':' ) {
-				uri.protocol = uri.protocol.substring( 0, uri.protocol.length - 1 );
-			}
+			uri.protocol = VegaWrapper.removeColon( uri.protocol );
 
 			return uri.toString();
-		} );
+		},
+		languageCode: mw.config.get( 'wgUserLanguage' )
+	} );
 
 	/**
 	 * Set up drawing canvas inside the given element and draw graph data
