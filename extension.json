@@ -184,7 +184,7 @@
 	],
 	"config": {
 		"GraphAllowedDomains": {},
-		"GraphDefaultVegaVer": 1,
+		"GraphDefaultVegaVer": 2,
 		"GraphIsTrusted": false,
 		"GraphImgServiceUrl": false
 	},
