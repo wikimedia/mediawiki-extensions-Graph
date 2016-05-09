@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "graph-shared": "git+http://git@github.com/nyurik/graph-shared",
+    "jquery.splitter": "^0.20.1",
     "browserify": "^13.0.0",
     "grunt": "0.4.5",
     "grunt-cli": "0.1.13",

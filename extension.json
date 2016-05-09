@@ -54,8 +54,6 @@
 			"scripts": [
 				"lib/d3.js",
 				"lib/d3-global.js",
-				"lib/topojson.js",
-				"lib/topojson-global.js",
 				"lib/vega1/vega.js",
 				"modules/graph1.js"
 			],
@@ -72,8 +70,6 @@
 			"scripts": [
 				"lib/d3.js",
 				"lib/d3-global.js",
-				"lib/topojson.js",
-				"lib/topojson-global.js",
 				"lib/vega2/vega.js",
 				"lib/graph2.compiled.js"
 			],
@@ -88,11 +84,12 @@
 		},
 		"ext.graph.sandbox": {
 			"scripts": [
-				"lib/jquery.splitter-0.18.0.js",
+				"lib/jquery.splitter.js",
 				"modules/graph.sandbox.js"
 			],
 			"styles": [
-				"styles/jquery.splitter.css"
+				"styles/jquery.splitter.css",
+				"styles/sandbox.css"
 			],
 			"dependencies": [
 				"jquery.throttle-debounce",
