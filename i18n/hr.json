@@ -20,6 +20,8 @@
 	"graph-ve-dialog-edit-page-data": "Podatci",
 	"graph-ve-dialog-edit-page-general": "Opće",
 	"graph-ve-dialog-edit-page-raw": "Neobrađeni podatci",
+	"graph-ve-dialog-edit-size-fieldset": "Veličina",
+	"graph-ve-dialog-edit-size-table-unit": "Piksela",
 	"graph-ve-dialog-edit-table-row-delete": "Ukloni stupac",
 	"graph-ve-dialog-edit-title": "Uredi grafikon",
 	"graph-ve-dialog-edit-type-area": "Površinski grafikon",
