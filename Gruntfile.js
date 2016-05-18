@@ -22,7 +22,9 @@ module.exports = function ( grunt ) {
 			},
 			all: [
 				'*.js',
-				'modules/**/*.js'
+				'**/*.js',
+				'!lib/**',
+				'!node_modules/**'
 			]
 		},
 		jscs: {

@@ -2,21 +2,6 @@
 
 	mw.hook( 'wikipage.content' ).add( function ( $content ) {
 
-		// Make graph containers clickable
-		$content.find( '.mw-graph.mw-graph-interactable' ).on( 'click', function () {
-			var $this = $( this ),
-				$button = $this.find( '.mw-graph-switch' );
-
-			// Prevent multiple clicks
-			$this.off( 'click' );
-
-			// Add a class to decorate loading
-			$button.addClass( 'mw-graph-loading' );
-
-			// Replace the image with the graph
-			loadAndReplaceWithGraph( $this );
-		} );
-
 		/**
 		 * Replace a graph image by the vega graph.
 		 *
@@ -49,6 +34,21 @@
 				} );
 			} );
 		}
+
+		// Make graph containers clickable
+		$content.find( '.mw-graph.mw-graph-interactable' ).on( 'click', function () {
+			var $this = $( this ),
+				$button = $this.find( '.mw-graph-switch' );
+
+			// Prevent multiple clicks
+			$this.off( 'click' );
+
+			// Add a class to decorate loading
+			$button.addClass( 'mw-graph-loading' );
+
+			// Replace the image with the graph
+			loadAndReplaceWithGraph( $this );
+		} );
 
 	} );
 
