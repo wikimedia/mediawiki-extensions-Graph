@@ -84,11 +84,11 @@
 		},
 		"ext.graph.sandbox": {
 			"scripts": [
-				"lib/jquery.splitter.js",
+				"lib/jquery.splitter/jquery.splitter.js",
 				"modules/graph.sandbox.js"
 			],
 			"styles": [
-				"styles/jquery.splitter.css",
+				"lib/jquery.splitter/jquery.splitter.css",
 				"styles/sandbox.css"
 			],
 			"dependencies": [
