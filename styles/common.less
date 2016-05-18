@@ -1,163 +1,166 @@
-@import "mediawiki.ui/variables";
-@import "mediawiki.mixins";
-@import "mediawiki.mixins.animation";
+@import 'mediawiki.ui/variables';
+@import 'mediawiki.mixins';
+@import 'mediawiki.mixins.animation';
 
-@darkColor:  #2B333F;
-@darkColorOpac: rgba(43,51,63,0.7);
-@colorWhiteOpac: rgba(255,255,255,0.7);
+@darkColor:  #2b333f;
+@darkColorOpac: rgba( 43, 51, 63, 0.7 );
+@colorWhiteOpac: rgba( 255, 255, 255, 0.7 );
+
+/* TODO: This file has a lot of descending specificity and needs a cleanup */
+/* stylelint-disable no-descending-specificity */
 
 .client-js {
 
-  .mw-graph {
-    display: inline-block;
-    border: 1px solid transparent;
-    position: relative;
+	.mw-graph {
+		display: inline-block;
+		border: 1px solid transparent;
+		position: relative;
 
-    .mw-graph-img, canvas {
-      display: inline-block;
-      vertical-align: middle;
-    }
-  }
+		.mw-graph-img,
+		canvas {
+			display: inline-block;
+			vertical-align: middle;
+		}
 
+		&.mw-graph-interactable {
 
-  .mw-graph.mw-graph-interactable {
+			&:hover {
+				cursor: pointer;
 
-    &:hover {
-      cursor: pointer;
+				.mw-graph-hover-title {
+					display: block;
+				}
 
-      .mw-graph-hover-title {
-        display: block;
-      }
+				.mw-graph-layover {
+					display: block;
+					background: @colorWhiteOpac;
+				}
 
-      .mw-graph-layover {
-        display: block;
-        background: @colorWhiteOpac;
-      }
+				.mw-graph-switch {
+					&.mw-graph-loading {
+						background-color: @colorWhite;
+					}
 
-      .mw-graph-switch {
-        &.mw-graph-loading {
-          background-color: @colorWhite;
-        }
+					&:hover {
+						background-color: @colorWhite;
+					}
+				}
 
-        &:hover {
-          background-color: @colorWhite;
-        }
-      }
+			}
+		}
+	}
 
-    }
-  }
+	/* white layover */
+	.mw-graph-layover {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
 
-  /* white layover */
-  .mw-graph-layover {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
+		/* center the container vertically */
+		& > div {
+			position: absolute;
+			left: 10px;
+			top: 10px;
+		}
 
-    /* center the container vertically */
-    &> div {
-      position: absolute;
-      left: 10px;
-      top: 10px;
-    }
+		.mw-graph-hover-title {
+			display: none;
+			position: absolute;
+			top: ~'calc( 50% - 17px )';
+			left: 1em;
+			right: 1em;
+			text-align: center;
+			font-size: 150%;
+			background-color: @colorWhite;
+		}
+	}
 
-    .mw-graph-hover-title {
-      display: none;
-      position: absolute;
-      top: ~"calc(50% - 17px)";
-      left: 1em;
-      right: 1em;
-      text-align: center;
-      font-size: 150%;
-      background-color: @colorWhite;
-    }
-  }
+	/* common button style */
+	.mw-graph-switch {
+		font: inherit;
+		margin: .1em 0;
+		min-height: 1.2em;
+		min-width: 1em;
+		.transition( ~'background .1s ease,color .1s ease,border-color .1s ease,box-shadow .1s ease' );
+		font-weight: bold;
+		text-decoration: none;
+		display: inline-block;
+		vertical-align: top;
+		text-align: center;
+		cursor: pointer;
+		white-space: nowrap;
+		line-height: 1em;
+		padding: .5em;
+		width: 60px;
 
-  /* common button style */
-  .mw-graph-switch {
-    font: inherit;
-    margin: .1em 0;
-    min-height: 1.2em;
-    min-width: 1em;
-    border-radius: 2px;
-    .transition(~"background .1s ease,color .1s ease,border-color .1s ease,box-shadow .1s ease");
-    font-weight: 700;
-    text-decoration: none;
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
-    cursor: pointer;
-    white-space: nowrap;
-    line-height: 1em;
-    padding: .5em;
-    width: 60px;
-  }
+		border-width: 2px;
+		border-style: solid;
+		border-color: #333;
+		border-radius: .3em;
 
-  /* Play button style */
-  .mw-graph-switch {
-    border-width: 2px;
-    border-style: solid;
-    border-color: #333;
-    border-radius: .3em;
+		color: @darkColor;
+		background-color: @colorWhiteOpac;
 
-    color: @darkColor;
-    background-color: @colorWhiteOpac;
+		&:hover {
+			background: @colorProgressiveHighlight;
+			border-color: @colorProgressiveHighlight;
+		}
+		&:active {
+			color: @colorWhite;
+			background-color: @colorProgressiveActive;
+			border-color: @colorProgressiveActive;
+			.box-shadow(none);
+		}
+		&:focus {
+			.box-shadow( ~'inset 0 0 0 1px @{colorWhite}' );
+			border-color: @colorProgressive;
+		}
 
-    &:hover {
-      background: @colorProgressiveHighlight;
-      border-color: @colorProgressiveHighlight;
-    }
-    &:active {
-      color: @colorWhite;
-      background-color: @colorProgressiveActive;
-      border-color: @colorProgressiveActive;
-      .box-shadow(none);
-    }
-    &:focus {
-      .box-shadow(~"inset 0 0 0 1px @{colorWhite}");
-      border-color: @colorProgressive;
-    }
+		/* Play button style */
+		.icon-play {
+			display: inline-block;
+			position: relative;
+			top: 4px;
+			left: 0;
+			bottom: 0;
+			font-size: 160%;
+			font-style: normal;
+		}
 
-    .icon-play {
-      display: inline-block;
-      position: relative;
-      top: 4px;
-      left: 0;
-      bottom: 0;
-      font-size: 160%;
-      font-style: normal;
-    }
+	}
 
-  }
+	/* Loading button style */
+	.mw-graph-switch.mw-graph-loading {
 
-  /* Loading button style */
-  .mw-graph-switch.mw-graph-loading {
+		color: @colorGray5;
+		background-color: @colorWhite;
+		border-color: @colorProgressiveActive;
 
-    color: @colorGray5;
-    background-color: @colorWhite;
-    border-color: @colorProgressiveActive;
+		&:hover {
+			border-color: #333;
+		}
+		.transition( ~'background 0s ease' );
+		background-position: 50% 50%;
+		background-size: 20px;
+		background-repeat: no-repeat;
+		/* @embed */
+		background-image: url( ../includes/ajax-loader.gif );
+		display: block;
 
-    &:hover {
-      border-color: #333;
-    }
-    .transition(~"background 0s ease");
-    background-position: 50% 50%;
-    background-size: 20px;
-    background-repeat: no-repeat;
-    /* @embed */
-    background-image: url(../includes/ajax-loader.gif);
-    display: block;
+		.icon-play {
+			display: none;
+		}
+	}
 
-    .icon-play {
-      display: none;
-    }
-  }
-
-  /* Set graph width */
-  #mw-graph-log, #mw-graph-json {
-    width: 100%;
-  }
+	/* stylelint-disable selector-no-id */
+	/* Set graph width */
+	#mw-graph-log,
+	#mw-graph-json {
+		width: 100%;
+	}
+	/* stylelint-enable selector-no-id */
 }
