@@ -15,12 +15,11 @@
     "graph-shared": "git+http://git@github.com/nyurik/graph-shared",
     "grunt": "1.0.1",
     "grunt-banana-checker": "0.5.0",
-    "grunt-cli": "1.2.0",
     "grunt-contrib-jshint": "1.0.0",
     "grunt-contrib-watch": "1.0.0",
     "grunt-jscs": "2.8.0",
     "grunt-jsonlint": "1.0.7",
-    "grunt-stylelint": "0.2.0",
+    "grunt-stylelint": "0.3.0",
     "jquery.splitter": "^0.20.1",
     "stylelint-config-wikimedia": "0.2.0"
   }
