@@ -12,6 +12,7 @@ namespace Graph;
 use FormatJson;
 use Html;
 use JsonConfig\JCContent;
+use ObjectCache;
 use Parser;
 use ParserOptions;
 use ParserOutput;
@@ -51,8 +52,7 @@ class Singleton {
 	 * @param \PPFrame $frame
 	 * @return string
 	 */
-	public static function onGraphTag( $input, /** @noinspection PhpUnusedParameterInspection */
-	                                   array $args, Parser $parser, \PPFrame $frame ) {
+	public static function onGraphTag( $input, array $args, Parser $parser, \PPFrame $frame ) {
 		return self::buildHtml( $input, $parser->getTitle(), $parser->getRevisionId(),
 			$parser->getOutput(), $parser->getOptions()->getIsPreview(), $args );
 	}
@@ -228,19 +228,18 @@ class Singleton {
 	 * @param $data string Graph spec after json encoding
 	 */
 	private static function saveDataToCache( $hash, $data ) {
-		/** @var $wgMemc \BagOStuff */
-		global $wgMemc;
-		$wgMemc->add( self::makeCacheKey( $hash ), $data );
+		$cache = ObjectCache::getLocalClusterInstance();
+		$cache->add( $cache->makeKey( 'graph-data', $hash ), $data );
 	}
 
 	/**
+	 * Get graph data from the memcached
 	 * @param $hash
 	 * @return mixed
 	 */
-	public static function makeCacheKey( $hash ) {
-		/** @var $wgMemc \BagOStuff */
-		global $wgMemc;
-		return $wgMemc->makeKey( 'graph-data', $hash );
+	public static function getDataFromCache( $hash ) {
+		$cache = ObjectCache::getLocalClusterInstance();
+		return $cache->get( $cache->makeKey( 'graph-data', $hash ) );
 	}
 }
 
