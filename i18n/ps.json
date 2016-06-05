@@ -4,6 +4,8 @@
 			"Ahmed-Najib-Biabani-Ibrahimkhel"
 		]
 	},
+	"graph-ve-dialog-button-tooltip": "گراف",
+	"graph-ve-dialog-edit-field-graph-type": "د گراف ډول",
 	"graph-ve-dialog-edit-height": "لوړوالی",
 	"graph-ve-dialog-edit-padding-table-bottom": "لاندې",
 	"graph-ve-dialog-edit-padding-table-left": "کيڼ",
@@ -11,10 +13,9 @@
 	"graph-ve-dialog-edit-padding-table-top": "سر",
 	"graph-ve-dialog-edit-padding-table-unit": "پېکسلونه",
 	"graph-ve-dialog-edit-page-data": "اومتوک",
+	"graph-ve-dialog-edit-page-general": "ټولگړی",
 	"graph-ve-dialog-edit-size-fieldset": "کچه",
 	"graph-ve-dialog-edit-size-table-unit": "پېکسلونه",
 	"graph-ve-dialog-edit-width": "سوروالی",
-	"graph-switch-button": "غږول",
-	"graph-loading": "رابرسېرېږي...",
-	"graph-loading-done": "ترسره شو!"
+	"graph-ve-empty-graph": "تش گراف"
 }
