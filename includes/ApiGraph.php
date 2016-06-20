@@ -68,7 +68,7 @@ class ApiGraph extends ApiBase {
 	}
 
 	/**
-	 * Get graph definition with title and hash
+	 * Parse graph definition that may contain wiki markup into pure json
 	 * @param string $text
 	 * @return string
 	 */
@@ -78,7 +78,15 @@ class ApiGraph extends ApiBase {
 		$text = $wgParser->getFreshParser()->preprocess( $text, $title, new ParserOptions() );
 		$st = FormatJson::parse( $text );
 		if ( !$st->isOK() ) {
-			$this->dieUsage( 'Graph is not valid.', 'invalidtext' );
+			// Sometimes we get <graph ...> {...} </graph> as input. Try to strip <graph> tags
+			$count = 0;
+			$text = preg_replace( '/^\s*<graph[^>]*>(.*)<\/graph>\s*$/s', '$1', $text, 1, $count );
+			if ( $count === 1 ) {
+				$st = FormatJson::parse( $text );
+			}
+			if ( !$st->isOK() ) {
+				$this->dieUsage( 'Graph is not valid.', 'invalidtext' );
+			}
 		}
 		return $st->getValue();
 	}
