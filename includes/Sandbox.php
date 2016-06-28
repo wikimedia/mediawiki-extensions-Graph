@@ -35,12 +35,11 @@ class Sandbox extends SpecialPage {
 		$graphHtml = Html::rawElement( 'div', $attr, '' );
 
 		// FIXME: make this textarea readonly (but text should be selectable)
-		$logHtml = '<div><pre id="mw-graph-log" dir="ltr"></pre></div>';
 		$specHtml = '<div><textarea tabindex="1" accesskey="," id="wpTextbox1" cols="80" rows="40" style="" lang="en" dir="ltr" name="wpTextbox1" class="webfonts-changed"></textarea></div>';
 		$jsonHtml = '<div><pre id="mw-graph-json"></pre></div>';
 
 		$out->addHTML( Html::rawElement( 'div', array( 'id' => 'mw-graph-sandbox' ),
-			Html::rawElement( 'div', array( 'id' => 'mw-graph-left' ), $graphHtml . $logHtml ) .
-			Html::rawElement( 'div', array( 'id' => 'mw-graph-right' ), $specHtml . $jsonHtml ) ) );
+			Html::rawElement( 'div', array( 'id' => 'mw-graph-left' ), $graphHtml . $jsonHtml ) .
+			Html::rawElement( 'div', array( 'id' => 'mw-graph-right' ), $specHtml ) ) );
 	}
 }

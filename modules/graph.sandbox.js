@@ -1,5 +1,5 @@
 ( function ( $, mw ) {
-	var oldContent, ccw, $rightSplitTop,
+	var oldContent, ccw,
 		resizeCodeEditor = $.noop;
 
 	$( function () {
@@ -16,20 +16,12 @@
 			limit: 100,
 			position: initialPosition
 		} );
-		$( '#mw-graph-right' ).split( {
-			orientation: 'horizontal',
-			limit: 100,
-			position: initialPosition,
-			onDrag: function () {
-				resizeCodeEditor( $rightSplitTop.height() );
-			}
-		} );
 	} );
 
 	mw.hook( 'codeEditor.configure' ).add( function ( session ) {
-		var $errorLog = $( '#mw-graph-log' )[ 0 ],
-			$json = $( '#mw-graph-json' )[ 0 ],
+		var $json = $( '#mw-graph-json' )[ 0 ],
 			$graph = $( '.mw-graph' )[ 0 ],
+			$rightPanel = $( '#mw-graph-right' ),
 			$editor = $( '.editor' );
 
 		if ( ccw ) {
@@ -42,13 +34,13 @@
 			message: mw.msg( 'editwarning-warning' )
 		} );
 
-		resizeCodeEditor = function ( height ) {
-			$editor.parent().height( height - 57 );
+		resizeCodeEditor = function () {
+			$editor.parent().height( $rightPanel.height() - 57 );
 			$.wikiEditor.instances[ 0 ].data( 'wikiEditor-context' ).codeEditor.resize();
 		};
 
-		$rightSplitTop = $( '#mw-graph-right .top_panel' );
-		resizeCodeEditor( $rightSplitTop.height() );
+		// I tried to resize on $( window ).resize(), but that didn't work right
+		resizeCodeEditor();
 
 		session.on( 'change', $.debounce( 300, function () {
 			var content = session.getValue();
@@ -68,16 +60,14 @@
 					return;
 				}
 				$json.textContent = JSON.stringify( data.graph, null, 2 );
-				$errorLog.textContent = '...';
+				$graph.textContent = '...';
 				mw.drawVegaGraph( $graph, data.graph, function ( error ) {
 					if ( error ) {
-						$errorLog.textContent = ( error.exception || error ).toString();
-					} else {
-						$errorLog.textContent = mw.msg( 'ok' );
+						$graph.textContent = ( error.exception || error ).toString();
 					}
 				} );
 			} ).fail( function ( errCode, error ) {
-				$errorLog.textContent = errCode.toString() + ':' + ( error.exception || error ).toString();
+				$graph.textContent = errCode.toString() + ':' + ( error.exception || error ).toString();
 			} );
 		} ) );
 	} );

@@ -97,7 +97,7 @@
 				"ext.codeEditor",
 				"ext.graph.vega2"
 			],
-			"messages": [ "ok", "editwarning-warning" ],
+			"messages": [ "editwarning-warning" ],
 			"targets": [ "desktop" ]
 		},
 		"ext.graph.visualEditor": {
