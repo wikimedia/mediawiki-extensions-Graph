@@ -20,7 +20,8 @@
 
 	mw.hook( 'codeEditor.configure' ).add( function ( session ) {
 		var $json = $( '#mw-graph-json' )[ 0 ],
-			$graph = $( '.mw-graph' )[ 0 ],
+			$graph = $( '.mw-graph' ),
+			$graphEl = $graph[ 0 ],
 			$rightPanel = $( '#mw-graph-right' ),
 			$editor = $( '.editor' );
 
@@ -49,6 +50,7 @@
 				return;
 			}
 			oldContent = content;
+			$graph.empty();
 
 			new mw.Api().post( {
 				formatversion: 2,
@@ -60,14 +62,13 @@
 					return;
 				}
 				$json.textContent = JSON.stringify( data.graph, null, 2 );
-				$graph.textContent = '...';
-				mw.drawVegaGraph( $graph, data.graph, function ( error ) {
+				mw.drawVegaGraph( $graphEl, data.graph, function ( error ) {
 					if ( error ) {
-						$graph.textContent = ( error.exception || error ).toString();
+						$graphEl.textContent = ( error.exception || error ).toString();
 					}
 				} );
 			} ).fail( function ( errCode, error ) {
-				$graph.textContent = errCode.toString() + ':' + ( error.exception || error ).toString();
+				$graphEl.textContent = errCode.toString() + ':' + ( error.exception || error ).toString();
 			} );
 		} ) );
 	} );
