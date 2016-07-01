@@ -11,6 +11,7 @@
 	"graph-broken-category-desc": "そのページは <code><nowiki><graph></nowiki></code> タグを含んでいます、無効な使用法と共に。",
 	"graph-obsolete-category": "廃止されたVega 1.0のグラフを使用するページ",
 	"graph-obsolete-category-desc": "このページには、バージョン 2 へ更新すべき <code><nowiki><graph></nowiki></code> タグが含まれています。",
+	"graph-ve-dialog-button-tooltip": "グラフ",
 	"graph-ve-dialog-edit-field-graph-type": "グラフの種類",
 	"graph-ve-dialog-edit-height": "高さ",
 	"graph-ve-dialog-edit-padding-auto": "余白の幅の自動決定",
