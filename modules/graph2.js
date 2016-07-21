@@ -43,7 +43,7 @@
 					// but playing on the safer side.
 					opt.headers = { 'Treat-as-Untrusted': 1 };
 				}
-			} else if ( opt.isApiCall ) {
+			} else if ( opt.addCorsOrigin ) {
 				// All CORS api calls require origin parameter.
 				// It would be better to use location.origin,
 				// but apparently it's not universal yet.
