@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Mormegil",
-			"Matěj Suchánek"
+			"Matěj Suchánek",
+			"Dvorapa"
 		]
 	},
 	"graph-desc": "Vytváří ze značek &lt;graph&gt; nebo celých stránek grafy pomocí [http://vega.github.io/ Vega]",
-	"graphsandbox": "Pískoviště pro grafy",
+	"graphsandbox": "Pískoviště grafů",
 	"graph-tracking-category": "Stránky s grafy",
 	"graph-tracking-category-desc": "Tato stránka obsahuje značku <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Stránky s rozbitými grafy",
