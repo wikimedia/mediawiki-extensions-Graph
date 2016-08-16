@@ -20,21 +20,6 @@ use Title;
 
 class Singleton {
 
-	/**
-	 * Mark the Special Title as having a JSON content model
-	 *
-	 * @param Title $title
-	 * @param string $model
-	 * @return bool
-	 */
-	public static function onContentHandlerDefaultModelFor( Title $title, &$model ) {
-		if ( $title->isSpecial( Sandbox::PageName ) ) {
-			$model = CONTENT_MODEL_JSON;
-			return false;
-		}
-		return true;
-	}
-
 	public static function onParserFirstCallInit( Parser $parser ) {
 		$parser->setHook( 'graph', 'Graph\Singleton::onGraphTag' );
 		return true;

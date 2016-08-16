@@ -163,9 +163,6 @@
 		"remoteExtPath": "Graph"
 	},
 	"Hooks": {
-		"ContentHandlerDefaultModelFor": [
-			"Graph\\Singleton::onContentHandlerDefaultModelFor"
-		],
 		"ParserFirstCallInit": [
 			"Graph\\Singleton::onParserFirstCallInit"
 		],

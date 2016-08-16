@@ -29,6 +29,8 @@ class Sandbox extends SpecialPage {
 
 		$this->setHeaders();
 		$out->addModules( 'ext.graph.sandbox' );
+		// Tell CodeEditor that this page is JSON (T143165)
+		$out->addJsConfigVars( 'wgCodeEditorCurrentLanguage', 'json' );
 
 		$attr = Singleton::buildDivAttributes( 'always' );
 		$attr['id'] = 'mw-graph-image';
