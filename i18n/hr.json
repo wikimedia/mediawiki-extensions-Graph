@@ -5,7 +5,7 @@
 		]
 	},
 	"graph-tracking-category": "Stranice koje sadrže grafikone",
-	"graph-tracking-category-desc": "Ova stranica sadrži oznaku <code><nowiki><graph></nowiki></code>.",
+	"graph-tracking-category-desc": "Stranica s oznakom <code><nowiki><graph></nowiki></code>.",
 	"graph-ve-dialog-button-tooltip": "Grafikon",
 	"graph-ve-dialog-edit-field-graph-type": "Vrsta grafikona",
 	"graph-ve-dialog-edit-field-raw-json": "Neobrađena JSON specifikacija",
