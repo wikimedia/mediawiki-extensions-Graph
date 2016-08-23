@@ -25,7 +25,6 @@ ve.dm.MWGraphNode = function VeDmMWGraphNode() {
 
 	// Properties
 	this.spec = null;
-	this.graphID = $( this.getOriginalDomElements() ).attr( 'data-graph-id' );
 
 	// Events
 	this.connect( this, {
