@@ -55,7 +55,7 @@
 			}
 
 			if ( uri.protocol[ uri.protocol.length - 1 ] === ':' ) {
-				uri.protocol = this.domains[ uri.protocol.substring( 0, uri.protocol.length - 1 ) ];
+				uri.protocol = uri.protocol.substring( 0, uri.protocol.length - 1 );
 			}
 
 			return uri.toString();
