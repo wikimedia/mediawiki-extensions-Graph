@@ -7,6 +7,7 @@
 			"Luan"
 		]
 	},
+	"graphsandbox": "Zona de testes de gráficos",
 	"graph-tracking-category": "Páginas com gráficos",
 	"graph-broken-category": "Páginas com gráficos quebrados",
 	"graph-broken-category-desc": "A página inclui uma etiqueta <code><nowiki><graph></nowiki></code> com uso não válido.",

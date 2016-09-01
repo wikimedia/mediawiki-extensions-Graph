@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jefersonmoraes"
+			"Jefersonmoraes",
+			"Luan"
 		]
 	},
-	"graph-desc": "Permite transformar etiquetas &lt;graph> ou páginas todas em gráficos basados em [http://vega.github.io/ Vega]"
+	"graph-desc": "Permite transformar etiquetas &lt;graph> ou páginas todas em gráficos basados em [http://vega.github.io/ Vega]",
+	"graphsandbox": "Zona de testes de gráficos"
 }
