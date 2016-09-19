@@ -70,6 +70,7 @@
 			"scripts": [
 				"lib/d3.js",
 				"lib/d3-global.js",
+				"lib/d3.layout.cloud.js",
 				"lib/vega2/vega.js",
 				"lib/graph2.compiled.js"
 			],
