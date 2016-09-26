@@ -131,6 +131,8 @@ ve.ce.MWGraphNode.prototype.update = function () {
 				// of automatic padding, but it isn't properly exposed in the view
 				node.$graph.append( node.$plot );
 				node.$plot.css( view._padding ); // jscs:ignore disallowDanglingUnderscores
+
+				node.calculateHighlights();
 			},
 			function ( failMessageKey ) {
 				node.$graph.text( ve.msg( failMessageKey ) );
