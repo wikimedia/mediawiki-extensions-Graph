@@ -4,7 +4,8 @@
 			"Vitorvicentevalente",
 			"Macofe",
 			"Jkb8",
-			"Luan"
+			"Luan",
+			"Hamilton Abreu"
 		]
 	},
 	"graphsandbox": "Zona de testes de gráficos",
@@ -12,6 +13,7 @@
 	"graph-broken-category": "Páginas com gráficos quebrados",
 	"graph-broken-category-desc": "A página inclui uma etiqueta <code><nowiki><graph></nowiki></code> com uso não válido.",
 	"graph-obsolete-category": "Páginas com gráficos Vega 1.0 obsoletos",
+	"apihelp-graph-description": "Aceder à funcionalidade da etiqueta <code>graph</code>.",
 	"graph-ve-dialog-edit-padding-table-left": "Esquerda",
 	"graph-ve-dialog-edit-padding-table-right": "Direita",
 	"graph-ve-dialog-edit-page-data": "Dados",
