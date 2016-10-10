@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tacsipacsi"
+		]
+	},
+	"graphsandbox": "Graph-homokozó",
+	"graph-tracking-category": "Lapok grafikonokkal",
+	"graph-tracking-category-desc": "A lap tartalmaz egy <code><nowiki><graph></nowiki></code> elemet.",
+	"graph-broken-category": "Lapok hibás grafikonokkal",
+	"graph-broken-category-desc": "A lap tartalmaz egy hibásan használt <code><nowiki><graph></nowiki></code> elemet.",
+	"graph-obsolete-category": "Lapok elavult Vega 1.0-grafikonokkal",
+	"graph-obsolete-category-desc": "A lap tartalmaz egy <code><nowiki><graph></nowiki></code> elemet, amit 2-es verzióra kellene frissíteni.",
+	"graph-ve-dialog-button-tooltip": "Grafikon",
+	"graph-ve-dialog-edit-field-graph-type": "Grafikontípus",
+	"graph-ve-dialog-edit-field-raw-json": "Nyers JSON specifikáció",
+	"graph-ve-dialog-edit-height": "Magasság",
+	"graph-ve-dialog-edit-json-invalid": "Érvénytelen JSON",
+	"graph-ve-dialog-edit-padding-auto": "Automatikus belső margó",
+	"graph-ve-dialog-edit-padding-fieldset": "Belső margó",
+	"graph-ve-dialog-edit-padding-table-bottom": "Alsó",
+	"graph-ve-dialog-edit-padding-table-left": "Bal",
+	"graph-ve-dialog-edit-padding-table-right": "Jobb",
+	"graph-ve-dialog-edit-padding-table-top": "Felső",
+	"graph-ve-dialog-edit-padding-table-unit": "Képpont",
+	"graph-ve-dialog-edit-page-data": "Adatok",
+	"graph-ve-dialog-edit-page-general": "Általános",
+	"graph-ve-dialog-edit-page-raw": "Nyers adatok",
+	"graph-ve-dialog-edit-size-fieldset": "Méret",
+	"graph-ve-dialog-edit-size-table-unit": "Képpont",
+	"graph-ve-dialog-edit-table-row-delete": "Sor törlése",
+	"graph-ve-dialog-edit-title": "Grafikon szerkesztése",
+	"graph-ve-dialog-edit-type-area": "Területdiagram",
+	"graph-ve-dialog-edit-type-bar": "Oszlopdiagram",
+	"graph-ve-dialog-edit-type-line": "Vonaldiagram",
+	"graph-ve-dialog-edit-type-unknown": "Ismeretlen diagramtípus",
+	"graph-ve-dialog-edit-width": "Szélesség",
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "A diagram típusa nem támogatott, bármilyen módosítás tönkreteheti a kinézetét. A nem kívánt módosítások elkerüléséhez a nyers adatokat szerkeszd.",
+	"graph-ve-empty-graph": "Üres diagram",
+	"graph-ve-no-spec": "Nem található specifikáció",
+	"graph-ve-vega-error": "A Vega hibát észlelt a grafikon feldolgozásakor",
+	"graph-ve-vega-error-no-render": "A Vega nem tudta feldolgozni a grafikont"
+}
