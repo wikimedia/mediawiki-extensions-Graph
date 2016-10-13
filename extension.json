@@ -165,10 +165,10 @@
 	},
 	"Hooks": {
 		"ParserFirstCallInit": [
-			"Graph\\Singleton::onParserFirstCallInit"
+			"Graph\\Hooks::onParserFirstCallInit"
 		],
 		"ParserAfterParse": [
-			"Graph\\Singleton::onParserAfterParse"
+			"Graph\\Hooks::onParserAfterParse"
 		],
 		"ResourceLoaderTestModules": [
 			"Graph\\Hooks::onResourceLoaderTestModules"

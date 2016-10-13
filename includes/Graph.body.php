@@ -16,29 +16,20 @@ use ObjectCache;
 use Parser;
 use ParserOptions;
 use ParserOutput;
+use PPFrame;
 use Title;
 
 class Singleton {
-
-	public static function onParserFirstCallInit( Parser $parser ) {
-		$parser->setHook( 'graph', 'Graph\Singleton::onGraphTag' );
-		return true;
-	}
-
-	public static function onParserAfterParse( Parser $parser ) {
-		self::finalizeParserOutput( $parser, $parser->getTitle(), $parser->getOutput() );
-		return true;
-	}
 
 	/**
 	 * @param $input
 	 * @param array $args
 	 * @param Parser $parser
-	 * @param \PPFrame $frame
+	 * @param PPFrame $frame
 	 * @return string
 	 */
-	public static function onGraphTag( $input, array $args, Parser $parser, \PPFrame $frame ) {
-		return self::buildHtml( $input, $parser->getTitle(), $parser->getRevisionId(),
+	public static function onGraphTag( $input, array $args, Parser $parser, PPFrame $frame ) {
+		return Singleton::buildHtml( $input, $parser->getTitle(), $parser->getRevisionId(),
 			$parser->getOutput(), $parser->getOptions()->getIsPreview(), $args );
 	}
 
