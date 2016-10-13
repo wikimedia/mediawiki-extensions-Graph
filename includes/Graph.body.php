@@ -132,6 +132,10 @@ class Singleton {
 		$isInteractive = isset( $args['mode'] ) && $args['mode'] === 'interactive';
 		$graphTitle = isset( $args['title'] ) ? $args['title'] : '';
 		$data = $status->getValue();
+		if ( !is_object( $data ) ) {
+			// @todo: Output an error message instead?
+			$data = (object)[ 'width' => 200, 'height' => 200 ];
+		}
 
 		// Figure out which vega version to use
 		global $wgGraphDefaultVegaVer;

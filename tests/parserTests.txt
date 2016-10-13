@@ -1,0 +1,37 @@
+!! test
+<graph>
+!! input
+<graph>
+{}
+</graph>
+<graph>
+{
+	"width": 100,
+	"height": 200
+}
+</graph>
+!! result
+<div class="mw-graph mw-graph-always" data-graph-id="cb66159a7f0070f4faaef2f353cb67c0d178d678"></div>
+<div class="mw-graph mw-graph-always" style="min-width:100px;min-height:200px" data-graph-id="35d4ad35da17b39e7e4464fd7af741dadda01a91"></div>
+
+!! end
+
+!! test
+<graph> - error handling
+!! input
+<graph/>
+<graph></graph>
+<graph>
+{fail
+</graph>
+<graph>
+[ "foo", "bar" ]
+</graph>
+!! result
+<div class="mw-graph mw-graph-always" style="min-width:200px;min-height:200px" data-graph-id="4406ae21fb62ba4a67e041d0f9e026a2819e48a8"></div>
+<div class="mw-graph mw-graph-always" style="min-width:200px;min-height:200px" data-graph-id="4406ae21fb62ba4a67e041d0f9e026a2819e48a8"></div>
+<p>Syntax error
+</p>
+<div class="mw-graph mw-graph-always" style="min-width:200px;min-height:200px" data-graph-id="4406ae21fb62ba4a67e041d0f9e026a2819e48a8"></div>
+
+!! end

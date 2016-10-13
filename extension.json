@@ -194,5 +194,8 @@
 	"ExtensionMessagesFiles": {
 		"GraphAliases": "Graph.alias.php"
 	},
+	"ParserTestFiles": [
+		"tests/parserTests.txt"
+	],
 	"manifest_version": 1
 }
