@@ -126,7 +126,7 @@ class Singleton {
 		$status = FormatJson::parse( $jsonText, FormatJson::TRY_FIXING | FormatJson::STRIP_COMMENTS );
 		if ( !$status->isOK() ) {
 			$parserOutput->setExtensionData( 'graph_specs_broken', true );
-			return $status->getWikiText();
+			return "<span class=\"error\">{$status->getWikiText()}</span>";
 		}
 
 		$isInteractive = isset( $args['mode'] ) && $args['mode'] === 'interactive';

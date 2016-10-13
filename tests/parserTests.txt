@@ -30,7 +30,7 @@
 !! result
 <div class="mw-graph mw-graph-always" style="min-width:200px;min-height:200px" data-graph-id="4406ae21fb62ba4a67e041d0f9e026a2819e48a8"></div>
 <div class="mw-graph mw-graph-always" style="min-width:200px;min-height:200px" data-graph-id="4406ae21fb62ba4a67e041d0f9e026a2819e48a8"></div>
-<p>Syntax error
+<p><span class="error">Syntax error</span>
 </p>
 <div class="mw-graph mw-graph-always" style="min-width:200px;min-height:200px" data-graph-id="4406ae21fb62ba4a67e041d0f9e026a2819e48a8"></div>
 
