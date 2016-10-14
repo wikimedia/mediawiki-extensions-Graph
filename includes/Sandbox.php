@@ -40,8 +40,8 @@ class Sandbox extends SpecialPage {
 		$specHtml = '<div><textarea tabindex="1" accesskey="," id="wpTextbox1" cols="80" rows="40" style="" lang="en" dir="ltr" name="wpTextbox1" class="webfonts-changed"></textarea></div>';
 		$jsonHtml = '<div><pre id="mw-graph-json"></pre></div>';
 
-		$out->addHTML( Html::rawElement( 'div', array( 'id' => 'mw-graph-sandbox' ),
-			Html::rawElement( 'div', array( 'id' => 'mw-graph-left' ), $graphHtml . $jsonHtml ) .
-			Html::rawElement( 'div', array( 'id' => 'mw-graph-right' ), $specHtml ) ) );
+		$out->addHTML( Html::rawElement( 'div', [ 'id' => 'mw-graph-sandbox' ],
+			Html::rawElement( 'div', [ 'id' => 'mw-graph-left' ], $graphHtml . $jsonHtml ) .
+			Html::rawElement( 'div', [ 'id' => 'mw-graph-right' ], $specHtml ) ) );
 	}
 }

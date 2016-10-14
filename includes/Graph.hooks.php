@@ -28,18 +28,18 @@ class Hooks {
 			isset( $resourceModules[ 'ext.visualEditor.mediawiki' ] ) ||
 			$resourceLoader->isModuleRegistered( 'ext.visualEditor.mediawiki' )
 		) {
-			$testModules['qunit']['ext.graph.visualEditor.test'] = array(
-				'scripts' => array(
+			$testModules['qunit']['ext.graph.visualEditor.test'] = [
+				'scripts' => [
 					'modules/ve-graph/tests/ext.graph.visualEditor.test.js'
-				),
-				'dependencies' => array(
+				],
+				'dependencies' => [
 					'ext.graph.visualEditor',
 					'ext.graph.vega1',
 					'ext.visualEditor.test'
-				),
+				],
 				'localBasePath' => dirname( __DIR__ ),
 				'remoteExtPath' => 'Graph'
-			);
+			];
 		}
 
 		return true;

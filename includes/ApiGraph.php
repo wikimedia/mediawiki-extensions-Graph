@@ -47,24 +47,24 @@ class ApiGraph extends ApiBase {
 	}
 
 	public function getAllowedParams() {
-		return array(
-			'hash' => array(
+		return [
+			'hash' => [
 				ApiBase::PARAM_TYPE => 'string',
-			),
-			'title' => array(
+			],
+			'title' => [
 				ApiBase::PARAM_TYPE => 'string',
-			),
-			'text' => array(
+			],
+			'text' => [
 				ApiBase::PARAM_TYPE => 'string',
-			),
-		);
+			],
+		];
 	}
 
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'formatversion=2&action=graph&title=Extension%3AGraph%2FDemo&hash=1533aaad45c733dcc7e07614b54cbae4119a6747'
 				=> 'apihelp-graph-example',
-		);
+		];
 	}
 
 	/**
@@ -108,10 +108,10 @@ class ApiGraph extends ApiBase {
 				$this->dieUsage( 'Invalid title given.', 'invalidtitle' );
 			}
 
-			$ppValue = $this->getDB()->selectField( 'page_props', 'pp_value', array(
+			$ppValue = $this->getDB()->selectField( 'page_props', 'pp_value', [
 				'pp_page' => $title->getArticleID(),
 				'pp_propname' => 'graph_specs',
-			), __METHOD__ );
+			], __METHOD__ );
 
 			if ( $ppValue ) {
 				// Copied from TemplateDataBlob.php:newFromDatabase()

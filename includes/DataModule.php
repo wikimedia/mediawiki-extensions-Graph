@@ -14,14 +14,14 @@ use ResourceLoaderModule;
 
 class DataModule extends ResourceLoaderModule {
 
-	protected $targets = array( 'desktop', 'mobile' );
+	protected $targets = [ 'desktop', 'mobile' ];
 
 	public function getScript( ResourceLoaderContext $context ) {
 		$config = $context->getResourceLoader()->getConfig();
-		return ResourceLoader::makeConfigSetScript( array(
+		return ResourceLoader::makeConfigSetScript( [
 			'wgGraphAllowedDomains' => $config->get( 'GraphAllowedDomains' ),
 			'wgGraphIsTrusted' => $config->get( 'GraphIsTrusted' ),
-		) );
+		] );
 	}
 
 	public function enableModuleContentVersion() {

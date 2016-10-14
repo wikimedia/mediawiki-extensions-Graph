@@ -102,7 +102,7 @@ class ParserTag {
 	 * @return array
 	 */
 	private function buildDivAttributes( $mode = '', $data = false, $hash = '' ) {
-		$attribs = array( 'class' => 'mw-graph' );
+		$attribs = [ 'class' => 'mw-graph' ];
 
 		if ( is_object( $data ) ) {
 			$width = property_exists( $data, 'width' ) && is_int( $data->width ) ? $data->width : 0;
@@ -169,7 +169,7 @@ class ParserTag {
 		}
 
 		// Calculate hash and store graph definition in graph_specs extension data
-		$specs = $this->parserOutput->getExtensionData( 'graph_specs' ) ?: array();
+		$specs = $this->parserOutput->getExtensionData( 'graph_specs' ) ?: [];
 		// Make sure that multiple json blobs that only differ in spacing hash the same
 		$hash = sha1( FormatJson::encode( $data, false, FormatJson::ALL_OK ) );
 		$specs[$hash] = $data;
@@ -179,7 +179,7 @@ class ParserTag {
 		if ( $this->parserOptions->getIsPreview() || !$wgGraphImgServiceUrl ) {
 			// Always do client-side rendering
 			$attribs = self::buildDivAttributes( 'always', $data, $hash );
-			$liveSpecs = $this->parserOutput->getExtensionData( 'graph_live_specs' ) ?: array();
+			$liveSpecs = $this->parserOutput->getExtensionData( 'graph_live_specs' ) ?: [];
 			$liveSpecs[$hash] = $data;
 			$this->parserOutput->setExtensionData( 'graph_live_specs', $liveSpecs );
 			$html = ''; // will be injected with a <canvas> tag
@@ -190,10 +190,10 @@ class ParserTag {
 			$title = !$title ? '' : rawurlencode( $title->getPrefixedDBkey() );
 			$revid = rawurlencode( (string)$revid ) ?: '0';
 			$url = sprintf( $wgGraphImgServiceUrl, $server, $title, $revid, $hash );
-			$imgAttrs = array(
+			$imgAttrs = [
 				'class' => 'mw-graph-img',
 				'src' => $url,
-			);
+			];
 			if ( $graphTitle ) {
 				// only add alt tag if we have some descriptive text
 				$imgAttrs['alt'] = $graphTitle;
@@ -207,19 +207,19 @@ class ParserTag {
 
 				// add the overlay title
 				if ( $graphTitle ) {
-					$hoverTitle = Html::element( 'div', array( 'class' => 'mw-graph-hover-title' ),
+					$hoverTitle = Html::element( 'div', [ 'class' => 'mw-graph-hover-title' ],
 						$graphTitle );
 				} else {
 					$hoverTitle = '';
 				}
 
 				// Add a "make interactive" button
-				$button = Html::rawElement( 'div', array( 'class' => 'mw-graph-switch' ),
-					Html::rawElement( 'i', array( 'class' => 'icon-play' ), '&#9658;' ) );
+				$button = Html::rawElement( 'div', [ 'class' => 'mw-graph-switch' ],
+					Html::rawElement( 'i', [ 'class' => 'icon-play' ], '&#9658;' ) );
 
-				$html .= Html::rawElement( 'div', array(
+				$html .= Html::rawElement( 'div', [
 					'class' => 'mw-graph-layover',
-				), $hoverTitle . $button );
+				], $hoverTitle . $button );
 			} else {
 				$attribs = self::buildDivAttributes( '', $data );
 			}
