@@ -16,6 +16,8 @@
 	"graph-broken-category-desc": "Description on [[Special:TrackingCategories]] for the {{msg-mw|graph-broken-category}} tracking category.",
 	"graph-obsolete-category": "Name of the tracking category",
 	"graph-obsolete-category-desc": "Description on [[Special:TrackingCategories]] for the {{msg-mw|graph-obsolete-category}} tracking category.",
+	"graph-error-empty-json": "Shown by &lt;graph&gt; when used without any data in it, e.g. &lt;graph&gt;&lt;/graph&gt;",
+	"graph-error-not-vega": "Shown by &lt;graph&gt; when used with invalid data, e.g. &lt;graph&gt;[]&lt;/graph&gt;",
 	"apihelp-graph-description": "{{doc-apihelp-description|graph}}",
 	"apihelp-graph-example": "{{doc-apihelp-example|graph}}",
 	"apihelp-graph-param-hash": "{{doc-apihelp-param|graph|hash}}",

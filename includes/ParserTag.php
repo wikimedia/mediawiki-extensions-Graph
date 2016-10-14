@@ -142,6 +142,10 @@ class ParserTag {
 	public function buildHtml( $jsonText, Title $title, $revid, $args = null ) {
 		global $wgGraphImgServiceUrl, $wgServerName;
 
+		$jsonText = trim( $jsonText );
+		if ( $jsonText === '' ) {
+			return $this->formatError( wfMessage( 'graph-error-empty-json' ) );
+		}
 		$status = FormatJson::parse( $jsonText, FormatJson::TRY_FIXING | FormatJson::STRIP_COMMENTS );
 		if ( !$status->isOK() ) {
 			return $this->formatStatus( $status );
@@ -151,8 +155,7 @@ class ParserTag {
 		$graphTitle = isset( $args['title'] ) ? $args['title'] : '';
 		$data = $status->getValue();
 		if ( !is_object( $data ) ) {
-			// @todo: Output an error message instead?
-			$data = (object)[ 'width' => 200, 'height' => 200 ];
+			return $this->formatError( wfMessage( 'graph-error-not-vega' ) );
 		}
 
 		// Figure out which vega version to use

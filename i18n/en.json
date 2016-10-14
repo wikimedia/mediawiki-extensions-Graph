@@ -3,7 +3,8 @@
 		"authors": [
 			"Dan Andreescu",
 			"Yuri Astrakhan",
-			"Frédéric Bolduc"
+			"Frédéric Bolduc",
+			"Max Semenik"
 		]
 	},
 	"graph-desc": "Allows &lt;graph&gt; tags or entire pages to become [http://vega.github.io/ Vega]-based graphs",
@@ -14,6 +15,8 @@
 	"graph-broken-category-desc": "The page includes a <code><nowiki><graph></nowiki></code> tag with invalid usage.",
 	"graph-obsolete-category": "Pages with obsolete Vega 1.0 graphs",
 	"graph-obsolete-category-desc": "The page includes a <code><nowiki><graph></nowiki></code> tag that should be updated to version 2.",
+	"graph-error-empty-json": "Empty graph data, nothing to show",
+	"graph-error-not-vega": "The JSON provided is not a valid Vega JSON",
 	"apihelp-graph-description": "Access graph tag functionality.",
 	"apihelp-graph-example": "Get the graph JSON by hash and title",
 	"apihelp-graph-param-hash": "Hash value of the graph",
