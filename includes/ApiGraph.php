@@ -101,7 +101,7 @@ class ApiGraph extends ApiBase {
 
 		// NOTE: Very strange wgMemc feature: Even though we store the data structure into memcached
 		// by JSON-encoding and gzip-ing it, when we get it out it is already in the original form.
-		$graph = Singleton::getDataFromCache( $hash );
+		$graph = Store::getFromCache( $hash );
 		if ( !$graph ) {
 			$title = Title::newFromText( $title );
 			if ( !$title || !$title->exists() || !$title->userCan( 'read', $this->getUser() ) ) {

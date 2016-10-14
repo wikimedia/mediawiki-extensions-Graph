@@ -11,15 +11,36 @@ namespace Graph;
 
 use FormatJson;
 use Html;
-use JsonConfig\JCContent;
-use ObjectCache;
+use Language;
+use Message;
 use Parser;
 use ParserOptions;
 use ParserOutput;
 use PPFrame;
+use Status;
 use Title;
 
-class Singleton {
+class ParserTag {
+	/** @var ParserOptions */
+	private $parserOptions;
+
+	/** @var ParserOutput */
+	private $parserOutput;
+
+	/** @var Language */
+	private $language;
+
+	/**
+	 * ParserTag constructor.
+	 * @param Parser $parser
+	 * @param ParserOptions $parserOptions
+	 * @param ParserOutput $parserOutput
+	 */
+	public function __construct( Parser $parser, ParserOptions $parserOptions, ParserOutput $parserOutput ) {
+		$this->parserOptions = $parserOptions;
+		$this->parserOutput = $parserOutput;
+		$this->language = $parser->getTargetLanguage();
+	}
 
 	/**
 	 * @param $input
@@ -29,8 +50,8 @@ class Singleton {
 	 * @return string
 	 */
 	public static function onGraphTag( $input, array $args, Parser $parser, PPFrame $frame ) {
-		return Singleton::buildHtml( $input, $parser->getTitle(), $parser->getRevisionId(),
-			$parser->getOutput(), $parser->getOptions()->getIsPreview(), $args );
+		$tag = new self( $parser, $parser->getOptions(), $parser->getOutput() );
+		return $tag->buildHtml( $input, $parser->getTitle(), $parser->getRevisionId(), $args );
 	}
 
 	public static function finalizeParserOutput( Parser $parser, $title, ParserOutput $output ) {
@@ -80,7 +101,7 @@ class Singleton {
 	 * @param string $hash
 	 * @return array
 	 */
-	public static function buildDivAttributes( $mode = '', $data = false, $hash = '' ) {
+	private function buildDivAttributes( $mode = '', $data = false, $hash = '' ) {
 		$attribs = array( 'class' => 'mw-graph' );
 
 		if ( is_object( $data ) ) {
@@ -101,23 +122,29 @@ class Singleton {
 		return $attribs;
 	}
 
+	private function formatError( Message $msg ) {
+		$this->parserOutput->setExtensionData( 'graph_specs_broken', true );
+		$error = $msg->inLanguage( $this->language )->parse();
+		return "<span class=\"error\">{$error}</span>";
+	}
+
+	private function formatStatus( Status $status ) {
+		return $this->formatError( $status->getMessage( false, false, $this->language ) );
+	}
+
 	/**
 	 * @param string $jsonText
 	 * @param Title $title
 	 * @param int $revid
-	 * @param ParserOutput $parserOutput
-	 * @param bool $isPreview
 	 * @param array $args
 	 * @return string
 	 */
-	public static function buildHtml( $jsonText, $title, $revid, $parserOutput, $isPreview,
-									  $args = null ) {
+	public function buildHtml( $jsonText, Title $title, $revid, $args = null ) {
 		global $wgGraphImgServiceUrl, $wgServerName;
 
 		$status = FormatJson::parse( $jsonText, FormatJson::TRY_FIXING | FormatJson::STRIP_COMMENTS );
 		if ( !$status->isOK() ) {
-			$parserOutput->setExtensionData( 'graph_specs_broken', true );
-			return "<span class=\"error\">{$status->getWikiText()}</span>";
+			return $this->formatStatus( $status );
 		}
 
 		$isInteractive = isset( $args['mode'] ) && $args['mode'] === 'interactive';
@@ -136,26 +163,25 @@ class Singleton {
 			$data->version = $wgGraphDefaultVegaVer;
 		}
 		if ( $data->version === 2 ) {
-			$parserOutput->setExtensionData( 'graph_vega2', true );
+			$this->parserOutput->setExtensionData( 'graph_vega2', true );
 		} else {
-			$parserOutput->setExtensionData( 'graph_specs_obsolete', true );
+			$this->parserOutput->setExtensionData( 'graph_specs_obsolete', true );
 		}
 
 		// Calculate hash and store graph definition in graph_specs extension data
-		$specs = $parserOutput->getExtensionData( 'graph_specs' ) ?: array();
+		$specs = $this->parserOutput->getExtensionData( 'graph_specs' ) ?: array();
 		// Make sure that multiple json blobs that only differ in spacing hash the same
 		$hash = sha1( FormatJson::encode( $data, false, FormatJson::ALL_OK ) );
 		$specs[$hash] = $data;
-		$parserOutput->setExtensionData( 'graph_specs', $specs );
+		$this->parserOutput->setExtensionData( 'graph_specs', $specs );
+		Store::saveToCache( $hash, $data );
 
-		self::saveDataToCache( $hash, $data );
-
-		if ( $isPreview || !$wgGraphImgServiceUrl ) {
+		if ( $this->parserOptions->getIsPreview() || !$wgGraphImgServiceUrl ) {
 			// Always do client-side rendering
 			$attribs = self::buildDivAttributes( 'always', $data, $hash );
-			$liveSpecs = $parserOutput->getExtensionData( 'graph_live_specs' ) ?: array();
+			$liveSpecs = $this->parserOutput->getExtensionData( 'graph_live_specs' ) ?: array();
 			$liveSpecs[$hash] = $data;
-			$parserOutput->setExtensionData( 'graph_live_specs', $liveSpecs );
+			$this->parserOutput->setExtensionData( 'graph_live_specs', $liveSpecs );
 			$html = ''; // will be injected with a <canvas> tag
 		} else {
 
@@ -176,7 +202,7 @@ class Singleton {
 
 			if ( $isInteractive ) {
 				// Allow image to interactive switchover
-				$parserOutput->setExtensionData( 'graph_interact', true );
+				$this->parserOutput->setExtensionData( 'graph_interact', true );
 				$attribs = self::buildDivAttributes( 'interactable', $data, $hash );
 
 				// add the overlay title
@@ -200,61 +226,5 @@ class Singleton {
 		}
 
 		return Html::rawElement( 'div', $attribs, $html );
-	}
-
-	/**
-	 * Store graph data in the memcached
-	 * @param $hash string
-	 * @param $data string Graph spec after json encoding
-	 */
-	private static function saveDataToCache( $hash, $data ) {
-		$cache = ObjectCache::getLocalClusterInstance();
-		$cache->add( $cache->makeKey( 'graph-data', $hash ), $data );
-	}
-
-	/**
-	 * Get graph data from the memcached
-	 * @param $hash
-	 * @return mixed
-	 */
-	public static function getDataFromCache( $hash ) {
-		$cache = ObjectCache::getLocalClusterInstance();
-		return $cache->get( $cache->makeKey( 'graph-data', $hash ) );
-	}
-}
-
-/**
- * Class Content represents JSON content that Graph understands
- * as the definition of a visualization.
- *
- * This is based on TextContent, and represents JSON as a string.
- *
- * TODO: determine if a different representation makes more sense and implement it with
- * ContentHandler::serializeContent() and ContentHandler::unserializeContent()
- *
- * TODO: create a visual editor for Graph definitions that introspects what is allowed
- * in each part of the definition and presents documentation to aid with discovery.
- *
- */
-class Content extends JCContent {
-
-	public function getWikitextForTransclusion() {
-		return '<graph>' . $this->getNativeData() . '</graph>';
-	}
-
-	protected function fillParserOutput( Title $title, $revId, ParserOptions $options, $generateHtml,
-	                                     ParserOutput &$output ) {
-		/** @var $wgParser Parser */
-		global $wgParser;
-		$text = $this->getNativeData();
-		$parser = $wgParser->getFreshParser();
-		$text = $parser->preprocess( $text, $title, $options, $revId );
-
-		$html = !$generateHtml ? '' : Singleton::buildHtml( $text, $title, $revId, $output,
-			$options->getIsPreview() );
-		$output->setText( $html );
-
-		// Since we invoke parser manually, the ParserAfterParse never gets called, do it manually
-		Singleton::finalizeParserOutput( $parser, $title, $output );
 	}
 }

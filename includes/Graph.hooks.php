@@ -53,7 +53,7 @@ class Hooks {
 	 * @return bool
 	 */
 	public static function onParserFirstCallInit( Parser $parser ) {
-		$parser->setHook( 'graph', 'Graph\Singleton::onGraphTag' );
+		$parser->setHook( 'graph', 'Graph\ParserTag::onGraphTag' );
 		return true;
 	}
 
@@ -64,7 +64,7 @@ class Hooks {
 	 * @return bool
 	 */
 	public static function onParserAfterParse( Parser $parser ) {
-		Singleton::finalizeParserOutput( $parser, $parser->getTitle(), $parser->getOutput() );
+		ParserTag::finalizeParserOutput( $parser, $parser->getTitle(), $parser->getOutput() );
 		return true;
 	}
 }

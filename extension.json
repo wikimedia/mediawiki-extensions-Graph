@@ -17,9 +17,10 @@
 	"AutoloadClasses": {
 		"Graph\\ApiGraph": "includes/ApiGraph.php",
 		"Graph\\DataModule": "includes/DataModule.php",
-		"Graph\\Singleton": "includes/Graph.body.php",
+		"Graph\\ParserTag": "includes/ParserTag.php",
 		"Graph\\Sandbox": "includes/Sandbox.php",
-		"Graph\\Content": "includes/Graph.body.php",
+		"Graph\\Store": "includes/Store.php",
+		"Graph\\Content": "includes/Content.php",
 		"Graph\\Hooks": "includes/Graph.hooks.php"
 	},
 	"APIModules": {
