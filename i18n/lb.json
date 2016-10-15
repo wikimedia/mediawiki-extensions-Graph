@@ -10,6 +10,7 @@
 	"graph-broken-category": "Säite mat futtisse Graphiken",
 	"graph-obsolete-category": "Säite mat vereelste Vega 1.0 Graphiken",
 	"graph-obsolete-category-desc": "An dëser Säit ass e <code><nowiki><graph></nowiki></code> Tag deen op d'Versioun 2 aktualiséiert gi soll.",
+	"graph-error-empty-json": "Eidel Graph-Donnéeën, et kann näischt gewise ginn",
 	"graph-ve-dialog-button-tooltip": "Graphik",
 	"graph-ve-dialog-edit-field-graph-type": "Grafiktyp",
 	"graph-ve-dialog-edit-height": "Héicht",
