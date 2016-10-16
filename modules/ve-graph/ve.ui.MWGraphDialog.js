@@ -8,7 +8,7 @@
  * MediaWiki graph dialog.
  *
  * @class
- * @extends ve.ui.NodeDialog
+ * @extends ve.ui.MWExtensionDialog
  *
  * @constructor
  * @param {Object} [element]
