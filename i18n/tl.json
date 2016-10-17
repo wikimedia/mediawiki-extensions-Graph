@@ -1,15 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Leeheonjin"
+			"Leeheonjin",
+			"Emem.calist"
 		]
 	},
+	"graph-error-empty-json": "Walang lamang datos, walang maipapakita",
 	"graph-ve-dialog-edit-height": "Taas",
 	"graph-ve-dialog-edit-size-fieldset": "Sukat",
 	"graph-ve-dialog-edit-size-table-unit": "Mga pixel",
-	"graph-ve-dialog-edit-width": "Lapad",
-	"graph-interactive-title": "Interaktibo",
-	"graph-switch-button": "Paandarin",
-	"graph-loading": "Ikinakarga...",
-	"graph-loading-done": "Nagawa na!"
+	"graph-ve-dialog-edit-width": "Lapad"
 }

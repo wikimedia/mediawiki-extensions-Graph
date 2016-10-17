@@ -17,6 +17,8 @@
 	"graph-broken-category-desc": "La pagina include un tag <code><nowiki><graph></nowiki></code> con utilizzo non valido.",
 	"graph-obsolete-category": "Pagine con grafici obsoleti Vega 1.0",
 	"graph-obsolete-category-desc": "La pagina include un tag <code><nowiki><graph></nowiki></code> che dovrebbe essere aggiornato alla versione 2.",
+	"graph-error-empty-json": "Dati del grafico vuoti, nulla da mostrare",
+	"graph-error-not-vega": "Il JSON fornito non è un Vega JSON valido",
 	"apihelp-graph-param-title": "Titolo della voce con il grafico",
 	"apihelp-graph-param-text": "Testo del grafico da convertire in JSON. Deve essere pubblicato e utilizzato senza titolo e parametri hash",
 	"graph-ve-dialog-button-tooltip": "Grafico",
