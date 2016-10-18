@@ -13,6 +13,8 @@
 	"graph-broken-category-desc": "La páxina incluye una etiqueta <code><nowiki><graph></nowiki></code> con usu inválidu.",
 	"graph-obsolete-category": "Páxines con gráfiques Vega 1.0 anticuaes",
 	"graph-obsolete-category-desc": "La páxina incluye una etiqueta <code><nowiki><graph></nowiki></code> que tendría d'anovase a la versión 2.",
+	"graph-error-empty-json": "Datos de la gráfica baleros, nada qu'amosar",
+	"graph-error-not-vega": "El JSON proporcionáu nun ye un JSON Vega válidu",
 	"apihelp-graph-description": "Accesu a la función de la etiqueta graph.",
 	"apihelp-graph-example": "Algamar el JSON de la gráfica por función hash y títulu",
 	"apihelp-graph-param-hash": "Valor hash de la gráfica",
