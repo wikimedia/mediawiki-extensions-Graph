@@ -42,8 +42,12 @@ class Content extends JCContent  {
 		$parser = $wgParser->getFreshParser();
 		$text = $parser->preprocess( $text, $title, $options, $revId );
 
-		$html = !$generateHtml ? '' : Singleton::buildHtml( $text, $title, $revId, $output,
-			$options->getIsPreview() );
+		if ( $generateHtml ) {
+			$tag = new ParserTag( $parser, $options, $output );
+			$html = $tag->buildHtml( $text, $title, $parser->getRevisionId() );
+		} else {
+			$html = '';
+		}
 		$output->setText( $html );
 
 		// Since we invoke parser manually, the ParserAfterParse never gets called, do it manually

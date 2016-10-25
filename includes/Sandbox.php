@@ -32,7 +32,7 @@ class Sandbox extends SpecialPage {
 		// Tell CodeEditor that this page is JSON (T143165)
 		$out->addJsConfigVars( 'wgCodeEditorCurrentLanguage', 'json' );
 
-		$attr = Singleton::buildDivAttributes( 'always' );
+		$attr = ParserTag::buildDivAttributes( 'always' );
 		$attr['id'] = 'mw-graph-image';
 		$graphHtml = Html::rawElement( 'div', $attr, '' );
 

@@ -101,7 +101,7 @@ class ParserTag {
 	 * @param string $hash
 	 * @return array
 	 */
-	private function buildDivAttributes( $mode = '', $data = false, $hash = '' ) {
+	public static function buildDivAttributes( $mode = '', $data = false, $hash = '' ) {
 		$attribs = [ 'class' => 'mw-graph' ];
 
 		if ( is_object( $data ) ) {
