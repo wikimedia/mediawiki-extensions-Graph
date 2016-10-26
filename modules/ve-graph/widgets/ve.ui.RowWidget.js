@@ -10,20 +10,14 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg [string] [key] A unique key for this row. Can be used to easily reference the row instead
- * of its index in the table.
- * @cfg {string} [label] The row label to display. If not provided, the row index will be used be default.
- * If set to null, no label will be displayed.
- * @cfg {OO.ui.TextInputWidget[]} [items] Text inputs to add
- * @cfg {boolean} [deletable] Whether the table should provide deletion UI tools
+ * @cfg {Array} [data] The data of the cells
+ * @cfg {string} [label] The row label to display. If not provided, the row index will
+ * be used be default. If set to null, no label will be displayed.
+ * @cfg {boolean} [deletable=true] Whether the table should provide deletion UI tools
  * for this row or not. Defaults to true.
  */
 ve.ui.RowWidget = function VeUiRowWidget( config ) {
-	// Configuration initialization
 	config = config || {};
-	if ( config.deletable === undefined ) {
-		config.deletable = true;
-	}
 
 	// Parent constructor
 	ve.ui.RowWidget.super.call( this, config );
@@ -32,9 +26,7 @@ ve.ui.RowWidget = function VeUiRowWidget( config ) {
 	OO.ui.mixin.GroupElement.call( this, config );
 
 	// Properties
-	// TODO: The key should be stored in data to leverage getItemFromData in TableWidget
-	this.key = String( config.key );
-	this.rowIndex = 0;
+	this.deletable = ( config.deletable !== undefined ) ? config.deletable : true;
 
 	// Set up group element
 	this.setGroupElement(
@@ -48,7 +40,7 @@ ve.ui.RowWidget = function VeUiRowWidget( config ) {
 	} );
 
 	// Set up delete button
-	if ( config.deletable ) {
+	if ( this.deletable ) {
 		this.deleteButton = new OO.ui.ButtonWidget( {
 			icon: { default: 'remove' },
 			classes: [ 've-ui-rowWidget-delete-button' ],
@@ -68,9 +60,9 @@ ve.ui.RowWidget = function VeUiRowWidget( config ) {
 		disable: 'onDisable'
 	} );
 
-	if ( config.deletable ) {
+	if ( this.deletable ) {
 		this.deleteButton.connect( this, {
-			click: 'onDelete'
+			click: 'onDeleteButtonClick'
 		} );
 	}
 
@@ -86,7 +78,7 @@ ve.ui.RowWidget = function VeUiRowWidget( config ) {
 		this.$group
 	);
 
-	if ( config.deletable ) {
+	if ( this.deletable ) {
 		this.$element.append( this.deleteButton.$element );
 	}
 
@@ -101,16 +93,16 @@ OO.mixinClass( ve.ui.RowWidget, OO.ui.mixin.GroupElement );
 /* Events */
 
 /**
- * @event change
+ * @event inputChange
  *
  * Change when an input contained within the row is updated
  *
- * @param {Object} The input that changed
- * @param {string} The new value of the input
+ * @param {number} The index of the cell that changed
+ * @param {string} The new value of the cell
  */
 
 /**
- * @event delete
+ * @event deleteButtonClick
  *
  * Fired when the delete button for the row is pressed
  */
@@ -124,21 +116,22 @@ OO.mixinClass( ve.ui.RowWidget, OO.ui.mixin.GroupElement );
 /* Methods */
 
 /**
- * Get the row key
- *
- * @return {string} The row key
+ * @private
+ * @inheritdoc
  */
-ve.ui.RowWidget.prototype.getKey = function () {
-	return this.key;
-};
+ve.ui.RowWidget.prototype.addItems = function ( items, index ) {
+	var i, len,
+		startingIndex = this.items.length;
 
-/**
- * Set the row key
- *
- * @param {string} key The new key
- */
-ve.ui.RowWidget.prototype.setKey = function ( key ) {
-	this.key = key;
+	// Parent function
+	OO.ui.mixin.GroupElement.prototype.addItems.call( this, items, index );
+
+	// Apply column index as data to every new text input
+	for ( i = 0, len = items.length; i < len; i++ ) {
+		items[ i ].setData( {
+			index: startingIndex + i
+		} );
+	}
 };
 
 /**
@@ -193,19 +186,31 @@ ve.ui.RowWidget.prototype.setLabel = function ( label ) {
 };
 
 /**
- * Set the value of a particular field
+ * Set the value of a particular cell
  *
- * @param {string} field The field
+ * @param {number} index The cell index
  * @param {string} value The new value
  */
-ve.ui.RowWidget.prototype.setValue = function ( field, value ) {
-	var i, cells = this.getItems();
-
-	for ( i = 0; i < cells.length; i++ ) {
-		if ( cells[ i ].getData() === field ) {
-			cells[ i ].setValue( value );
-		}
+ve.ui.RowWidget.prototype.setValue = function ( index, value ) {
+	if ( this.getItems()[ index ] ) {
+		this.getItems()[ index ].setValue( value );
 	}
+};
+
+/**
+ * Removes a column at a specified index
+ *
+ * @param {number} index The index to removeColumn
+ */
+ve.ui.RowWidget.prototype.removeColumn = function ( index ) {
+	var items = this.getItems();
+
+	// Exit early if an invalid index was given
+	if ( index < 0 || index >= items.length ) {
+		return;
+	}
+
+	this.removeItems( items[ index ] );
 };
 
 /**
@@ -226,7 +231,7 @@ ve.ui.RowWidget.prototype.clear = function () {
  * @private
  * @param {OO.ui.TextInputWidget} input The input that fired the event
  * @param {string} value The value of the input
- * @fires change
+ * @fires inputChange
  */
 ve.ui.RowWidget.prototype.onCellChange = function ( input, value ) {
 	// FIXME: The table itself should know if it contains invalid data
@@ -239,7 +244,7 @@ ve.ui.RowWidget.prototype.onCellChange = function ( input, value ) {
 	var self = this;
 
 	input.getValidity().done( function () {
-		self.emit( 'change', input, value );
+		self.emit( 'inputChange', input.getData().index, value );
 	} );
 };
 
@@ -247,10 +252,10 @@ ve.ui.RowWidget.prototype.onCellChange = function ( input, value ) {
  * React to delete button click
  *
  * @private
- * @fires delete
+ * @fires deleteButtonClick
  */
-ve.ui.RowWidget.prototype.onDelete = function () {
-	this.emit( 'delete' );
+ve.ui.RowWidget.prototype.onDeleteButtonClick = function () {
+	this.emit( 'deleteButtonClick' );
 };
 
 /**
