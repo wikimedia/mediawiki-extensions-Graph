@@ -3,16 +3,20 @@
 		"authors": [
 			"Chrumps",
 			"The Polish",
-			"Michał Sobkowski"
+			"Michał Sobkowski",
+			"Woytecr"
 		]
 	},
-	"graphsandbox": "Brudnopis graficzny",
+	"graph-desc": "Umożliwia znacznikom &lt;graph&gt; lub całym stronom stworzenie wykresów bazujących na [http://vega.github.io/ Vega]",
+	"graphsandbox": "Brudnopis wykresów",
 	"graph-tracking-category": "Strony z diagramami",
 	"graph-tracking-category-desc": "Strona zawiera znacznik <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Strony z zepsutymi diagramami",
 	"graph-broken-category-desc": "Strona zawiera nieprawidłowo zastosowany znacznik <code><nowiki><graph></nowiki></code>.",
 	"graph-obsolete-category": "Strony z przestarzałymi diagramami Vega 1.0",
 	"graph-obsolete-category-desc": "Strona zawiera znacznik <code><nowiki><graph></nowiki></code>, który powinien zostać zaktualizowany do wersji 2.",
+	"graph-error-empty-json": "Puste dane wykresu, nie ma nic do pokazania",
+	"graph-error-not-vega": "Podany JSON nie jest prawidłowym JSON Vega",
 	"graph-ve-dialog-edit-height": "Wysokość",
 	"graph-ve-dialog-edit-json-invalid": "Nieprawidłowy ciąg znaków JSON",
 	"graph-ve-dialog-edit-padding-auto": "Automatyczne wcięcie",
@@ -23,6 +27,10 @@
 	"graph-ve-dialog-edit-size-fieldset": "Rozmiar",
 	"graph-ve-dialog-edit-size-table-unit": "Piksele",
 	"graph-ve-dialog-edit-table-row-delete": "Usuwanie wiersza",
+	"graph-ve-dialog-edit-title": "Edytuj wykres",
+	"graph-ve-dialog-edit-type-bar": "Wykres słupkowy",
+	"graph-ve-dialog-edit-type-line": "Wykres liniowy",
+	"graph-ve-dialog-edit-type-unknown": "Nieznany typ wykresu",
 	"graph-ve-dialog-edit-width": "Szerokość",
 	"graph-ve-empty-graph": "Pusty wykres"
 }
