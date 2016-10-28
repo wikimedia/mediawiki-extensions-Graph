@@ -20,7 +20,7 @@
 ve.ui.TableWidget = function VeUiTableWidget( config ) {
 	var headerRowItems = [],
 		insertionRowItems = [],
-		columnProps, i, len;
+		columnProps, prop, i, len;
 
 	// Configuration initialization
 	config = config || {};
@@ -53,8 +53,9 @@ ve.ui.TableWidget = function VeUiTableWidget( config ) {
 		} );
 
 		for ( i = 0, len = columnProps.length; i < len; i++ ) {
+			prop = columnProps[ i ];
 			headerRowItems.push( new OO.ui.TextInputWidget( {
-				value: columnProps[ i ].key ? columnProps[ i ].key : columnProps[ i ].index,
+				value: prop.label ? prop.label : ( prop.key ? prop.key : prop.index ),
 				// TODO: Allow editing of fields
 				disabled: true
 			} ) );
@@ -275,16 +276,13 @@ ve.ui.TableWidget.prototype.filterCellInput = function ( value ) {
  * @private
  * @inheritdoc
  */
-ve.ui.TableWidget.prototype.addItems = function ( items ) {
-	var i, len,
-		startingIndex = this.items.length;
+ve.ui.TableWidget.prototype.addItems = function ( items, index ) {
+	var i, len;
 
-	// Parent function
-	OO.ui.mixin.GroupElement.prototype.addItems.call( this, items );
+	OO.ui.mixin.GroupElement.prototype.addItems.call( this, items, index );
 
-	for ( i = 0, len = items.length; i < len; i++ ) {
-		// Assign row index to every new row
-		items[ i ].setIndex( startingIndex + i );
+	for ( i = index, len = items.length; i < len; i++ ) {
+		items[ i ].setIndex( i );
 	}
 };
 
@@ -295,10 +293,8 @@ ve.ui.TableWidget.prototype.addItems = function ( items ) {
 ve.ui.TableWidget.prototype.removeItems = function ( items ) {
 	var i, len, rows;
 
-	// Parent function
 	OO.ui.mixin.GroupElement.prototype.removeItems.call( this, items );
 
-	// Refresh row indexes for every remaining row
 	rows = this.getItems();
 	for ( i = 0, len = rows.length; i < len; i++ ) {
 		rows[ i ].setIndex( i );
@@ -335,26 +331,23 @@ ve.ui.TableWidget.prototype.onValueChange = function ( row, col, value ) {
  */
 ve.ui.TableWidget.prototype.onInsertRow = function ( data, index, key, label ) {
 	var colProps = this.model.getAllColumnProperties(),
-		newRow = new ve.ui.RowWidget( {
-			label: label,
-			deletable: this.model.getTableProperties().allowRowDeletion
-		} ),
-		i, len, cellKey, cellValue;
+		keys = [],
+		newRow, i, len;
 
-	// TODO: Move this logic to RowWidget
-	// TODO: Handle index parameter. Right now all new rows are inserted at the end
 	for ( i = 0, len = colProps.length; i < len; i++ ) {
-		cellKey = ( colProps[ i ].key ) ? colProps[ i ].key : i;
-		cellValue = i < data.length ? data[ i ] : '';
-
-		newRow.addItems( [
-			new OO.ui.TextInputWidget( {
-				validate: this.model.getValidationPattern(),
-				value: cellValue
-			} )
-		] );
+		keys.push( ( colProps[ i ].key ) ? colProps[ i ].key : i );
 	}
 
+	newRow = new ve.ui.RowWidget( {
+		data: data,
+		keys: keys,
+		validate: this.model.getValidationPattern(),
+		label: label,
+		showLabel: this.model.getTableProperties().showRowLabels,
+		deletable: this.model.getTableProperties().allowRowDeletion
+	} );
+
+	// TODO: Handle index parameter. Right now all new rows are inserted at the end
 	this.addItems( [ newRow ] );
 
 	// If this is the first data being added, refresh headers and insertion row
@@ -372,28 +365,39 @@ ve.ui.TableWidget.prototype.onInsertRow = function ( data, index, key, label ) {
  *
  * @private
  * @param {Array} data The initial data
+ * @param {number} index The index in which to insert the new column
+ * @param {string} key The row key
+ * @param {string} label The row label
+ *
+ * @fires change
  */
-ve.ui.TableWidget.prototype.onInsertColumn = function ( data ) {
-	var items = this.getItems(),
+ve.ui.TableWidget.prototype.onInsertColumn = function ( data, index, key, label ) {
+	var tableProps = this.model.getTableProperties(),
+		items = this.getItems(),
+		rowProps = this.model.getAllRowProperties(),
 		i, len;
 
-	// TODO: Move this logic to RowWidget
-	// TODO: Handle index parameter. Right now all new columns are inserted at the end
 	for ( i = 0, len = items.length; i < len; i++ ) {
-		items[ i ].addItems( [
+		items[ i ].insertCell( data[ i ], index, key );
+		this.emit( 'change', i, rowProps[ i ].key, index, key, data[ i ] );
+	}
+
+	if ( tableProps.showHeaders ) {
+		this.headerRow.addItems( [
 			new OO.ui.TextInputWidget( {
-				validate: this.model.getValidationPattern(),
-				value: data[ i ]
+				value: ( label ? label : ( key ? key : index ) ),
+				// TODO: Allow editing of fields
+				disabled: true
 			} )
 		] );
+	}
 
-		if ( this.model.getTableProperties().handleRowInsertion ) {
-			this.insertionRow.addItems( [
-				new OO.ui.TextInputWidget( {
-					validate: this.model.getValidationPattern()
-				} )
-			] );
-		}
+	if ( tableProps.handleRowInsertion ) {
+		this.insertionRow.addItems( [
+			new OO.ui.TextInputWidget( {
+				validate: this.model.getValidationPattern()
+			} )
+		] );
 	}
 };
 
@@ -415,13 +419,17 @@ ve.ui.TableWidget.prototype.onRemoveRow = function ( index, key ) {
  *
  * @private
  * @param {number} index The removed column index
+ * @param {string} key The removed column key
+ * @fires removeColumn
  */
-ve.ui.TableWidget.prototype.onRemoveColumn = function ( index ) {
+ve.ui.TableWidget.prototype.onRemoveColumn = function ( index, key ) {
 	var i, items = this.getItems();
 
 	for ( i = 0; i < items.length; i++ ) {
-		items[ i ].removeColumn( index );
+		items[ i ].removeCell( index );
 	}
+
+	this.emit( 'removeColumn', index, key );
 };
 
 /**
@@ -561,15 +569,11 @@ ve.ui.TableWidget.prototype.refreshTableMarginals = function () {
 	}
 
 	if ( tableProps.allowRowInsertion ) {
+		this.insertionRow.clear();
 		this.insertionRow.removeItems( this.insertionRow.getItems() );
-		rowItems = [];
 
 		for ( i = 0, len = columnProps.length; i < len; i++ ) {
-			rowItems.push( new OO.ui.TextInputWidget( {
-				data: columnProps[ i ].key ? columnProps[ i ].key : columnProps[ i ].index
-			} ) );
+			this.insertionRow.insertCell( '', columnProps[ i ].index, columnProps[ i ].key );
 		}
-
-		this.insertionRow.addItems( rowItems );
 	}
 };

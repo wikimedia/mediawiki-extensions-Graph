@@ -464,7 +464,7 @@ ve.ui.MWGraphDialog.prototype.onGraphTypeInputChange = function ( value ) {
  */
 ve.ui.MWGraphDialog.prototype.onDataInputChange = function ( rowIndex, rowKey, colIndex, colKey, value ) {
 	if ( !isNaN( value ) ) {
-		this.graphModel.setEntryField( rowIndex, colKey, parseFloat( value ) );
+		this.graphModel.setEntryField( rowIndex, colKey, +value );
 	}
 };
 
