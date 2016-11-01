@@ -5,6 +5,7 @@
 		]
 	},
 	"graph-desc": "Võimaldab teha &lt;graph&gt;-siltidest või tervetest lehekülgedest [http://vega.github.io/ Vega]-põhiseid diagramme.",
+	"graphsandbox": "Diagrammide liivakast",
 	"graph-tracking-category": "Diagrammidega leheküljed",
 	"graph-tracking-category-desc": "Leheküljel on silt <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Katkiste diagrammidega leheküljed",
@@ -35,9 +36,5 @@
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "Selle diagrammitüübi tugi puudub. Muudatused võivad rikkuda diagrammi väljanägemise. Palun muuda diagrammi toorandmete kujul kaardil \"{{int:graph-ve-dialog-edit-page-raw}}\".",
 	"graph-ve-no-spec": "Diagrammi spetsifikatsiooni ei leitud",
 	"graph-ve-vega-error": "Vahendil Vega esines selle diagrammi viimistlemisel tõrge.",
-	"graph-ve-vega-error-no-render": "Vahendil Vega ei õnnestunud seda diagrammi viimistleda.",
-	"graph-interactive-title": "Interaktiivne",
-	"graph-switch-button": "Esita",
-	"graph-loading": "Laadimine...",
-	"graph-loading-done": "Valmis!"
+	"graph-ve-vega-error-no-render": "Vahendil Vega ei õnnestunud seda diagrammi viimistleda."
 }
