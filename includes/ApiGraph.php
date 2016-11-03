@@ -29,15 +29,31 @@ class ApiGraph extends ApiBase {
 
 		if ( $params['title'] !== null ) {
 			if ( $params['hash'] === null ) {
-				$this->dieUsage( 'Parameter "hash" is required', 'missingparam' );
+				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+					$this->dieWithError(
+						[ 'apierror-invalidparammix-mustusewith', 'title', 'hash' ], 'missingparam'
+					);
+				} else {
+					$this->dieUsage( 'Parameter "hash" is required', 'missingparam' );
+				}
 			}
 			$graph = $this->getFromStorage( $params['title'], $params['hash'] );
 		} else {
 			if ( !$this->getRequest()->wasPosted() ) {
-				$this->dieUsage( 'Request had to be POSTed when used with "text" parameter', 'invalidparammix' );
+				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+					$this->dieWithError( 'apierror-graph-mustposttext', 'mustposttext' );
+				} else {
+					$this->dieUsage( 'Request had to be POSTed when used with "text" parameter', 'mustposttext' );
+				}
 			}
 			if ( $params['hash'] !== null ) {
-				$this->dieUsage( 'Parameter "hash" cannot be used with "text"', 'invalidparammix' );
+				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+					$this->dieWithError(
+						[ 'apierror-invalidparammix-cannotusewith', 'hash', 'text' ], 'invalidparammix'
+					);
+				} else {
+					$this->dieUsage( 'Parameter "hash" cannot be used with "text"', 'invalidparammix' );
+				}
 			}
 			$graph = $this->preprocess( $params['text'] );
 		}
@@ -85,7 +101,11 @@ class ApiGraph extends ApiBase {
 				$st = FormatJson::parse( $text );
 			}
 			if ( !$st->isOK() ) {
-				$this->dieUsage( 'Graph is not valid.', 'invalidtext' );
+				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+					$this->dieWithError( 'apierror-graph-invalid', 'invalidtext' );
+				} else {
+					$this->dieUsage( 'Graph is not valid.', 'invalidtext' );
+				}
 			}
 		}
 		return $st->getValue();
@@ -93,19 +113,37 @@ class ApiGraph extends ApiBase {
 
 	/**
 	 * Get graph definition with title and hash
-	 * @param string $title
+	 * @param string $titleText
 	 * @param string $hash
 	 * @return string
 	 */
-	private function getFromStorage( $title, $hash ) {
+	private function getFromStorage( $titleText, $hash ) {
 
 		// NOTE: Very strange wgMemc feature: Even though we store the data structure into memcached
 		// by JSON-encoding and gzip-ing it, when we get it out it is already in the original form.
 		$graph = Store::getFromCache( $hash );
 		if ( !$graph ) {
-			$title = Title::newFromText( $title );
-			if ( !$title || !$title->exists() || !$title->userCan( 'read', $this->getUser() ) ) {
-				$this->dieUsage( 'Invalid title given.', 'invalidtitle' );
+			$title = Title::newFromText( $titleText );
+			if ( !$title ) {
+				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+					$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $titleText ) ] );
+				} else {
+					$this->dieUsage( 'Invalid title given.', 'invalidtitle' );
+				}
+			}
+			if ( !$title->exists() ) {
+				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+					$this->dieWithError( 'apierror-missingtitle' );
+				} else {
+					$this->dieUsage( 'The page you specified doesn\'t exist.', 'missingtitle' );
+				}
+			}
+			if ( is_callable( [ $this, 'checkTitleUserPermissions' ] ) ) {
+				$this->checkTitleUserPermissions( $title, 'read' );
+			} else {
+				if ( !$title->userCan( 'read', $this->getUser() ) ) {
+					$this->dieUsage( "You don't have permission to view this page", 'permissiondenied' );
+				}
 			}
 
 			$ppValue = $this->getDB()->selectField( 'page_props', 'pp_value', [
@@ -129,7 +167,11 @@ class ApiGraph extends ApiBase {
 			}
 		}
 		if ( !$graph ) {
-			$this->dieUsage( 'No graph found.', 'invalidhash' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( 'apierror-graph-missing', 'invalidhash' );
+			} else {
+				$this->dieUsage( 'No graph found.', 'invalidhash' );
+			}
 		}
 		return $graph;
 	}
