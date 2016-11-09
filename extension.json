@@ -108,6 +108,7 @@
 				"modules/ve-graph/ve.dm.MWGraphNode.js",
 				"modules/ve-graph/ve.ui.MWGraphDialog.js",
 				"modules/ve-graph/ve.ui.MWGraphDialogTool.js",
+				"modules/ve-graph/widgets/ve.dm.RowWidgetModel.js",
 				"modules/ve-graph/widgets/ve.dm.TableWidgetModel.js",
 				"modules/ve-graph/widgets/ve.ui.RowWidget.js",
 				"modules/ve-graph/widgets/ve.ui.TableWidget.js"

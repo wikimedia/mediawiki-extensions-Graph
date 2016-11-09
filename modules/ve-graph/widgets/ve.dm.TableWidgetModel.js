@@ -48,24 +48,24 @@ OO.mixinClass( ve.dm.TableWidgetModel, OO.EventEmitter );
  *
  * @static
  * @private
- * @param {string|number} key The key (or numeric index) of the row/column
+ * @param {string|number} handle The key (or numeric index) of the row/column
  * @return {Object|null} An object containing the `key`, `index` and `label`
  * properties of the row/column. Returns `null` if the row/column can't be found.
  */
-ve.dm.TableWidgetModel.static.getEntryFromPropsTable = function ( key, table ) {
+ve.dm.TableWidgetModel.static.getEntryFromPropsTable = function ( handle, table ) {
 	var row = null,
 		i, len;
 
-	if ( typeof key === 'string' ) {
+	if ( typeof handle === 'string' ) {
 		for ( i = 0, len = table.length; i < len; i++ ) {
-			if ( table[ i ].key === key ) {
+			if ( table[ i ].key === handle ) {
 				row = table[ i ];
 				break;
 			}
 		}
-	} else if ( typeof key === 'number' ) {
-		if ( key < table.length ) {
-			row = table[ key ];
+	} else if ( typeof handle === 'number' ) {
+		if ( handle < table.length ) {
+			row = table[ handle ];
 		}
 	}
 
@@ -80,7 +80,7 @@ ve.dm.TableWidgetModel.static.getEntryFromPropsTable = function ( key, table ) {
  * Fired when a value inside the table has changed.
  *
  * @param {number} The row index of the updated cell
- * @param {number} The col index of the updated cell
+ * @param {number} The column index of the updated cell
  * @param {mixed} The new value
  */
 
@@ -101,9 +101,9 @@ ve.dm.TableWidgetModel.static.getEntryFromPropsTable = function ( key, table ) {
  * Fired when a new row is inserted into the table.
  *
  * @param {Array} The initial data
- * @param {number} The index in which to insert the new rows
- * @param {string} The row key
- * @param {string} The row label
+ * @param {number} The index in which to insert the new column
+ * @param {string} The column key
+ * @param {string} The column label
  */
 
 /**
@@ -254,7 +254,8 @@ ve.dm.TableWidgetModel.prototype.setValue = function ( row, col, value ) {
 	}
 
 	if ( typeof rowIndex === 'number' && typeof colIndex === 'number' &&
-		this.data[ rowIndex ] !== undefined && this.data[ rowIndex ][ colIndex ] !== undefined ) {
+		this.data[ rowIndex ] !== undefined && this.data[ rowIndex ][ colIndex ] !== undefined &&
+		this.data[ rowIndex ][ colIndex ] !== value ) {
 
 		this.data[ rowIndex ][ colIndex ] = value;
 		this.emit( 'valueChange', rowIndex, colIndex, value );
@@ -371,11 +372,11 @@ ve.dm.TableWidgetModel.prototype.insertColumn = function ( data, index, key, lab
  * Removes a row from the table. If the row removed isn't at the end of the table,
  * all the following rows will be shifted back one row.
  *
- * @param {number|string} key The key or numerical index of the row to remove
+ * @param {number|string} handle The key or numerical index of the row to remove
  * @fires removeRow
  */
-ve.dm.TableWidgetModel.prototype.removeRow = function ( key ) {
-	var rowProps = this.getRowProperties( key ),
+ve.dm.TableWidgetModel.prototype.removeRow = function ( handle ) {
+	var rowProps = this.getRowProperties( handle ),
 		i, len;
 
 	// Exit early if the row couldn't be found
@@ -398,11 +399,11 @@ ve.dm.TableWidgetModel.prototype.removeRow = function ( key ) {
  * Removes a column from the table. If the column removed isn't at the end of the table,
  * all the following columns will be shifted back one column.
  *
- * @param {number|string} key The key or numerical index of the column to remove
+ * @param {number|string} handle The key or numerical index of the column to remove
  * @fires removeColumn
  */
-ve.dm.TableWidgetModel.prototype.removeColumn = function ( key ) {
-	var colProps = this.getColumnProperties( key ),
+ve.dm.TableWidgetModel.prototype.removeColumn = function ( handle ) {
+	var colProps = this.getColumnProperties( handle ),
 		i, len;
 
 	// Exit early if the column couldn't be found
@@ -475,12 +476,12 @@ ve.dm.TableWidgetModel.prototype.getValidationPattern = function () {
 /**
  * Get properties of a given row
  *
- * @param {string|number} key The key (or numeric index) of the row
+ * @param {string|number} handle The key (or numeric index) of the row
  * @return {Object|null} An object containing the `key`, `index` and `label` properties of the row.
  * Returns `null` if the row can't be found.
  */
-ve.dm.TableWidgetModel.prototype.getRowProperties = function ( key ) {
-	return ve.dm.TableWidgetModel.static.getEntryFromPropsTable( key, this.rows );
+ve.dm.TableWidgetModel.prototype.getRowProperties = function ( handle ) {
+	return ve.dm.TableWidgetModel.static.getEntryFromPropsTable( handle, this.rows );
 };
 
 /**
@@ -495,12 +496,12 @@ ve.dm.TableWidgetModel.prototype.getAllRowProperties = function () {
 /**
  * Get properties of a given column
  *
- * @param {string|number} key The key (or numeric index) of the column
+ * @param {string|number} handle The key (or numeric index) of the column
  * @return {Object|null} An object containing the `key`, `index` and `label` properties of the column.
  * Returns `null` if the column can't be found.
  */
-ve.dm.TableWidgetModel.prototype.getColumnProperties = function ( key ) {
-	return ve.dm.TableWidgetModel.static.getEntryFromPropsTable( key, this.cols );
+ve.dm.TableWidgetModel.prototype.getColumnProperties = function ( handle ) {
+	return ve.dm.TableWidgetModel.static.getEntryFromPropsTable( handle, this.cols );
 };
 
 /**
