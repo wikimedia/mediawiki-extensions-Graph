@@ -203,7 +203,7 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 	this.jsonTextInput
 		.setLanguage( 'json' )
 		.toggleLineNumbers( false )
-		.setRTL( false );
+		.setDir( 'ltr' );
 
 	jsonTextField = new OO.ui.FieldLayout( this.jsonTextInput, {
 		label: ve.msg( 'graph-ve-dialog-edit-field-raw-json' ),
