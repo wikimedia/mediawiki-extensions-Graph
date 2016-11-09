@@ -49,6 +49,7 @@ OO.mixinClass( ve.dm.TableWidgetModel, OO.EventEmitter );
  * @static
  * @private
  * @param {string|number} handle The key (or numeric index) of the row/column
+ * @param {Array} table Props table
  * @return {Object|null} An object containing the `key`, `index` and `label`
  * properties of the row/column. Returns `null` if the row/column can't be found.
  */

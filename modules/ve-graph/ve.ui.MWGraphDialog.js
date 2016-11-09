@@ -408,6 +408,7 @@ ve.ui.MWGraphDialog.prototype.updateDataPage = function () {
  *
  * @private
  * @param {string} value The new input value
+ * @return {boolean} Data is valid
  */
 ve.ui.MWGraphDialog.prototype.validateRawData = function ( value ) {
 	var isValid = !$.isEmptyObject( ve.dm.MWGraphNode.static.parseSpecString( value ) ),

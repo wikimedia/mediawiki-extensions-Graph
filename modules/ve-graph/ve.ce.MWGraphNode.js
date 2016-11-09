@@ -130,7 +130,8 @@ ve.ce.MWGraphNode.prototype.update = function () {
 				// HACK: We need to know which padding values Vega computes in case
 				// of automatic padding, but it isn't properly exposed in the view
 				node.$graph.append( node.$plot );
-				node.$plot.css( view._padding ); // jscs:ignore disallowDanglingUnderscores
+				// eslint-disable-next-line no-underscore-dangle
+				node.$plot.css( view._padding );
 
 				node.calculateHighlights();
 			},

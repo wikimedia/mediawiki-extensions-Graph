@@ -3,10 +3,10 @@
 	'use strict';
 	/* global require */
 
-	var wrapper,
-		VegaWrapper = require( 'graph-shared' );
+	var VegaWrapper = require( 'graph-shared' );
 
-	wrapper = new VegaWrapper( {
+	// eslint-disable-next-line no-new
+	new VegaWrapper( {
 		datalib: vg.util,
 		useXhr: true,
 		isTrusted: mw.config.get( 'wgGraphIsTrusted' ),

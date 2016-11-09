@@ -46,7 +46,7 @@ ve.ui.RowWidget = function VeUiRowWidget( config ) {
 	// Set up delete button
 	if ( this.model.getRowProperties().isDeletable ) {
 		this.deleteButton = new OO.ui.ButtonWidget( {
-			icon: { default: 'remove' },
+			icon: { 'default': 'remove' },
 			classes: [ 've-ui-rowWidget-delete-button' ],
 			flags: 'destructive',
 			title: ve.msg( 'graph-ve-dialog-edit-table-row-delete' )
