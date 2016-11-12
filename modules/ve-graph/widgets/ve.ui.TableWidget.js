@@ -385,7 +385,7 @@ ve.ui.TableWidget.prototype.onInsertColumn = function ( data, index, key, label 
 	if ( tableProps.showHeaders ) {
 		this.headerRow.addItems( [
 			new OO.ui.TextInputWidget( {
-				value: ( label ? label : ( key ? key : index ) ),
+				value: label || key || index,
 				// TODO: Allow editing of fields
 				disabled: true
 			} )

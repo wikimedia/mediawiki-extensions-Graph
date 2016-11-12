@@ -298,8 +298,8 @@ ve.dm.TableWidgetModel.prototype.insertRow = function ( data, index, key, label 
 	// Add the new row metadata
 	this.rows.splice( insertIndex, 0, {
 		index: insertIndex,
-		key: ( key ) ? key : undefined,
-		label: ( label ) ? label : undefined
+		key: key || undefined,
+		label: label || undefined
 	} );
 
 	// Add the new row data
@@ -344,8 +344,8 @@ ve.dm.TableWidgetModel.prototype.insertColumn = function ( data, index, key, lab
 	// Add the new column metadata
 	this.cols.splice( insertIndex, 0, {
 		index: insertIndex,
-		key: ( key ) ? key : undefined,
-		label: ( label ) ? label : undefined
+		key: key || undefined,
+		label: label || undefined
 	} );
 
 	// Add the new column data

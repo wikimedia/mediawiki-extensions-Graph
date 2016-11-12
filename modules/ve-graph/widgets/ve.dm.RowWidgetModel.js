@@ -236,7 +236,7 @@ ve.dm.RowWidgetModel.prototype.insertCell = function ( data, index, key ) {
 	// Add the new cell metadata
 	this.cells.splice( insertIndex, 0, {
 		index: insertIndex,
-		key: ( key ) ? key : undefined
+		key: key || undefined
 	} );
 
 	// Add the new row data
