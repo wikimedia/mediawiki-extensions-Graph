@@ -16,6 +16,8 @@
 	"graph-broken-category-desc": "Сторінка включає неправильно використаний теґ <code><nowiki><graph></nowiki></code>.",
 	"graph-obsolete-category": "Сторінки з застарілими графіками Vega 1.0",
 	"graph-obsolete-category-desc": "Ця сторінка містить тег <code><nowiki><graph></nowiki></code>, який треба оновити до версії 2.",
+	"graph-error-empty-json": "Порожні дані графіка, нема що показувати",
+	"graph-error-not-vega": "Наданий JSON не є дійсним Vega JSON",
 	"apihelp-graph-description": "Отримати доступ до функціоналу тегів graph.",
 	"apihelp-graph-example": "Отримати графік у JSON-форматі за хешем та назвою",
 	"apihelp-graph-param-hash": "Хеш-значення графіка",

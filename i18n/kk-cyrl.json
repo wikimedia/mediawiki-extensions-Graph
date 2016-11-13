@@ -5,6 +5,7 @@
 		]
 	},
 	"graph-desc": "&lt;graph&gt; тегіне рұқсат етеді немесе  [http://vega.github.io/ Vega] негізіндегі гафиктерді беттерге енгізу",
+	"graph-tracking-category": "Графигі бар беттер",
 	"graph-ve-dialog-button-tooltip": "График",
 	"graph-ve-dialog-edit-field-graph-type": "График түрі",
 	"graph-ve-dialog-edit-page-general": "Негізгі",
