@@ -12,6 +12,8 @@
 	"graph-broken-category-desc": "Các trang này có thẻ <code><nowiki><graph></nowiki></code> được sử dụng một cách không hợp lệ.",
 	"graph-obsolete-category": "Trang có biểu đồ Vega 1.0 lỗi thời",
 	"graph-obsolete-category-desc": "Trang này có thẻ <code><nowiki><graph></nowiki></code> cần được nâng cấp đến phiên bản 2.",
+	"graph-error-empty-json": "Dữ liệu biểu đồ trống; không có gì để hiển thị",
+	"graph-error-not-vega": "Mã nguồn JSON được cung cấp không phải là JSON Vego hợp lệ",
 	"graph-ve-dialog-button-tooltip": "Biểu đồ",
 	"graph-ve-dialog-edit-field-graph-type": "Loại biểu đồ",
 	"graph-ve-dialog-edit-field-raw-json": "Mã nguồn JSON",
