@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Danmichaelo"
+			"Danmichaelo",
+			"Jon Harald Søby"
 		]
 	},
 	"graph-desc": "Tillater [http://trifacta.github.io/vega/ Vega]-baserte diagrammer i  &lt;graph&gt;-tagger eller som hele sider.",
@@ -12,6 +13,13 @@
 	"graph-broken-category-desc": "Denne siden inkluderer en <code><nowiki><graph></nowiki></code>-tagg med feil.",
 	"graph-obsolete-category": "Sider med utdaterte Vega 1.0-diagram",
 	"graph-obsolete-category-desc": "Denne siden inneholder en <code><nowiki><graph></nowiki></code>-tag that som bør oppgraderes til versjon 2.",
+	"graph-error-empty-json": "Tomme grafdata, ingenting å vise",
+	"graph-error-not-vega": "Den angitte JSON-en er ikke gyldig Vega-JSON",
+	"apihelp-graph-description": "Få tilgang til graftaggfunksjonalitet.",
+	"apihelp-graph-example": "Hent graf-JSON-en med hash og tittel",
+	"apihelp-graph-param-hash": "Hash-verdien til grafen",
+	"apihelp-graph-param-title": "Tittelen til artikkelen med grafen",
+	"apihelp-graph-param-text": "Tekst i grafen som skal konverteres til JSON. Måpostes og brukes uten tittel- og hash-parameterne.",
 	"graph-ve-dialog-button-tooltip": "Graf",
 	"graph-ve-dialog-edit-field-graph-type": "Graftype",
 	"graph-ve-dialog-edit-field-raw-json": "Rå JSON-spesifikasjon",
