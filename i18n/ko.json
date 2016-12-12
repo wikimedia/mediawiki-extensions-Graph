@@ -16,6 +16,8 @@
 	"graph-obsolete-category": "없어진 Vega 1.0 그래프를 사용하는 문서",
 	"graph-obsolete-category-desc": "이 문서는 버전 2로 업데이트해야 하는 <code><nowiki><graph></nowiki></code> 태그를 포함하고 있습니다.",
 	"graph-error-empty-json": "비어있는 그래프 데이터이므로 표시할 것이 없습니다",
+	"apierror-graph-invalid": "그래프가 유효하지 않습니다.",
+	"apierror-graph-missing": "그래프가 없습니다.",
 	"graph-ve-dialog-button-tooltip": "그래프",
 	"graph-ve-dialog-edit-height": "높이",
 	"graph-ve-dialog-edit-padding-fieldset": "간격",

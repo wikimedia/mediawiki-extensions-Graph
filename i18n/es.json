@@ -20,6 +20,7 @@
 	"apihelp-graph-param-hash": "Valor de hash del gráfico",
 	"apihelp-graph-param-title": "Título del artículo con el gráfico",
 	"apihelp-graph-param-text": "El texto del gráfico que se convertirá en JSON. Debe publicarse y utilizarse sin los parámetros de título y «hash»",
+	"apierror-graph-invalid": "el gráfico no es válido.",
 	"graph-ve-dialog-button-tooltip": "Gráfico",
 	"graph-ve-dialog-edit-field-graph-type": "Tipo de gráfico",
 	"graph-ve-dialog-edit-field-raw-json": "Especificación JSON en bruto",
