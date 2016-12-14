@@ -27,6 +27,8 @@
 	"apihelp-graph-param-hash": "Valeur de hachage du graphe",
 	"apihelp-graph-param-title": "Titre de l’article avec le graphe",
 	"apihelp-graph-param-text": "Texte du graphe à convertir en JSON. Doit être posté et utilisé sans titre ni paramètres de hachage",
+	"apierror-graph-invalid": "Graphe non valide.",
+	"apierror-graph-missing": "Pas de graphe trouvé.",
 	"graph-ve-dialog-button-tooltip": "Graphe",
 	"graph-ve-dialog-edit-field-graph-type": "Type de graphique",
 	"graph-ve-dialog-edit-field-raw-json": "Spécification JSON brut",
