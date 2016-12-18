@@ -14,7 +14,11 @@
 	"graph-ve-dialog-edit-padding-table-right": "Dešinėje",
 	"graph-ve-dialog-edit-padding-table-top": "Viršuje",
 	"graph-ve-dialog-edit-padding-table-unit": "Pikseliai",
+	"graph-ve-dialog-edit-page-data": "Duomenys",
+	"graph-ve-dialog-edit-page-general": "Bendra",
+	"graph-ve-dialog-edit-page-raw": "Neapdoroti duomenys",
 	"graph-ve-dialog-edit-size-fieldset": "Dydis",
 	"graph-ve-dialog-edit-size-table-unit": "Pikseliai",
+	"graph-ve-dialog-edit-table-row-delete": "Trinti eilutę",
 	"graph-ve-dialog-edit-width": "Plotis"
 }
