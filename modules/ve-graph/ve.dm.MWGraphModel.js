@@ -245,7 +245,7 @@ ve.dm.MWGraphModel.prototype.applyChanges = function ( node, surfaceModel ) {
 	// Send transaction
 	mwData.body.extsrc = this.getSpecString();
 	surfaceModel.change(
-		ve.dm.Transaction.newFromAttributeChanges(
+		ve.dm.TransactionBuilder.static.newFromAttributeChanges(
 			surfaceModel.getDocument(),
 			node.getOffset(),
 			{ mw: mwData }
