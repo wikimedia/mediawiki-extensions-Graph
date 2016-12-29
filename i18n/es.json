@@ -4,11 +4,12 @@
 			"Macofe",
 			"Fitoschido",
 			"SinNovedades",
-			"Luan"
+			"Luan",
+			"Dgstranz"
 		]
 	},
 	"graph-desc": "Permite transformar etiquetas &lt;graph&gt; o páginas enteras en gráficos basados en [http://vega.github.io/ Vega]",
-	"graphsandbox": "Zona de pruebas del gráfico",
+	"graphsandbox": "Zona de pruebas para gráficos",
 	"graph-tracking-category": "Páginas con gráficos",
 	"graph-tracking-category-desc": "La página incluye una etiqueta <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Páginas con gráficos mal implementados",
