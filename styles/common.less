@@ -2,8 +2,7 @@
 @import 'mediawiki.mixins';
 @import 'mediawiki.mixins.animation';
 
-@darkColor:  #2b333f;
-@darkColorOpac: rgba( 43, 51, 63, 0.7 );
+@colorWhite: #fff;
 @colorWhiteOpac: rgba( 255, 255, 255, 0.7 );
 
 /* TODO: This file has a lot of descending specificity and needs a cleanup */
@@ -23,7 +22,6 @@
 		}
 
 		&.mw-graph-interactable {
-
 			&:hover {
 				cursor: pointer;
 
@@ -82,10 +80,9 @@
 	/* common button style */
 	.mw-graph-switch {
 		font: inherit;
-		margin: 0.1em 0;
 		min-height: 1.2em;
 		min-width: 1em;
-		.transition( ~'background .1s ease,color .1s ease,border-color .1s ease,box-shadow .1s ease' );
+		.transition( ~'background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms' );
 		font-weight: bold;
 		text-decoration: none;
 		display: inline-block;
@@ -96,28 +93,27 @@
 		line-height: 1em;
 		padding: 0.5em;
 		width: 60px;
-
 		border-width: 2px;
 		border-style: solid;
-		border-color: #333;
-		border-radius: 0.3em;
-
-		color: @darkColor;
+		border-color: @colorGray5;
+		border-radius: @borderRadius;
 		background-color: @colorWhiteOpac;
+		color: @colorGray2;
 
 		&:hover {
-			background: @colorProgressiveHighlight;
-			border-color: @colorProgressiveHighlight;
+			background-color: @colorWhite;
+			color: @colorProgressive;
+			border-color: #859dcc;
 		}
 		&:active {
-			color: @colorWhite;
-			background-color: @colorProgressiveActive;
+			background-color: @colorWhite;
+			color: @colorProgressive;
 			border-color: @colorProgressiveActive;
-			.box-shadow(none);
+			.box-shadow( none );
 		}
 		&:focus {
-			.box-shadow( ~'inset 0 0 0 1px @{colorWhite}' );
 			border-color: @colorProgressive;
+			.box-shadow( ~'inset 0 0 0 1px @{colorWhite}' );
 		}
 
 		/* Play button style */
@@ -131,28 +127,26 @@
 			font-style: normal;
 		}
 
-	}
+		/* Loading button style */
+		&.mw-graph-loading {
+			background-color: @colorWhite;
+			/* @embed */
+			background-image: url( ../includes/ajax-loader.gif );
+			background-position: 50% 50%;
+			background-repeat: no-repeat;
+			background-size: 20px;
+			color: @colorGray5;
+			display: block;
+			border-color: @colorProgressiveActive;
+			.transition( ~'background 0s ease' );
 
-	/* Loading button style */
-	.mw-graph-switch.mw-graph-loading {
+			&:hover {
+				border-color: #859dcc;
+			}
 
-		color: @colorGray5;
-		background-color: @colorWhite;
-		border-color: @colorProgressiveActive;
-
-		&:hover {
-			border-color: #333;
-		}
-		.transition( ~'background 0s ease' );
-		background-position: 50% 50%;
-		background-size: 20px;
-		background-repeat: no-repeat;
-		/* @embed */
-		background-image: url( ../includes/ajax-loader.gif );
-		display: block;
-
-		.icon-play {
-			display: none;
+			.icon-play {
+				display: none;
+			}
 		}
 	}
 
