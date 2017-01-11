@@ -160,7 +160,7 @@ class ApiGraph extends ApiBase {
 				$st = FormatJson::parse( $ppValue );
 				if ( $st->isOK() ) {
 					$allGraphs = $st->getValue();
-					if ( property_exists( $allGraphs, $hash ) ) {
+					if ( is_object( $allGraphs ) && property_exists( $allGraphs, $hash ) ) {
 						$graph = $allGraphs->$hash;
 					}
 				}
