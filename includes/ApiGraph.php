@@ -29,31 +29,17 @@ class ApiGraph extends ApiBase {
 
 		if ( $params['title'] !== null ) {
 			if ( $params['hash'] === null ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError(
-						[ 'apierror-invalidparammix-mustusewith', 'title', 'hash' ], 'missingparam'
-					);
-				} else {
-					$this->dieUsage( 'Parameter "hash" is required', 'missingparam' );
-				}
+				$this->dieWithError( [ 'apierror-invalidparammix-mustusewith', 'title', 'hash' ],
+					'missingparam' );
 			}
 			$graph = $this->getFromStorage( $params['title'], $params['hash'] );
 		} else {
 			if ( !$this->getRequest()->wasPosted() ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( 'apierror-graph-mustposttext', 'mustposttext' );
-				} else {
-					$this->dieUsage( 'Request had to be POSTed when used with "text" parameter', 'mustposttext' );
-				}
+				$this->dieWithError( 'apierror-graph-mustposttext', 'mustposttext' );
 			}
 			if ( $params['hash'] !== null ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError(
-						[ 'apierror-invalidparammix-cannotusewith', 'hash', 'text' ], 'invalidparammix'
-					);
-				} else {
-					$this->dieUsage( 'Parameter "hash" cannot be used with "text"', 'invalidparammix' );
-				}
+				$this->dieWithError( [ 'apierror-invalidparammix-cannotusewith', 'hash', 'text' ],
+					'invalidparammix' );
 			}
 			$graph = $this->preprocess( $params['text'] );
 		}
@@ -101,11 +87,7 @@ class ApiGraph extends ApiBase {
 				$st = FormatJson::parse( $text );
 			}
 			if ( !$st->isOK() ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( 'apierror-graph-invalid', 'invalidtext' );
-				} else {
-					$this->dieUsage( 'Graph is not valid.', 'invalidtext' );
-				}
+				$this->dieWithError( 'apierror-graph-invalid', 'invalidtext' );
 			}
 		}
 		return $st->getValue();
@@ -125,26 +107,12 @@ class ApiGraph extends ApiBase {
 		if ( !$graph ) {
 			$title = Title::newFromText( $titleText );
 			if ( !$title ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $titleText ) ] );
-				} else {
-					$this->dieUsage( 'Invalid title given.', 'invalidtitle' );
-				}
+				$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $titleText ) ] );
 			}
 			if ( !$title->exists() ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( 'apierror-missingtitle' );
-				} else {
-					$this->dieUsage( 'The page you specified doesn\'t exist.', 'missingtitle' );
-				}
+				$this->dieWithError( 'apierror-missingtitle' );
 			}
-			if ( is_callable( [ $this, 'checkTitleUserPermissions' ] ) ) {
-				$this->checkTitleUserPermissions( $title, 'read' );
-			} else {
-				if ( !$title->userCan( 'read', $this->getUser() ) ) {
-					$this->dieUsage( "You don't have permission to view this page", 'permissiondenied' );
-				}
-			}
+			$this->checkTitleUserPermissions( $title, 'read' );
 
 			$ppValue = $this->getDB()->selectField( 'page_props', 'pp_value', [
 				'pp_page' => $title->getArticleID(),
@@ -170,11 +138,7 @@ class ApiGraph extends ApiBase {
 			}
 		}
 		if ( !$graph ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-graph-missing', 'invalidhash' );
-			} else {
-				$this->dieUsage( 'No graph found.', 'invalidhash' );
-			}
+			$this->dieWithError( 'apierror-graph-missing', 'invalidhash' );
 		}
 		return $graph;
 	}
