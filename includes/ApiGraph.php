@@ -160,6 +160,9 @@ class ApiGraph extends ApiBase {
 				$st = FormatJson::parse( $ppValue );
 				if ( $st->isOK() ) {
 					$allGraphs = $st->getValue();
+					if ( !is_object( $allGraphs ) ) {
+						wfDebugLog( 'AdHocDebug', "ApiGraph: invalid data on page '$titleText'" );
+					}
 					if ( is_object( $allGraphs ) && property_exists( $allGraphs, $hash ) ) {
 						$graph = $allGraphs->$hash;
 					}
