@@ -8,42 +8,45 @@
 /* TODO: This file has a lot of descending specificity and needs a cleanup */
 /* stylelint-disable no-descending-specificity */
 
-.client-js {
+.mw-graph {
+	display: inline-block;
+	border: 1px solid transparent;
+	position: relative;
 
-	.mw-graph {
+	.mw-graph-img,
+	canvas {
 		display: inline-block;
-		border: 1px solid transparent;
-		position: relative;
+		vertical-align: middle;
+	}
+}
 
-		.mw-graph-img,
-		canvas {
-			display: inline-block;
-			vertical-align: middle;
-		}
+.client-nojs {
+	.mw-graph-layover {
+		display: none;
+	}
+}
 
-		&.mw-graph-interactable {
-			&:hover {
-				cursor: pointer;
+.client-js {
+	.mw-graph-interactable {
+		&:hover {
+			cursor: pointer;
 
-				.mw-graph-hover-title {
-					display: block;
+			.mw-graph-hover-title {
+				display: block;
+			}
+
+			.mw-graph-layover {
+				background-color: @colorWhiteOpac;
+			}
+
+			.mw-graph-switch {
+				&.mw-graph-loading {
+					background-color: @colorWhite;
 				}
 
-				.mw-graph-layover {
-					display: block;
-					background-color: @colorWhiteOpac;
+				&:hover {
+					background-color: @colorWhite;
 				}
-
-				.mw-graph-switch {
-					&.mw-graph-loading {
-						background-color: @colorWhite;
-					}
-
-					&:hover {
-						background-color: @colorWhite;
-					}
-				}
-
 			}
 		}
 	}
@@ -58,59 +61,62 @@
 		bottom: 0;
 		z-index: 1;
 		.transition( ~'background-color 250ms ease-out' );
+	}
 
-		/* center the container vertically */
-		& > div {
-			position: absolute;
-			left: 10px;
-			top: 10px;
-		}
-
-		.mw-graph-hover-title {
-			display: none;
-			position: absolute;
-			top: ~'calc( 50% - 17px )';
-			left: 1em;
-			right: 1em;
-			text-align: center;
-			font-size: 150%;
-			background-color: @colorWhite;
-		}
+	.mw-graph-hover-title {
+		display: none;
+		position: absolute;
+		top: ~'calc( 50% - 17px )';
+		left: 1em;
+		right: 1em;
+		text-align: center;
+		font-size: 150%;
+		background-color: @colorWhite;
 	}
 
 	/* common button style */
 	.mw-graph-switch {
-		font: inherit;
+		.transition( ~'background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms' );
+
+		background-color: @colorWhiteOpac;
+
+		display: inline-block;
+
+		position: absolute;
+		left: 1em;
+		top: 1em;
+
 		min-height: 1.2em;
 		min-width: 1em;
-		.transition( ~'background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms' );
-		font-weight: bold;
-		text-decoration: none;
-		display: inline-block;
-		vertical-align: top;
-		text-align: center;
-		cursor: pointer;
-		white-space: nowrap;
-		line-height: 1em;
-		padding: 0.5em;
 		width: 60px;
+		padding: 0.5em;
 		border-width: 2px;
 		border-style: solid;
 		border-color: @colorGray5;
 		border-radius: @borderRadius;
-		background-color: @colorWhiteOpac;
+
 		color: @colorGray2;
+
+		font: inherit;
+		font-weight: bold;
+		line-height: 1em;
+		text-align: center;
+		text-decoration: none;
+		vertical-align: top;
+		white-space: nowrap;
+
+		cursor: pointer;
 
 		&:hover {
 			background-color: @colorWhite;
-			color: @colorProgressive;
 			border-color: #859dcc;
+			color: @colorProgressive;
 		}
 		&:active {
 			background-color: @colorWhite;
-			color: @colorProgressive;
 			border-color: @colorProgressiveActive;
 			.box-shadow( none );
+			color: @colorProgressive;
 		}
 		&:focus {
 			border-color: @colorProgressive;
