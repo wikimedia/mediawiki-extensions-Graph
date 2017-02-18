@@ -5,6 +5,7 @@
 		]
 	},
 	"graph-desc": "Dozvoljava &lt;graph&gt; oznake ili da cijele stranice postanu grafikoni zasnovani na [http://trifacta.github.io/vega/ Vega]-i",
+	"graphsandbox": "Pješčanik za grafikone",
 	"graph-tracking-category": "Stranice s grafikonima",
 	"graph-tracking-category-desc": "Ova stranica sadrži oznaku <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Stranice s pokvarenim grafikonima",
