@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"David1010"
+			"David1010",
+			"Otogi"
 		]
 	},
+	"graphsandbox": "დიაგრამის სენდბოქსი",
 	"graph-ve-dialog-button-tooltip": "გრაფიკი",
 	"graph-ve-dialog-edit-field-graph-type": "გრაფიკის ტიპი",
 	"graph-ve-dialog-edit-field-raw-json": "დაუმუშავებელი JSON მახასიათებლები",
