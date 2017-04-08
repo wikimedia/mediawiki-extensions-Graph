@@ -4,15 +4,18 @@
 			"Okras",
 			"INS Pirat",
 			"Putnik",
-			"Frhdkazan"
+			"Frhdkazan",
+			"Mailman"
 		]
 	},
 	"graph-desc": "Позволяет тегам &lt;graph&gt; или целым страницам становиться графами на основе [http://vega.github.io/ Vega]",
+	"graphsandbox": "Песочница Graph",
 	"graph-tracking-category": "Страницы с графиками",
 	"graph-tracking-category-desc": "Страница включает в себя тег <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Страницы со сломанными графиками",
 	"graph-broken-category-desc": "На этой странице неверно используется тег <code><nowiki><graph></nowiki></code>.",
 	"graph-obsolete-category": "Страницы с устаревшими графиками Vega 1.0",
+	"graph-error-not-vega": "Некорректный JSON.",
 	"graph-ve-dialog-button-tooltip": "График",
 	"graph-ve-dialog-edit-field-graph-type": "Тип графа",
 	"graph-ve-dialog-edit-field-raw-json": "Исходный код в JSON",
