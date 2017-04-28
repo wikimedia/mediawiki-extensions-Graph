@@ -334,7 +334,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 
 	/* Tests */
 
-	QUnit.test( 've.dm.MWGraphNode', 5, function ( assert ) {
+	QUnit.test( 've.dm.MWGraphNode', function ( assert ) {
 		var node = new ve.dm.MWGraphNode(),
 			specString = JSON.stringify( sampleSpecs.areaGraph );
 
@@ -353,7 +353,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 		assert.deepEqual( node.getSpec(), {}, 'Setting a null spec resets the spec to an empty object' );
 	} );
 
-	QUnit.test( 've.ce.MWGraphNode', 1, function ( assert ) {
+	QUnit.test( 've.ce.MWGraphNode', function ( assert ) {
 		var view = ve.test.utils.createSurfaceViewFromHtml(
 				'<div typeof="mw:Extension/graph"></div>'
 			),
@@ -363,7 +363,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 		assert.equal( node.type, 'mwGraph', 'Parsoid HTML graphs are properly recognized as graph nodes' );
 	} );
 
-	QUnit.test( 've.ce.MWGraphNode.static', 2, function ( assert ) {
+	QUnit.test( 've.ce.MWGraphNode.static', function ( assert ) {
 		var testElement = document.createElement( 'div' ),
 			renderValidTest = assert.async(),
 			renderInvalidTest = assert.async();
@@ -385,7 +385,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 		);
 	} );
 
-	QUnit.test( 've.dm.MWGraphModel', 5, function ( assert ) {
+	QUnit.test( 've.dm.MWGraphModel', function ( assert ) {
 		var model = new ve.dm.MWGraphModel( sampleSpecs.areaGraph ),
 			updateSpecRemoval = {
 				marks: undefined,
@@ -444,7 +444,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 		assert.deepEqual( model.getSpec(), areaGraphRemovalExpected, 'Updating the spec and removing properties' );
 	} );
 
-	QUnit.test( 've.dm.MWGraphModel.static', 5, function ( assert ) {
+	QUnit.test( 've.dm.MWGraphModel.static', function ( assert ) {
 		var result,
 			basicTestObj = {
 				a: 3,
@@ -520,7 +520,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 		);
 	} );
 
-	QUnit.test( 've.ui.TableWidget', 8, function ( assert ) {
+	QUnit.test( 've.ui.TableWidget', function ( assert ) {
 		var widgetA = new ve.ui.TableWidget( {
 				rows: [
 					{
