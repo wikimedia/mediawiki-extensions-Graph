@@ -3,7 +3,7 @@
 	'use strict';
 	/* global require */
 
-	var VegaWrapper = require( 'graph-shared' );
+	var VegaWrapper = require( 'mw-graph-shared' );
 
 	// eslint-disable-next-line no-new
 	new VegaWrapper( {
