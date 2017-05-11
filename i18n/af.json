@@ -1,0 +1,33 @@
+{
+	"@metadata": {
+		"authors": [
+			"Fwolff"
+		]
+	},
+	"graph-tracking-category": "Bladsye met grafieke",
+	"graph-tracking-category-desc": "Dié bladsy bevat 'n <code><nowiki><graph></nowiki></code>-etiket.",
+	"graph-broken-category": "Bladsye met gebreekte grafieke",
+	"graph-broken-category-desc": "Dié bladsy bevat 'n <code><nowiki><graph></nowiki></code>-etiket wat verkeerd gebruik is.",
+	"graph-obsolete-category-desc": "Dié bladsy bevat 'n <code><nowiki><graph></nowiki></code>-etiket wat bygewerk moet word na weergawe 2.",
+	"graph-error-empty-json": "Leë grafiekdata. Niks om te wys nie.",
+	"apierror-graph-invalid": "Grafiek is nie geldig nie.",
+	"graph-ve-dialog-button-tooltip": "Grafiek",
+	"graph-ve-dialog-edit-field-graph-type": "Tipe grafiek",
+	"graph-ve-dialog-edit-height": "Hoogte",
+	"graph-ve-dialog-edit-padding-auto": "Outomatiese opvulling",
+	"graph-ve-dialog-edit-padding-fieldset": "Opvulling",
+	"graph-ve-dialog-edit-padding-table-bottom": "Onderaan",
+	"graph-ve-dialog-edit-padding-table-left": "Links",
+	"graph-ve-dialog-edit-padding-table-right": "Regs",
+	"graph-ve-dialog-edit-padding-table-top": "Boaan",
+	"graph-ve-dialog-edit-page-data": "Data",
+	"graph-ve-dialog-edit-page-general": "Algemeen",
+	"graph-ve-dialog-edit-page-raw": "Rou data",
+	"graph-ve-dialog-edit-size-fieldset": "Grootte",
+	"graph-ve-dialog-edit-table-row-delete": "Skrap ry",
+	"graph-ve-dialog-edit-title": "Redigeer grafiek",
+	"graph-ve-dialog-edit-type-area": "Vlakdiagram",
+	"graph-ve-dialog-edit-type-bar": "Staafgrafiek",
+	"graph-ve-dialog-edit-type-line": "Lyngrafiek",
+	"graph-ve-dialog-edit-type-unknown": "Onbekende grafiektipe"
+}
