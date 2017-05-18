@@ -5,7 +5,8 @@
 			"INS Pirat",
 			"Putnik",
 			"Frhdkazan",
-			"Mailman"
+			"Mailman",
+			"Facenapalm"
 		]
 	},
 	"graph-desc": "Позволяет тегам &lt;graph&gt; или целым страницам становиться графами на основе [http://vega.github.io/ Vega]",
@@ -15,7 +16,17 @@
 	"graph-broken-category": "Страницы со сломанными графиками",
 	"graph-broken-category-desc": "На этой странице неверно используется тег <code><nowiki><graph></nowiki></code>.",
 	"graph-obsolete-category": "Страницы с устаревшими графиками Vega 1.0",
+	"graph-obsolete-category-desc": "Страница включает в себя тег <code><nowiki><graph></nowiki></code>, который должен быть обновлён до версии 2.",
+	"graph-error-empty-json": "Данные графика пусты, нечего отображать.",
 	"graph-error-not-vega": "Некорректный JSON.",
+	"apihelp-graph-description": "Получение доступа к функциональности тега graph.",
+	"apihelp-graph-example": "Получить JSON графика по его хэшу и названию",
+	"apihelp-graph-param-hash": "Хэш-значение графика",
+	"apihelp-graph-param-title": "Название страницы с графиком",
+	"apihelp-graph-param-text": "Текст преобразовываемого в JSON графика. Должно быть отправлено запросом POST и использовано без параметров title и hash",
+	"apierror-graph-mustposttext": "Запросом должен быть POST при использовании параметра <var>text</var>.",
+	"apierror-graph-invalid": "График некорректен.",
+	"apierror-graph-missing": "График не найден.",
 	"graph-ve-dialog-button-tooltip": "График",
 	"graph-ve-dialog-edit-field-graph-type": "Тип графа",
 	"graph-ve-dialog-edit-field-raw-json": "Исходный код в JSON",
@@ -41,6 +52,7 @@
 	"graph-ve-dialog-edit-type-unknown": "Неизвестный тип графика",
 	"graph-ve-dialog-edit-width": "Ширина",
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "Тип этого графика не поддерживается, и любые вносимые изменения могут нарушить его отображение. Пожалуйста, отредактируйте исходные данные графика напрямую на вкладке «{{int:graph-ve-dialog-edit-page-raw}}».",
+	"graph-ve-empty-graph": "Пустой график",
 	"graph-ve-no-spec": "Не найдена спецификация графика",
 	"graph-ve-vega-error": "В Vega произошла ошибка при отрисовке этого графика",
 	"graph-ve-vega-error-no-render": "Vega не смог построить этот график"
