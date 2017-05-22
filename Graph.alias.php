@@ -4,11 +4,10 @@
  *
  * @file
  */
-// @codingStandardsIgnoreFile
 
-$specialPageAliases = array();
+$specialPageAliases = [];
 
 /** English (English) */
-$specialPageAliases['en'] = array(
-	'GraphSandbox' => array( 'GraphSandbox' ),
-);
+$specialPageAliases['en'] = [
+	'GraphSandbox' => [ 'GraphSandbox' ],
+];

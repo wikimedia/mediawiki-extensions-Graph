@@ -21,7 +21,9 @@ class Hooks {
 	 * @param ResourceLoader $resourceLoader The reference to the resource loader
 	 * @return bool
 	 */
-	public static function onResourceLoaderTestModules( array &$testModules, ResourceLoader &$resourceLoader ) {
+	public static function onResourceLoaderTestModules( array &$testModules,
+		ResourceLoader &$resourceLoader
+	) {
 		$resourceModules = $resourceLoader->getConfig()->get( 'ResourceModules' );
 
 		if (

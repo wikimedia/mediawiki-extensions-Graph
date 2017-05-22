@@ -36,7 +36,9 @@ class ParserTag {
 	 * @param ParserOptions $parserOptions
 	 * @param ParserOutput $parserOutput
 	 */
-	public function __construct( Parser $parser, ParserOptions $parserOptions, ParserOutput $parserOutput ) {
+	public function __construct( Parser $parser, ParserOptions $parserOptions,
+		ParserOutput $parserOutput
+	) {
 		$this->parserOptions = $parserOptions;
 		$this->parserOutput = $parserOutput;
 		$this->language = $parser->getTargetLanguage();

@@ -7,13 +7,13 @@ use SpecialPage;
 
 class Sandbox extends SpecialPage {
 
-	const PageName = 'GraphSandbox';
+	const PAGENAME = 'GraphSandbox';
 
 	/**
 	 * Constructor
 	 */
 	public function __construct() {
-		parent::__construct( self::PageName );
+		parent::__construct( self::PAGENAME );
 	}
 
 	protected function getGroupName() {
@@ -37,7 +37,9 @@ class Sandbox extends SpecialPage {
 		$graphHtml = Html::rawElement( 'div', $attr, '' );
 
 		// FIXME: make this textarea readonly (but text should be selectable)
-		$specHtml = '<div><textarea tabindex="1" accesskey="," id="wpTextbox1" cols="80" rows="40" style="" lang="en" dir="ltr" name="wpTextbox1" class="webfonts-changed"></textarea></div>';
+		$specHtml = '<div><textarea tabindex="1" accesskey="," id="wpTextbox1" cols="80" rows="40"' .
+			' style="" lang="en" dir="ltr" name="wpTextbox1" class="webfonts-changed"></textarea>' .
+			'</div>';
 		$jsonHtml = '<div><pre id="mw-graph-json"></pre></div>';
 
 		$out->addHTML( Html::rawElement( 'div', [ 'id' => 'mw-graph-sandbox' ],

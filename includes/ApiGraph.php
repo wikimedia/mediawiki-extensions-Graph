@@ -64,8 +64,8 @@ class ApiGraph extends ApiBase {
 
 	protected function getExamplesMessages() {
 		return [
-			'formatversion=2&action=graph&title=Extension%3AGraph%2FDemo&hash=1533aaad45c733dcc7e07614b54cbae4119a6747'
-				=> 'apihelp-graph-example',
+			'formatversion=2&action=graph&title=Extension%3AGraph%2FDemo' .
+				'&hash=1533aaad45c733dcc7e07614b54cbae4119a6747' => 'apihelp-graph-example',
 		];
 	}
 
