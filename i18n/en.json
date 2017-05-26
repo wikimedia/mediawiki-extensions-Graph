@@ -18,6 +18,7 @@
 	"graph-error-empty-json": "Empty graph data, nothing to show",
 	"graph-error-not-vega": "The JSON provided is not a valid Vega JSON",
 	"apihelp-graph-description": "Access graph tag functionality.",
+	"apihelp-graph-summary": "Access graph tag functionality.",
 	"apihelp-graph-example": "Get the graph JSON by hash and title",
 	"apihelp-graph-param-hash": "Hash value of the graph",
 	"apihelp-graph-param-title": "Title of the article with the graph",
