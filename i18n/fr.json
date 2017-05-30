@@ -18,7 +18,7 @@
 	"graph-tracking-category-desc": "La page contient une balise <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Pages avec des graphiques contenant des erreurs",
 	"graph-broken-category-desc": "La page utilise la balise <code><nowiki><graph></nowiki></code> avec un contenu invalide.",
-	"graph-obsolete-category": "Pages avec des graphiques Vega 1.0 obsolètes",
+	"graph-obsolete-category": "Pages avec des graphiques Vega 1.0 désuets",
 	"graph-obsolete-category-desc": "Cette page contient une balise <code><nowiki><graph></nowiki></code> qui doit être mise à jour vers la version 2.",
 	"graph-error-empty-json": "Aucune donnée de graphique, rien à afficher",
 	"graph-error-not-vega": "Le JSON fourni n’est pas un JSON Vega valide",
@@ -57,6 +57,6 @@
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "Le type de ce graphique n’est pas pris en charge, et toute modification qui y sera apportée pourrait casser son affichage. Veuillez modifier le graphique via la spécification de données brutes dans l’onglet « {{int:graph-ve-dialog-edit-page-raw}} ».",
 	"graph-ve-empty-graph": "Graphique vide",
 	"graph-ve-no-spec": "Spécification de graphique introuvable",
-	"graph-ve-vega-error": "Vega a trouvé une erreur lors du rendu de ce graphique",
+	"graph-ve-vega-error": "Une erreur est survenue lors du rendu de ce graphique par Vega",
 	"graph-ve-vega-error-no-render": "Vega n’a pas pu faire le rendu de ce graphique"
 }
