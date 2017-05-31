@@ -76,7 +76,7 @@ class ApiGraph extends ApiBase {
 	 */
 	private function preprocess( $text ) {
 		global $wgParser;
-		$title = Title::makeTitle( NS_SPECIAL, Sandbox::PageName )->fixSpecialName();
+		$title = Title::makeTitle( NS_SPECIAL, Sandbox::PAGENAME )->fixSpecialName();
 		$text = $wgParser->getFreshParser()->preprocess( $text, $title, new ParserOptions() );
 		$st = FormatJson::parse( $text );
 		if ( !$st->isOK() ) {
