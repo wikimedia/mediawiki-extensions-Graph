@@ -15,6 +15,7 @@
 	"graph-error-empty-json": "Податоците за градикот се празни. Нема што да се прикаже.",
 	"graph-error-not-vega": "Укажаниот JSON не претставува важечки Vega-JSON",
 	"apihelp-graph-description": "Пристап до функцијата за ознаки за графикони.",
+	"apihelp-graph-summary": "Пристап до функцијата за ознаки за графикони.",
 	"apihelp-graph-example": "Дај JSON за графикон по тараба и наслов",
 	"apihelp-graph-param-hash": "Тарабна вредност на графиконот",
 	"apihelp-graph-param-title": "Наслов на статијата со графиконот",

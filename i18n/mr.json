@@ -5,6 +5,8 @@
 		]
 	},
 	"graphsandbox": "आलेख धूळपाटी",
+	"graph-tracking-category-desc": "या पानात <code><nowiki><graph></nowiki></code> ही खूणपताका अंतर्भूत आहे.",
+	"graph-broken-category-desc": "या पानात अयोग्य रितीने वापरलेली <code><nowiki><graph></nowiki></code> ही खूणपताका अंतर्भूत आहे.",
 	"graph-obsolete-category": "अप्रचलित Vega 1.0 आलेख असणारी पाने",
 	"graph-obsolete-category-desc": "या पानात <code><nowiki><graph></nowiki></code>अशी खूणपताका अंतर्भूत आहे,जी version 2 ला अद्यतन करावयास हवी.",
 	"graph-error-empty-json": "रिकामी ग्राफ माहिती, दाखविण्यास काहीही नाही",
