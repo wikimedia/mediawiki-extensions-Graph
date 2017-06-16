@@ -19,10 +19,14 @@
 	"graph-error-empty-json": "Dados de gráfico vazios, nada a apresentar",
 	"graph-error-not-vega": "O JSON fornecido não é JSON Vega válido",
 	"apihelp-graph-description": "Aceder à funcionalidade do elemento <code>graph</code>.",
+	"apihelp-graph-summary": "Aceder à funcionalidade do elemento <code>graph</code>.",
 	"apihelp-graph-example": "Obter o JSON do gráfico por resumo criptográfico e título",
 	"apihelp-graph-param-hash": "Valor do resumo criptográfico do gráfico",
 	"apihelp-graph-param-title": "Título do artigo com o gráfico",
 	"apihelp-graph-param-text": "Texto do gráfico a ser convertido para JSON. Tem de ser publicado e usado sem os parâmetros título e resumo criptográfico",
+	"apierror-graph-mustposttext": "O pedido deve ser enviado pelo método POST quando o parâmetro <var>text</var> for usado.",
+	"apierror-graph-invalid": "O gráfico não é válido.",
+	"apierror-graph-missing": "Não foi encontrado nenhum gráfico.",
 	"graph-ve-dialog-button-tooltip": "Gráfico",
 	"graph-ve-dialog-edit-field-graph-type": "Tipo de gráfico",
 	"graph-ve-dialog-edit-field-raw-json": "Especificação em JSON em bruto",
@@ -50,6 +54,6 @@
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "O tipo deste gráfico não é suportado e quaisquer modificações que lhe sejam feitas podem impedir que seja apresentado. Edite o gráfico através da especificação por dados em bruto, no separador \"{{int:graph-ve-dialog-edit-page-raw}}\", por favor.",
 	"graph-ve-empty-graph": "Gráfico vazio",
 	"graph-ve-no-spec": "Não foi encontrada uma especificação de gráfico",
-	"graph-ve-vega-error": "Ocorreu um problema no Vega ao desenhar este gráfico",
-	"graph-ve-vega-error-no-render": "O Vega não conseguiu apresentar este gráfico"
+	"graph-ve-vega-error": "Ocorreu um problema no Vega ao compor este gráfico",
+	"graph-ve-vega-error-no-render": "O Vega não conseguiu compor este gráfico"
 }
