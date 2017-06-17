@@ -4,6 +4,9 @@
 			"Умар"
 		]
 	},
+	"graph-tracking-category": "Графикаш йолу агӀонаш",
+	"graph-broken-category": "Йоьхна графикаш йолу агӀонаш",
+	"graph-obsolete-category": "Ширъелла Vega 1.0 графикаш йолу агӀонаш",
 	"graph-ve-dialog-edit-padding-auto": "Автоматически дӀахилор",
 	"graph-ve-dialog-edit-padding-fieldset": "ДӀахилор",
 	"graph-ve-dialog-edit-padding-table-bottom": "Лахахь",
