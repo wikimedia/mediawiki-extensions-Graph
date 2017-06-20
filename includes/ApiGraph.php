@@ -100,7 +100,6 @@ class ApiGraph extends ApiBase {
 	 * @return string
 	 */
 	private function getFromStorage( $titleText, $hash ) {
-
 		// NOTE: Very strange wgMemc feature: Even though we store the data structure into memcached
 		// by JSON-encoding and gzip-ing it, when we get it out it is already in the original form.
 		$graph = Store::getFromCache( $hash );
