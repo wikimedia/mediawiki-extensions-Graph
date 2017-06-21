@@ -16,6 +16,7 @@
 	"graph-error-empty-json": "Datos de gráfico baleiros, nada que mostrar",
 	"graph-error-not-vega": "O JSON proporcionada non é un JSON Vega válido",
 	"apihelp-graph-description": "Acceder á funcionalidade de etiquetado de gráficos.",
+	"apihelp-graph-summary": "Acceder á funcionalidade de etiquetado de gráficos.",
 	"apihelp-graph-example": "Obter o JSON do gráfico por función hash e título",
 	"apihelp-graph-param-hash": "Valor hash do gráfico",
 	"apihelp-graph-param-title": "Título do artigo co gráfico",
