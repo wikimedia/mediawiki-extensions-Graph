@@ -9,7 +9,8 @@
 			"Wladek92",
 			"Orlodrim",
 			"PifyZ",
-			"Urhixidur"
+			"Urhixidur",
+			"Thibaut120094"
 		]
 	},
 	"graph-desc": "Permet aux balises &lt;graph&gt; ou aux pages complètes de devenir des graphiques basés sur [http://vega.github.io/ Vega]",
@@ -23,6 +24,7 @@
 	"graph-error-empty-json": "Aucune donnée de graphique, rien à afficher",
 	"graph-error-not-vega": "Le JSON fourni n’est pas un JSON Vega valide",
 	"apihelp-graph-description": "Accéder à la fonctionnalité de balise de graphique.",
+	"apihelp-graph-summary": "Accéder à la fonctionnalité de balise de graphique.",
 	"apihelp-graph-example": "Obtenir le JSON du graphique par hachage et titre",
 	"apihelp-graph-param-hash": "Valeur de hachage du graphique",
 	"apihelp-graph-param-title": "Titre de l’article avec le graphique",
