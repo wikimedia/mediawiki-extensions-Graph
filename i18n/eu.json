@@ -3,9 +3,11 @@
 		"authors": [
 			"Sator",
 			"Subi",
-			"An13sa"
+			"An13sa",
+			"Mikel Ibaiba"
 		]
 	},
+	"apihelp-graph-param-title": "Grafikodun orriaren izena",
 	"graph-ve-dialog-button-tooltip": "Grafikoa",
 	"graph-ve-dialog-edit-height": "Altuera",
 	"graph-ve-dialog-edit-padding-table-left": "Ezkerrera",
