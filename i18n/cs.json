@@ -3,7 +3,8 @@
 		"authors": [
 			"Mormegil",
 			"Matěj Suchánek",
-			"Dvorapa"
+			"Dvorapa",
+			"Meliganai"
 		]
 	},
 	"graph-desc": "Vytváří ze značek &lt;graph&gt; nebo celých stránek grafy pomocí [http://vega.github.io/ Vega]",
@@ -16,6 +17,7 @@
 	"graph-obsolete-category-desc": "Stránka obsahuje značku <code><nowiki><graph></nowiki></code>, která by měla být aktualizována na verzi 2.",
 	"graph-error-empty-json": "Prázdná data grafu, není co zobrazit",
 	"graph-error-not-vega": "Poskytnutý JSON není platný Vega JSON",
+	"apihelp-graph-param-title": "Titulek stránky s grafem",
 	"graph-ve-dialog-button-tooltip": "Graf",
 	"graph-ve-dialog-edit-field-graph-type": "Typ grafu",
 	"graph-ve-dialog-edit-field-raw-json": "Surová specifikace JSON",
