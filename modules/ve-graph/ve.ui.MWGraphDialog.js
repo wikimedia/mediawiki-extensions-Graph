@@ -195,7 +195,6 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 		autosize: true,
 		classes: [ 've-ui-mwGraphDialog-json' ],
 		maxRows: 22,
-		multiline: true,
 		validate: this.validateRawData
 	} );
 
