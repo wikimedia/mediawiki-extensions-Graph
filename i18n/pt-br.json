@@ -2,9 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"Jefersonmoraes",
-			"Luan"
+			"Luan",
+			"Felipe L. Ewald"
 		]
 	},
 	"graph-desc": "Permite transformar etiquetas &lt;graph> ou páginas todas em gráficos basados em [http://vega.github.io/ Vega]",
-	"graphsandbox": "Zona de testes de gráficos"
+	"graphsandbox": "Zona de testes de gráficos",
+	"graph-ve-dialog-edit-padding-table-left": "Esquerda",
+	"graph-ve-dialog-edit-padding-table-right": "Direita",
+	"graph-ve-dialog-edit-padding-table-top": "Topo",
+	"graph-ve-dialog-edit-padding-table-unit": "Pixels",
+	"graph-ve-dialog-edit-page-data": "Dado",
+	"graph-ve-dialog-edit-size-fieldset": "Tamanho",
+	"graph-ve-dialog-edit-size-table-unit": "Pixels"
 }
