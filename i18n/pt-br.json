@@ -8,6 +8,8 @@
 	},
 	"graph-desc": "Permite transformar etiquetas &lt;graph> ou páginas todas em gráficos basados em [http://vega.github.io/ Vega]",
 	"graphsandbox": "Zona de testes de gráficos",
+	"apihelp-graph-description": "Acesse a funcionalidade da tag gráfica.",
+	"apihelp-graph-summary": "Acesse a funcionalidade da tag gráfica.",
 	"graph-ve-dialog-button-tooltip": "Gráfico",
 	"graph-ve-dialog-edit-height": "Altura",
 	"graph-ve-dialog-edit-padding-fieldset": "Espaçamento",
@@ -18,7 +20,9 @@
 	"graph-ve-dialog-edit-padding-table-unit": "Pixels",
 	"graph-ve-dialog-edit-page-data": "Dado",
 	"graph-ve-dialog-edit-page-general": "General",
+	"graph-ve-dialog-edit-page-raw": "Dados brutos",
 	"graph-ve-dialog-edit-size-fieldset": "Tamanho",
 	"graph-ve-dialog-edit-size-table-unit": "Pixels",
+	"graph-ve-dialog-edit-type-bar": "Gráfico de barras",
 	"graph-ve-dialog-edit-width": "Largura"
 }
