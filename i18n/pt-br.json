@@ -9,6 +9,7 @@
 	"graph-desc": "Permite transformar etiquetas &lt;graph> ou páginas todas em gráficos basados em [http://vega.github.io/ Vega]",
 	"graphsandbox": "Zona de testes de gráficos",
 	"graph-tracking-category": "Páginas com gráficos",
+	"graph-broken-category": "Páginas com mapas quebrados",
 	"apihelp-graph-description": "Acesse a funcionalidade da tag gráfica.",
 	"apihelp-graph-summary": "Acesse a funcionalidade da tag gráfica.",
 	"apihelp-graph-param-hash": "Valor de hash do gráfico",
