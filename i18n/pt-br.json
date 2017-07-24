@@ -39,5 +39,6 @@
 	"graph-ve-dialog-edit-type-line": "Gráfico de linhas",
 	"graph-ve-dialog-edit-type-unknown": "Tipo de gráfico desconhecido",
 	"graph-ve-dialog-edit-width": "Largura",
-	"graph-ve-empty-graph": "Gráfico vazio"
+	"graph-ve-empty-graph": "Gráfico vazio",
+	"graph-ve-no-spec": "Nenhuma especificação de gráfico encontrada"
 }
