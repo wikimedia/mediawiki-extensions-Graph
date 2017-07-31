@@ -13,7 +13,6 @@
   "devDependencies": {
     "browserify": "^13.0.0",
     "eslint-config-wikimedia": "0.4.0",
-    "mw-graph-shared": "^0.3.6",
     "grunt": "1.0.1",
     "grunt-banana-checker": "0.5.0",
     "grunt-contrib-watch": "1.0.0",
@@ -21,6 +20,8 @@
     "grunt-jsonlint": "1.0.7",
     "grunt-stylelint": "0.7.0",
     "jquery.splitter": "^0.20.1",
+    "mw-graph-shared": "^0.3.6",
+    "stylelint": "7.8.0",
     "stylelint-config-wikimedia": "0.4.1"
   }
 }
