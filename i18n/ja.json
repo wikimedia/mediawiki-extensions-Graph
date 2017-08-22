@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Sujiniku",
-			"Otokoume"
+			"Otokoume",
+			"Delim"
 		]
 	},
+	"graphsandbox": "グラフの下書き",
 	"graph-tracking-category": "グラフのあるページ",
 	"graph-tracking-category-desc": "そのページは <code><nowiki><graph></nowiki></code> タグを含んでいます。",
 	"graph-broken-category": "破損したグラフのあるページ",
