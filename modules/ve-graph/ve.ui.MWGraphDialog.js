@@ -294,6 +294,7 @@ ve.ui.MWGraphDialog.prototype.getTeardownProcess = function ( data ) {
 			// Kill staging
 			if ( data === undefined ) {
 				this.getFragment().getSurface().popStaging();
+				this.getFragment().update( this.getFragment().getSurface().getSelection() );
 			}
 		}, this );
 };
