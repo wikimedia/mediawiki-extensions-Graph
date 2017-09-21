@@ -4,10 +4,15 @@
 			"Mavrikant",
 			"HakanIST",
 			"Sayginer",
-			"McAang"
+			"McAang",
+			"Incelemeelemani"
 		]
 	},
+	"graphsandbox": "Grafik kum havuzu",
+	"apierror-graph-invalid": "Grafik geçerli değil.",
+	"apierror-graph-missing": "Hiçbir grafik bulunamadı",
 	"graph-ve-dialog-button-tooltip": "Grafik",
+	"graph-ve-dialog-edit-field-graph-type": "Grafik türü",
 	"graph-ve-dialog-edit-height": "Yükseklik",
 	"graph-ve-dialog-edit-page-general": "Genel",
 	"graph-ve-dialog-edit-size-fieldset": "Boyut",
