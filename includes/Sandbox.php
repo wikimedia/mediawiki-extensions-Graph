@@ -22,7 +22,7 @@ class Sandbox extends SpecialPage {
 
 	/**
 	 * Main execution function
-	 * @param $par string|null Parameters passed to the page
+	 * @param string|null $par Parameters passed to the page
 	 */
 	public function execute( $par ) {
 		$out = $this->getContext()->getOutput();

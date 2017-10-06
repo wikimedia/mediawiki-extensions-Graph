@@ -45,7 +45,7 @@ class ParserTag {
 	}
 
 	/**
-	 * @param $input
+	 * @param string $input
 	 * @param array $args
 	 * @param Parser $parser
 	 * @param PPFrame $frame
