@@ -4,5 +4,8 @@
 			"MokaAkashiyaPT"
 		]
 	},
-	"graphsandbox": "Testes de gráficos"
+	"graphsandbox": "Testes de gráficos",
+	"graph-tracking-category": "Páiginas cun gráficos",
+	"graph-broken-category": "Páiginas cun gráficos scachados",
+	"graph-obsolete-category": "Páiginas cun gráficos Vega 1.0 obsoletos"
 }
