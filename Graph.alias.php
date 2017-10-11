@@ -11,3 +11,8 @@ $specialPageAliases = [];
 $specialPageAliases['en'] = [
 	'GraphSandbox' => [ 'GraphSandbox' ],
 ];
+
+/** Urdu (اردو) */
+$specialPageAliases['ur'] = [
+	'GraphSandbox' => [ 'گراف_کا_تختہ_مشق' ],
+];
