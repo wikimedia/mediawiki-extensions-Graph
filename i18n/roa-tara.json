@@ -5,6 +5,10 @@
 		]
 	},
 	"graph-desc": "Permette le tag &lt;graph&gt; o pàggene indere de devendà grafece basate sus a [http://vega.github.io/ Vega]",
+	"graphsandbox": "Pàgene de prove pe le grafece",
+	"graph-tracking-category": "Pàggene cu le grafece",
+	"graph-tracking-category-desc": "Sta pàgene tène'nu tag <code><nowiki><graph></nowiki></code>.",
+	"graph-broken-category": "Pàggene cu le grafece scuasciate",
 	"apihelp-graph-param-title": "Titole d'a pàgene cu 'u grafeche",
 	"graph-ve-no-spec": "Nisciuna specifiche de grafeche ha state acchiate"
 }
