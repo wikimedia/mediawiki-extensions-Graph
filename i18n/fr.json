@@ -28,7 +28,7 @@
 	"apihelp-graph-example": "Obtenir le JSON du graphique par hachage et titre",
 	"apihelp-graph-param-hash": "Valeur de hachage du graphique",
 	"apihelp-graph-param-title": "Titre de la page avec le graphique",
-	"apihelp-graph-param-text": "Texte du graphique à convertir en JSON. Doit être posté et utilisé sans titre ni paramètres de hachage",
+	"apihelp-graph-param-text": "Texte du graphique à convertir en JSON. Doit être publié et utilisé sans titre ni paramètres de hachage",
 	"apierror-graph-mustposttext": "La requête doit être envoyée à l'aide de POST quand le paramètre <var>text</var> est utilisé.",
 	"apierror-graph-invalid": "Graphique non valide.",
 	"apierror-graph-missing": "Aucun graphique trouvé.",
