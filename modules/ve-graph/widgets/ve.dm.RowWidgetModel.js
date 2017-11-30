@@ -4,7 +4,7 @@
  * @license The MIT License (MIT); see LICENSE.txt
  */
 
- /**
+/**
  * RowWidget model.
  *
  * @class
@@ -75,7 +75,7 @@ OO.mixinClass( ve.dm.RowWidgetModel, OO.EventEmitter );
  * @param {boolean} Clear cell properties
  */
 
- /**
+/**
  * @event labelUpdate
  *
  * Fired when the row label might need to be updated
