@@ -4,13 +4,12 @@
 			"जनक राज भट्ट"
 		]
 	},
-	"graph-ve-dialog-edit-cancel": "रद्द",
+	"graph-ve-dialog-button-tooltip": " ग्राफ",
 	"graph-ve-dialog-edit-field-graph-type": "ग्राफको प्रकार",
 	"graph-ve-dialog-edit-page-general": "साधारण",
 	"graph-ve-dialog-edit-page-raw": "कच्चा डाटा",
 	"graph-ve-dialog-edit-type-area": "क्षेत्रफल ग्राफ",
 	"graph-ve-dialog-edit-type-bar": "बार ग्राफ",
 	"graph-ve-dialog-edit-type-line": "लाइन ग्राफ",
-	"graph-ve-dialog-edit-type-unknown": "थानभया ग्राफ प्रकार",
-	"graph-ve-dialog-button-tooltip": " ग्राफ"
+	"graph-ve-dialog-edit-type-unknown": "थानभया ग्राफ प्रकार"
 }
