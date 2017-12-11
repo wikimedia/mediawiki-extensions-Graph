@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Siebrand",
-			"Sjoerddebruin"
+			"Sjoerddebruin",
+			"Mar(c)"
 		]
 	},
 	"graph-desc": "Maakt het mogelijk om het label &lt;graph> of hele pagina's op [http://vega.github.io/ Vega] gebaseerde grafieken te laten worden",
@@ -10,6 +11,7 @@
 	"graph-broken-category-desc": "De pagina bevat een label <code><nowiki><graph></nowiki></code> dat onjuist wordt gebruikt.",
 	"graph-ve-dialog-button-tooltip": "Grafiek",
 	"graph-ve-dialog-edit-field-graph-type": "Soort grafiek",
+	"graph-ve-dialog-edit-height": "Hoogte",
 	"graph-ve-dialog-edit-padding-auto": "Automatische opvulling",
 	"graph-ve-dialog-edit-padding-fieldset": "Opvulling",
 	"graph-ve-dialog-edit-padding-table-bottom": "Onderaan",
@@ -27,6 +29,7 @@
 	"graph-ve-dialog-edit-type-area": "Vlakdiagram",
 	"graph-ve-dialog-edit-type-bar": "Staafgrafiek",
 	"graph-ve-dialog-edit-type-line": "Lijngrafiek",
+	"graph-ve-dialog-edit-type-unknown": "Onbekend soort grafiek",
 	"graph-ve-dialog-edit-width": "Breedte",
 	"graph-ve-empty-graph": "Lege grafiek"
 }
