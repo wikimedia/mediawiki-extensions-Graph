@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Лорд Бъмбъри"
+			"Лорд Бъмбъри",
+			"StanProg"
 		]
 	},
-	"graph-ve-dialog-button-tooltip": "Графика"
+	"graphsandbox": "Пясъчник за графики",
+	"graph-ve-dialog-button-tooltip": "Графика",
+	"graph-ve-dialog-edit-type-line": "Линейна графика"
 }
