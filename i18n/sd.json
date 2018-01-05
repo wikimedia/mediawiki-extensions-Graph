@@ -5,9 +5,17 @@
 			"Aursani"
 		]
 	},
+	"graphsandbox": "گراف مشق-پٽي",
+	"graph-ve-dialog-button-tooltip": "گراف",
+	"graph-ve-dialog-edit-field-graph-type": "گراف جو قسم",
 	"graph-ve-dialog-edit-padding-table-bottom": "تَرو",
 	"graph-ve-dialog-edit-padding-table-left": "کاٻو",
 	"graph-ve-dialog-edit-padding-table-right": "ساڄو",
 	"graph-ve-dialog-edit-padding-table-top": "چوٽي",
-	"graph-ve-dialog-edit-padding-table-unit": "عڪسلُون"
+	"graph-ve-dialog-edit-padding-table-unit": "عڪسلُون",
+	"graph-ve-dialog-edit-title": "گراف سنواريو",
+	"graph-ve-dialog-edit-type-area": "ايراضيءَ جو گراف",
+	"graph-ve-dialog-edit-type-bar": "بار گراف",
+	"graph-ve-dialog-edit-type-line": "ليڪ گراف",
+	"graph-ve-empty-graph": "خالي گراف"
 }
