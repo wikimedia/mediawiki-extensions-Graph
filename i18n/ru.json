@@ -20,6 +20,7 @@
 	"graph-error-empty-json": "Данные графика пусты, нечего отображать.",
 	"graph-error-not-vega": "Некорректный JSON.",
 	"apihelp-graph-description": "Получение доступа к функциональности тега graph.",
+	"apihelp-graph-summary": "Получение доступа к функциональности тега graph.",
 	"apihelp-graph-example": "Получить JSON графика по его хэшу и названию",
 	"apihelp-graph-param-hash": "Хэш-значение графика",
 	"apihelp-graph-param-title": "Название страницы с графиком",
