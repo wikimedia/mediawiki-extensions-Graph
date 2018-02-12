@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"គីមស៊្រុន"
+		]
+	},
+	"graph-ve-dialog-button-tooltip": "ក្រាហ្វ",
+	"graph-ve-dialog-edit-field-graph-type": "ប្រភេទក្រាហ្វ",
+	"graph-ve-dialog-edit-height": "កម្ពស់",
+	"graph-ve-dialog-edit-padding-auto": "ដាក់ជាយដោយស្វ័យប្រវត្តិ",
+	"graph-ve-dialog-edit-padding-fieldset": "ការដាក់ជាយ",
+	"graph-ve-dialog-edit-padding-table-bottom": "ក្រោម",
+	"graph-ve-dialog-edit-padding-table-left": "ឆ្វេង",
+	"graph-ve-dialog-edit-padding-table-right": "ស្ដាំ",
+	"graph-ve-dialog-edit-padding-table-top": "លើ",
+	"graph-ve-dialog-edit-padding-table-unit": "ភីចសែល",
+	"graph-ve-dialog-edit-page-data": "ទិន្នន័យ",
+	"graph-ve-dialog-edit-page-general": "ទូទៅ​",
+	"graph-ve-dialog-edit-page-raw": "ទិន្នន័យឆៅ",
+	"graph-ve-dialog-edit-size-fieldset": "ទំហំ​",
+	"graph-ve-dialog-edit-size-table-unit": "ភីចសែល",
+	"graph-ve-dialog-edit-table-row-delete": "លុបជួរដេក",
+	"graph-ve-dialog-edit-title": "កែប្រែក្រាហ្វ",
+	"graph-ve-dialog-edit-type-area": "ក្រាហ្វផ្ទៃ",
+	"graph-ve-dialog-edit-type-bar": "ក្រាហ្វសសរ",
+	"graph-ve-dialog-edit-type-line": "ក្រាហ្វខ្សែ",
+	"graph-ve-dialog-edit-type-unknown": "មិនស្គាល់ប្រភេទក្រាហ្វ",
+	"graph-ve-dialog-edit-width": "ទទឹង",
+	"graph-ve-empty-graph": "ក្រាហ្វទទេ"
+}
