@@ -3,9 +3,11 @@
 		"authors": [
 			"زكريا",
 			"Meno25",
-			"Shbib Al-Subaie"
+			"Shbib Al-Subaie",
+			"ديفيد"
 		]
 	},
+	"graph-desc": "يسمح بوسوم &lt;graph&gt; أو صفحات كاملة لتصبح رسومات بيانية قائمة على [http://vega.github.io/ Vega]",
 	"graphsandbox": "ملعب الرسومات",
 	"graph-tracking-category": "صفحات بها مخططات",
 	"graph-tracking-category-desc": "تتضمن هذه الصفحة وسم <code><nowiki><graph></nowiki></code>.",
@@ -13,6 +15,17 @@
 	"graph-broken-category-desc": "تتضمن هذه الصفحة وسم <code><nowiki><graph></nowiki></code> باستخدام غير صالح.",
 	"graph-obsolete-category": "صفحات بها مخططات Vega 1.0 مهملة",
 	"graph-obsolete-category-desc": "تتضمن هذه الصفحة وسم <code><nowiki><graph></nowiki></code> يجب تحديثه للإصدار 2.",
+	"graph-error-empty-json": "بيانات الرسم البياني فارغة; لا شيء لإظهاره",
+	"graph-error-not-vega": "JSON المقدم ليس Vega JSON صالحا",
+	"apihelp-graph-description": "وظيفة وسم الوصول إلى الرسوم البيانية.",
+	"apihelp-graph-summary": "وظيفة وسم الوصول إلى الرسوم البيانية.",
+	"apihelp-graph-example": "الحصول على الرسم البياني JSON بواسطة رمز الرقم والعنوان",
+	"apihelp-graph-param-hash": "قيمة رمز الرقم للرسم البياني",
+	"apihelp-graph-param-title": "عنوان الصفحة مع الرسم البياني",
+	"apihelp-graph-param-text": "نص الرسم البياني ليتم تحويله إلى JSON، يجب نشره واستخدامه بدون وسائط العنوان ورمز الرقم",
+	"apierror-graph-mustposttext": "يجب أن يتم POSTed الطلب عندما يتم استخدام الوسيط <var>text</var>.",
+	"apierror-graph-invalid": "الرسم البياني غير صالح.",
+	"apierror-graph-missing": "لم يتم العثور على رسم بياني.",
 	"graph-ve-dialog-button-tooltip": "مخطط",
 	"graph-ve-dialog-edit-field-graph-type": "نوع المخطط",
 	"graph-ve-dialog-edit-field-raw-json": "تخصيص JSON الخام",
@@ -32,7 +45,14 @@
 	"graph-ve-dialog-edit-size-table-unit": "بكسلات",
 	"graph-ve-dialog-edit-table-row-delete": "احذف الصف",
 	"graph-ve-dialog-edit-title": "تعديل المخطط",
+	"graph-ve-dialog-edit-type-area": "الرسم البياني للمنطقة",
+	"graph-ve-dialog-edit-type-bar": "مخطط شريطي",
+	"graph-ve-dialog-edit-type-line": "رسم بياني خطي",
 	"graph-ve-dialog-edit-type-unknown": "نوع المخطط غير معروف",
 	"graph-ve-dialog-edit-width": "العرض",
-	"graph-ve-empty-graph": "مخطط فارغ"
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "نوع هذا الرسم البياني غير معتمد، وقد تؤدي أية تعديلات يتم إجراؤها عليه إلى قطع عرضه; يُرجَى تعديل الرسم البياني من خلال مواصفات البيانات الأولية في علامة التبويب \"{{int:graph-ve-dialog-edit-page-raw}}\".",
+	"graph-ve-empty-graph": "مخطط فارغ",
+	"graph-ve-no-spec": "لم يتم العثور على مواصفات الرسم البياني",
+	"graph-ve-vega-error": "واجه Vega خطأ في عرض هذا الرسم البياني",
+	"graph-ve-vega-error-no-render": "لم يتمكن Vega من عرض هذا الرسم البياني"
 }
