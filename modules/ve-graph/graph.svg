@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="2 2 20 20">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
     <g id="graph">
-        <path id="axes" d="M5 6v12h14v-1H6V6H5z"/>
-        <path id="data" d="M7 16v-3l4-3 3 2 4-4v8H7"/>
+        <path id="axes" d="M2 3v14h16v-2H4V3z"/>
+        <path id="data" d="M5 14v-3l4-3 3 2 5-4v8H5"/>
     </g>
 </svg>
