@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80"
+			"Amire80",
+			"Guycn2"
 		]
 	},
 	"graph-desc": "מאפשרת לתגי &lt;graph&gt; או לדפים שלמים להיות תרשים שמבוססים על [http://vega.github.io/ Vega]",
@@ -15,6 +16,7 @@
 	"graph-error-empty-json": "נתוני גרף ריקים, אין מה להציג",
 	"graph-error-not-vega": "ה־JSON שסופק הוא לא JSON תקין של Vega",
 	"apihelp-graph-description": "גישה לפונקצינליות של תגי תרשימים (graph).",
+	"apihelp-graph-summary": "גישה לפונקצינליות של תגי תרשימים (graph).",
 	"apihelp-graph-example": "קבלת ה־JSON של התרשים באמצעות גיבוב וכותרת",
 	"apihelp-graph-param-hash": "ערך הגיבוב של התרשים",
 	"apihelp-graph-param-title": "כותרת הדף עם התרשים",
