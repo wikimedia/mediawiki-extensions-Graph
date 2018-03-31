@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Milicevic01"
+			"Milicevic01",
+			"BadDog"
 		]
 	},
+	"graphsandbox": "Песак за графиконе",
 	"graph-tracking-category": "Странице са графиконима",
 	"graph-tracking-category-desc": "Странице које имају ознаку <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Странице са поквареним графиконима",
