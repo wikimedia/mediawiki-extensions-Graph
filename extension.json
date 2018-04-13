@@ -8,7 +8,7 @@
 	"url": "https://www.mediawiki.org/wiki/Extension:Graph",
 	"descriptionmsg": "graph-desc",
 	"license-name": "MIT",
-	"type": "other",
+	"type": "parserhook",
 	"MessagesDirs": {
 		"Graph": [
 			"i18n"
