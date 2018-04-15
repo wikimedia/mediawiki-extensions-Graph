@@ -10,6 +10,8 @@
 	"graph-tracking-category": "صفحه‌های دارای گراف",
 	"graph-broken-category": "صفحه‌های دارای گراف شکسته",
 	"graph-obsolete-category": "صفحه‌های با گراف منسوخ وگا ۱.۰",
+	"apierror-graph-invalid": "گراف معتبر نیست",
+	"apierror-graph-missing": "هیچ گرافی پیدا نشد",
 	"graph-ve-dialog-button-tooltip": "گراف",
 	"graph-ve-dialog-edit-field-graph-type": "نوع گراف",
 	"graph-ve-dialog-edit-height": "ارتفاع",
