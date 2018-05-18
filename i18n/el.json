@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Geraki"
+			"Geraki",
+			"Nikosgranturismogt"
 		]
 	},
 	"graph-desc": "Επιτρέπει ετικέτες &lt;graph> ή ολόκληρες σελίδες να γίνονται γραφήματα με βάση το [http://vega.github.io/ Vega]",
+	"graphsandbox": "Πρόχειρο γραφημάτων",
 	"graph-tracking-category": "Σελίδες με γραφήματα",
 	"graph-tracking-category-desc": "Η σελίδα περιλαμβάνει μια ετικέτα <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Σελίδες με σπασμένα γραφήματα",
