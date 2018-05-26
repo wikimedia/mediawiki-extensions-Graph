@@ -138,7 +138,7 @@ class ParserTag {
 	 * @param string $jsonText
 	 * @param Title $title
 	 * @param int $revid
-	 * @param array $args
+	 * @param array|null $args
 	 * @return string
 	 */
 	public function buildHtml( $jsonText, Title $title, $revid, $args = null ) {
