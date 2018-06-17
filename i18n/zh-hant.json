@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Cwlin0416",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Kly"
 		]
 	},
 	"graph-desc": "允許 &lt;graph&gt; 標籤或整個頁面使用 [http://vega.github.io/ Vega] 為基礎的圖型。",
@@ -20,6 +21,8 @@
 	"apihelp-graph-example": "由 Hash 與標題取得圖表 JSON",
 	"apihelp-graph-param-hash": "此圖表的 Hash 值",
 	"apihelp-graph-param-title": "此圖表的頁面標題",
+	"apihelp-graph-param-text": "要轉換成 JSON 的圖形文字。必須在沒有使用標題和雜湊參數下傳遞",
+	"apierror-graph-mustposttext": "當使用 <var>text</var> 參數時，請求必須以 POST 方式。",
 	"apierror-graph-invalid": "圖表無效。",
 	"apierror-graph-missing": "查無圖表。",
 	"graph-ve-dialog-button-tooltip": "圖表",
@@ -46,6 +49,9 @@
 	"graph-ve-dialog-edit-type-line": "折線圖",
 	"graph-ve-dialog-edit-type-unknown": "無效的圖表類型",
 	"graph-ve-dialog-edit-width": "寬度",
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "不支援此圖形類型，任何修改動作都會造成顯示中斷。請透過「{{int:graph-ve-dialog-edit-page-raw}}」分頁上的原始資料規格來編輯圖形。",
 	"graph-ve-empty-graph": "空圖表",
-	"graph-ve-no-spec": "查無圖型規格"
+	"graph-ve-no-spec": "查無圖型規格",
+	"graph-ve-vega-error": "Vega 在呈現此圖形時發生錯誤",
+	"graph-ve-vega-error-no-render": "Vega 無法呈現此圖形"
 }
