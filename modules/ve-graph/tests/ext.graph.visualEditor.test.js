@@ -365,17 +365,17 @@ QUnit.module( 'ext.graph.visualEditor' );
 
 	QUnit.test( 've.ce.MWGraphNode.static', function ( assert ) {
 		var testElement = document.createElement( 'div' ),
+			promise,
 			renderValidTest = assert.async(),
 			renderInvalidTest = assert.async();
 
 		$( '#qunit-fixture' ).append( testElement );
 
-		ve.ce.MWGraphNode.static.vegaParseSpec( sampleSpecs.areaGraph, testElement ).always(
-			function () {
-				assert.ok( this.state() === 'resolved', 'Simple graph gets rendered correctly' );
-				renderValidTest();
-			}
-		);
+		promise = ve.ce.MWGraphNode.static.vegaParseSpec( sampleSpecs.areaGraph, testElement );
+		promise.always( function () {
+			assert.ok( promise.state() === 'resolved', 'Single graph gets rendered correctly' );
+			renderValidTest();
+		} );
 
 		ve.ce.MWGraphNode.static.vegaParseSpec( sampleSpecs.invalidAxesBarGraph, testElement ).always(
 			function ( failMessageKey ) {
