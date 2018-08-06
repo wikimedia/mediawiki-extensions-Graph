@@ -27,7 +27,10 @@
 	"apierror-graph-invalid": "그래프가 유효하지 않습니다.",
 	"apierror-graph-missing": "그래프가 없습니다.",
 	"graph-ve-dialog-button-tooltip": "그래프",
+	"graph-ve-dialog-edit-field-graph-type": "그래프 종류",
+	"graph-ve-dialog-edit-field-raw-json": "순수 JSON 사양",
 	"graph-ve-dialog-edit-height": "높이",
+	"graph-ve-dialog-edit-json-invalid": "유효하지 않은 JSON 문자열",
 	"graph-ve-dialog-edit-padding-fieldset": "간격",
 	"graph-ve-dialog-edit-padding-table-bottom": "아래",
 	"graph-ve-dialog-edit-padding-table-right": "오른쪽",
@@ -38,5 +41,6 @@
 	"graph-ve-dialog-edit-title": "그래프 편집",
 	"graph-ve-dialog-edit-type-bar": "막대그래프",
 	"graph-ve-dialog-edit-type-line": "선 그래프",
-	"graph-ve-dialog-edit-width": "너비"
+	"graph-ve-dialog-edit-width": "너비",
+	"graph-ve-empty-graph": "빈 그래프"
 }
