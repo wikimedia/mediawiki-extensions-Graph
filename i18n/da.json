@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Saederup92"
+		]
+	},
+	"graph-ve-dialog-button-tooltip": "Graf",
+	"graph-ve-dialog-edit-field-graph-type": "Graftype",
+	"graph-ve-dialog-edit-height": "Højde",
+	"graph-ve-dialog-edit-padding-table-left": "Venstre",
+	"graph-ve-dialog-edit-padding-table-right": "Højre",
+	"graph-ve-dialog-edit-size-fieldset": "Størrelse",
+	"graph-ve-dialog-edit-width": "Bredde",
+	"graph-ve-empty-graph": "Tomt diagram"
+}
