@@ -204,7 +204,7 @@ ve.dm.RowWidgetModel.prototype.setData = function ( data ) {
  */
 ve.dm.RowWidgetModel.prototype.setIndex = function ( index ) {
 	this.index = index;
-	this.emit( 'labelChange' );
+	this.emit( 'labelUpdate' );
 };
 
 /**
@@ -215,7 +215,7 @@ ve.dm.RowWidgetModel.prototype.setIndex = function ( index ) {
  */
 ve.dm.RowWidgetModel.prototype.setLabel = function ( label ) {
 	this.label = label;
-	this.emit( 'labelChange' );
+	this.emit( 'labelUpdate' );
 };
 
 /**
