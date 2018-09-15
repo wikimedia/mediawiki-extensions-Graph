@@ -4,6 +4,6 @@
 			"Mafcadio"
 		]
 	},
-	"graph-ve-dialog-edit-padding-table-left": "Sinistra",
-	"graph-ve-dialog-edit-padding-table-right": "Destra"
+	"graph-ve-dialog-edit-padding-left": "Sinistra",
+	"graph-ve-dialog-edit-padding-right": "Destra"
 }

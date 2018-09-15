@@ -7,11 +7,11 @@
 	"graph-ve-dialog-button-tooltip": "Graf",
 	"graph-ve-dialog-edit-field-graph-type": "Graftype",
 	"graph-ve-dialog-edit-height": "Højde",
-	"graph-ve-dialog-edit-padding-table-bottom": "Bund",
-	"graph-ve-dialog-edit-padding-table-left": "Venstre",
-	"graph-ve-dialog-edit-padding-table-right": "Højre",
-	"graph-ve-dialog-edit-padding-table-top": "Top",
-	"graph-ve-dialog-edit-size-fieldset": "Størrelse",
+	"graph-ve-dialog-edit-padding-bottom": "Bund",
+	"graph-ve-dialog-edit-padding-left": "Venstre",
+	"graph-ve-dialog-edit-padding-right": "Højre",
+	"graph-ve-dialog-edit-padding-top": "Top",
+	"graph-ve-dialog-edit-size-field": "Størrelse",
 	"graph-ve-dialog-edit-width": "Bredde",
 	"graph-ve-empty-graph": "Tomt diagram"
 }

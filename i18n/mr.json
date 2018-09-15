@@ -13,12 +13,11 @@
 	"graph-error-empty-json": "रिकामी ग्राफ माहिती, दाखविण्यास काहीही नाही",
 	"apihelp-graph-param-title": "आलेखासह पृष्ठाचे शीर्षक",
 	"graph-ve-dialog-edit-height": "उंची",
-	"graph-ve-dialog-edit-padding-table-bottom": "खाली",
-	"graph-ve-dialog-edit-padding-table-left": "डावीकडे",
-	"graph-ve-dialog-edit-padding-table-right": "उजवीकडे",
-	"graph-ve-dialog-edit-padding-table-top": "वर",
-	"graph-ve-dialog-edit-padding-table-unit": "पिक्सेल्स",
-	"graph-ve-dialog-edit-size-fieldset": "आकार",
+	"graph-ve-dialog-edit-padding-bottom": "खाली",
+	"graph-ve-dialog-edit-padding-left": "डावीकडे",
+	"graph-ve-dialog-edit-padding-right": "उजवीकडे",
+	"graph-ve-dialog-edit-padding-top": "वर",
+	"graph-ve-dialog-edit-size-field": "आकार",
 	"graph-ve-dialog-edit-size-table-unit": "पिक्सेल्स",
 	"graph-ve-dialog-edit-width": "रूंदी"
 }
