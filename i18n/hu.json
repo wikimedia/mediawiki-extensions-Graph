@@ -4,6 +4,7 @@
 			"Tacsipacsi"
 		]
 	},
+	"graph-desc": "Lehetővé teszi &lt;graph&gt; címkék vagy teljes lapok [http://vega.github.io/ Vega]-alapú grafikonokká alakítását",
 	"graphsandbox": "Graph-homokozó",
 	"graph-tracking-category": "Lapok grafikonokkal",
 	"graph-tracking-category-desc": "A lap tartalmaz egy <code><nowiki><graph></nowiki></code> elemet.",
@@ -11,6 +12,14 @@
 	"graph-broken-category-desc": "A lap tartalmaz egy hibásan használt <code><nowiki><graph></nowiki></code> elemet.",
 	"graph-obsolete-category": "Lapok elavult Vega 1.0-grafikonokkal",
 	"graph-obsolete-category-desc": "A lap tartalmaz egy <code><nowiki><graph></nowiki></code> elemet, amit 2-es verzióra kellene frissíteni.",
+	"graph-error-empty-json": "Üres grafikonadatok, nincs mit megjeleníteni",
+	"graph-error-not-vega": "A megadott JSON nem érvényes Vega-JSON",
+	"apihelp-graph-description": "A graph címke funkcióinak elérése.",
+	"apihelp-graph-summary": "A graph címke funkcióinak elérése.",
+	"apihelp-graph-param-title": "A grafikont tartalmazó lap címe",
+	"apierror-graph-mustposttext": "A kérést POST-tal kell küldeni a <var>text</var> paraméter használatakor.",
+	"apierror-graph-invalid": "A grafikon nem érvényes.",
+	"apierror-graph-missing": "Nem található grafikon.",
 	"graph-ve-dialog-button-tooltip": "Grafikon",
 	"graph-ve-dialog-edit-field-graph-type": "Grafikontípus",
 	"graph-ve-dialog-edit-field-raw-json": "Nyers JSON specifikáció",
