@@ -118,12 +118,18 @@ class ApiGraph extends ApiBase {
 				'pp_propname' => 'graph_specs',
 			], __METHOD__ );
 
-			if ( $ppValue ) {
+			if ( $ppValue !== false ) {
 				// Copied from TemplateDataBlob.php:newFromDatabase()
 				// Handle GZIP compression. \037\213 is the header for GZIP files.
 				if ( substr( $ppValue, 0, 2 ) === "\037\213" ) {
+					// FIXME: pp_value can be corrupt due to trimming, which emits
+					// "PHP Warning: data error" and returns false (T184128).
+					Wikimedia\suppressWarnings();
 					$ppValue = gzdecode( $ppValue );
+					Wikimedia\restoreWarnings();
 				}
+			}
+			if ( $ppValue !== false ) {
 				$st = FormatJson::parse( $ppValue );
 				if ( $st->isOK() ) {
 					$allGraphs = $st->getValue();
