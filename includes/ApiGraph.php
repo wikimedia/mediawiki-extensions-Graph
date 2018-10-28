@@ -13,6 +13,7 @@ use ApiBase;
 use FormatJson;
 use Title;
 use ParserOptions;
+use Wikimedia;
 
 /**
  * This class implements action=graph api, allowing client-side graphs to get the spec,
