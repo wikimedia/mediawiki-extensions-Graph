@@ -284,6 +284,8 @@ ve.ui.MWGraphDialog.prototype.getTeardownProcess = function ( data ) {
 
 			this.graphModel = null;
 
+			this.rootLayout.resetScroll();
+
 			// Clear data page
 			this.dataTable.clearWithProperties();
 
