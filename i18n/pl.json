@@ -4,10 +4,11 @@
 			"Chrumps",
 			"The Polish",
 			"Michał Sobkowski",
-			"Woytecr"
+			"Woytecr",
+			"Railfail536"
 		]
 	},
-	"graph-desc": "Umożliwia znacznikom &lt;graph&gt; lub całym stronom stworzenie wykresów bazujących na [http://vega.github.io/ Vega]",
+	"graph-desc": "Umożliwia znacznikom <code>&lt;graph&gt;</code> lub całym stronom stworzenie wykresów bazujących na [http://vega.github.io/ Vega]",
 	"graphsandbox": "Brudnopis wykresów",
 	"graph-tracking-category": "Strony z diagramami",
 	"graph-tracking-category-desc": "Strona zawiera znacznik <code><nowiki><graph></nowiki></code>.",
