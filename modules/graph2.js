@@ -1,4 +1,4 @@
-( function ( $, mw, vg ) {
+( function () {
 
 	'use strict';
 	/* global require */
@@ -101,4 +101,4 @@
 		} );
 	} );
 
-}( jQuery, mediaWiki, vg ) );
+}() );

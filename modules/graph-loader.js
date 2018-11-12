@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 
 	mw.hook( 'wikipage.content' ).add( function ( $content ) {
 
@@ -52,4 +52,4 @@
 
 	} );
 
-}( jQuery, mediaWiki ) );
+}() );

@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	mw.hook( 'wikipage.content' ).add( function ( $content ) {
 		var specs = mw.config.get( 'wgGraphSpecs' );
 
@@ -23,4 +23,4 @@
 			} );
 		}
 	} );
-}( jQuery, mediaWiki ) );
+}() );

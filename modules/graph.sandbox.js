@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	var oldContent, ccw,
 		resizeCodeEditor = $.noop;
 
@@ -73,4 +73,4 @@
 		} ) );
 	} );
 
-}( jQuery, mediaWiki ) );
+}() );
