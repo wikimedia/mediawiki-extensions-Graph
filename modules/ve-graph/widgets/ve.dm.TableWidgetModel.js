@@ -31,8 +31,10 @@ ve.dm.TableWidgetModel = function VeDmTableWidgetModel( config ) {
 	this.validate = config.validate;
 	this.showHeaders = ( config.showHeaders !== undefined ) ? !!config.showHeaders : true;
 	this.showRowLabels = ( config.showRowLabels !== undefined ) ? !!config.showRowLabels : true;
-	this.allowRowInsertion = ( config.allowRowInsertion !== undefined ) ? !!config.allowRowInsertion : true;
-	this.allowRowDeletion = ( config.allowRowDeletion !== undefined ) ? !!config.allowRowDeletion : true;
+	this.allowRowInsertion = ( config.allowRowInsertion !== undefined ) ?
+		!!config.allowRowInsertion : true;
+	this.allowRowDeletion = ( config.allowRowDeletion !== undefined ) ?
+		!!config.allowRowDeletion : true;
 
 	this.initializeProps( config.rows, config.cols );
 };
@@ -498,7 +500,8 @@ ve.dm.TableWidgetModel.prototype.getAllRowProperties = function () {
  * Get properties of a given column
  *
  * @param {string|number} handle The key (or numeric index) of the column
- * @return {Object|null} An object containing the `key`, `index` and `label` properties of the column.
+ * @return {Object|null} An object containing the `key`, `index` and
+ *  `label` properties of the column.
  * Returns `null` if the column can't be found.
  */
 ve.dm.TableWidgetModel.prototype.getColumnProperties = function ( handle ) {
@@ -508,7 +511,8 @@ ve.dm.TableWidgetModel.prototype.getColumnProperties = function ( handle ) {
 /**
  * Get properties of all columns
  *
- * @return {Array} An array of objects containing `key`, `index` and `label` properties for each column
+ * @return {Array} An array of objects containing `key`, `index` and
+ *  `label` properties for each column
  */
 ve.dm.TableWidgetModel.prototype.getAllColumnProperties = function () {
 	return this.cols.slice();

@@ -149,8 +149,10 @@ ve.dm.MWGraphNode.static.defaultSpec = {
 /**
  * Parses a spec string and returns its object representation.
  *
- * @param {string} str The spec string to validate. If the string is null or represents an empty object, the spec will be null.
- * @return {Object} The object specification. On a failed parsing, the object will be returned empty.
+ * @param {string} str The spec string to validate. If the string is
+ *  null or represents an empty object, the spec will be null.
+ * @return {Object} The object specification. On a failed parsing,
+ *  the object will be returned empty.
  */
 ve.dm.MWGraphNode.static.parseSpecString = function ( str ) {
 	var result;
@@ -256,7 +258,7 @@ ve.dm.MWGraphNode.prototype.onAttributeChange = function ( attributeName, from, 
  * @return {boolean}
  */
 ve.dm.MWGraphNode.prototype.isGraphLegacy = function () {
-	return !!( this.spec && this.spec.hasOwnProperty( 'version' ) && this.spec.version < 2 );
+	return !!( this.spec && Object.prototype.hasOwnProperty.call( this.spec, 'version' ) && this.spec.version < 2 );
 };
 
 /* Registration */

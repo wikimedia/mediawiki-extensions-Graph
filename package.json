@@ -11,17 +11,18 @@
 		"vega": "git+https://github.com/nyurik/vega"
 	},
 	"devDependencies": {
-		"browserify": "^13.0.0",
-		"eslint-config-wikimedia": "0.5.0",
+		"browserify": "^16.2.3",
+		"eslint-config-wikimedia": "0.8.1",
+		"eslint-plugin-qunit": "3.3.1",
 		"grunt": "1.0.3",
 		"grunt-banana-checker": "0.6.0",
 		"grunt-contrib-watch": "1.1.0",
-		"grunt-eslint": "20.1.0",
+		"grunt-eslint": "21.0.0",
 		"grunt-jsonlint": "1.1.0",
-		"grunt-stylelint": "0.9.0",
-		"jquery.splitter": "^0.20.1",
-		"mw-graph-shared": "^0.3.6",
-		"stylelint": "8.2.0",
-		"stylelint-config-wikimedia": "0.4.2"
+		"grunt-stylelint": "0.10.1",
+		"jquery.splitter": "^0.27.1",
+		"mw-graph-shared": "^0.4.2",
+		"stylelint": "9.2.0",
+		"stylelint-config-wikimedia": "0.4.3"
 	}
 }

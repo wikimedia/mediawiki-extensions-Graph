@@ -89,7 +89,7 @@
 		}
 		$content.find( '.mw-graph.mw-graph-always' ).each( function () {
 			var graphId = $( this ).data( 'graph-id' );
-			if ( !specs.hasOwnProperty( graphId ) ) {
+			if ( !Object.prototype.hasOwnProperty.call( specs, graphId ) ) {
 				mw.log.warn( graphId );
 			} else {
 				mw.drawVegaGraph( this, specs[ graphId ], function ( error ) {

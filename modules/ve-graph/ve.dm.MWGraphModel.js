@@ -126,7 +126,8 @@ ve.dm.MWGraphModel.static.graphConfigs = {
  * Updates a spec with new parameters.
  *
  * @param {Object} spec The spec to update
- * @param {Object} params The new params to update. Properties set to undefined will be removed from the spec.
+ * @param {Object} params The new params to update.
+ *  Properties set to undefined will be removed from the spec.
  * @return {Object} The new spec
  */
 ve.dm.MWGraphModel.static.updateSpec = function ( spec, params ) {
@@ -153,7 +154,8 @@ ve.dm.MWGraphModel.static.updateSpec = function ( spec, params ) {
  * @author Based on the work on Artyom Neustroev at http://stackoverflow.com/a/15690816/2055594
  * @private
  * @param {Object} obj The object to iterate
- * @param {string} [stack] The parent property of the root property of obj. Used internally for recursion.
+ * @param {string} [stack] The parent property of the root property of obj.
+ *  Used internally for recursion.
  * @param {string[]} [list] The list of properties to return. Used internally for recursion.
  * @return {string[]} The list of properties to return.
  */
@@ -166,9 +168,11 @@ ve.dm.MWGraphModel.static.getUndefinedProperties = function ( obj, stack, list )
 	stack = ( stack === undefined ) ? '' : stack + '.';
 
 	for ( property in obj ) {
-		if ( obj.hasOwnProperty( property ) ) {
+		if ( Object.prototype.hasOwnProperty.call( obj, property ) ) {
 			if ( $.type( obj[ property ] ) === 'object' || $.type( obj[ property ] ) === 'array' ) {
-				ve.dm.MWGraphModel.static.getUndefinedProperties( obj[ property ], stack + property, list );
+				ve.dm.MWGraphModel.static.getUndefinedProperties(
+					obj[ property ], stack + property, list
+				);
 			} else if ( obj[ property ] === undefined ) {
 				list.push( stack + property );
 			}
@@ -261,7 +265,9 @@ ve.dm.MWGraphModel.prototype.applyChanges = function ( node, surfaceModel ) {
  * @fires specChange
  */
 ve.dm.MWGraphModel.prototype.updateSpec = function ( params ) {
-	var updatedSpec = ve.dm.MWGraphModel.static.updateSpec( $.extend( true, {}, this.spec ), params );
+	var updatedSpec = ve.dm.MWGraphModel.static.updateSpec(
+		$.extend( true, {}, this.spec ), params
+	);
 
 	// Only emit a change event if the spec really changed
 	if ( !OO.compare( this.spec, updatedSpec ) ) {

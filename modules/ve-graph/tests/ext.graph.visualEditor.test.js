@@ -360,7 +360,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 			documentNode = view.getDocument().getDocumentNode(),
 			node = documentNode.children[ 0 ];
 
-		assert.equal( node.type, 'mwGraph', 'Parsoid HTML graphs are properly recognized as graph nodes' );
+		assert.strictEqual( node.type, 'mwGraph', 'Parsoid HTML graphs are properly recognized as graph nodes' );
 	} );
 
 	QUnit.test( 've.ce.MWGraphNode.static', function ( assert ) {
@@ -373,13 +373,15 @@ QUnit.module( 'ext.graph.visualEditor' );
 
 		promise = ve.ce.MWGraphNode.static.vegaParseSpec( sampleSpecs.areaGraph, testElement );
 		promise.always( function () {
-			assert.ok( promise.state() === 'resolved', 'Single graph gets rendered correctly' );
+			assert.strictEqual( promise.state(), 'resolved', 'Single graph gets rendered correctly' );
 			renderValidTest();
 		} );
 
-		ve.ce.MWGraphNode.static.vegaParseSpec( sampleSpecs.invalidAxesBarGraph, testElement ).always(
+		ve.ce.MWGraphNode.static.vegaParseSpec(
+			sampleSpecs.invalidAxesBarGraph, testElement
+		).always(
 			function ( failMessageKey ) {
-				assert.ok( failMessageKey === 'graph-ve-vega-error', 'Invalid graph triggers an error at rendering' );
+				assert.strictEqual( failMessageKey, 'graph-ve-vega-error', 'Invalid graph triggers an error at rendering' );
 				renderInvalidTest();
 			}
 		);
@@ -428,16 +430,16 @@ QUnit.module( 'ext.graph.visualEditor' );
 				]
 			};
 
-		assert.equal( model.hasBeenChanged(), false, 'Model changes are correctly initialized' );
+		assert.strictEqual( model.hasBeenChanged(), false, 'Model changes are correctly initialized' );
 
 		model.setSpecFromString( 'invalid json string' );
-		assert.equal( model.hasBeenChanged(), true, 'Model spec resets to an empty object when fed invalid data' );
+		assert.strictEqual( model.hasBeenChanged(), true, 'Model spec resets to an empty object when fed invalid data' );
 
 		model.setSpecFromString( JSON.stringify( sampleSpecs.areaGraph, null, '\t' ) );
-		assert.equal( model.hasBeenChanged(), false, 'Model doesn\'t throw false positives after applying no changes' );
+		assert.strictEqual( model.hasBeenChanged(), false, 'Model doesn\'t throw false positives after applying no changes' );
 
 		model.setSpecFromString( JSON.stringify( sampleSpecs.stackedAreaGraph ) );
-		assert.equal( model.hasBeenChanged(), true, 'Model recognizes valid changes to spec' );
+		assert.strictEqual( model.hasBeenChanged(), true, 'Model recognizes valid changes to spec' );
 
 		model.setSpecFromString( JSON.stringify( sampleSpecs.areaGraph ) );
 		model.updateSpec( updateSpecRemoval );

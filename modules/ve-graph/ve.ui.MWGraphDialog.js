@@ -365,7 +365,7 @@ ve.ui.MWGraphDialog.prototype.setupFormValues = function () {
 	// Padding
 	this.paddingAutoCheckbox.setSelected( this.graphModel.isPaddingAutomatic() );
 	for ( padding in paddings ) {
-		if ( paddings.hasOwnProperty( padding ) ) {
+		if ( Object.prototype.hasOwnProperty.call( paddings, padding ) ) {
 			this.paddingInputs[ padding ].setValue( paddings[ padding ] );
 		}
 	}
@@ -392,7 +392,7 @@ ve.ui.MWGraphDialog.prototype.updateDataPage = function () {
 		row = [];
 
 		for ( field in pipeline.values[ i ] ) {
-			if ( pipeline.values[ i ].hasOwnProperty( field ) ) {
+			if ( Object.prototype.hasOwnProperty.call( pipeline.values[ i ], field ) ) {
 				row.push( pipeline.values[ i ][ field ] );
 			}
 		}
@@ -461,7 +461,9 @@ ve.ui.MWGraphDialog.prototype.onGraphTypeInputChange = function ( value ) {
  * @param {string} colKey The key of the column that changed, or `undefined` if it doesn't exist
  * @param {string} value The new value
  */
-ve.ui.MWGraphDialog.prototype.onDataInputChange = function ( rowIndex, rowKey, colIndex, colKey, value ) {
+ve.ui.MWGraphDialog.prototype.onDataInputChange = function (
+	rowIndex, rowKey, colIndex, colKey, value
+) {
 	if ( !isNaN( value ) ) {
 		this.graphModel.setEntryField( rowIndex, colKey, +value );
 	}
@@ -550,10 +552,9 @@ ve.ui.MWGraphDialog.prototype.onSpecChange = function () {
 				this.paddingInputs[ padding ].setValue( '' );
 			}
 		} else {
-
 			// Fill padding table with model values if set to manual
 			for ( padding in paddingObj ) {
-				if ( paddingObj.hasOwnProperty( padding ) ) {
+				if ( Object.prototype.hasOwnProperty.call( paddingObj, padding ) ) {
 					this.paddingInputs[ padding ].setValue( paddingObj[ padding ] );
 				}
 			}
