@@ -36,26 +36,6 @@ ve.ui.MWGraphDialog.static.title = OO.ui.deferMsg( 'graph-ve-dialog-edit-title' 
 
 ve.ui.MWGraphDialog.static.size = 'medium';
 
-ve.ui.MWGraphDialog.static.actions = [
-	{
-		action: 'done',
-		label: OO.ui.deferMsg( 'visualeditor-dialog-action-done' ),
-		flags: [ 'progressive', 'primary' ],
-		modes: 'edit'
-	},
-	{
-		action: 'done',
-		label: OO.ui.deferMsg( 'visualeditor-dialog-action-insert' ),
-		flags: [ 'progressive', 'primary' ],
-		modes: 'insert'
-	},
-	{
-		label: OO.ui.deferMsg( 'visualeditor-dialog-action-cancel' ),
-		flags: 'safe',
-		modes: [ 'edit', 'insert' ]
-	}
-];
-
 ve.ui.MWGraphDialog.static.modelClasses = [ ve.dm.MWGraphNode ];
 
 /* Methods */
