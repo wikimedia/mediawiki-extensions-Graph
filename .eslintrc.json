@@ -9,8 +9,5 @@
 		"vg": false,
 		"mw": false,
 		"$": false
-	},
-	"rules": {
-		"dot-notation": [ "error", { "allowKeywords": true } ]
 	}
 }
