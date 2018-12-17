@@ -4,6 +4,8 @@
 			"Saederup92"
 		]
 	},
+	"graphsandbox": "Graf-sandkasse",
+	"graph-tracking-category": "Sider med grafer",
 	"apierror-graph-invalid": "Grafen er ugyldig.",
 	"apierror-graph-missing": "Ingen graf blev fundet.",
 	"graph-ve-dialog-button-tooltip": "Graf",
@@ -15,6 +17,8 @@
 	"graph-ve-dialog-edit-padding-top": "Top",
 	"graph-ve-dialog-edit-page-data": "Data",
 	"graph-ve-dialog-edit-size-field": "Størrelse",
+	"graph-ve-dialog-edit-table-row-delete": "Slet række",
+	"graph-ve-dialog-edit-title": "Rediger graf",
 	"graph-ve-dialog-edit-width": "Bredde",
 	"graph-ve-empty-graph": "Tomt diagram"
 }
