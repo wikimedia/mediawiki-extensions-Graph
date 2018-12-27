@@ -6,6 +6,22 @@
 		]
 	},
 	"graph-desc": "&lt;graph> ടാഗുകൾ അനുവദിക്കുന്നു അഥവാ താളുകളെ [http://vega.github.io/ വേഗാ]-അധിഷ്ഠിത ഗ്രാഫുകളാക്കുന്നു",
+	"graphsandbox": "ഗ്രാഫ് കളരി",
+	"graph-tracking-category": "ഗ്രാഫുകൾ ഉപയോഗിക്കുന്ന താളുകൾ",
+	"graph-tracking-category-desc": "<code><nowiki><graph></nowiki></code> റ്റാഗ് ഉൾക്കൊള്ളുന്ന താൾ.",
+	"apierror-graph-invalid": "ഗ്രാഫ് സാധുതയുള്ളതല്ല.",
+	"apierror-graph-missing": "ഗ്രാഫ് കണ്ടെത്താനായില്ല.",
 	"graph-ve-dialog-button-tooltip": "ഗ്രാഫ്",
-	"graph-ve-dialog-edit-title": "ഗ്രാഫ് തിരുത്തുക"
+	"graph-ve-dialog-edit-field-graph-type": "ഗ്രാഫിന്റെ തരം",
+	"graph-ve-dialog-edit-height": "ഉയരം",
+	"graph-ve-dialog-edit-padding-bottom": "താഴെ",
+	"graph-ve-dialog-edit-padding-left": "ഇടത്",
+	"graph-ve-dialog-edit-padding-right": "വലത്",
+	"graph-ve-dialog-edit-padding-top": "മുകളിൽ",
+	"graph-ve-dialog-edit-page-data": "വിവരം",
+	"graph-ve-dialog-edit-page-raw": "അസംസ്കൃത ഡേറ്റ",
+	"graph-ve-dialog-edit-size-field": "വലിപ്പം",
+	"graph-ve-dialog-edit-size-table-unit": "പിക്സലുകൾ",
+	"graph-ve-dialog-edit-title": "ഗ്രാഫ് തിരുത്തുക",
+	"graph-ve-dialog-edit-width": "വീതി"
 }
