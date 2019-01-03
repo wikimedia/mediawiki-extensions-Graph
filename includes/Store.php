@@ -15,7 +15,7 @@ class Store {
 	/**
 	 * Store graph data in the memcached
 	 * @param string $hash
-	 * @param string $data Graph spec after json encoding
+	 * @param mixed $data Decoded graph spec
 	 */
 	public static function saveToCache( $hash, $data ) {
 		$cache = ObjectCache::getLocalClusterInstance();
@@ -25,7 +25,7 @@ class Store {
 	/**
 	 * Get graph data from memcached
 	 * @param string $hash
-	 * @return mixed
+	 * @return mixed Decoded graph spec
 	 */
 	public static function getFromCache( $hash ) {
 		$cache = ObjectCache::getLocalClusterInstance();

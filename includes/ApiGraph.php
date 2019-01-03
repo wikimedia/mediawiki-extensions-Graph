@@ -98,7 +98,7 @@ class ApiGraph extends ApiBase {
 	 * Get graph definition with title and hash
 	 * @param string $titleText
 	 * @param string $hash
-	 * @return string
+	 * @return mixed Decoded graph spec
 	 */
 	private function getFromStorage( $titleText, $hash ) {
 		// NOTE: Very strange wgMemc feature: Even though we store the data structure into memcached
