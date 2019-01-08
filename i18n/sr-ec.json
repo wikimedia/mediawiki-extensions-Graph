@@ -5,7 +5,7 @@
 			"BadDog"
 		]
 	},
-	"graph-desc": "Дозвољава &lt;graph&gt; ознаке или да целе странице постану графикони засновани на [http://vega.github.io/ Веги]",
+	"graph-desc": "Омогућава ознаке &lt;graph&gt; или да целе странице постану графикони засновани на [http://vega.github.io/ Vega-и]",
 	"graphsandbox": "Песак за графиконе",
 	"graph-tracking-category": "Странице са графиконима",
 	"graph-tracking-category-desc": "Странице које укључују ознаку <code><nowiki><graph></nowiki></code>.",
