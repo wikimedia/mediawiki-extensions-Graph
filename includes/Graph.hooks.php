@@ -37,7 +37,7 @@ class Hooks {
 				'dependencies' => [
 					'ext.graph.visualEditor',
 					'ext.graph.vega1',
-					'ext.visualEditor.test'
+					'test.VisualEditor'
 				],
 				'localBasePath' => dirname( __DIR__ ),
 				'remoteExtPath' => 'Graph'
