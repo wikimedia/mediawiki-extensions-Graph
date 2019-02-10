@@ -310,7 +310,7 @@ ve.dm.TableWidgetModel.prototype.insertRow = function ( data, index, key, label 
 	// otherwise fill the remaining data with empty strings
 	for ( i = 0, len = this.cols.length; i < len; i++ ) {
 		insertDataCell = '';
-		if ( $.type( insertData[ i ] ) === 'string' || $.type( insertData[ i ] ) === 'number' ) {
+		if ( typeof insertData[ i ] === 'string' || typeof insertData[ i ] === 'number' ) {
 			insertDataCell = insertData[ i ];
 		}
 
@@ -356,7 +356,7 @@ ve.dm.TableWidgetModel.prototype.insertColumn = function ( data, index, key, lab
 	// otherwise fill the remaining data with empty strings
 	for ( i = 0, len = this.rows.length; i < len; i++ ) {
 		insertDataCell = '';
-		if ( $.type( insertData[ i ] ) === 'string' || $.type( insertData[ i ] ) === 'number' ) {
+		if ( typeof insertData[ i ] === 'string' || typeof insertData[ i ] === 'number' ) {
 			insertDataCell = insertData[ i ];
 		}
 

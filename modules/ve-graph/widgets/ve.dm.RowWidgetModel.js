@@ -240,7 +240,7 @@ ve.dm.RowWidgetModel.prototype.insertCell = function ( data, index, key ) {
 	} );
 
 	// Add the new row data
-	insertData = ( $.type( data ) === 'string' || $.type( data ) === 'number' ) ? data : '';
+	insertData = ( typeof data === 'string' || typeof data === 'number' ) ? data : '';
 	this.data.splice( insertIndex, 0, insertData );
 
 	// Update all indexes in following cells

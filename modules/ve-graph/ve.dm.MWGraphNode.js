@@ -162,7 +162,7 @@ ve.dm.MWGraphNode.static.parseSpecString = function ( str ) {
 
 		// JSON.parse can return other types than Object, we don't want that
 		// The error will be caught just below as this counts as a failed process
-		if ( $.type( result ) !== 'object' ) {
+		if ( typeof result !== 'object' ) {
 			throw new Error();
 		}
 

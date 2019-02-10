@@ -1,6 +1,6 @@
+/* eslint-disable jquery/no-global-selector */
 ( function () {
-	var oldContent, ccw,
-		resizeCodeEditor = $.noop;
+	var oldContent, ccw, resizeCodeEditor;
 
 	$( function () {
 		var viewportHeight = $( window ).height(),

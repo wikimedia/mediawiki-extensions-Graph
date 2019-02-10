@@ -169,7 +169,7 @@ ve.dm.MWGraphModel.static.getUndefinedProperties = function ( obj, stack, list )
 
 	for ( property in obj ) {
 		if ( Object.prototype.hasOwnProperty.call( obj, property ) ) {
-			if ( $.type( obj[ property ] ) === 'object' || $.type( obj[ property ] ) === 'array' ) {
+			if ( typeof obj[ property ] === 'object' ) {
 				ve.dm.MWGraphModel.static.getUndefinedProperties(
 					obj[ property ], stack + property, list
 				);
@@ -195,7 +195,7 @@ ve.dm.MWGraphModel.static.removeProperty = function ( obj, prop ) {
 		if ( prop.length > 0 ) {
 			ve.dm.MWGraphModel.static.removeProperty( obj[ firstProp ], prop );
 		} else {
-			if ( $.type( obj ) === 'array' ) {
+			if ( Array.isArray( obj ) ) {
 				obj.splice( parseInt( firstProp ), 1 );
 			} else {
 				delete obj[ firstProp ];
