@@ -175,7 +175,6 @@ class ParserTag {
 		$hash = sha1( FormatJson::encode( $data, false, FormatJson::ALL_OK ) );
 		$specs[$hash] = $data;
 		$this->parserOutput->setExtensionData( 'graph_specs', $specs );
-		Store::saveToCache( $hash, $data );
 
 		if ( $this->parserOptions->getIsPreview() || !$wgGraphImgServiceUrl ) {
 			// Always do client-side rendering
@@ -185,7 +184,6 @@ class ParserTag {
 			$this->parserOutput->setExtensionData( 'graph_live_specs', $liveSpecs );
 			$html = ''; // will be injected with a <canvas> tag
 		} else {
-
 			// Image from Graphoid
 			$server = rawurlencode( $wgServerName );
 			$title = !$title ? '' : rawurlencode( $title->getPrefixedDBkey() );

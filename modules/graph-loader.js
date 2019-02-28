@@ -18,6 +18,7 @@
 					formatversion: 2,
 					action: 'graph',
 					title: mw.config.get( 'wgPageName' ),
+					oldid: mw.config.get( 'wgRevisionId' ),
 					hash: $el.data( 'graphId' )
 				} ).done( function ( data ) {
 					mw.drawVegaGraph( $el[ 0 ], data.graph, function ( error ) {
