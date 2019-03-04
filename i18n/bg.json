@@ -3,11 +3,14 @@
 		"authors": [
 			"Лорд Бъмбъри",
 			"StanProg",
-			"Iliev"
+			"Iliev",
+			"Ted Masters"
 		]
 	},
 	"graphsandbox": "Пясъчник за графики",
 	"graph-tracking-category": "Страници с графики",
+	"graph-broken-category": "Страници с повредени графики",
+	"graph-obsolete-category": "Страници с остарели Vega 1.0 графики",
 	"graph-ve-dialog-button-tooltip": "Графика",
 	"graph-ve-dialog-edit-type-line": "Линейна графика"
 }
