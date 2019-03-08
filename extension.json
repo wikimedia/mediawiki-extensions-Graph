@@ -20,7 +20,7 @@
 		"Graph\\ParserTag": "includes/ParserTag.php",
 		"Graph\\Sandbox": "includes/Sandbox.php",
 		"Graph\\Store": "includes/Store.php",
-		"Graph\\Hooks": "includes/Graph.hooks.php"
+		"Graph\\Hooks": "includes/Hooks.php"
 	},
 	"APIModules": {
 		"graph": "Graph\\ApiGraph"
