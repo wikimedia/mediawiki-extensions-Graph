@@ -154,7 +154,7 @@ class ParserTag {
 		}
 
 		$isInteractive = isset( $args['mode'] ) && $args['mode'] === 'interactive';
-		$graphTitle = isset( $args['title'] ) ? $args['title'] : '';
+		$graphTitle = $args['title'] ?? '';
 		$data = $status->getValue();
 		if ( !is_object( $data ) ) {
 			return $this->formatError( wfMessage( 'graph-error-not-vega' ) );
