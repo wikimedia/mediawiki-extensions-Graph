@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"LacoR"
+			"LacoR",
+			"Robert Važan"
 		]
 	},
+	"graphsandbox": "Pieskovisko grafov",
 	"graph-tracking-category": "Stránky s grafmi",
 	"graph-tracking-category-desc": "Stránka obsahuje tag <code><nowiki><graph></nowiki></code>",
 	"graph-broken-category": "Stránky s chybou v grafe"
