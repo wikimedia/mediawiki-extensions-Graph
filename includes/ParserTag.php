@@ -80,7 +80,7 @@ class ParserTag {
 
 			if ( $parser->getOptions()->getIsPreview() ) {
 				// Preview generates HTML that is different from normal
-				$parser->disableCache();
+				$output->updateCacheExpiry( 0 );
 			}
 
 			if ( $liveSpecs || $interact ) {
