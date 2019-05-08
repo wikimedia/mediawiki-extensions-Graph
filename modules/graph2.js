@@ -49,9 +49,7 @@
 				opt.headers = { 'Treat-as-Untrusted': 1 };
 			} else if ( opt.addCorsOrigin ) {
 				// All CORS api calls require origin parameter.
-				// It would be better to use location.origin,
-				// but apparently it's not universal yet.
-				uri.query.origin = location.protocol + '//' + location.host;
+				uri.query.origin = '*';
 			}
 
 			uri.protocol = VegaWrapper.removeColon( uri.protocol );
