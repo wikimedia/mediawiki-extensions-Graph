@@ -1,4 +1,5 @@
 <?php
+
 namespace Graph\Tests;
 
 use MediaWikiTestCase;

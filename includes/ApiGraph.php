@@ -18,7 +18,6 @@ use Wikimedia;
 /**
  * This class implements action=graph api, allowing client-side graphs to get the spec,
  * regardless of how it is stored (page-props or other storage)
- * Class ApiGraph
  * @package Graph
  */
 class ApiGraph extends ApiBase {

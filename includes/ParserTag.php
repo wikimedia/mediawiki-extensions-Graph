@@ -31,7 +31,6 @@ class ParserTag {
 	private $language;
 
 	/**
-	 * ParserTag constructor.
 	 * @param Parser $parser
 	 * @param ParserOptions $parserOptions
 	 * @param ParserOutput $parserOutput
