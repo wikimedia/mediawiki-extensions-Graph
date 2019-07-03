@@ -28,6 +28,7 @@ class Sandbox extends SpecialPage {
 		$out = $this->getContext()->getOutput();
 
 		$this->setHeaders();
+		$this->addHelpLink( 'Extension:Graph/Guide' );
 		$out->addModules( 'ext.graph.sandbox' );
 		// Tell CodeEditor that this page is JSON (T143165)
 		$out->addJsConfigVars( 'wgCodeEditorCurrentLanguage', 'json' );
