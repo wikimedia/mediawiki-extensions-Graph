@@ -20,7 +20,6 @@ class DataModule extends ResourceLoaderModule {
 		$config = $context->getResourceLoader()->getConfig();
 		return ResourceLoader::makeConfigSetScript( [
 			'wgGraphAllowedDomains' => $config->get( 'GraphAllowedDomains' ),
-			'wgGraphIsTrusted' => $config->get( 'GraphIsTrusted' ),
 		] );
 	}
 

@@ -181,7 +181,6 @@
 	"config": {
 		"GraphAllowedDomains": {},
 		"GraphDefaultVegaVer": 2,
-		"GraphIsTrusted": false,
 		"GraphImgServiceUrl": false
 	},
 	"TrackingCategories": [

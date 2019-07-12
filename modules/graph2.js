@@ -9,7 +9,7 @@
 	new VegaWrapper( {
 		datalib: vg.util,
 		useXhr: true,
-		isTrusted: mw.config.get( 'wgGraphIsTrusted' ),
+		isTrusted: false,
 		domains: mw.config.get( 'wgGraphAllowedDomains' ),
 		domainMap: false,
 		logger: function ( warning ) {
@@ -44,12 +44,10 @@
 			delete uri.pathname;
 
 			if ( location.host.toLowerCase() === uri.host.toLowerCase() ) {
-				if ( !mw.config.get( 'wgGraphIsTrusted' ) ) {
-					// Only send this header when hostname is the same.
-					// This is broader than the same-origin policy,
-					// but playing on the safer side.
-					opt.headers = { 'Treat-as-Untrusted': 1 };
-				}
+				// Only send this header when hostname is the same.
+				// This is broader than the same-origin policy,
+				// but playing on the safer side.
+				opt.headers = { 'Treat-as-Untrusted': 1 };
 			} else if ( opt.addCorsOrigin ) {
 				// All CORS api calls require origin parameter.
 				// It would be better to use location.origin,
