@@ -17,7 +17,7 @@ class DataModule extends ResourceLoaderModule {
 	protected $targets = [ 'desktop', 'mobile' ];
 
 	public function getScript( ResourceLoaderContext $context ) {
-		$config = $context->getResourceLoader()->getConfig();
+		$config = $this->getConfig();
 		return ResourceLoader::makeConfigSetScript( [
 			'wgGraphAllowedDomains' => $config->get( 'GraphAllowedDomains' ),
 		] );
