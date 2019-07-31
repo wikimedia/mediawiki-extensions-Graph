@@ -73,7 +73,8 @@ ve.ui.TableWidget = function VeUiTableWidget( config ) {
 
 		for ( i = 0, len = columnProps.length; i < len; i++ ) {
 			insertionRowItems.push( new OO.ui.TextInputWidget( {
-				data: columnProps[ i ].key ? columnProps[ i ].key : columnProps[ i ].index
+				data: columnProps[ i ].key ? columnProps[ i ].key : columnProps[ i ].index,
+				disabled: this.isDisabled()
 			} ) );
 		}
 
@@ -101,7 +102,6 @@ ve.ui.TableWidget = function VeUiTableWidget( config ) {
 	} );
 
 	this.connect( this, {
-		disable: 'onDisabledChange',
 		rowInputChange: 'onRowInputChange',
 		rowDeleteButtonClick: 'onRowDeleteButtonClick'
 	} );
@@ -347,6 +347,8 @@ ve.ui.TableWidget.prototype.onInsertRow = function ( data, index, key, label ) {
 		deletable: this.model.getTableProperties().allowRowDeletion
 	} );
 
+	newRow.setDisabled( this.isDisabled() );
+
 	// TODO: Handle index parameter. Right now all new rows are inserted at the end
 	this.addItems( [ newRow ] );
 
@@ -395,7 +397,8 @@ ve.ui.TableWidget.prototype.onInsertColumn = function ( data, index, key, label 
 	if ( tableProps.handleRowInsertion ) {
 		this.insertionRow.addItems( [
 			new OO.ui.TextInputWidget( {
-				validate: this.model.getValidationPattern()
+				validate: this.model.getValidationPattern(),
+				disabled: this.isDisabled()
 			} )
 		] );
 	}
@@ -530,18 +533,23 @@ ve.ui.TableWidget.prototype.onRowDeleteButtonClick = function ( row ) {
 };
 
 /**
- * Handle disabled state changes
- *
- * @private
- * @param {boolean} disabled The new state
+ * @inheritdoc
  */
-ve.ui.TableWidget.prototype.onDisabledChange = function ( disabled ) {
-	var rows = this.getItems(),
-		i;
+ve.ui.TableWidget.prototype.setDisabled = function ( disabled ) {
+	// Parent method
+	ve.ui.TableWidget.super.prototype.setDisabled.call( this, disabled );
 
-	for ( i = 0; i < rows.length; i++ ) {
-		rows[ i ].setDisabled( disabled );
+	if ( !this.items ) {
+		return;
 	}
+
+	this.getItems().forEach( function ( row ) {
+		row.setDisabled( disabled );
+	} );
+
+	this.insertionRow.getItems().forEach( function ( row ) {
+		row.setDisabled( disabled );
+	} );
 };
 
 /**
