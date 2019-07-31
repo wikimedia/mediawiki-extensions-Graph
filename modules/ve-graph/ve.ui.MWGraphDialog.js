@@ -220,8 +220,6 @@ ve.ui.MWGraphDialog.prototype.getSetupProcess = function ( data ) {
 
 			// Create new graph node if not present (insert mode)
 			if ( !this.selectedNode ) {
-				this.setMode( 'insert' );
-
 				newElement = this.getNewElement();
 				this.fragment = this.getFragment().insertContent( [
 					newElement,
@@ -229,8 +227,6 @@ ve.ui.MWGraphDialog.prototype.getSetupProcess = function ( data ) {
 				] );
 				this.getFragment().select();
 				this.selectedNode = this.getFragment().getSelectedNode();
-			} else {
-				this.setMode( 'edit' );
 			}
 
 			// Set up model
@@ -302,6 +298,7 @@ ve.ui.MWGraphDialog.prototype.setupFormValues = function () {
 	var graphType = this.graphModel.getGraphType(),
 		graphSize = this.graphModel.getSize(),
 		paddings = this.graphModel.getPaddingObject(),
+		readOnly = this.isReadOnly(),
 		options = [
 			{
 				data: 'bar',
@@ -330,7 +327,8 @@ ve.ui.MWGraphDialog.prototype.setupFormValues = function () {
 
 	this.graphTypeDropdownInput
 		.setOptions( options )
-		.setValue( graphType );
+		.setValue( graphType )
+		.setDisabled( readOnly );
 
 	// Size
 	this.sizeWidget.setScalable( new ve.dm.Scalable( {
@@ -341,12 +339,15 @@ ve.ui.MWGraphDialog.prototype.setupFormValues = function () {
 		minDimensions: ve.dm.MWGraphModel.static.minDimensions,
 		fixedRatio: false
 	} ) );
+	this.sizeWidget.setDisabled( readOnly );
 
 	// Padding
-	this.paddingAutoCheckbox.setSelected( this.graphModel.isPaddingAutomatic() );
+	this.paddingAutoCheckbox.setSelected( this.graphModel.isPaddingAutomatic() )
+		.setDisabled( readOnly );
 	for ( padding in paddings ) {
 		if ( Object.prototype.hasOwnProperty.call( paddings, padding ) ) {
-			this.paddingInputs[ padding ].setValue( paddings[ padding ] );
+			this.paddingInputs[ padding ].setValue( paddings[ padding ] )
+				.setReadOnly( readOnly );
 		}
 	}
 
@@ -355,10 +356,15 @@ ve.ui.MWGraphDialog.prototype.setupFormValues = function () {
 		this.dataTable.insertColumn( null, null, dataFields[ i ], dataFields[ i ] );
 	}
 
+	this.dataTable.setDisabled( readOnly );
+
 	this.updateDataPage();
 
 	// JSON text input
-	this.jsonTextInput.setValue( this.graphModel.getSpecString() ).clearUndoStack();
+	this.jsonTextInput
+		.setValue( this.graphModel.getSpecString() )
+		.setReadOnly( readOnly )
+		.clearUndoStack();
 };
 
 /**
@@ -575,17 +581,6 @@ ve.ui.MWGraphDialog.prototype.checkChanges = function () {
 			dialog.actions.setAbilities( { done: false } );
 		}
 	);
-};
-
-/**
- * Sets and caches the mode of the dialog.
- *
- * @private
- * @param {string} mode The new mode, either `edit` or `insert`
- */
-ve.ui.MWGraphDialog.prototype.setMode = function ( mode ) {
-	this.actions.setMode( mode );
-	this.mode = mode;
 };
 
 /* Registration */

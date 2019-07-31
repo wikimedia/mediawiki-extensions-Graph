@@ -67,8 +67,7 @@ ve.ui.RowWidget = function VeUiRowWidget( config ) {
 	} );
 
 	this.connect( this, {
-		cellChange: 'onCellChange',
-		disable: 'onDisable'
+		cellChange: 'onCellChange'
 	} );
 
 	if ( this.model.getRowProperties().isDeletable ) {
@@ -319,15 +318,19 @@ ve.ui.RowWidget.prototype.onDeleteButtonClick = function () {
 };
 
 /**
- * Handle disabled state changes
- *
- * @param {boolean} disabled The new disabled state
+ * @inheritdoc
  */
-ve.ui.RowWidget.prototype.onDisable = function ( disabled ) {
-	var i,
-		cells = this.getItems();
+ve.ui.RowWidget.prototype.setDisabled = function ( disabled ) {
+	// Parent method
+	ve.ui.RowWidget.super.prototype.setDisabled.call( this, disabled );
 
-	for ( i = 0; i < cells.length; i++ ) {
-		cells[ i ].setDisabled( disabled );
+	if ( !this.items ) {
+		return;
 	}
+
+	this.deleteButton.setDisabled( disabled );
+
+	this.getItems().forEach( function ( cell ) {
+		cell.setDisabled( disabled );
+	} );
 };
