@@ -49,6 +49,11 @@ ve.ce.MWGraphNode.static.primaryCommandName = 'graph';
 
 ve.ce.MWGraphNode.static.tagName = 'div';
 
+ve.ce.MWGraphNode.static.getDescription = function ( model ) {
+	var graphModel = new ve.dm.MWGraphModel( ve.copy( model.getSpec() ) );
+	return ve.msg( 'graph-ve-dialog-edit-type-' + graphModel.getGraphType() );
+};
+
 /* Static Methods */
 
 /**
