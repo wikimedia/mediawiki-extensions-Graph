@@ -9,6 +9,10 @@
 	"graph-tracking-category": "Pàggene cu le grafece",
 	"graph-tracking-category-desc": "Sta pàgene tène'nu tag <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Pàggene cu le grafece scuasciate",
+	"apihelp-graph-description": "Ause 'a funzione d'u tag grafeche.",
+	"apihelp-graph-summary": "Ause 'a funzione d'u tag grafeche.",
 	"apihelp-graph-param-title": "Titole d'a pàgene cu 'u grafeche",
+	"graph-ve-dialog-button-tooltip": "Grafeche",
+	"graph-ve-dialog-edit-field-graph-type": "Tipe de grafeche",
 	"graph-ve-no-spec": "Nisciuna specifiche de grafeche ha state acchiate"
 }
