@@ -64,9 +64,6 @@ class ParserTag {
 		}
 		$specs = $output->getExtensionData( 'graph_specs' );
 		if ( $specs !== null ) {
-			// Store all graph specs as gzip-ed blob in page properties
-			$ppValue = gzencode( FormatJson::encode( $specs, false, FormatJson::ALL_OK ), 9 );
-			$output->setProperty( 'graph_specs', $ppValue );
 			$output->addTrackingCategory( 'graph-tracking-category', $title );
 
 			// We can only load one version of vega lib - either 1 or 2

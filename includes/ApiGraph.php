@@ -13,7 +13,7 @@ use ApiBase;
 use FormatJson;
 use Title;
 use ParserOptions;
-use Wikimedia;
+use WikiPage;
 
 /**
  * This class implements action=graph api, allowing client-side graphs to get the spec,
@@ -100,8 +100,6 @@ class ApiGraph extends ApiBase {
 	 * @return mixed Decoded graph spec
 	 */
 	private function getFromStorage( $titleText, $hash ) {
-		// NOTE: Very strange wgMemc feature: Even though we store the data structure into memcached
-		// by JSON-encoding and gzip-ing it, when we get it out it is already in the original form.
 		$graph = Store::getFromCache( $hash );
 		if ( !$graph ) {
 			$title = Title::newFromText( $titleText );
@@ -113,30 +111,11 @@ class ApiGraph extends ApiBase {
 			}
 			$this->checkTitleUserPermissions( $title, 'read' );
 
-			$ppValue = $this->getDB()->selectField( 'page_props', 'pp_value', [
-				'pp_page' => $title->getArticleID(),
-				'pp_propname' => 'graph_specs',
-			], __METHOD__ );
-
-			if ( $ppValue !== false ) {
-				// Copied from TemplateDataBlob.php:newFromDatabase()
-				// Handle GZIP compression. \037\213 is the header for GZIP files.
-				if ( substr( $ppValue, 0, 2 ) === "\037\213" ) {
-					// FIXME: pp_value can be corrupt due to trimming, which emits
-					// "PHP Warning: data error" and returns false (T184128).
-					Wikimedia\suppressWarnings();
-					$ppValue = gzdecode( $ppValue );
-					Wikimedia\restoreWarnings();
-				}
-			}
-			if ( $ppValue !== false ) {
-				$st = FormatJson::parse( $ppValue );
-				if ( $st->isOK() ) {
-					$allGraphs = $st->getValue();
-					if ( is_object( $allGraphs ) && property_exists( $allGraphs, $hash ) ) {
-						$graph = $allGraphs->$hash;
-					}
-				}
+			$page = WikiPage::factory( $title );
+			$parserOutput = $page->getParserOutput( ParserOptions::newCanonical( 'canonical' ) );
+			$allGraphs = $parserOutput->getExtensionData( 'graph_specs' );
+			if ( is_object( $allGraphs ) && property_exists( $allGraphs, $hash ) ) {
+				$graph = $allGraphs->$hash;
 			}
 		}
 		if ( !$graph ) {
