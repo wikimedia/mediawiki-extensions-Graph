@@ -11,7 +11,8 @@
 	"type": "parserhook",
 	"MessagesDirs": {
 		"Graph": [
-			"i18n"
+			"i18n",
+			"i18n/api"
 		]
 	},
 	"AutoloadClasses": {
@@ -98,8 +99,12 @@
 				"ext.codeEditor",
 				"ext.graph.vega2"
 			],
-			"messages": [ "editwarning-warning" ],
-			"targets": [ "desktop" ]
+			"messages": [
+				"editwarning-warning"
+			],
+			"targets": [
+				"desktop"
+			]
 		},
 		"ext.graph.visualEditor": {
 			"scripts": [
