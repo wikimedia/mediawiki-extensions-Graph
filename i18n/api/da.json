@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Saederup92"
+		]
+	},
+	"apierror-graph-invalid": "Grafen er ugyldig.",
+	"apierror-graph-missing": "Ingen graf blev fundet."
+}

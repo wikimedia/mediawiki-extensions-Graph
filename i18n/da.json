@@ -6,8 +6,6 @@
 	},
 	"graphsandbox": "Graf-sandkasse",
 	"graph-tracking-category": "Sider med grafer",
-	"apierror-graph-invalid": "Grafen er ugyldig.",
-	"apierror-graph-missing": "Ingen graf blev fundet.",
 	"graph-ve-dialog-button-tooltip": "Graf",
 	"graph-ve-dialog-edit-field-graph-type": "Graftype",
 	"graph-ve-dialog-edit-height": "Højde",

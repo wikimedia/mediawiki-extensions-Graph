@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Beta16"
+		]
+	},
+	"apihelp-graph-param-title": "Titolo della pagina con il grafico",
+	"apihelp-graph-param-text": "Testo del grafico da convertire in JSON. Deve essere pubblicato e utilizzato senza titolo e parametri hash"
+}

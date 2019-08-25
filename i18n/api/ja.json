@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Yusuke1109"
+		]
+	},
+	"apierror-graph-invalid": "グラフが無効です。",
+	"apierror-graph-missing": "グラフが見つかりません。"
+}

@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Meliganai",
+			"Walter Klosse"
+		]
+	},
+	"apihelp-graph-param-title": "Titulek stránky s grafem",
+	"apierror-graph-invalid": "Graf není platný.",
+	"apierror-graph-missing": "Nenalezen žádný graf."
+}

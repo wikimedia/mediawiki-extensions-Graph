@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Facenapalm"
+		]
+	},
+	"apihelp-graph-description": "Получение доступа к функциональности тега graph.",
+	"apihelp-graph-summary": "Получение доступа к функциональности тега graph.",
+	"apihelp-graph-example": "Получить JSON графика по его хэшу и названию",
+	"apihelp-graph-param-hash": "Хэш-значение графика",
+	"apihelp-graph-param-title": "Название страницы с графиком",
+	"apihelp-graph-param-text": "Текст преобразовываемого в JSON графика. Должно быть отправлено запросом POST и использовано без параметров title и hash",
+	"apierror-graph-mustposttext": "Запросом должен быть POST при использовании параметра <var>text</var>.",
+	"apierror-graph-invalid": "График некорректен.",
+	"apierror-graph-missing": "График не найден."
+}

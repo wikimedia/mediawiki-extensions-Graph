@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"BadDog"
+		]
+	},
+	"apierror-graph-invalid": "Графикон није валидан.",
+	"apierror-graph-missing": "Није пронађен графикон."
+}

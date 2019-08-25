@@ -19,8 +19,6 @@
 	"graph-obsolete-category": "廃止されたVega 1.0のグラフを使用するページ",
 	"graph-obsolete-category-desc": "このページには、バージョン 2 へ更新すべき <code><nowiki><graph></nowiki></code> タグが含まれています。",
 	"graph-error-not-vega": "提供されたJSONは有効なVega JSONではありません",
-	"apierror-graph-invalid": "グラフが無効です。",
-	"apierror-graph-missing": "グラフが見つかりません。",
 	"graph-ve-dialog-button-tooltip": "グラフ",
 	"graph-ve-dialog-edit-field-graph-type": "グラフの種類",
 	"graph-ve-dialog-edit-field-raw-json": "生のJSONデータ",

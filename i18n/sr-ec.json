@@ -15,8 +15,6 @@
 	"graph-obsolete-category-desc": "Странице које укључују ознаку <code><nowiki><graph></nowiki></code> коју треба ажурирати на верзију 2.",
 	"graph-error-empty-json": "Празни подаци о графикону, ништа за приказ",
 	"graph-error-not-vega": "Пружен JSON није валидан Вега JSON",
-	"apierror-graph-invalid": "Графикон није валидан.",
-	"apierror-graph-missing": "Није пронађен графикон.",
 	"graph-ve-dialog-button-tooltip": "Графикон",
 	"graph-ve-dialog-edit-field-graph-type": "Тип графикона",
 	"graph-ve-dialog-edit-field-raw-json": "Сирова JSON спецификација",

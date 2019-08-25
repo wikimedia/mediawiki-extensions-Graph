@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Lam-ang"
+		]
+	},
+	"apihelp-graph-description": "Serrekan ti pagannongan ti etiketa ti grapo.",
+	"apihelp-graph-example": "Alaen ti grapo ti JSON babaen ti hash ken titulo",
+	"apihelp-graph-param-hash": "Pateg ti hash iti grapo",
+	"apihelp-graph-param-title": "Titulo ti panid nga agraman iti grapo",
+	"apihelp-graph-param-text": "Teksto ti grapo a mabaliwanto iti JSON. Nasken a maipablaak ken mausar nga awanan iti titulo ken dagiti parametro ti hash"
+}

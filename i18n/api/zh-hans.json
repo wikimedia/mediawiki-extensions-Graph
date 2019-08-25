@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Liuxinyu970226"
+		]
+	},
+	"apihelp-graph-description": "访问图表标签功能。",
+	"apihelp-graph-summary": "访问图表标签功能。",
+	"apihelp-graph-example": "通过哈希值和标题获取图表JSON",
+	"apihelp-graph-param-hash": "图表的哈希值",
+	"apihelp-graph-param-title": "带图表的页面标题",
+	"apihelp-graph-param-text": "要转换为JSON的图表文本。必须在没有标题和哈希值参数的情况下发布并使用",
+	"apierror-graph-mustposttext": "当<var>text</var>参数被使用时，请求必须POST。",
+	"apierror-graph-invalid": "图表无效。",
+	"apierror-graph-missing": "找不到图表。"
+}

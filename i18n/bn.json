@@ -14,7 +14,6 @@
 	"graph-obsolete-category-desc": "পাতাটি একটি <code><nowiki><graph></nowiki></code> ট্যাগ অন্তর্ভুক্ত করে যেটি সংস্করণ ২-এ হালনাগাদ করা উচিত।",
 	"graph-error-empty-json": "গ্রাফের উপাত্ত খালি, দেখানোর মত কিছু নেই",
 	"graph-error-not-vega": "প্রদত্ত JSON একটি বৈধ ভেগা JSON নয়",
-	"apihelp-graph-param-title": "গ্রাফসহ পাতার শিরোনাম",
 	"graph-ve-dialog-button-tooltip": "গ্রাফ",
 	"graph-ve-dialog-edit-field-graph-type": "গ্রাফের ধরন",
 	"graph-ve-dialog-edit-field-raw-json": "সারির JSON নির্দিষ্টকরণ",

@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Robby"
+		]
+	},
+	"apihelp-graph-param-title": "Titel vun der Säit mam Grafik",
+	"apierror-graph-missing": "Keng Grafik fonnt."
+}

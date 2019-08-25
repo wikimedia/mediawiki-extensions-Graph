@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Incelemeelemani"
+		]
+	},
+	"apierror-graph-invalid": "Grafik geçerli değil.",
+	"apierror-graph-missing": "Hiçbir grafik bulunamadı"
+}

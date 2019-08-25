@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Praveenp"
+		]
+	},
+	"apierror-graph-invalid": "ഗ്രാഫ് സാധുതയുള്ളതല്ല.",
+	"apierror-graph-missing": "ഗ്രാഫ് കണ്ടെത്താനായില്ല."
+}

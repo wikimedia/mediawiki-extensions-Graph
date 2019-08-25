@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Base",
+			"Piramidion"
+		]
+	},
+	"apihelp-graph-description": "Отримати доступ до функціоналу тегів graph.",
+	"apihelp-graph-summary": "Отримати доступ до функціоналу тегів graph.",
+	"apihelp-graph-example": "Отримати графік у JSON-форматі за хешем та назвою",
+	"apihelp-graph-param-hash": "Хеш-значення графіка",
+	"apihelp-graph-param-title": "Назва сторінки з графіком",
+	"apihelp-graph-param-text": "Текст графіка, який має бути переведений у JSON. Має бути опублікований та використовуватись без параметрів назви та хешу.",
+	"apierror-graph-mustposttext": "Потрібно надсилати як POST-запит коли використовується параметр <var>text</var>",
+	"apierror-graph-invalid": "Графік не є правильним.",
+	"apierror-graph-missing": "Не знайдено графік."
+}

@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Felipe L. Ewald"
+		]
+	},
+	"apihelp-graph-description": "Acesse a funcionalidade da tag gráfica.",
+	"apihelp-graph-summary": "Acesse a funcionalidade da tag gráfica.",
+	"apihelp-graph-example": "Obter o gráfico JSON por hash e título",
+	"apihelp-graph-param-hash": "Valor de hash do gráfico",
+	"apihelp-graph-param-title": "Título da página com o gráfico",
+	"apihelp-graph-param-text": "Texto do gráfico a ser convertido em JSON. Deve ser postado e usado sem título e parâmetros de hash",
+	"apierror-graph-mustposttext": "O pedido deve ser POST quando o parâmetro <var>text</var> é usado.",
+	"apierror-graph-invalid": "Gráfico não é válido.",
+	"apierror-graph-missing": "Nenhum gráfico encontrado."
+}
