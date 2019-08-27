@@ -8,5 +8,9 @@
 	"apihelp-graph-summary": "Ause 'a funzione d'u tag grafeche.",
 	"apihelp-graph-example": "Pigghie 'u grafeche JSON pe hash e titole",
 	"apihelp-graph-param-hash": "Valore hash d'u grafeche",
-	"apihelp-graph-param-title": "Titole d'a pàgene cu 'u grafeche"
+	"apihelp-graph-param-title": "Titole d'a pàgene cu 'u grafeche",
+	"apihelp-graph-param-text": "Teste d'u grafeche da convertì jndr'à 'u JSON. Adda essere pubblecate e ausate senza titole e parametre hash",
+	"apierror-graph-mustposttext": "'A richieste adda essere POSTed quanne 'u parametre <var>text</var> jè ausate.",
+	"apierror-graph-invalid": "'U grafeche non g'è valide.",
+	"apierror-graph-missing": "Nisciune grafeche acchiate."
 }
