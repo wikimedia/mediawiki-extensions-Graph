@@ -51,6 +51,11 @@ ve.ce.MWGraphNode.static.tagName = 'div';
 
 ve.ce.MWGraphNode.static.getDescription = function ( model ) {
 	var graphModel = new ve.dm.MWGraphModel( ve.copy( model.getSpec() ) );
+	// The following messages are used here:
+	// * graph-ve-dialog-edit-type-area
+	// * graph-ve-dialog-edit-type-bar
+	// * graph-ve-dialog-edit-type-line
+	// * graph-ve-dialog-edit-type-unknown
 	return ve.msg( 'graph-ve-dialog-edit-type-' + graphModel.getGraphType() );
 };
 
