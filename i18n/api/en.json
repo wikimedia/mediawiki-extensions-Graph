@@ -11,6 +11,7 @@
 	"apihelp-graph-summary": "Access graph tag functionality.",
 	"apihelp-graph-example": "Get the graph JSON by hash and title",
 	"apihelp-graph-param-hash": "Hash value of the graph",
+	"apihelp-graph-param-oldid": "ID of the revision of the page with the graph",
 	"apihelp-graph-param-title": "Title of the page with the graph",
 	"apihelp-graph-param-text": "Text of the graph to be converted to JSON. Must be posted and used without title and hash parameters",
 	"apierror-graph-mustposttext": "Request must be POSTed when the <var>text</var> parameter is used.",

@@ -14,6 +14,7 @@ use FormatJson;
 use Title;
 use ParserOptions;
 use WikiPage;
+use MediaWiki\MediaWikiServices;
 
 /**
  * This class implements action=graph api, allowing client-side graphs to get the spec,
@@ -32,7 +33,7 @@ class ApiGraph extends ApiBase {
 				$this->dieWithError( [ 'apierror-invalidparammix-mustusewith', 'title', 'hash' ],
 					'missingparam' );
 			}
-			$graph = $this->getFromStorage( $params['title'], $params['hash'] );
+			$graph = $this->getGraphSpec( $params['title'], $params['oldid'], $params['hash'] );
 		} else {
 			if ( !$this->getRequest()->wasPosted() ) {
 				$this->dieWithError( 'apierror-graph-mustposttext', 'mustposttext' );
@@ -58,6 +59,10 @@ class ApiGraph extends ApiBase {
 			],
 			'text' => [
 				ApiBase::PARAM_TYPE => 'string',
+			],
+			'oldid' => [
+				ApiBase::PARAM_TYPE => 'integer',
+				ApiBase::PARAM_DFLT => 0
 			],
 		];
 	}
@@ -96,31 +101,47 @@ class ApiGraph extends ApiBase {
 	/**
 	 * Get graph definition with title and hash
 	 * @param string $titleText
+	 * @param integer $revId
 	 * @param string $hash
-	 * @return mixed Decoded graph spec
+	 * @return mixed Decoded graph spec from the DB or the stash
 	 */
-	private function getFromStorage( $titleText, $hash ) {
-		$graph = Store::getFromCache( $hash );
-		if ( !$graph ) {
-			$title = Title::newFromText( $titleText );
-			if ( !$title ) {
-				$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $titleText ) ] );
-			}
-			if ( !$title->exists() ) {
-				$this->dieWithError( 'apierror-missingtitle' );
-			}
-			$this->checkTitleUserPermissions( $title, 'read' );
-
-			$page = WikiPage::factory( $title );
-			$parserOutput = $page->getParserOutput( ParserOptions::newCanonical( 'canonical' ) );
-			$allGraphs = $parserOutput->getExtensionData( 'graph_specs' );
-			if ( is_object( $allGraphs ) && property_exists( $allGraphs, $hash ) ) {
-				$graph = $allGraphs->$hash;
-			}
+	private function getGraphSpec( $titleText, $revId, $hash ) {
+		$title = Title::newFromText( $titleText );
+		if ( !$title ) {
+			$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $titleText ) ] );
 		}
+
+		$page = WikiPage::factory( $title );
+		if ( !$page->exists() ) {
+			$this->dieWithError( 'apierror-missingtitle' );
+		}
+
+		$this->checkTitleUserPermissions( $title, 'read' );
+
+		// Use caching to avoid parses for old revisions and I/O for current revisions
+		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$graph = $cache->getWithSetCallback(
+			$cache->makeKey( 'graph-data', $hash, $page->getTouched() ),
+			$cache::TTL_DAY,
+			function ( $oldValue, &$ttl ) use ( $page, $revId, $hash ) {
+				$parserOptions = ParserOptions::newCanonical( 'canonical' );
+				$parserOutput = $page->getParserOutput( $parserOptions, $revId );
+
+				$allGraphs = $parserOutput->getExtensionData( 'graph_specs' );
+				if ( is_object( $allGraphs ) && property_exists( $allGraphs, $hash ) ) {
+					$value = $allGraphs->$hash;
+				} else {
+					$value = false;
+				}
+
+				return $value;
+			}
+		);
+
 		if ( !$graph ) {
 			$this->dieWithError( 'apierror-graph-missing', 'invalidhash' );
 		}
+
 		return $graph;
 	}
 }
