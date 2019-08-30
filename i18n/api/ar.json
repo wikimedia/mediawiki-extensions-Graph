@@ -8,6 +8,7 @@
 	"apihelp-graph-summary": "وظيفة وسم الوصول إلى الرسوم البيانية.",
 	"apihelp-graph-example": "الحصول على الرسم البياني JSON بواسطة رمز الرقم والعنوان",
 	"apihelp-graph-param-hash": "قيمة رمز الرقم للرسم البياني",
+	"apihelp-graph-param-oldid": "معرف لمراجعة الصفحة مع الرسم البياني",
 	"apihelp-graph-param-title": "عنوان الصفحة مع الرسم البياني",
 	"apihelp-graph-param-text": "نص الرسم البياني ليتم تحويله إلى JSON، يجب نشره واستخدامه بدون وسائط العنوان ورمز الرقم",
 	"apierror-graph-mustposttext": "يجب أن يتم POSTed الطلب عندما يتم استخدام الوسيط <var>text</var>.",

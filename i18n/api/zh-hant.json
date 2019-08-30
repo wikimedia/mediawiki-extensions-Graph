@@ -9,6 +9,7 @@
 	"apihelp-graph-summary": "存取圖表標籤功能。",
 	"apihelp-graph-example": "由 Hash 與標題取得圖表 JSON",
 	"apihelp-graph-param-hash": "此圖表的 Hash 值",
+	"apihelp-graph-param-oldid": "帶圖表的頁面修訂 ID",
 	"apihelp-graph-param-title": "此圖表的頁面標題",
 	"apihelp-graph-param-text": "要轉換成 JSON 的圖形文字。必須在沒有使用標題和雜湊參數下傳遞",
 	"apierror-graph-mustposttext": "當使用 <var>text</var> 參數時，請求必須以 POST 方式。",
