@@ -128,8 +128,8 @@ class ApiGraph extends ApiBase {
 				$parserOutput = $page->getParserOutput( $parserOptions, $revId );
 
 				$allGraphs = $parserOutput->getExtensionData( 'graph_specs' );
-				if ( is_object( $allGraphs ) && property_exists( $allGraphs, $hash ) ) {
-					$value = $allGraphs->$hash;
+				if ( is_array( $allGraphs ) && array_key_exists( $hash, $allGraphs ) ) {
+					$value = $allGraphs[$hash];
 				} else {
 					$value = false;
 				}
