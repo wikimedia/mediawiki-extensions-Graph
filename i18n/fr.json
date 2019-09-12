@@ -46,7 +46,7 @@
 	"graph-ve-dialog-edit-type-line": "Graphique en lignes",
 	"graph-ve-dialog-edit-type-unknown": "Type de graphique inconnu",
 	"graph-ve-dialog-edit-width": "Largeur",
-	"graph-ve-dialog-edit-unknown-graph-type-warning": "Le type de ce graphique n’est pas pris en charge, et toute modification qui y sera apportée pourrait casser son affichage. Veuillez modifier le graphique via la spécification de données brutes dans l’onglet « {{int:graph-ve-dialog-edit-page-raw}} ».",
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "Le type de ce graphique n’est pas pris en charge, et toute modification qui y sera apportée pourrait casser son affichage. Veuillez modifier le graphique via la spécification de données brutes dans l’onglet « {{int:graph-ve-dialog-edit-page-raw}} ».",
 	"graph-ve-empty-graph": "Graphique vide",
 	"graph-ve-no-spec": "Spécification de graphique introuvable",
 	"graph-ve-vega-error": "Une erreur est survenue lors du rendu de ce graphique par Vega",

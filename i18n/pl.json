@@ -5,7 +5,8 @@
 			"The Polish",
 			"Michał Sobkowski",
 			"Woytecr",
-			"Railfail536"
+			"Railfail536",
+			"Rail"
 		]
 	},
 	"graph-desc": "Umożliwia znacznikom <code>&lt;graph&gt;</code> lub całym stronom stworzenie wykresów bazujących na [http://vega.github.io/ Vega]",
