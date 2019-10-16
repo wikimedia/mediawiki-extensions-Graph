@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ерней"
+		]
+	},
+	"graph-ve-dialog-button-tooltip": "График",
+	"graph-ve-dialog-edit-field-graph-type": "График төре",
+	"graph-ve-dialog-edit-height": "Биеклек",
+	"graph-ve-dialog-edit-padding-bottom": "Аста",
+	"graph-ve-dialog-edit-padding-left": "Сулда",
+	"graph-ve-dialog-edit-padding-right": "Уңда",
+	"graph-ve-dialog-edit-padding-top": "Өстә",
+	"graph-ve-dialog-edit-page-data": "Мәгълүматлар",
+	"graph-ve-dialog-edit-page-general": "Гомуми",
+	"graph-ve-dialog-edit-size-field": "Зурлык",
+	"graph-ve-dialog-edit-size-table-unit": "Нокталар",
+	"graph-ve-dialog-edit-table-row-delete": "Юлны бетерү",
+	"graph-ve-dialog-edit-title": "Графикны үзгәртү",
+	"graph-ve-dialog-edit-type-area": "Мәйданлы диаграмма",
+	"graph-ve-dialog-edit-type-bar": "Баганалы диаграмма",
+	"graph-ve-dialog-edit-type-line": "Сызыклы диаграмма",
+	"graph-ve-dialog-edit-type-unknown": "Билгесез диаграмма төре",
+	"graph-ve-dialog-edit-width": "Киңлек",
+	"graph-ve-empty-graph": "Буш график"
+}
