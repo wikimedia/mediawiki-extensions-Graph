@@ -8,6 +8,7 @@
 	"apihelp-graph-summary": "Aceder à funcionalidade do elemento <code>graph</code>.",
 	"apihelp-graph-example": "Obter o JSON do gráfico por resumo criptográfico e título",
 	"apihelp-graph-param-hash": "Valor do resumo criptográfico do gráfico",
+	"apihelp-graph-param-oldid": "Identificador da revisão da página com o gráfico",
 	"apihelp-graph-param-title": "Título da página com o gráfico",
 	"apihelp-graph-param-text": "Texto do gráfico a ser convertido para JSON. Tem de ser publicado e usado sem os parâmetros título e resumo criptográfico",
 	"apierror-graph-mustposttext": "O pedido deve ser enviado pelo método POST quando o parâmetro <var>text</var> for usado.",
