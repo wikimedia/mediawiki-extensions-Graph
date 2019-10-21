@@ -16,7 +16,7 @@
 		"grunt": "1.0.4",
 		"grunt-banana-checker": "0.7.1",
 		"grunt-eslint": "21.0.0",
-		"grunt-stylelint": "0.11.0",
+		"grunt-stylelint": "0.11.1",
 		"jquery.splitter": "^0.27.1",
 		"mw-graph-shared": "^0.4.2",
 		"stylelint-config-wikimedia": "0.6.0"
