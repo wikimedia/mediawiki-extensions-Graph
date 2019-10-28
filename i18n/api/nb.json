@@ -8,6 +8,7 @@
 	"apihelp-graph-summary": "Få tilgang til graftaggfunksjonalitet.",
 	"apihelp-graph-example": "Hent graf-JSON-en med hash og tittel",
 	"apihelp-graph-param-hash": "Hash-verdien til grafen",
+	"apihelp-graph-param-oldid": "ID-en til revisjonen av siden med grafen",
 	"apihelp-graph-param-title": "Tittelen til siden med grafen",
 	"apihelp-graph-param-text": "Tekst i grafen som skal konverteres til JSON. Måpostes og brukes uten tittel- og hash-parameterne.",
 	"apierror-graph-mustposttext": "Forespørselen må POSTes når <var>text</var>-parameteren brukes.",

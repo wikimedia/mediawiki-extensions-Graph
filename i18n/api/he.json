@@ -5,10 +5,11 @@
 			"Guycn2"
 		]
 	},
-	"apihelp-graph-description": "גישה לפונקצינליות של תגי תרשימים (graph).",
-	"apihelp-graph-summary": "גישה לפונקצינליות של תגי תרשימים (graph).",
+	"apihelp-graph-description": "גישה לפונקצינליות של תגי graph.",
+	"apihelp-graph-summary": "גישה לפונקצינליות של תגי graph.",
 	"apihelp-graph-example": "קבלת ה־JSON של התרשים באמצעות גיבוב וכותרת",
 	"apihelp-graph-param-hash": "ערך הגיבוב של התרשים",
+	"apihelp-graph-param-oldid": "המזהה של גרסת הדף עם התרשים",
 	"apihelp-graph-param-title": "כותרת הדף עם התרשים",
 	"apihelp-graph-param-text": "טקסט התרשים שיומר ל־JSON. צריך להישלח ב־POST ולשמש בלי הפרמטרים title ו־hash",
 	"apierror-graph-mustposttext": "יש לשלוח את הבקשה כ־POST כאשר משמש הפרמטר <var>text</var>.",
