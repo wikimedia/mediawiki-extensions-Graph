@@ -186,9 +186,9 @@ class ParserTag {
 		} else {
 			// Image from Graphoid
 			$server = rawurlencode( $wgServerName );
-			$title = !$title ? '' : rawurlencode( $title->getPrefixedDBkey() );
+			$titleText = rawurlencode( $title->getPrefixedDBkey() );
 			$revid = rawurlencode( (string)$revid ) ?: '0';
-			$url = sprintf( $wgGraphImgServiceUrl, $server, $title, $revid, $hash );
+			$url = sprintf( $wgGraphImgServiceUrl, $server, $titleText, $revid, $hash );
 			$imgAttrs = [
 				'class' => 'mw-graph-img',
 				'src' => $url,
