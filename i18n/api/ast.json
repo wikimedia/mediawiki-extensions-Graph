@@ -8,6 +8,7 @@
 	"apihelp-graph-summary": "Accesu a la función de la etiqueta graph.",
 	"apihelp-graph-example": "Algamar el JSON de la gráfica por función hash y títulu",
 	"apihelp-graph-param-hash": "Valor hash de la gráfica",
+	"apihelp-graph-param-oldid": "ID de la revisión de la páxina cola gráfica",
 	"apihelp-graph-param-title": "Títulu de la páxina cola gráfica",
 	"apihelp-graph-param-text": "Testu de la gráfica a convertir a JSON. Tien d'espublizase y usase sin títulu y parámetros hash",
 	"apierror-graph-mustposttext": "El pidimientu tien d'unviase pol métodu POST si s'utiliza el parámetru <var>text</var>.",
