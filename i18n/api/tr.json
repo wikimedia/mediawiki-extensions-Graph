@@ -1,9 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Incelemeelemani"
+			"Incelemeelemani",
+			"BaRaN6161 TURK"
 		]
 	},
+	"apihelp-graph-description": "Erişim grafik etiketi işlevselliği.",
+	"apihelp-graph-summary": "Erişim grafik etiketi işlevselliği.",
+	"apihelp-graph-example": "JSON grafiğini karma ve başlığa göre alın",
+	"apihelp-graph-param-hash": "Grafiğin karma değeri",
+	"apihelp-graph-param-oldid": "Sayfanın grafikle birlikte revizyonunun kimliği",
+	"apihelp-graph-param-title": "Grafikli sayfanın başlığı",
+	"apihelp-graph-param-text": "JSON'a dönüştürülecek grafiğin metni. Başlık ve karma parametreler olmadan kaydedilmeli ve kullanılmalıdır",
+	"apierror-graph-mustposttext": "<var>text</var> parametresi kullanıldığında, istek gönderilmiş edilmelidir.",
 	"apierror-graph-invalid": "Grafik geçerli değil.",
 	"apierror-graph-missing": "Hiçbir grafik bulunamadı"
 }
