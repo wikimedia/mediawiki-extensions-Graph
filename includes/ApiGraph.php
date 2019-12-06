@@ -124,14 +124,15 @@ class ApiGraph extends ApiBase {
 			$cache->makeKey( 'graph-data', $hash, $page->getTouched() ),
 			$cache::TTL_DAY,
 			function ( $oldValue, &$ttl ) use ( $page, $revId, $hash ) {
+				$value = false;
 				$parserOptions = ParserOptions::newCanonical( 'canonical' );
 				$parserOutput = $page->getParserOutput( $parserOptions, $revId );
 
-				$allGraphs = $parserOutput->getExtensionData( 'graph_specs' );
-				if ( is_array( $allGraphs ) && array_key_exists( $hash, $allGraphs ) ) {
-					$value = $allGraphs[$hash];
-				} else {
-					$value = false;
+				if ( $parserOutput !== false ) {
+					$allGraphs = $parserOutput->getExtensionData( 'graph_specs' );
+					if ( is_array( $allGraphs ) && array_key_exists( $hash, $allGraphs ) ) {
+						$value = $allGraphs[$hash];
+					}
 				}
 
 				return $value;
