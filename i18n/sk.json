@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"LacoR",
-			"Robert Važan"
+			"Robert Važan",
+			"Luky001"
 		]
 	},
+	"graph-desc": "Vytvára zo značiek &lt;graph&gt; alebo celých stránok grafy pomocou [http://vega.github.io/ Vega]",
 	"graphsandbox": "Pieskovisko grafov",
 	"graph-tracking-category": "Stránky s grafmi",
 	"graph-tracking-category-desc": "Stránka obsahuje tag <code><nowiki><graph></nowiki></code>",
