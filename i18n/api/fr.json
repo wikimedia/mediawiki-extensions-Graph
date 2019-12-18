@@ -15,7 +15,7 @@
 	"apihelp-graph-param-oldid": "ID de révision de la page avec le graphe",
 	"apihelp-graph-param-title": "Titre de la page avec le graphique",
 	"apihelp-graph-param-text": "Texte du graphique à convertir en JSON. Doit être publié et utilisé sans titre ni paramètres de hachage",
-	"apierror-graph-mustposttext": "La requête doit être envoyée à l'aide de POST quand le paramètre <var>text</var> est utilisé.",
+	"apierror-graph-mustposttext": "La requête doit être envoyée à l’aide de POST quand le paramètre <var>text</var> est utilisé.",
 	"apierror-graph-invalid": "Graphique non valide.",
 	"apierror-graph-missing": "Aucun graphique trouvé."
 }
