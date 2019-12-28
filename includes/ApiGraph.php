@@ -111,11 +111,13 @@ class ApiGraph extends ApiBase {
 			$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $titleText ) ] );
 		}
 
+		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable T240141
 		$page = WikiPage::factory( $title );
 		if ( !$page->exists() ) {
 			$this->dieWithError( 'apierror-missingtitle' );
 		}
 
+		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable T240141
 		$this->checkTitleUserPermissions( $title, 'read' );
 
 		// Use caching to avoid parses for old revisions and I/O for current revisions
