@@ -11,10 +11,10 @@ namespace Graph;
 
 use ApiBase;
 use FormatJson;
-use Title;
-use ParserOptions;
-use WikiPage;
 use MediaWiki\MediaWikiServices;
+use ParserOptions;
+use Title;
+use WikiPage;
 
 /**
  * This class implements action=graph api, allowing client-side graphs to get the spec,
@@ -101,7 +101,7 @@ class ApiGraph extends ApiBase {
 	/**
 	 * Get graph definition with title and hash
 	 * @param string $titleText
-	 * @param integer $revId
+	 * @param int $revId
 	 * @param string $hash
 	 * @return mixed Decoded graph spec from the DB or the stash
 	 */
