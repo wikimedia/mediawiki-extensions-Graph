@@ -9,9 +9,6 @@ class Sandbox extends SpecialPage {
 
 	const PAGENAME = 'GraphSandbox';
 
-	/**
-	 * Constructor
-	 */
 	public function __construct() {
 		parent::__construct( self::PAGENAME );
 	}

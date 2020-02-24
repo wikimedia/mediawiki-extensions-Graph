@@ -172,15 +172,9 @@
 		"remoteExtPath": "Graph"
 	},
 	"Hooks": {
-		"ParserFirstCallInit": [
-			"Graph\\Hooks::onParserFirstCallInit"
-		],
-		"ParserAfterParse": [
-			"Graph\\Hooks::onParserAfterParse"
-		],
-		"ResourceLoaderTestModules": [
-			"Graph\\Hooks::onResourceLoaderTestModules"
-		]
+		"ParserFirstCallInit": "Graph\\Hooks::onParserFirstCallInit",
+		"ParserAfterParse": "Graph\\Hooks::onParserAfterParse",
+		"ResourceLoaderTestModules": "Graph\\Hooks::onResourceLoaderTestModules"
 	},
 	"VisualEditorPluginModules": [
 		"ext.graph.visualEditor"
