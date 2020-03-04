@@ -82,7 +82,7 @@ class ApiGraph extends ApiBase {
 	private function preprocess( $text ) {
 		$title = Title::makeTitle( NS_SPECIAL, Sandbox::PAGENAME )->fixSpecialName();
 		$text = MediaWikiServices::getInstance()->getParser()->getFreshParser()
-			->preprocess( $text, $title, new ParserOptions() );
+			->preprocess( $text, $title, new ParserOptions( $this->getUser() ) );
 		$st = FormatJson::parse( $text );
 		if ( !$st->isOK() ) {
 			// Sometimes we get <graph ...> {...} </graph> as input. Try to strip <graph> tags
