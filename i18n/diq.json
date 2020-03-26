@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Orbot707"
+			"Orbot707",
+			"Mirzali"
 		]
 	},
-	"graph-ve-dialog-edit-page-data": "Melumat"
+	"graph-ve-dialog-edit-page-data": "Melumat",
+	"graph-ve-dialog-edit-width": "Herayiye"
 }
