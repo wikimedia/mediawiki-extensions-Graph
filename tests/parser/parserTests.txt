@@ -1,6 +1,8 @@
+!! Version 2
+
 !! test
 <graph>
-!! input
+!! wikitext
 <graph>
 {}
 </graph>
@@ -10,14 +12,14 @@
 	"height": 200
 }
 </graph>
-!! result
+!! html
 <div class="mw-graph mw-graph-always" data-graph-id="cb66159a7f0070f4faaef2f353cb67c0d178d678"></div>
 <div class="mw-graph mw-graph-always" style="min-width:100px;min-height:200px" data-graph-id="35d4ad35da17b39e7e4464fd7af741dadda01a91"></div>
 !! end
 
 !! test
 <graph> - error handling
-!! input
+!! wikitext
 <graph/>
 <graph></graph>
 <graph>
@@ -26,7 +28,7 @@
 <graph>
 [ "foo", "bar" ]
 </graph>
-!! result
+!! html
 <p><span class="error">Empty graph data, nothing to show</span>
 <span class="error">Empty graph data, nothing to show</span>
 <span class="error">Syntax error</span>
