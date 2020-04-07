@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Raimond Spekking",
-			"Mormegil",
 			"Liuxinyu970226",
-			"Robby",
-			"Raymond"
+			"Mormegil",
+			"Raimond Spekking",
+			"Raymond",
+			"Robby"
 		]
 	},
 	"apihelp-graph-description": "{{doc-apihelp-description|graph}}",

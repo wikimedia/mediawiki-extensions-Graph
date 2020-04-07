@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"زكريا",
 			"Meno25",
 			"Shbib Al-Subaie",
-			"ديفيد"
+			"ديفيد",
+			"زكريا"
 		]
 	},
 	"graph-desc": "يسمح بوسوم &lt;graph&gt; أو صفحات كاملة لتصبح رسومات بيانية قائمة على [http://vega.github.io/ Vega]",

@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Hwboehm",
 			"Metalhead64",
-			"Purodha",
-			"Umherirrender",
 			"Predatorix",
-			"Hwboehm"
+			"Purodha",
+			"Umherirrender"
 		]
 	},
 	"graph-desc": "Erlaubt &lt;graph&gt;-Tags oder wandelt ganze Seiten in [http://vega.github.io/ Vega]-basierte Diagramme um",

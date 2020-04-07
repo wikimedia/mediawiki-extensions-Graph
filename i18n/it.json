@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Beta16",
 			"Alexmar983",
-			"Macofe",
-			"Statix64",
+			"Beta16",
+			"Fringio",
 			"Lucas2",
-			"Fringio"
+			"Macofe",
+			"Statix64"
 		]
 	},
 	"graph-desc": "Permette il tag &lt;graph> o intere pagine di diventare grafici basati su [http://vega.github.io/ Vega]",

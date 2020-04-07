@@ -2,11 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Chrumps",
-			"The Polish",
 			"Michał Sobkowski",
-			"Woytecr",
+			"Rail",
 			"Railfail536",
-			"Rail"
+			"The Polish",
+			"Woytecr"
 		]
 	},
 	"graph-desc": "Umożliwia znacznikom <code>&lt;graph&gt;</code> lub całym stronom stworzenie wykresów bazujących na [http://vega.github.io/ Vega]",

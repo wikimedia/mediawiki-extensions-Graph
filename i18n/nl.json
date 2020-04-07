@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Mar(c)",
 			"Siebrand",
-			"Sjoerddebruin",
-			"Mar(c)"
+			"Sjoerddebruin"
 		]
 	},
 	"graph-desc": "Maakt het mogelijk om het label &lt;graph> of hele pagina's op [http://vega.github.io/ Vega] gebaseerde grafieken te laten worden",

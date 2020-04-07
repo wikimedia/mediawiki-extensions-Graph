@@ -2,10 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"Andriykopanytsia",
-			"Ата",
 			"Base",
 			"Dars",
-			"Piramidion"
+			"Piramidion",
+			"Ата"
 		]
 	},
 	"graph-desc": "Дозволяє тегам &lt;graph&gt; або цілим сторінкам стати графіками на основі [http://vega.github.io/ Vega]",

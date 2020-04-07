@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mavrikant",
+			"BaRaN6161 TURK",
 			"HakanIST",
-			"Sayginer",
-			"McAang",
 			"Incelemeelemani",
-			"BaRaN6161 TURK"
+			"Mavrikant",
+			"McAang",
+			"Sayginer"
 		]
 	},
 	"graph-desc": "&lt;graph&gt; etiketlerinin veya tüm sayfaların [http://vega.github.io/ Vega] tabanlı grafik olmasına izin verir",

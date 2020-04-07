@@ -2,8 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"LacoR",
-			"Robert Važan",
-			"Luky001"
+			"Luky001",
+			"Robert Važan"
 		]
 	},
 	"graph-desc": "Vytvára zo značiek &lt;graph&gt; alebo celých stránok grafy pomocou [http://vega.github.io/ Vega]",

@@ -1,17 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gomoko",
-			"Mattho69",
 			"Djiboun",
+			"Gomoko",
 			"Macofe",
-			"Titip1995",
-			"Wladek92",
+			"Mattho69",
 			"Orlodrim",
 			"PifyZ",
-			"Urhixidur",
+			"The RedBurn",
 			"Thibaut120094",
-			"The RedBurn"
+			"Titip1995",
+			"Urhixidur",
+			"Wladek92"
 		]
 	},
 	"graph-desc": "Permet aux balises &lt;graph&gt; ou aux pages complètes de devenir des graphiques basés sur [http://vega.github.io/ Vega]",

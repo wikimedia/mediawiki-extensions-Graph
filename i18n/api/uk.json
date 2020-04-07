@@ -2,8 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Base",
-			"Piramidion",
-			"Movses"
+			"Movses",
+			"Piramidion"
 		]
 	},
 	"apihelp-graph-description": "Отримати доступ до функціоналу тегів graph.",

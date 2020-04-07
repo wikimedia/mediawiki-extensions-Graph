@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sujiniku",
-			"Otokoume",
 			"Delim",
-			"Yusuke1109",
-			"Suyama",
 			"Kkairri",
-			"Shirayuki"
+			"Otokoume",
+			"Shirayuki",
+			"Sujiniku",
+			"Suyama",
+			"Yusuke1109"
 		]
 	},
 	"graph-desc": "&lt;graph&gt;タグまたはページ全体を[http://vega.github.io/ Vega]ベースのグラフにする",

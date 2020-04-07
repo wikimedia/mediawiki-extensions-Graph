@@ -2,8 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Cwlin0416",
-			"Liuxinyu970226",
-			"Kly"
+			"Kly",
+			"Liuxinyu970226"
 		]
 	},
 	"graph-desc": "允許 &lt;graph&gt; 標籤或整個頁面使用 [http://vega.github.io/ Vega] 為基礎的圖型。",

@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Okras",
-			"INS Pirat",
-			"Putnik",
+			"Facenapalm",
 			"Frhdkazan",
+			"INS Pirat",
 			"Mailman",
-			"Facenapalm"
+			"Okras",
+			"Putnik"
 		]
 	},
 	"graph-desc": "Позволяет тегам &lt;graph&gt; или целым страницам становиться графами на основе [http://vega.github.io/ Vega]",

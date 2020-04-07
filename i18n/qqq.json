@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Raimond Spekking",
-			"Mormegil",
 			"Liuxinyu970226",
-			"Robby",
-			"Raymond"
+			"Mormegil",
+			"Raimond Spekking",
+			"Raymond",
+			"Robby"
 		]
 	},
 	"graph-desc": "{{desc|name=Graph|url=https://www.mediawiki.org/wiki/Extension:Graph}}",

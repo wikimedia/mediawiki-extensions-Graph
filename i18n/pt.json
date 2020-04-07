@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vitorvicentevalente",
-			"Macofe",
+			"Hamilton Abreu",
 			"Jkb8",
 			"Luan",
-			"Hamilton Abreu"
+			"Macofe",
+			"Vitorvicentevalente"
 		]
 	},
 	"graph-desc": "Permite transformar elementos &lt;graph&gt; ou páginas completas em gráficos baseados no formato declarativo [http://vega.github.io/ Vega]",

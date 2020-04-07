@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Felipe L. Ewald",
 			"Jefersonmoraes",
-			"Luan",
-			"Felipe L. Ewald"
+			"Luan"
 		]
 	},
 	"graph-desc": "Permite transformar etiquetas &lt;graph> ou páginas todas em gráficos basados em [http://vega.github.io/ Vega]",

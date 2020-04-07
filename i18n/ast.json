@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Xuacu",
-			"Enolp"
+			"Enolp",
+			"Xuacu"
 		]
 	},
 	"graph-desc": "Permite convertir etiquetes &lt;graph&gt; o páxines completes en gráfiques basaes en [http://vega.github.io/ Vega]",
