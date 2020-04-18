@@ -18,12 +18,8 @@
 			"i18n/api"
 		]
 	},
-	"AutoloadClasses": {
-		"Graph\\ApiGraph": "includes/ApiGraph.php",
-		"Graph\\DataModule": "includes/DataModule.php",
-		"Graph\\ParserTag": "includes/ParserTag.php",
-		"Graph\\Sandbox": "includes/Sandbox.php",
-		"Graph\\Hooks": "includes/Hooks.php"
+	"AutoloadNamespaces": {
+		"Graph\\": "includes/"
 	},
 	"APIModules": {
 		"graph": "Graph\\ApiGraph"
