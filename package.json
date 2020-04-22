@@ -12,13 +12,13 @@
 	},
 	"devDependencies": {
 		"browserify": "^16.2.3",
-		"eslint-config-wikimedia": "0.15.0",
+		"eslint-config-wikimedia": "0.15.3",
 		"grunt": "1.1.0",
 		"grunt-banana-checker": "0.9.0",
 		"grunt-eslint": "22.0.0",
-		"grunt-stylelint": "0.14.0",
+		"grunt-stylelint": "0.15.0",
 		"jquery.splitter": "^0.27.1",
 		"mw-graph-shared": "^0.4.2",
-		"stylelint-config-wikimedia": "0.9.0"
+		"stylelint-config-wikimedia": "0.10.1"
 	}
 }
