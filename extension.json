@@ -10,7 +10,7 @@
 	"license-name": "MIT",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.32.0"
+		"MediaWiki": ">= 1.35.0"
 	},
 	"MessagesDirs": {
 		"Graph": [
@@ -110,23 +110,18 @@
 				"modules/ve-graph/ve.dm.MWGraphModel.js",
 				"modules/ve-graph/ve.dm.MWGraphNode.js",
 				"modules/ve-graph/ve.ui.MWGraphDialog.js",
-				"modules/ve-graph/ve.ui.MWGraphDialogTool.js",
-				"modules/ve-graph/widgets/ve.dm.RowWidgetModel.js",
-				"modules/ve-graph/widgets/ve.dm.TableWidgetModel.js",
-				"modules/ve-graph/widgets/ve.ui.RowWidget.js",
-				"modules/ve-graph/widgets/ve.ui.TableWidget.js"
+				"modules/ve-graph/ve.ui.MWGraphDialogTool.js"
 			],
 			"styles": [
 				"modules/ve-graph/ve.ce.MWGraphNode.css",
-				"modules/ve-graph/ve.ui.MWGraphIcons.css",
-				"modules/ve-graph/widgets/ve.ui.RowWidget.css",
-				"modules/ve-graph/widgets/ve.ui.TableWidget.css"
+				"modules/ve-graph/ve.ui.MWGraphIcons.css"
 			],
 			"dependencies": [
 				"oojs-ui.styles.icons-editing-advanced",
 				"ext.graph.data",
 				"ext.visualEditor.mwcore",
-				"ext.visualEditor.mwimage.core"
+				"ext.visualEditor.mwimage.core",
+				"mediawiki.widgets.Table"
 			],
 			"messages": [
 				"graph-ve-dialog-button-tooltip",
@@ -144,7 +139,6 @@
 				"graph-ve-dialog-edit-page-raw",
 				"graph-ve-dialog-edit-size-field",
 				"graph-ve-dialog-edit-size-table-unit",
-				"graph-ve-dialog-edit-table-row-delete",
 				"graph-ve-dialog-edit-title",
 				"graph-ve-dialog-edit-type-area",
 				"graph-ve-dialog-edit-type-bar",

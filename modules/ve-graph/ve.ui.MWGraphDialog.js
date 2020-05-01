@@ -159,7 +159,7 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 
 	/* Data page */
 
-	this.dataTable = new ve.ui.TableWidget( {
+	this.dataTable = new mw.widgets.TableWidget( {
 		validate: /^[0-9]+$/,
 		showRowLabels: false
 	} );

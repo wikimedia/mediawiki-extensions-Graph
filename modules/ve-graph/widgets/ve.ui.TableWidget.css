@@ -1,9 +1,0 @@
-.ve-ui-tableWidget > .ve-ui-tableWidget-rows {
-	float: left;
-	clear: left;
-	width: 100%;
-}
-
-.ve-ui-tableWidget.ve-ui-tableWidget-no-labels .ve-ui-rowWidget-label {
-	display: none;
-}
