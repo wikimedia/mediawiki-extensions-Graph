@@ -161,10 +161,21 @@
 		"localBasePath": "",
 		"remoteExtPath": "Graph"
 	},
+	"QUnitTestModule": {
+		"localBasePath": "",
+		"remoteExtPath": "Graph",
+		"scripts": [
+			"modules/ve-graph/tests/ext.graph.visualEditor.test.js"
+		],
+		"dependencies": [
+			"ext.graph.visualEditor",
+			"ext.graph.vega1",
+			"test.VisualEditor"
+		]
+	},
 	"Hooks": {
 		"ParserFirstCallInit": "Graph\\Hooks::onParserFirstCallInit",
-		"ParserAfterParse": "Graph\\Hooks::onParserAfterParse",
-		"ResourceLoaderTestModules": "Graph\\Hooks::onResourceLoaderTestModules"
+		"ParserAfterParse": "Graph\\Hooks::onParserAfterParse"
 	},
 	"VisualEditorPluginModules": [
 		"ext.graph.visualEditor"

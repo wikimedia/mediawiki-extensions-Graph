@@ -9,43 +9,8 @@
 namespace Graph;
 
 use Parser;
-use ResourceLoader;
 
 class Hooks {
-	/**
-	 * ResourceLoaderTestModules hook handler.
-	 * Conditionally registers the unit testing module for the ext.graph.visualEditor module
-	 * only if that module is loaded
-	 *
-	 * @param array &$testModules The array of registered test modules
-	 * @param ResourceLoader &$resourceLoader The reference to the resource loader
-	 * @return bool
-	 */
-	public static function onResourceLoaderTestModules( array &$testModules,
-		ResourceLoader &$resourceLoader
-	) {
-		$resourceModules = $resourceLoader->getConfig()->get( 'ResourceModules' );
-
-		if (
-			isset( $resourceModules[ 'ext.visualEditor.mediawiki' ] ) ||
-			$resourceLoader->isModuleRegistered( 'ext.visualEditor.mediawiki' )
-		) {
-			$testModules['qunit']['ext.graph.visualEditor.test'] = [
-				'scripts' => [
-					'modules/ve-graph/tests/ext.graph.visualEditor.test.js'
-				],
-				'dependencies' => [
-					'ext.graph.visualEditor',
-					'ext.graph.vega1',
-					'test.VisualEditor'
-				],
-				'localBasePath' => dirname( __DIR__ ),
-				'remoteExtPath' => 'Graph'
-			];
-		}
-
-		return true;
-	}
 
 	/**
 	 * ParserFirstCallInit hook handler.
