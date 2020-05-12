@@ -177,13 +177,23 @@
 		"ParserFirstCallInit": "Graph\\Hooks::onParserFirstCallInit",
 		"ParserAfterParse": "Graph\\Hooks::onParserAfterParse"
 	},
-	"VisualEditorPluginModules": [
-		"ext.graph.visualEditor"
-	],
+	"attributes": {
+		"VisualEditor": {
+			"PluginModules": [
+				"ext.graph.visualEditor"
+			]
+		}
+	},
 	"config": {
-		"GraphAllowedDomains": {},
-		"GraphDefaultVegaVer": 2,
-		"GraphImgServiceUrl": false
+		"GraphAllowedDomains": {
+			"value": []
+		},
+		"GraphDefaultVegaVer": {
+			"value": 2
+		},
+		"GraphImgServiceUrl": {
+			"value": false
+		}
 	},
 	"TrackingCategories": [
 		"graph-tracking-category",
@@ -196,5 +206,5 @@
 	"ExtensionMessagesFiles": {
 		"GraphAliases": "Graph.alias.php"
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }
