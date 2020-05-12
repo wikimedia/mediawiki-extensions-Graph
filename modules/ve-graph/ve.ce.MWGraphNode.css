@@ -2,8 +2,15 @@
 	display: inline-block;
 	border: 1px solid transparent;
 	position: relative;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-image: url( ../../includes/ajax-loader.gif );
 }
 
 .ve-ce-mwGraphNode-plot {
 	position: absolute;
+}
+
+.vega {
+	background: #fff;
 }
