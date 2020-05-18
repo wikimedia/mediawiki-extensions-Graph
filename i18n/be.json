@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Artsiom91",
 			"Дзяніс Тутэйшы"
 		]
 	},
+	"graphsandbox": "Пясочніца Graph",
 	"graph-ve-dialog-edit-padding-left": "Злева"
 }
