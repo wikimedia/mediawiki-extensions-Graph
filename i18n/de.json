@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Hwboehm",
+			"Kghbln",
 			"Metalhead64",
 			"Predatorix",
 			"Purodha",
 			"Umherirrender"
 		]
 	},
-	"graph-desc": "Erlaubt &lt;graph&gt;-Tags oder wandelt ganze Seiten in [http://vega.github.io/ Vega]-basierte Diagramme um",
+	"graph-desc": "Ergänzt das Tag <code>&lt;graph&gt;</code> oder wandelt den gesamten Inhalt von Seiten in [http://vega.github.io/ Vega]-gestützte Diagramme um",
 	"graphsandbox": "Grafikspielwiese",
 	"graph-tracking-category": "Seiten mit Diagrammen",
 	"graph-tracking-category-desc": "Die Seite enthält eine <code><nowiki><graph></nowiki></code>-Markierung.",
