@@ -2,12 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"Chrumps",
+			"Rail",
 			"Woytecr"
 		]
 	},
 	"apihelp-graph-description": "Dostęp do funkcjonalności znacznika graph.",
+	"apihelp-graph-summary": "Dostęp do funkcjonalności znacznika graph.",
 	"apihelp-graph-example": "Pobierz JSON wykresu według tytułu i hasha",
+	"apihelp-graph-param-hash": "Wartość hash grafu",
+	"apihelp-graph-param-oldid": "ID wersji strony zawierającej graf.",
 	"apihelp-graph-param-title": "Tytuł strony z wykresem",
+	"apihelp-graph-param-text": "Tekst graph to przekonwertowania na JSON. Musi zostać zapisane i używany bez tytułu ani parametrów hash",
 	"apierror-graph-mustposttext": "Żądanie musi być wysłane metodą POST, jeżeli używany jest parametr <var>text</var>.",
 	"apierror-graph-invalid": "Wykres jest nieprawidłowy.",
 	"apierror-graph-missing": "Nie znaleziono wykresu."
