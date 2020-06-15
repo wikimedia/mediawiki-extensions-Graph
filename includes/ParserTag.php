@@ -4,7 +4,7 @@
  * @license MIT
  * @file
  *
- * @author Dan Andreescu, Yuri Astrakhan, Frédéric Bolduc
+ * @author Dan Andreescu, Yuri Astrakhan, Frédéric Bolduc, Joseph Seddon
  */
 
 namespace Graph;
@@ -12,6 +12,8 @@ namespace Graph;
 use FormatJson;
 use Html;
 use Language;
+use Linker;
+use MediaWiki\MediaWikiServices;
 use Message;
 use Parser;
 use ParserOptions;
@@ -182,7 +184,42 @@ class ParserTag {
 			$liveSpecs = $this->parserOutput->getExtensionData( 'graph_live_specs' ) ?: [];
 			$liveSpecs[$hash] = $data;
 			$this->parserOutput->setExtensionData( 'graph_live_specs', $liveSpecs );
-			$html = ''; // will be injected with a <canvas> tag
+			$isFallback = isset( $args[ 'fallback' ] ) && $args[ 'fallback' ] !== '';
+
+			if ( $isFallback ) {
+				global $wgThumbLimits, $wgDefaultUserOptions;
+				/* @phan-suppress-next-line PhanTypeArraySuspiciousNullable */
+				$fallbackArgTitle = $args[ 'fallback' ];
+				$fallbackParser = MediaWikiServices::getInstance()->getParser();
+				$title = Title::makeTitle( NS_FILE, $fallbackArgTitle );
+				$file = wfFindFile( $title );
+				$imgFallbackParams = [];
+
+				if ( isset( $args[ 'fallbackWidth' ] ) && $args[ 'fallbackWidth' ] > 0 ) {
+					$width = $args[ 'fallbackWidth' ];
+					$imgFallbackParams[ 'width' ] = $width;
+
+				} elseif ( property_exists( $data, 'width' ) ) {
+					$width = is_int( $data->width ) ? $data->width : 0;
+
+					$imgFallbackParams[ 'width' ] = $width;
+				} else {
+					$imgFallbackParams[ 'width' ] = $wgThumbLimits[ $wgDefaultUserOptions[ 'thumbsize' ] ];
+				}
+
+				$imgFallback = Linker::makeImageLink( $fallbackParser, $title, $file, [ '' ], $imgFallbackParams );
+
+				$noSriptAttrs = [
+					'class' => 'mw-graph-noscript',
+
+				];
+				// $html will be injected with a <canvas> tag
+				$html = Html::rawElement( 'noscript', $noSriptAttrs, $imgFallback );
+
+			} else {
+				$attribs[ 'class' ] .= ' mw-graph-nofallback';
+				$html = '';
+			}
 		} else {
 			// Image from Graphoid
 			$server = rawurlencode( $wgServerName );

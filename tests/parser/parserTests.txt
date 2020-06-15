@@ -13,8 +13,8 @@
 }
 </graph>
 !! html
-<div class="mw-graph mw-graph-always" data-graph-id="cb66159a7f0070f4faaef2f353cb67c0d178d678"></div>
-<div class="mw-graph mw-graph-always" style="min-width:100px;min-height:200px" data-graph-id="35d4ad35da17b39e7e4464fd7af741dadda01a91"></div>
+<div class="mw-graph mw-graph-always mw-graph-nofallback" data-graph-id="cb66159a7f0070f4faaef2f353cb67c0d178d678"></div>
+<div class="mw-graph mw-graph-always mw-graph-nofallback" style="min-width:100px;min-height:200px" data-graph-id="35d4ad35da17b39e7e4464fd7af741dadda01a91"></div>
 !! end
 
 !! test
