@@ -471,10 +471,6 @@ ve.ui.MWGraphDialog.prototype.onDataInputRowDelete = function ( rowIndex ) {
  */
 ve.ui.MWGraphDialog.prototype.onRootLayoutSet = function ( page ) {
 	if ( page.getName() === 'raw' ) {
-		// The raw data may have been changed while not visible,
-		// so recalculate height now it is visible.
-		// HACK: Invalidate value cache
-		this.jsonTextInput.valCache = null;
 		this.jsonTextInput.adjustSize( true );
 	}
 };
