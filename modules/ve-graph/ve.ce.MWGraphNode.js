@@ -146,6 +146,11 @@ ve.ce.MWGraphNode.prototype.update = function () {
 				node.calculateHighlights();
 			},
 			function ( failMessageKey ) {
+				// The following messages are used here:
+				// * graph-ve-no-spec
+				// * graph-ve-empty-graph
+				// * graph-ve-vega-error-no-render
+				// * graph-ve-vega-error
 				node.$graph.text( ve.msg( failMessageKey ) );
 			}
 		);

@@ -16,11 +16,11 @@ module.exports = function ( grunt ) {
 	grunt.initConfig( {
 		eslint: {
 			options: {
-				extensions: [ '.js', '.json' ],
-				cache: true
+				cache: true,
+				fix: grunt.option( 'fix' )
 			},
 			all: [
-				'**/*.js{,on}',
+				'**/*.{js,json}',
 				'!lib/**',
 				'!{node_modules,vendor}/**'
 			]
@@ -30,7 +30,7 @@ module.exports = function ( grunt ) {
 				syntax: 'less'
 			},
 			all: [
-				'**/*.{c,le}ss',
+				'**/*.{css,less}',
 				'!lib/**',
 				'!{node_modules,vendor}/**'
 			]

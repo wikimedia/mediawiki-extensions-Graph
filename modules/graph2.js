@@ -1,7 +1,6 @@
 ( function () {
 
 	'use strict';
-	/* global require */
 
 	var VegaWrapper = require( 'mw-graph-shared' );
 
