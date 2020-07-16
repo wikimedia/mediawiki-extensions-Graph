@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Azniv Stepanian",
 			"Դավիթ Սարոյան"
 		]
 	},
-	"graph-ve-dialog-button-tooltip": "Գծանկար"
+	"graph-ve-dialog-button-tooltip": "Գծանկար",
+	"graph-ve-dialog-edit-width": "Լայնութիւն"
 }
