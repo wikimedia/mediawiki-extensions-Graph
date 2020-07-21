@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Srdjan m"
+			"Srdjan m",
+			"Srđan"
 		]
 	},
 	"graph-desc": "Dozvoljava &lt;graph&gt; oznake ili da cijele stranice postanu grafikoni zasnovani na [http://trifacta.github.io/vega/ Vega]-i",
