@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Timbaaa"
+		]
+	},
+	"graphsandbox": "வரைபட மணல்தொட்டி",
+	"graph-ve-dialog-button-tooltip": "வரைபடம்",
+	"graph-ve-dialog-edit-field-graph-type": "வரைபட வகை",
+	"graph-ve-dialog-edit-height": "உயரம்",
+	"graph-ve-dialog-edit-padding-bottom": "கீழ்",
+	"graph-ve-dialog-edit-padding-left": "இடது",
+	"graph-ve-dialog-edit-padding-right": "வலது",
+	"graph-ve-dialog-edit-padding-top": "மேல்",
+	"graph-ve-dialog-edit-page-data": "தரவு",
+	"graph-ve-dialog-edit-page-general": "பொது",
+	"graph-ve-dialog-edit-page-raw": "மூல தரவு",
+	"graph-ve-dialog-edit-size-field": "அளவு",
+	"graph-ve-dialog-edit-title": "வரைப்படத்தை தொகு",
+	"graph-ve-dialog-edit-width": "அகலம்",
+	"graph-ve-no-spec": "வரப்படத்தின் விவரங்கள் ஏதுமில்லை"
+}
