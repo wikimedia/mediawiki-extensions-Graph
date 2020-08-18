@@ -34,5 +34,4 @@
 <span class="error">Syntax error</span>
 <span class="error">The JSON provided is not a valid Vega JSON</span>
 </p>
-
- !! end
+!! end
