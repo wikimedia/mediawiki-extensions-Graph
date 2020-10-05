@@ -3,6 +3,7 @@
 		"authors": [
 			"Chrumps",
 			"Michał Sobkowski",
+			"Pietrasagh",
 			"Rail",
 			"Railfail536",
 			"The Polish",
@@ -35,6 +36,7 @@
 	"graph-ve-dialog-edit-size-field": "Rozmiar",
 	"graph-ve-dialog-edit-size-table-unit": "Piksele",
 	"graph-ve-dialog-edit-title": "Edytuj wykres",
+	"graph-ve-dialog-edit-type-area": "Wykres zakreślony",
 	"graph-ve-dialog-edit-type-bar": "Wykres słupkowy",
 	"graph-ve-dialog-edit-type-line": "Wykres liniowy",
 	"graph-ve-dialog-edit-type-unknown": "Nieznany typ wykresu",
