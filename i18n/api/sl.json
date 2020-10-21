@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"apihelp-graph-description": "Dostop do funkcije oznak za grafikone.",
+	"apihelp-graph-summary": "Dostop do funkcije oznak za grafikone.",
+	"apihelp-graph-example": "Pridobitev grafikona JSON po zgoščeni vrednosti in naslovu.",
+	"apihelp-graph-param-hash": "Zgoščena vrednost grafikona",
+	"apihelp-graph-param-oldid": "ID redakcije strani z grafikonom",
+	"apihelp-graph-param-title": "Naslov strani z grafikonom",
+	"apihelp-graph-param-text": "Besedilo grafikona za pretvorbo v obliko JSON. Biti mora objavljeno in uporabljati se mora brez naslova in parametrov zgoščene vrednosti.",
+	"apierror-graph-mustposttext": "Pri uporabi parametra <var>text</var> je treba zahtevek poslati z uporabo ukaza POST.",
+	"apierror-graph-invalid": "Grafikon ni veljaven.",
+	"apierror-graph-missing": "Najti ni mogoče nobenega grafikona."
+}
