@@ -49,6 +49,9 @@ class ApiGraph extends ApiBase {
 		$this->getResult()->addValue( null, $this->getModuleName(), $graph );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getAllowedParams() {
 		return [
 			'hash' => [
@@ -67,6 +70,9 @@ class ApiGraph extends ApiBase {
 		];
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getExamplesMessages() {
 		return [
 			'formatversion=2&action=graph&title=Extension%3AGraph%2FDemo' .
