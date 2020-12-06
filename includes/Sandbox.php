@@ -13,6 +13,9 @@ class Sandbox extends SpecialPage {
 		parent::__construct( self::PAGENAME );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getGroupName() {
 		return 'wiki';
 	}

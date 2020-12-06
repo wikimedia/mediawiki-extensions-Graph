@@ -57,6 +57,11 @@ class ParserTag {
 		return $tag->buildHtml( $input, $parser->getTitle(), $parser->getRevisionId(), $args );
 	}
 
+	/**
+	 * @param Parser $parser
+	 * @param Title $title
+	 * @param ParserOutput $output
+	 */
 	public static function finalizeParserOutput( Parser $parser, $title, ParserOutput $output ) {
 		if ( $output->getExtensionData( 'graph_specs_broken' ) ) {
 			$output->addTrackingCategory( 'graph-broken-category', $title );
@@ -122,12 +127,20 @@ class ParserTag {
 		return $attribs;
 	}
 
+	/**
+	 * @param Message $msg
+	 * @return string
+	 */
 	private function formatError( Message $msg ) {
 		$this->parserOutput->setExtensionData( 'graph_specs_broken', true );
 		$error = $msg->inLanguage( $this->language )->parse();
 		return "<span class=\"error\">{$error}</span>";
 	}
 
+	/**
+	 * @param Status $status
+	 * @return string
+	 */
 	private function formatStatus( Status $status ) {
 		return $this->formatError( $status->getMessage( false, false, $this->language ) );
 	}

@@ -14,8 +14,14 @@ use ResourceLoaderModule;
 
 class DataModule extends ResourceLoaderModule {
 
+	/**
+	 * @var string[]
+	 */
 	protected $targets = [ 'desktop', 'mobile' ];
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getScript( ResourceLoaderContext $context ) {
 		$config = $this->getConfig();
 		return ResourceLoader::makeConfigSetScript( [
@@ -23,6 +29,9 @@ class DataModule extends ResourceLoaderModule {
 		] );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function enableModuleContentVersion() {
 		return true;
 	}
