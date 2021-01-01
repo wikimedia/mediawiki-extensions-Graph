@@ -1,27 +1,27 @@
 {
-  "name": "Graph",
-  "version": "0.0.0",
-  "private": true,
-  "description": "Build tools for the Graph-MediaWiki extension.",
-  "scripts": {
-    "build-lib": "node_modules/.bin/browserify modules/graph2.js -o lib/graph2.compiled.js",
-    "test": "grunt test"
-  },
-  "manual-dev-Dependencies (fails to install in Jenkins, install manually)": {
-    "vega": "git+https://github.com/nyurik/vega"
-  },
-  "devDependencies": {
-    "browserify": "^13.0.0",
-    "eslint-config-wikimedia": "0.5.0",
-    "grunt": "1.0.1",
-    "grunt-banana-checker": "0.6.0",
-    "grunt-contrib-watch": "1.0.0",
-    "grunt-eslint": "20.1.0",
-    "grunt-jsonlint": "1.1.0",
-    "grunt-stylelint": "0.9.0",
-    "jquery.splitter": "^0.20.1",
-    "mw-graph-shared": "^0.3.6",
-    "stylelint": "8.2.0",
-    "stylelint-config-wikimedia": "0.4.2"
-  }
+	"name": "Graph",
+	"version": "0.0.0",
+	"private": true,
+	"description": "Build tools for the Graph-MediaWiki extension.",
+	"scripts": {
+		"build-lib": "node_modules/.bin/browserify modules/graph2.js -o lib/graph2.compiled.js",
+		"test": "grunt test"
+	},
+	"manual-dev-Dependencies (fails to install in Jenkins, install manually)": {
+		"vega": "git+https://github.com/nyurik/vega"
+	},
+	"devDependencies": {
+		"browserify": "^13.0.0",
+		"eslint-config-wikimedia": "0.5.0",
+		"grunt": "1.3.0",
+		"grunt-banana-checker": "0.6.0",
+		"grunt-contrib-watch": "1.1.0",
+		"grunt-eslint": "20.1.0",
+		"grunt-jsonlint": "1.1.0",
+		"grunt-stylelint": "0.9.0",
+		"jquery.splitter": "^0.20.1",
+		"mw-graph-shared": "^0.3.6",
+		"stylelint": "8.2.0",
+		"stylelint-config-wikimedia": "0.4.2"
+	}
 }
