@@ -1,10 +1,29 @@
 {
 	"@metadata": {
 		"authors": [
-			"Red Winged Duck"
+			"Red Winged Duck",
+			"Renessaince"
 		]
 	},
+	"graph-desc": "Дазваляе цэтлікам &lt;graph&gt; ці старонкам цалкам станавіцца графамі на аснове [http://vega.github.io/ Vega]",
 	"graphsandbox": "Пясочніца для графікаў",
+	"graph-tracking-category": "Старонкі з графікамі",
 	"graph-tracking-category-desc": "Старонка ўтрымлівае тэг <code><nowiki><graph></nowiki></code>.",
-	"graph-broken-category-desc": "На гэтай старонцы няслушна выкарыстаны тэг <code><nowiki><graph></nowiki></code>."
+	"graph-broken-category": "Старонкі з сапсаванымі графікамі",
+	"graph-broken-category-desc": "На гэтай старонцы няслушна выкарыстаны тэг <code><nowiki><graph></nowiki></code>.",
+	"graph-ve-dialog-button-tooltip": "Графік",
+	"graph-ve-dialog-edit-field-graph-type": "Тып графіку",
+	"graph-ve-dialog-edit-field-raw-json": "Крынічны код JSON",
+	"graph-ve-dialog-edit-height": "Вышыня",
+	"graph-ve-dialog-edit-json-invalid": "Памылковы радок JSON",
+	"graph-ve-dialog-edit-padding-auto": "Аўтаматычны водступ",
+	"graph-ve-dialog-edit-padding-bottom": "Унізе",
+	"graph-ve-dialog-edit-padding-left": "Зьлева",
+	"graph-ve-dialog-edit-padding-right": "Справа",
+	"graph-ve-dialog-edit-padding-top": "Уверсе",
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "Тып гэтага графіку не падтрымліваецца, і любыя зробленыя ў ім зьмены могуць сапсаваць ягонае выяўленьне. Калі ласка, рэдагуйце крынічны код графіку на закладцы „{{int:graph-ve-dialog-edit-page-raw}}“.",
+	"graph-ve-empty-graph": "Пусты графік",
+	"graph-ve-no-spec": "На знойдзена спэцыфікацыі графіку",
+	"graph-ve-vega-error": "Адбылася памылка Vega пры маляваньні гэтага графіку",
+	"graph-ve-vega-error-no-render": "Vega не змагла намаляваць гэты графік"
 }
