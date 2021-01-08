@@ -1,12 +1,5 @@
-@import 'mediawiki.ui/variables';
 @import 'mediawiki.mixins';
 @import 'mediawiki.mixins.animation';
-
-@colorWhite: #fff;
-@colorWhiteOpac: rgba( 255, 255, 255, 0.7 );
-
-/* TODO: This file has a lot of descending specificity and needs a cleanup */
-/* stylelint-disable no-descending-specificity */
 
 .mw-graph {
 	display: inline-block;
@@ -18,7 +11,6 @@
 	opacity: 0;
 	.animation( spinnerDelay 0.5s ease-out 0.5s forwards ) ;
 
-	.mw-graph-img,
 	canvas {
 		display: inline-block;
 		vertical-align: middle;
@@ -37,10 +29,6 @@
 }
 
 .client-nojs {
-	.mw-graph-layover {
-		display: none;
-	}
-
 	.mw-graph {
 		background-image: unset;
 	}
@@ -48,137 +36,4 @@
 	.mw-graph-nofallback {
 		display: none;
 	}
-}
-
-.client-js {
-	.mw-graph-interactable {
-		&:hover {
-			cursor: pointer;
-
-			.mw-graph-hover-title {
-				display: block;
-			}
-
-			.mw-graph-layover {
-				background-color: @colorWhiteOpac;
-			}
-
-			.mw-graph-switch {
-				&.mw-graph-loading {
-					background-color: @colorWhite;
-				}
-
-				&:hover {
-					background-color: @colorWhite;
-				}
-			}
-		}
-	}
-
-	/* white layover */
-	.mw-graph-layover {
-		display: block;
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: 1;
-		.transition( ~'background-color 250ms ease-out' );
-	}
-
-	.mw-graph-hover-title {
-		display: none;
-		position: absolute;
-		top: ~'calc( 50% - 17px )';
-		left: 1em;
-		right: 1em;
-		text-align: center;
-		font-size: 150%;
-		background-color: @colorWhite;
-	}
-
-	/* common button style */
-	.mw-graph-switch {
-		.transition( ~'background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms' );
-		background-color: @colorWhiteOpac;
-		color: @colorGray2;
-		display: inline-block;
-		position: absolute;
-		left: 1em;
-		top: 1em;
-		min-height: 1.2em;
-		min-width: 1em;
-		width: 60px;
-		padding: 0.5em;
-		border-width: 2px;
-		border-style: solid;
-		border-color: @colorGray5;
-		border-radius: @borderRadius;
-		font: inherit;
-		font-weight: bold;
-		line-height: 1em;
-		text-align: center;
-		text-decoration: none;
-		vertical-align: top;
-		white-space: nowrap;
-		cursor: pointer;
-
-		&:hover {
-			background-color: @colorWhite;
-			color: @colorProgressive;
-			border-color: #859dcc;
-		}
-
-		&:active {
-			background-color: @colorWhite;
-			color: @colorProgressive;
-			border-color: @colorProgressiveActive;
-			box-shadow: none;
-		}
-
-		&:focus {
-			border-color: @colorProgressive;
-			box-shadow: inset 0 0 0 1px @colorWhite;
-		}
-
-		/* Play button style */
-		.icon-play {
-			display: inline-block;
-			position: relative;
-			top: 4px;
-			left: 0;
-			bottom: 0;
-			font-size: 160%;
-			font-style: normal;
-		}
-
-		/* Loading button style */
-		&.mw-graph-loading {
-			background-color: @colorWhite;
-			background-image: url( ../includes/ajax-loader.gif );
-			background-position: 50% 50%;
-			background-repeat: no-repeat;
-			background-size: 20px;
-			color: @colorGray5;
-			display: block;
-			border-color: @colorProgressiveActive;
-			.transition( ~'background 0s ease' );
-
-			&:hover {
-				border-color: #859dcc;
-			}
-
-			.icon-play {
-				display: none;
-			}
-		}
-	}
-
-	/* stylelint-disable selector-max-id */
-	/* Set graph width */
-	#mw-graph-json {
-		width: 100%;
-	}
-	/* stylelint-enable selector-max-id */
 }

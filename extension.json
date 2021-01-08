@@ -194,9 +194,6 @@
 		},
 		"GraphDefaultVegaVer": {
 			"value": 2
-		},
-		"GraphImgServiceUrl": {
-			"value": false
 		}
 	},
 	"TrackingCategories": [

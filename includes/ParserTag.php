@@ -70,38 +70,37 @@ class ParserTag {
 			$parser->addTrackingCategory( 'graph-obsolete-category' );
 		}
 		$specs = $parserOutput->getExtensionData( 'graph_specs' );
-		if ( $specs !== null ) {
-			$parser->addTrackingCategory( 'graph-tracking-category' );
-
-			// We can only load one version of vega lib - either 1 or 2
-			// If the default version is 1, and if any of the graphs need Vega2,
-			// we treat all graphs as Vega2 and load corresponding libraries.
-			// All this should go away once we drop Vega1 support.
-
-			$liveSpecs = $parserOutput->getExtensionData( 'graph_live_specs' );
-			$interact = $parserOutput->getExtensionData( 'graph_interact' );
-
-			if ( $parser->getOptions()->getIsPreview() ) {
-				// Preview generates HTML that is different from normal
-				$parserOutput->updateCacheExpiry( 0 );
-			}
-
-			if ( $liveSpecs || $interact ) {
-				$parserOutput->addModuleStyles( [ 'ext.graph.styles' ] );
-				if ( $liveSpecs ) {
-					// Module: ext.graph.vega1, ext.graph.vega2
-					$parserOutput->addModules( [ 'ext.graph.vega' .
-						( $parserOutput->getExtensionData( 'graph_vega2' ) ? 2 : 1 ) ] );
-					$parserOutput->addJsConfigVars( 'wgGraphSpecs', $liveSpecs );
-				} else {
-					$parserOutput->addModules( [ 'ext.graph.loader' ] );
-				}
-			}
+		if ( $specs === null ) {
+			return;
 		}
+		$parser->addTrackingCategory( 'graph-tracking-category' );
+
+		// We can only load one version of vega lib - either 1 or 2
+		// If the default version is 1, and if any of the graphs need Vega2,
+		// we treat all graphs as Vega2 and load corresponding libraries.
+		// All this should go away once we drop Vega1 support.
+
+		$liveSpecs = $parserOutput->getExtensionData( 'graph_live_specs' );
+
+		if ( $parser->getOptions()->getIsPreview() ) {
+			// Preview generates HTML that is different from normal
+			$parserOutput->updateCacheExpiry( 0 );
+		}
+
+		$parserOutput->addModuleStyles( [ 'ext.graph.styles' ] );
+		if ( !$liveSpecs ) {
+			// Not in live mode
+			$parserOutput->addModules( [ 'ext.graph.loader', 'ext.graph.vega2' ] );
+			return;
+		}
+		// Module: ext.graph.vega1, ext.graph.vega2
+		$parserOutput->addModules( [ 'ext.graph.vega' .
+			( $parserOutput->getExtensionData( 'graph_vega2' ) ? 2 : 1 ) ] );
+		$parserOutput->addJsConfigVars( 'wgGraphSpecs', $liveSpecs );
 	}
 
 	/**
-	 * @param string $mode
+	 * @param string $mode lazyload|interactable(click to load)|always(live)|''
 	 * @param mixed $data
 	 * @param string $hash
 	 * @return array
@@ -150,11 +149,13 @@ class ParserTag {
 	 * @param Title $title
 	 * @param int $revid
 	 * @param array|null $args
+	 *      title: no longer used?
+	 *      fallback: title of a fallback image for noscript
+	 *      fallbackWidth: width of the fallback image
+	 *      fallbackHeight: height of the fallback image
 	 * @return string
 	 */
 	public function buildHtml( $jsonText, Title $title, $revid, $args = null ) {
-		global $wgGraphImgServiceUrl, $wgServerName;
-
 		$jsonText = trim( $jsonText );
 		if ( $jsonText === '' ) {
 			return $this->formatError( wfMessage( 'graph-error-empty-json' ) );
@@ -164,8 +165,6 @@ class ParserTag {
 			return $this->formatStatus( $status );
 		}
 
-		$isInteractive = isset( $args['mode'] ) && $args['mode'] === 'interactive';
-		$graphTitle = $args['title'] ?? '';
 		$data = $status->getValue();
 		if ( !is_object( $data ) ) {
 			return $this->formatError( wfMessage( 'graph-error-not-vega' ) );
@@ -185,94 +184,59 @@ class ParserTag {
 		}
 
 		// Calculate hash and store graph definition in graph_specs extension data
+		// This allows retrieval via API at a later point
 		$specs = $this->parserOutput->getExtensionData( 'graph_specs' ) ?: [];
 		// Make sure that multiple json blobs that only differ in spacing hash the same
 		$hash = sha1( FormatJson::encode( $data, false, FormatJson::ALL_OK ) );
 		$specs[$hash] = $data;
 		$this->parserOutput->setExtensionData( 'graph_specs', $specs );
 
-		if ( $this->parserOptions->getIsPreview() || !$wgGraphImgServiceUrl ) {
-			// Always do client-side rendering
-			$attribs = self::buildDivAttributes( 'always', $data, $hash );
+		// Switching this to false (lazyload), will break cache
+		$alwaysMode = true;
+		/* @phan-suppress-next-line PhanRedundantCondition */
+		if ( $this->parserOptions->getIsPreview() || $alwaysMode ) {
+			// Add this data directly in the pagebody on previews
 			$liveSpecs = $this->parserOutput->getExtensionData( 'graph_live_specs' ) ?: [];
 			$liveSpecs[$hash] = $data;
 			$this->parserOutput->setExtensionData( 'graph_live_specs', $liveSpecs );
-			$isFallback = isset( $args[ 'fallback' ] ) && $args[ 'fallback' ] !== '';
-
-			if ( $isFallback ) {
-				global $wgThumbLimits, $wgDefaultUserOptions;
-				/* @phan-suppress-next-line PhanTypeArraySuspiciousNullable */
-				$fallbackArgTitle = $args[ 'fallback' ];
-				$services = MediaWikiServices::getInstance();
-				$fallbackParser = $services->getParser();
-				$title = Title::makeTitle( NS_FILE, $fallbackArgTitle );
-				$file = $services->getRepoGroup()->findFile( $title );
-				$imgFallbackParams = [];
-
-				if ( isset( $args[ 'fallbackWidth' ] ) && $args[ 'fallbackWidth' ] > 0 ) {
-					$width = $args[ 'fallbackWidth' ];
-					$imgFallbackParams[ 'width' ] = $width;
-
-				} elseif ( property_exists( $data, 'width' ) ) {
-					$width = is_int( $data->width ) ? $data->width : 0;
-
-					$imgFallbackParams[ 'width' ] = $width;
-				} else {
-					$imgFallbackParams[ 'width' ] = $wgThumbLimits[ $wgDefaultUserOptions[ 'thumbsize' ] ];
-				}
-
-				$imgFallback = Linker::makeImageLink( $fallbackParser, $title, $file, [ '' ], $imgFallbackParams );
-
-				$noSriptAttrs = [
-					'class' => 'mw-graph-noscript',
-
-				];
-				// $html will be injected with a <canvas> tag
-				$html = Html::rawElement( 'noscript', $noSriptAttrs, $imgFallback );
-
-			} else {
-				$attribs[ 'class' ] .= ' mw-graph-nofallback';
-				$html = '';
-			}
+			$attribs = self::buildDivAttributes( 'always', $data, $hash );
 		} else {
-			// Image from Graphoid
-			$server = rawurlencode( $wgServerName );
-			$titleText = rawurlencode( $title->getPrefixedDBkey() );
-			$revid = rawurlencode( (string)$revid ) ?: '0';
-			$url = sprintf( $wgGraphImgServiceUrl, $server, $titleText, $revid, $hash );
-			$imgAttrs = [
-				'class' => 'mw-graph-img',
-				'src' => $url,
-			];
-			if ( $graphTitle ) {
-				// only add alt tag if we have some descriptive text
-				$imgAttrs['alt'] = $graphTitle;
-			}
-			$html = Html::rawElement( 'img', $imgAttrs );
+			$attribs = self::buildDivAttributes( 'lazyload', $data, $hash );
+		}
 
-			if ( $isInteractive ) {
-				// Allow image to interactive switchover
-				$this->parserOutput->setExtensionData( 'graph_interact', true );
-				$attribs = self::buildDivAttributes( 'interactable', $data, $hash );
+		$isFallback = isset( $args[ 'fallback' ] ) && $args[ 'fallback' ] !== '';
+		if ( $isFallback ) {
+			global $wgThumbLimits, $wgDefaultUserOptions;
+			/* @phan-suppress-next-line PhanTypeArraySuspiciousNullable */
+			$fallbackArgTitle = $args[ 'fallback' ];
+			$services = MediaWikiServices::getInstance();
+			$fallbackParser = $services->getParser();
+			$title = Title::makeTitle( NS_FILE, $fallbackArgTitle );
+			$file = $services->getRepoGroup()->findFile( $title );
+			$imgFallbackParams = [];
 
-				// add the overlay title
-				if ( $graphTitle ) {
-					$hoverTitle = Html::element( 'div', [ 'class' => 'mw-graph-hover-title' ],
-						$graphTitle );
-				} else {
-					$hoverTitle = '';
-				}
+			if ( isset( $args[ 'fallbackWidth' ] ) && $args[ 'fallbackWidth' ] > 0 ) {
+				$width = $args[ 'fallbackWidth' ];
+				$imgFallbackParams[ 'width' ] = $width;
 
-				// Add a "make interactive" button
-				$button = Html::rawElement( 'div', [ 'class' => 'mw-graph-switch' ],
-					Html::rawElement( 'i', [ 'class' => 'icon-play' ], '&#9658;' ) );
+			} elseif ( property_exists( $data, 'width' ) ) {
+				$width = is_int( $data->width ) ? $data->width : 0;
 
-				$html .= Html::rawElement( 'div', [
-					'class' => 'mw-graph-layover',
-				], $hoverTitle . $button );
+				$imgFallbackParams[ 'width' ] = $width;
 			} else {
-				$attribs = self::buildDivAttributes( '', $data );
+				$imgFallbackParams[ 'width' ] = $wgThumbLimits[ $wgDefaultUserOptions[ 'thumbsize' ] ];
 			}
+
+			$imgFallback = Linker::makeImageLink( $fallbackParser, $title, $file, [ '' ], $imgFallbackParams );
+
+			$noSriptAttrs = [
+				'class' => 'mw-graph-noscript',
+			];
+			// $html will be injected with a <canvas> tag
+			$html = Html::rawElement( 'noscript', $noSriptAttrs, $imgFallback );
+		} else {
+			$attribs[ 'class' ] .= ' mw-graph-nofallback';
+			$html = '';
 		}
 
 		return Html::rawElement( 'div', $attribs, $html );
