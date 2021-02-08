@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"NGC 54",
 			"XXN"
 		]
 	},
-	"graph-tracking-category": "Pagini cu grafice"
+	"graph-tracking-category": "Pagini cu grafice",
+	"graph-ve-dialog-button-tooltip": "Grafic",
+	"graph-ve-empty-graph": "Grafic gol"
 }
