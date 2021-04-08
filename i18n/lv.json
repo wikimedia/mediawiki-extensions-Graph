@@ -6,7 +6,14 @@
 			"Stryn"
 		]
 	},
-	"graphsandbox": "Grafiku smilškaste",
-	"graph-tracking-category": "Lapas ar grafu",
-	"graph-ve-dialog-button-tooltip": "Grafiks"
+	"graphsandbox": "Diagrammu smilškaste",
+	"graph-tracking-category": "Lapas ar diagrammām",
+	"graph-broken-category": "Lapas ar bojātām diagrammām",
+	"graph-ve-dialog-button-tooltip": "Diagramma",
+	"graph-ve-dialog-edit-height": "Augstums",
+	"graph-ve-dialog-edit-size-field": "Izmērs",
+	"graph-ve-dialog-edit-title": "Labot diagrammu",
+	"graph-ve-dialog-edit-type-unknown": "Nezināms diagrammas veids",
+	"graph-ve-dialog-edit-width": "Platums",
+	"graph-ve-empty-graph": "Tukša diagramma"
 }
