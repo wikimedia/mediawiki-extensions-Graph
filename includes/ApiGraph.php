@@ -131,7 +131,7 @@ class ApiGraph extends ApiBase {
 		$graph = $cache->getWithSetCallback(
 			$cache->makeKey( 'graph-data', $hash, $page->getTouched() ),
 			$cache::TTL_DAY,
-			function ( $oldValue, &$ttl ) use ( $page, $revId, $hash ) {
+			static function ( $oldValue, &$ttl ) use ( $page, $revId, $hash ) {
 				$value = false;
 				$parserOptions = ParserOptions::newCanonical( 'canonical' );
 				$parserOutput = $page->getParserOutput( $parserOptions, $revId );
