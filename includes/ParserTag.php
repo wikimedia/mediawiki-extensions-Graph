@@ -203,9 +203,10 @@ class ParserTag {
 				global $wgThumbLimits, $wgDefaultUserOptions;
 				/* @phan-suppress-next-line PhanTypeArraySuspiciousNullable */
 				$fallbackArgTitle = $args[ 'fallback' ];
-				$fallbackParser = MediaWikiServices::getInstance()->getParser();
+				$services = MediaWikiServices::getInstance();
+				$fallbackParser = $services->getParser();
 				$title = Title::makeTitle( NS_FILE, $fallbackArgTitle );
-				$file = wfFindFile( $title );
+				$file = $services->getRepoGroup()->findFile( $title );
 				$imgFallbackParams = [];
 
 				if ( isset( $args[ 'fallbackWidth' ] ) && $args[ 'fallbackWidth' ] > 0 ) {
