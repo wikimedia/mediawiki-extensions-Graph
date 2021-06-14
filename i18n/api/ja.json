@@ -1,9 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
+			"Higa4",
 			"Yusuke1109"
 		]
 	},
+	"apihelp-graph-description": "グラフタグの機能にアクセス。",
+	"apihelp-graph-summary": "グラフタグの機能にアクセス。",
+	"apihelp-graph-example": "グラフのJSONをハッシュとタイトルで取得",
+	"apihelp-graph-param-hash": "グラフのハッシュ値",
+	"apihelp-graph-param-oldid": "グラフがあるページの版のID",
+	"apihelp-graph-param-title": "グラフがあるページのタイトル",
+	"apihelp-graph-param-text": "JSONに変換されるべきグラフのテキスト。タイトルやハッシュパラメータは無しでポストして使います。",
+	"apierror-graph-mustposttext": "リクエストは<var>テキスト</var>パラメータが使用された際にポストされなければなりません。",
 	"apierror-graph-invalid": "グラフが無効です。",
 	"apierror-graph-missing": "グラフが見つかりません。"
 }
