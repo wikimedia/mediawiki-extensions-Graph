@@ -93,6 +93,7 @@
 	.mw-graph-switch {
 		.transition( ~'background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms' );
 		background-color: @colorWhiteOpac;
+		color: @colorGray2;
 		display: inline-block;
 		position: absolute;
 		left: 1em;
@@ -105,7 +106,6 @@
 		border-style: solid;
 		border-color: @colorGray5;
 		border-radius: @borderRadius;
-		color: @colorGray2;
 		font: inherit;
 		font-weight: bold;
 		line-height: 1em;
@@ -117,20 +117,20 @@
 
 		&:hover {
 			background-color: @colorWhite;
-			border-color: #859dcc;
 			color: @colorProgressive;
+			border-color: #859dcc;
 		}
 
 		&:active {
 			background-color: @colorWhite;
-			border-color: @colorProgressiveActive;
-			.box-shadow( none );
 			color: @colorProgressive;
+			border-color: @colorProgressiveActive;
+			box-shadow: none;
 		}
 
 		&:focus {
 			border-color: @colorProgressive;
-			.box-shadow( ~'inset 0 0 0 1px @{colorWhite}' );
+			box-shadow: inset 0 0 0 1px @colorWhite;
 		}
 
 		/* Play button style */
