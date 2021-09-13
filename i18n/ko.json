@@ -32,6 +32,7 @@
 	"graph-ve-dialog-edit-padding-top": "위",
 	"graph-ve-dialog-edit-page-data": "데이터",
 	"graph-ve-dialog-edit-page-general": "일반",
+	"graph-ve-dialog-edit-page-raw": "미가공 데이터",
 	"graph-ve-dialog-edit-size-field": "크기",
 	"graph-ve-dialog-edit-size-table-unit": "픽셀",
 	"graph-ve-dialog-edit-title": "그래프 편집",
@@ -41,6 +42,7 @@
 	"graph-ve-dialog-edit-type-unknown": "알 수 없는 그래프 종류",
 	"graph-ve-dialog-edit-width": "너비",
 	"graph-ve-empty-graph": "빈 그래프",
+	"graph-ve-no-spec": "그래프 사양이 없습니다",
 	"graph-ve-vega-error": "베가가 이 그래프를 렌더링하던 도중 오류가 발생하였습니다",
 	"graph-ve-vega-error-no-render": "Vega가 이 그래프를 렌더링하지 못했습니다"
 }
