@@ -31,8 +31,7 @@
 		ccw = mw.confirmCloseWindow( {
 			test: function () {
 				return session.getValue().length > 0;
-			},
-			message: mw.msg( 'editwarning-warning' )
+			}
 		} );
 
 		resizeCodeEditor = function () {

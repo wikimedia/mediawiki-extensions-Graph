@@ -97,9 +97,6 @@
 				"ext.codeEditor",
 				"ext.graph.vega2"
 			],
-			"messages": [
-				"editwarning-warning"
-			],
 			"targets": [
 				"desktop"
 			]
