@@ -1,8 +1,28 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dr Lotus Black",
 			"Ninjastrikers"
 		]
 	},
-	"graph-tracking-category": "ဂရပ်များပါဝင်သည့် စာမျက်နှာများ"
+	"graphsandbox": "သရုပ်ပြဇယား သဲပုံး",
+	"graph-tracking-category": "ဂရပ်များပါဝင်သည့် စာမျက်နှာများ",
+	"graph-broken-category": "ကျိုးပျက်နေသော သရုပ်ပြဇယားများနှင့်စာမျက်နှာများ",
+	"graph-ve-dialog-button-tooltip": "သရုပ်ပြဇယား",
+	"graph-ve-dialog-edit-field-graph-type": "သရုပ်ပြဇယား အမျိုးစား",
+	"graph-ve-dialog-edit-height": "အမြင့်",
+	"graph-ve-dialog-edit-padding-bottom": "အောက်ခြေ",
+	"graph-ve-dialog-edit-padding-left": "ဘယ်",
+	"graph-ve-dialog-edit-padding-right": "ညာ",
+	"graph-ve-dialog-edit-padding-top": "ထိပ်",
+	"graph-ve-dialog-edit-page-data": "ဒေတာ",
+	"graph-ve-dialog-edit-page-general": "အထွေထွေ",
+	"graph-ve-dialog-edit-page-raw": "အကြမ်းထည် ဒေတာ",
+	"graph-ve-dialog-edit-size-field": "အရွယ်အစား",
+	"graph-ve-dialog-edit-title": "သရုပ်ပြဇယား ပြင်ဆင်ရန်",
+	"graph-ve-dialog-edit-type-area": "ဧရိယာသရုပ်ပြဇယား",
+	"graph-ve-dialog-edit-type-unknown": "အမျိုးအမည်မသိ သရုပ်ပြဇယားအမျိုးအစား",
+	"graph-ve-dialog-edit-width": "အကျယ်",
+	"graph-ve-empty-graph": "သရုပ်ပြဇယားကို ဗလာလုပ်ရန်",
+	"graph-ve-no-spec": "သရုပ်ပြဇယားအသေးစိတ် မတွေ့ရှိပါ"
 }
