@@ -64,14 +64,14 @@ class ParserTag {
 	 */
 	public static function finalizeParserOutput( Parser $parser, $title, ParserOutput $output ) {
 		if ( $output->getExtensionData( 'graph_specs_broken' ) ) {
-			$output->addTrackingCategory( 'graph-broken-category', $title );
+			$parser->addTrackingCategory( 'graph-broken-category' );
 		}
 		if ( $output->getExtensionData( 'graph_specs_obsolete' ) ) {
-			$output->addTrackingCategory( 'graph-obsolete-category', $title );
+			$parser->addTrackingCategory( 'graph-obsolete-category' );
 		}
 		$specs = $output->getExtensionData( 'graph_specs' );
 		if ( $specs !== null ) {
-			$output->addTrackingCategory( 'graph-tracking-category', $title );
+			$parser->addTrackingCategory( 'graph-tracking-category' );
 
 			// We can only load one version of vega lib - either 1 or 2
 			// If the default version is 1, and if any of the graphs need Vega2,
