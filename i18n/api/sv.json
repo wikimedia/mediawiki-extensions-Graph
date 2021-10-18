@@ -2,12 +2,18 @@
 	"@metadata": {
 		"authors": [
 			"Ainali",
+			"Ayaibrahim",
 			"WikiPhoenix"
 		]
 	},
+	"apihelp-graph-description": "Få tillgång till graftagg funktionen",
+	"apihelp-graph-summary": "Få tillgång till graftagg funktionen.",
 	"apihelp-graph-example": "Få JSON för grafen genom hash och titel",
 	"apihelp-graph-param-hash": "Hash-värde på grafen",
+	"apihelp-graph-param-oldid": "ID för översynen av sidan med diagrammet.",
 	"apihelp-graph-param-title": "Titel på sidan med diagrammet",
+	"apihelp-graph-param-text": "Text i grafen som ska konverteras till JSON. Måste läggas upp och användas utan titel- och tagg parametrar.",
+	"apierror-graph-mustposttext": "Förfrågan måste postas när <var>text</var> parametern används.",
 	"apierror-graph-invalid": "Grafen är ogiltig.",
 	"apierror-graph-missing": "Ingen graf hittades."
 }
