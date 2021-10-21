@@ -5,5 +5,13 @@
 		]
 	},
 	"apihelp-graph-description": "Acceder a functionalitate de etiquetta de graphico.",
-	"apihelp-graph-summary": "Acceder a functionalitate de etiquetta de graphico."
+	"apihelp-graph-summary": "Acceder a functionalitate de etiquetta de graphico.",
+	"apihelp-graph-example": "Obtener le JSON del graphico per hash e titulo",
+	"apihelp-graph-param-hash": "Valor hash del graphico",
+	"apihelp-graph-param-oldid": "ID del version del pagina con le graphico",
+	"apihelp-graph-param-title": "Titulo del pagina con le graphico",
+	"apihelp-graph-param-text": "Texto del graphico a converter in JSON. Debe esser publicate e usate sin parametros de titulo e hash",
+	"apierror-graph-mustposttext": "Le requesta debe esser inviate con le methodo POST si le parametro <var>text</var> es usate.",
+	"apierror-graph-invalid": "Le graphico non es valide.",
+	"apierror-graph-missing": "Nulle graphic trovate."
 }
