@@ -3,7 +3,8 @@
 		"authors": [
 			"Dgstranz",
 			"Fitoschido",
-			"Macofe"
+			"Macofe",
+			"McDutchie"
 		]
 	},
 	"apihelp-graph-description": "Acceso a la funcionalidad de la etiqueta «graph».",
@@ -12,6 +13,6 @@
 	"apihelp-graph-param-title": "Título de la página con el gráfico",
 	"apihelp-graph-param-text": "El texto del gráfico que se convertirá en JSON. Debe publicarse y utilizarse sin los parámetros de título y «hash»",
 	"apierror-graph-mustposttext": "La petición debe enviarse por el método POST si se ha utilizado el parámetro <var>text</var>.",
-	"apierror-graph-invalid": "el gráfico no es válido.",
+	"apierror-graph-invalid": "El gráfico no es válido.",
 	"apierror-graph-missing": "No se encontró ningún gráfico."
 }

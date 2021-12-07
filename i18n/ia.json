@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"graph-desc": "Permitte que etiquettas &lt;graph&gt; o mesmo paginas complete deveni graphicos basate sur [http://vega.github.io/ Vega]",
+	"graphsandbox": "Cassa a sablo pro graphicos",
+	"graph-tracking-category": "Paginas con graphicos",
+	"graph-tracking-category-desc": "Le pagina include un etiquetta <code><nowiki><graph></nowiki></code>.",
+	"graph-broken-category": "Paginas con graphicos rupte",
+	"graph-broken-category-desc": "Le pagina include un etiquetta <code><nowiki><graph></nowiki></code> con uso non valide.",
+	"graph-obsolete-category": "Paginas con graphicos Vega 1.0 obsolete",
+	"graph-obsolete-category-desc": "Le pagina include un etiquetta <code><nowiki><graph></nowiki></code> que debe esser actualisate al version 2.",
+	"graph-error-empty-json": "Datos de graphico vacue, nihil a monstrar",
+	"graph-error-not-vega": "Le JSON fornite non es un JSON valide de Vega",
+	"graph-ve-dialog-button-tooltip": "Graphico",
+	"graph-ve-dialog-edit-field-graph-type": "Typo de graphico",
+	"graph-ve-dialog-edit-field-raw-json": "Specification JSON brute",
+	"graph-ve-dialog-edit-height": "Altitude",
+	"graph-ve-dialog-edit-json-invalid": "Catena JSON non valide",
+	"graph-ve-dialog-edit-padding-auto": "Impletion automatic",
+	"graph-ve-dialog-edit-padding-bottom": "Basso",
+	"graph-ve-dialog-edit-padding-left": "Sinistra",
+	"graph-ve-dialog-edit-padding-right": "Dextra",
+	"graph-ve-dialog-edit-padding-top": "Alto",
+	"graph-ve-dialog-edit-page-data": "Datos",
+	"graph-ve-dialog-edit-page-general": "General",
+	"graph-ve-dialog-edit-page-raw": "Datos brute",
+	"graph-ve-dialog-edit-size-field": "Dimension",
+	"graph-ve-dialog-edit-size-table-unit": "Pixels",
+	"graph-ve-dialog-edit-title": "Modificar graphico",
+	"graph-ve-dialog-edit-type-area": "Graphico de areas",
+	"graph-ve-dialog-edit-type-bar": "Graphico de barras",
+	"graph-ve-dialog-edit-type-line": "Graphico de lineas",
+	"graph-ve-dialog-edit-type-unknown": "Typo de graphico incognite",
+	"graph-ve-dialog-edit-width": "Latitude",
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "Le typo de iste graphico non es supportate. Omne modification apportate a illo pote rumper su visualisation. Per favor modifica le graphico usante le specification de datos crude sur le scheda \"{{int:graph-ve-dialog-edit-page-raw}}\".",
+	"graph-ve-empty-graph": "Graphico vacue",
+	"graph-ve-no-spec": "Nulle specification de graphico trovate",
+	"graph-ve-vega-error": "Vega ha incontrate un error rendente iste graphico",
+	"graph-ve-vega-error-no-render": "Vega non ha potite render iste graphico"
+}

@@ -7,7 +7,8 @@
 			"Shirayuki",
 			"Sujiniku",
 			"Suyama",
-			"Yusuke1109"
+			"Yusuke1109",
+			"Higa4"
 		]
 	},
 	"graph-desc": "&lt;graph&gt;タグまたはページ全体を[http://vega.github.io/ Vega]ベースのグラフにする",
@@ -18,6 +19,7 @@
 	"graph-broken-category-desc": "そのページは <code><nowiki><graph></nowiki></code> タグを含んでおり、使用法が無効です。",
 	"graph-obsolete-category": "廃止されたVega 1.0のグラフを使用するページ",
 	"graph-obsolete-category-desc": "このページには、バージョン 2 へ更新すべき <code><nowiki><graph></nowiki></code> タグが含まれています。",
+	"graph-error-empty-json": "空のグラフデータ、表示するものはありません",
 	"graph-error-not-vega": "提供されたJSONは有効なVega JSONではありません",
 	"graph-ve-dialog-button-tooltip": "グラフ",
 	"graph-ve-dialog-edit-field-graph-type": "グラフの種類",
@@ -38,6 +40,11 @@
 	"graph-ve-dialog-edit-type-area": "面グラフ",
 	"graph-ve-dialog-edit-type-bar": "棒グラフ",
 	"graph-ve-dialog-edit-type-line": "線グラフ",
+	"graph-ve-dialog-edit-type-unknown": "不明なグラフ種別",
 	"graph-ve-dialog-edit-width": "幅",
-	"graph-ve-empty-graph": "カラのグラフ"
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "この種類のグラフは未サポートで、修正を入れると表示が崩れます。グラフは\"{{int:graph-ve-dialog-edit-page-raw}}\"タブにある生データ仕様に沿って編集してください。",
+	"graph-ve-empty-graph": "カラのグラフ",
+	"graph-ve-no-spec": "グラフの仕様が見つかりません",
+	"graph-ve-vega-error": "このグラフの描画中にVegaにエラーが発生しました",
+	"graph-ve-vega-error-no-render": "Vegaはこのgraphを描画できませんでした"
 }

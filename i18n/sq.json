@@ -1,0 +1,41 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ritam"
+		]
+	},
+	"graph-desc": "Lejon &lt;graph&gt; etiketat  ose faqet e plota të bëhen grafikë me bazë[http://vega.github.io/ Vega]",
+	"graph-tracking-category": "Faqet me grafikë",
+	"graph-tracking-category-desc": "Faqja përfshin një <code><nowiki><graph></nowiki></code> etiketë.",
+	"graph-broken-category": "Faqet me grafikë të prishur",
+	"graph-broken-category-desc": "Faqja përfshin një <code><nowiki><graph></nowiki></code> etiketë me përdorim të pavlefshëm.",
+	"graph-obsolete-category": "Faqet me grafikë të vjetëruar Vega 1.0",
+	"graph-obsolete-category-desc": "Faqja përfshin një <code><nowiki><graph></nowiki></code> etiketë që duhet të azhurnohet në versionin 2.",
+	"graph-error-empty-json": "Të dhëna grafike bosh, asgjë për të treguar",
+	"graph-error-not-vega": "JSON i dhënë nuk është Vega JSON i vlefshëm",
+	"graph-ve-dialog-button-tooltip": "Grafik",
+	"graph-ve-dialog-edit-field-graph-type": "Lloji i grafikut",
+	"graph-ve-dialog-edit-field-raw-json": "Specifikim i papërpunuar JSON",
+	"graph-ve-dialog-edit-height": "Lartësia",
+	"graph-ve-dialog-edit-json-invalid": "Varg i pavlefshëm JSON",
+	"graph-ve-dialog-edit-padding-auto": "Mbushje automatike",
+	"graph-ve-dialog-edit-padding-bottom": "Fund",
+	"graph-ve-dialog-edit-padding-left": "Majtas",
+	"graph-ve-dialog-edit-padding-right": "Djathtas",
+	"graph-ve-dialog-edit-padding-top": "Sipër",
+	"graph-ve-dialog-edit-page-data": "Të dhënat",
+	"graph-ve-dialog-edit-page-general": "Të përgjithshme",
+	"graph-ve-dialog-edit-page-raw": "Të dhëna të papërpunuara",
+	"graph-ve-dialog-edit-size-field": "Madhësia",
+	"graph-ve-dialog-edit-title": "Redakto grafikun",
+	"graph-ve-dialog-edit-type-area": "Grafiku i zonës",
+	"graph-ve-dialog-edit-type-bar": "Grafiku i shiritave",
+	"graph-ve-dialog-edit-type-line": "Grafiku i rreshtit",
+	"graph-ve-dialog-edit-type-unknown": "Lloji i panjohur i grafikut",
+	"graph-ve-dialog-edit-width": "Gjerësia",
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "Lloji i këtij grafiku nuk mbështetet, dhe çdo modifikim i bërë në të mund të prishë shfaqjen e tij. Ju lutemi redaktoni grafikun përmes specifikimit të të dhënave të papërpunuara në skedën \"{{int:graph-ve-dialog-edit-page-raw}}\" .",
+	"graph-ve-empty-graph": "Grafik bosh",
+	"graph-ve-no-spec": "Nuk u gjet asnjë specifikim i grafikut",
+	"graph-ve-vega-error": "Vega ka hasur në një gabim në krijimin e këtij grafiku",
+	"graph-ve-vega-error-no-render": "Vega nuk ishte në gjendje ta krijontr këtë grafik"
+}
