@@ -6,11 +6,13 @@
 			"Incelemeelemani",
 			"Mavrikant",
 			"McAang",
-			"Sayginer"
+			"Sayginer",
+			"Rapsar",
+			"Sezgin İbiş"
 		]
 	},
 	"graph-desc": "&lt;graph&gt; etiketlerinin veya tüm sayfaların [http://vega.github.io/ Vega] tabanlı grafik olmasına izin verir",
-	"graphsandbox": "Grafik kum havuzu",
+	"graphsandbox": "Grafik deneme tahtası",
 	"graph-tracking-category": "Grafikli sayfalar",
 	"graph-tracking-category-desc": "Sayfa bir <code><nowiki><graph></nowiki></code> etiketi içerir.",
 	"graph-broken-category": "Grafikleri bozuk sayfalar",

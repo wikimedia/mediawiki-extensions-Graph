@@ -3,9 +3,14 @@
 		"authors": [
 			"Aefgh39622",
 			"Geonuch",
-			"Horus"
+			"Horus",
+			"Patsagorn Y."
 		]
 	},
 	"graphsandbox": "กระบะทรายกราฟ",
-	"graph-tracking-category": "หน้าที่มีกราฟ"
+	"graph-tracking-category": "หน้าที่มีกราฟ",
+	"graph-ve-dialog-button-tooltip": "กราฟ",
+	"graph-ve-dialog-edit-field-graph-type": "ชนิดของกราฟ",
+	"graph-ve-dialog-edit-field-raw-json": "เนื้อหาที่เป็น JSON",
+	"graph-ve-dialog-edit-height": "ความสูง"
 }

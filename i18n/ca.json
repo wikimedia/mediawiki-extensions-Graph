@@ -3,7 +3,8 @@
 		"authors": [
 			"Macofe",
 			"Paucabot",
-			"Vriullop"
+			"Vriullop",
+			"Mguix"
 		]
 	},
 	"graphsandbox": "Proves de gràfics",
@@ -15,7 +16,7 @@
 	"graph-obsolete-category-desc": "La pàgina inclou una etiqueta <code><nowiki><graph></nowiki></code> que s'hauria d'actualitzar a la versió 2.",
 	"graph-ve-dialog-button-tooltip": "Gràfic",
 	"graph-ve-dialog-edit-field-graph-type": "Tipus de gràfic",
-	"graph-ve-dialog-edit-height": "Alçada",
+	"graph-ve-dialog-edit-height": "Alçària",
 	"graph-ve-dialog-edit-padding-auto": "Farciment automàtic",
 	"graph-ve-dialog-edit-padding-bottom": "Avall",
 	"graph-ve-dialog-edit-padding-left": "Esquerra",

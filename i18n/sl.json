@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"graph-desc": "Omogoča pretvorbo oznak &lt;graph&gt; ali celotnih strani v grafikone [http://vega.github.io/ Vega]",
+	"graphsandbox": "Peskovnik za grafikone",
+	"graph-tracking-category": "Strani z grafikoni",
+	"graph-tracking-category-desc": "Stran vključuje značko <code><nowiki><graph></nowiki></code>.",
+	"graph-broken-category": "Strani z grafikoni z napakami",
+	"graph-broken-category-desc": "Stran vključuje nepravilno uporabljeno značko <code><nowiki><graph></nowiki></code>.",
+	"graph-obsolete-category": "Strani z zastarelimi grafikoni Vega 1.0",
+	"graph-obsolete-category-desc": "Stran vključuje značko <code><nowiki><graph></nowiki></code>, ki jo je treba posodobiti na različico 2.",
+	"graph-error-empty-json": "Prazni podatki grafikona, ničesar ni za prikaz",
+	"graph-error-not-vega": "Podani JSON ni veljavni Vega JSON",
+	"graph-ve-dialog-button-tooltip": "Grafikon",
+	"graph-ve-dialog-edit-field-graph-type": "Vrsta grafikona",
+	"graph-ve-dialog-edit-field-raw-json": "Neobdelana specifikacija JSON",
+	"graph-ve-dialog-edit-height": "Višina",
+	"graph-ve-dialog-edit-json-invalid": "Neveljaven niz JSON",
+	"graph-ve-dialog-edit-padding-auto": "Samodejni odmik",
+	"graph-ve-dialog-edit-padding-bottom": "Dno",
+	"graph-ve-dialog-edit-padding-left": "Levo",
+	"graph-ve-dialog-edit-padding-right": "Desno",
+	"graph-ve-dialog-edit-padding-top": "Vrh",
+	"graph-ve-dialog-edit-page-data": "Podatki",
+	"graph-ve-dialog-edit-page-general": "Splošno",
+	"graph-ve-dialog-edit-page-raw": "Neobdelani podatki",
+	"graph-ve-dialog-edit-size-field": "Velikost",
+	"graph-ve-dialog-edit-size-table-unit": "Slikovne pike",
+	"graph-ve-dialog-edit-title": "Uredi grafikon",
+	"graph-ve-dialog-edit-type-area": "Površina grafikona",
+	"graph-ve-dialog-edit-type-bar": "Palični grafikon",
+	"graph-ve-dialog-edit-type-line": "Črtni grafikon",
+	"graph-ve-dialog-edit-type-unknown": "Neznana vrsta grafikona",
+	"graph-ve-dialog-edit-width": "Širina",
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "Ta vrsta grafikona ni podprta in kakršna koli sprememba bi lahko preprečila njegov pravilni prikaz. Grafikon uredite v specifikaciji neobdelanih podatkov na zavihku »{{int:graph-ve-dialog-edit-page-raw}}«.",
+	"graph-ve-empty-graph": "Prazen grafikon",
+	"graph-ve-no-spec": "Specifikacije grafikona ni mogoče najti",
+	"graph-ve-vega-error": "Vega je pri prikazu tega grafikona naletela na neznano napako",
+	"graph-ve-vega-error-no-render": "Vega ni mogla prikazati tega grafikona"
+}

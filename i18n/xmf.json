@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Silovan"
+			"Silovan",
+			"Narazeni"
 		]
 	},
 	"graph-ve-dialog-edit-page-general": "თარი",
 	"graph-ve-dialog-edit-page-raw": "უდუმუშებუ მუნაჩემეფი",
-	"graph-ve-empty-graph": "ცაიორი ველი"
+	"graph-ve-empty-graph": "ცაიორი ვე"
 }

@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Դավիթ Սարոյան"
+			"Դավիթ Սարոյան",
+			"Azniv Stepanian",
+			"Kareyac"
 		]
 	},
-	"graph-ve-dialog-button-tooltip": "Գծանկար"
+	"graph-ve-dialog-button-tooltip": "Գծանկար",
+	"graph-ve-dialog-edit-padding-left": "Ձախ",
+	"graph-ve-dialog-edit-width": "Լայնութիւն"
 }

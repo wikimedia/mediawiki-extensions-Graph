@@ -6,7 +6,8 @@
 			"Rail",
 			"Railfail536",
 			"The Polish",
-			"Woytecr"
+			"Woytecr",
+			"Pietrasagh"
 		]
 	},
 	"graph-desc": "Umożliwia znacznikom <code>&lt;graph&gt;</code> lub całym stronom stworzenie wykresów bazujących na [http://vega.github.io/ Vega]",
@@ -35,6 +36,7 @@
 	"graph-ve-dialog-edit-size-field": "Rozmiar",
 	"graph-ve-dialog-edit-size-table-unit": "Piksele",
 	"graph-ve-dialog-edit-title": "Edytuj wykres",
+	"graph-ve-dialog-edit-type-area": "Wykres zakreślony",
 	"graph-ve-dialog-edit-type-bar": "Wykres słupkowy",
 	"graph-ve-dialog-edit-type-line": "Wykres liniowy",
 	"graph-ve-dialog-edit-type-unknown": "Nieznany typ wykresu",
