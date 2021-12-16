@@ -10,7 +10,7 @@
 	"license-name": "MIT",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.35.0"
+		"MediaWiki": ">= 1.36.0"
 	},
 	"MessagesDirs": {
 		"Graph": [
@@ -22,7 +22,14 @@
 		"Graph\\": "includes/"
 	},
 	"APIModules": {
-		"graph": "Graph\\ApiGraph"
+		"graph": {
+			"class": "Graph\\ApiGraph",
+			"services": [
+				"Parser",
+				"MainWANObjectCache",
+				"WikiPageFactory"
+			]
+		}
 	},
 	"ResourceModules": {
 		"ext.graph.styles": {

@@ -10,11 +10,13 @@
 namespace Graph;
 
 use ApiBase;
+use ApiMain;
 use FormatJson;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Page\WikiPageFactory;
+use Parser;
 use ParserOptions;
 use Title;
-use WikiPage;
+use WANObjectCache;
 
 /**
  * This class implements action=graph api, allowing client-side graphs to get the spec,
@@ -22,6 +24,34 @@ use WikiPage;
  * @package Graph
  */
 class ApiGraph extends ApiBase {
+	/** @var Parser */
+	private $parser;
+
+	/** @var WANObjectCache */
+	private $cache;
+
+	/** @var WikiPageFactory */
+	private $wikiPageFactory;
+
+	/**
+	 * @param ApiMain $main
+	 * @param string $action
+	 * @param Parser $parser
+	 * @param WANObjectCache $cache
+	 * @param WikiPageFactory $wikiPageFactory
+	 */
+	public function __construct(
+		ApiMain $main,
+		$action,
+		Parser $parser,
+		WANObjectCache $cache,
+		WikiPageFactory $wikiPageFactory
+	) {
+		parent::__construct( $main, $action );
+		$this->parser = $parser;
+		$this->cache = $cache;
+		$this->wikiPageFactory = $wikiPageFactory;
+	}
 
 	public function execute() {
 		$params = $this->extractRequestParams();
@@ -87,7 +117,7 @@ class ApiGraph extends ApiBase {
 	 */
 	private function preprocess( $text ) {
 		$title = Title::makeTitle( NS_SPECIAL, Sandbox::PAGENAME )->fixSpecialName();
-		$text = MediaWikiServices::getInstance()->getParser()->getFreshParser()
+		$text = $this->parser->getFreshParser()
 			->preprocess( $text, $title, new ParserOptions( $this->getUser() ) );
 		$st = FormatJson::parse( $text );
 		if ( !$st->isOK() ) {
@@ -118,7 +148,7 @@ class ApiGraph extends ApiBase {
 		}
 
 		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable T240141
-		$page = WikiPage::factory( $title );
+		$page = $this->wikiPageFactory->newFromTitle( $title );
 		if ( !$page->exists() ) {
 			$this->dieWithError( 'apierror-missingtitle' );
 		}
@@ -127,10 +157,9 @@ class ApiGraph extends ApiBase {
 		$this->checkTitleUserPermissions( $title, 'read' );
 
 		// Use caching to avoid parses for old revisions and I/O for current revisions
-		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
-		$graph = $cache->getWithSetCallback(
-			$cache->makeKey( 'graph-data', $hash, $page->getTouched() ),
-			$cache::TTL_DAY,
+		$graph = $this->cache->getWithSetCallback(
+			$this->cache->makeKey( 'graph-data', $hash, $page->getTouched() ),
+			$this->cache::TTL_DAY,
 			static function ( $oldValue, &$ttl ) use ( $page, $revId, $hash ) {
 				$value = false;
 				$parserOptions = ParserOptions::newCanonical( 'canonical' );
