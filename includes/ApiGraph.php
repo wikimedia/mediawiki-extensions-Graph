@@ -162,7 +162,7 @@ class ApiGraph extends ApiBase {
 			$this->cache::TTL_DAY,
 			static function ( $oldValue, &$ttl ) use ( $page, $revId, $hash ) {
 				$value = false;
-				$parserOptions = ParserOptions::newCanonical( 'canonical' );
+				$parserOptions = ParserOptions::newFromAnon();
 				$parserOutput = $page->getParserOutput( $parserOptions, $revId );
 
 				if ( $parserOutput !== false ) {
