@@ -1,13 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"William Surya Permana"
+			"William Surya Permana",
+			"Daud I.F. Argana"
 		]
 	},
 	"apihelp-graph-description": "Akses fungsionalitas tag graph.",
 	"apihelp-graph-summary": "Akses fungsionalitas tag graph.",
 	"apihelp-graph-example": "Mengambil JSON bagan berdasarkan hash dan judul",
 	"apihelp-graph-param-hash": "Nilai hash dari bagan",
+	"apihelp-graph-param-oldid": "ID revisi halaman yang memiliki graf",
 	"apihelp-graph-param-title": "Judul halaman dengan bagan",
 	"apihelp-graph-param-text": "Teks dari bagan yang ingin dikonversi ke JSON. Harus dikirimkan dan digunakan tanpa parameter judul dan hash",
 	"apierror-graph-mustposttext": "Permintaan harus dikirimkan dengan metode POST saat parameter <var>text</var> digunakan.",
