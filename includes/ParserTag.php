@@ -60,16 +60,16 @@ class ParserTag {
 	/**
 	 * @param Parser $parser
 	 * @param Title $title
-	 * @param ParserOutput $output
+	 * @param ParserOutput $parserOutput
 	 */
-	public static function finalizeParserOutput( Parser $parser, $title, ParserOutput $output ) {
-		if ( $output->getExtensionData( 'graph_specs_broken' ) ) {
+	public static function finalizeParserOutput( Parser $parser, $title, ParserOutput $parserOutput ) {
+		if ( $parserOutput->getExtensionData( 'graph_specs_broken' ) ) {
 			$parser->addTrackingCategory( 'graph-broken-category' );
 		}
-		if ( $output->getExtensionData( 'graph_specs_obsolete' ) ) {
+		if ( $parserOutput->getExtensionData( 'graph_specs_obsolete' ) ) {
 			$parser->addTrackingCategory( 'graph-obsolete-category' );
 		}
-		$specs = $output->getExtensionData( 'graph_specs' );
+		$specs = $parserOutput->getExtensionData( 'graph_specs' );
 		if ( $specs !== null ) {
 			$parser->addTrackingCategory( 'graph-tracking-category' );
 
@@ -78,23 +78,23 @@ class ParserTag {
 			// we treat all graphs as Vega2 and load corresponding libraries.
 			// All this should go away once we drop Vega1 support.
 
-			$liveSpecs = $output->getExtensionData( 'graph_live_specs' );
-			$interact = $output->getExtensionData( 'graph_interact' );
+			$liveSpecs = $parserOutput->getExtensionData( 'graph_live_specs' );
+			$interact = $parserOutput->getExtensionData( 'graph_interact' );
 
 			if ( $parser->getOptions()->getIsPreview() ) {
 				// Preview generates HTML that is different from normal
-				$output->updateCacheExpiry( 0 );
+				$parserOutput->updateCacheExpiry( 0 );
 			}
 
 			if ( $liveSpecs || $interact ) {
-				$output->addModuleStyles( 'ext.graph.styles' );
+				$parserOutput->addModuleStyles( [ 'ext.graph.styles' ] );
 				if ( $liveSpecs ) {
 					// Module: ext.graph.vega1, ext.graph.vega2
-					$output->addModules( 'ext.graph.vega' .
-						( $output->getExtensionData( 'graph_vega2' ) ? 2 : 1 ) );
-					$output->addJsConfigVars( 'wgGraphSpecs', $liveSpecs );
+					$parserOutput->addModules( [ 'ext.graph.vega' .
+						( $parserOutput->getExtensionData( 'graph_vega2' ) ? 2 : 1 ) ] );
+					$parserOutput->addJsConfigVars( 'wgGraphSpecs', $liveSpecs );
 				} else {
-					$output->addModules( 'ext.graph.loader' );
+					$parserOutput->addModules( [ 'ext.graph.loader' ] );
 				}
 			}
 		}
