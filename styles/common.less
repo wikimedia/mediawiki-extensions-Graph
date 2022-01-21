@@ -10,17 +10,29 @@
 
 .mw-graph {
 	display: inline-block;
-	border: 1px solid transparent;
 	position: relative;
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
 	background-image: url( ../includes/ajax-loader.gif );
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	border: 1px solid transparent;
+	opacity: 0;
+	.animation( spinnerDelay 0.5s ease-out 0.5s forwards ) ;
 
 	.mw-graph-img,
 	canvas {
 		display: inline-block;
 		vertical-align: middle;
 		background: #fff;
+	}
+}
+
+@keyframes spinnerDelay {
+	90% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
 	}
 }
 
@@ -144,7 +156,6 @@
 		/* Loading button style */
 		&.mw-graph-loading {
 			background-color: @colorWhite;
-			/* @embed */
 			background-image: url( ../includes/ajax-loader.gif );
 			background-position: 50% 50%;
 			background-repeat: no-repeat;
