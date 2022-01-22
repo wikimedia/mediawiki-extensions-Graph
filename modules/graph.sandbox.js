@@ -42,7 +42,7 @@
 		// I tried to resize on $( window ).resize(), but that didn't work right
 		resizeCodeEditor();
 
-		session.on( 'change', $.debounce( 300, function () {
+		session.on( 'change', OO.ui.debounce( function () {
 			var content = session.getValue();
 
 			if ( oldContent === content ) {
@@ -69,7 +69,7 @@
 			} ).fail( function ( errCode, error ) {
 				$graphEl.textContent = errCode.toString() + ':' + ( error.exception || error ).toString();
 			} );
-		} ) );
+		}, 300 ) );
 	} );
 
 }() );

@@ -99,7 +99,7 @@
 				"styles/sandbox.css"
 			],
 			"dependencies": [
-				"jquery.throttle-debounce",
+				"oojs-ui-core",
 				"mediawiki.confirmCloseWindow",
 				"ext.codeEditor",
 				"ext.graph.vega2"
