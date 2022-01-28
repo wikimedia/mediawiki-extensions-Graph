@@ -96,7 +96,7 @@ class ParserTag {
 		// Module: ext.graph.vega1, ext.graph.vega2
 		$parserOutput->addModules( [ 'ext.graph.vega' .
 			( $parserOutput->getExtensionData( 'graph_vega2' ) ? 2 : 1 ) ] );
-		$parserOutput->addJsConfigVars( 'wgGraphSpecs', $liveSpecs );
+		$parserOutput->setJsConfigVar( 'wgGraphSpecs', $liveSpecs );
 	}
 
 	/**
