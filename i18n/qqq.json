@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jon Harald Søby",
 			"Liuxinyu970226",
 			"Mormegil",
 			"Raimond Spekking",
@@ -10,11 +11,11 @@
 	},
 	"graph-desc": "{{desc|name=Graph|url=https://www.mediawiki.org/wiki/Extension:Graph}}",
 	"graphsandbox": "Page title of [[Special:GraphSandbox]].",
-	"graph-tracking-category": "Name of the tracking category",
+	"graph-tracking-category": "{{tracking category name}}\nName of the tracking category",
 	"graph-tracking-category-desc": "Description on [[Special:TrackingCategories]] for the {{msg-mw|graph-tracking-category}} tracking category.",
-	"graph-broken-category": "Name of the tracking category",
+	"graph-broken-category": "{{tracking category name}}\nName of the tracking category",
 	"graph-broken-category-desc": "Description on [[Special:TrackingCategories]] for the {{msg-mw|graph-broken-category}} tracking category.",
-	"graph-obsolete-category": "Name of the tracking category",
+	"graph-obsolete-category": "{{tracking category name}}\nName of the tracking category",
 	"graph-obsolete-category-desc": "Description on [[Special:TrackingCategories]] for the {{msg-mw|graph-obsolete-category}} tracking category.",
 	"graph-error-empty-json": "Shown by &lt;graph&gt; when used without any data in it, e.g. &lt;graph&gt;&lt;/graph&gt;",
 	"graph-error-not-vega": "Shown by &lt;graph&gt; when used with invalid data, e.g. &lt;graph&gt;[]&lt;/graph&gt;",
