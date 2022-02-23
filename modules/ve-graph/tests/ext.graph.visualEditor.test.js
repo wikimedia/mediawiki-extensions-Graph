@@ -516,9 +516,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 		ve.dm.MWGraphModel.static.removeProperty( complexTestObj, [ 'b' ] );
 		assert.deepEqual( complexTestObj, removePropComplexExpected, 'Complex nested property removal is successful' );
 
-		assert.throws(
-			ve.dm.MWGraphModel.static.removeProperty( complexTestObj, [ 'b' ] ),
-			'Trying to delete an invalid property throws an error'
-		);
+		ve.dm.MWGraphModel.static.removeProperty( complexTestObj, [ 'b' ] );
+		assert.deepEqual( complexTestObj, removePropComplexExpected, 'Trying to delete an invalid property does nothing' );
 	} );
 }() );
