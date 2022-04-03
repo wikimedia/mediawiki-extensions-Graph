@@ -17,6 +17,7 @@ use Parser;
 use ParserOptions;
 use Title;
 use WANObjectCache;
+use Wikimedia\ParamValidator\ParamValidator;
 
 /**
  * This class implements action=graph api, allowing client-side graphs to get the spec,
@@ -85,17 +86,17 @@ class ApiGraph extends ApiBase {
 	public function getAllowedParams() {
 		return [
 			'hash' => [
-				ApiBase::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_TYPE => 'string',
 			],
 			'title' => [
-				ApiBase::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_TYPE => 'string',
 			],
 			'text' => [
-				ApiBase::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_TYPE => 'string',
 			],
 			'oldid' => [
-				ApiBase::PARAM_TYPE => 'integer',
-				ApiBase::PARAM_DFLT => 0
+				ParamValidator::PARAM_TYPE => 'integer',
+				ParamValidator::PARAM_DEFAULT => 0
 			],
 		];
 	}
