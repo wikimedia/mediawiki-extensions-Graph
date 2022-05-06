@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Toghrul Rahimli",
 			"Wertuose"
 		]
 	},
-	"graph-ve-dialog-button-tooltip": "Qrafik"
+	"graph-ve-dialog-button-tooltip": "Qrafik",
+	"graph-ve-dialog-edit-page-general": "Ümumi"
 }
