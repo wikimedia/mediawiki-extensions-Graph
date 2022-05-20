@@ -8,11 +8,10 @@
 
 namespace Graph;
 
-use ResourceLoader;
-use ResourceLoaderContext;
-use ResourceLoaderModule;
+use MediaWiki\ResourceLoader as RL;
+use MediaWiki\ResourceLoader\ResourceLoader;
 
-class DataModule extends ResourceLoaderModule {
+class DataModule extends RL\Module {
 
 	/**
 	 * @var string[]
@@ -22,7 +21,7 @@ class DataModule extends ResourceLoaderModule {
 	/**
 	 * @inheritDoc
 	 */
-	public function getScript( ResourceLoaderContext $context ) {
+	public function getScript( RL\Context $context ) {
 		$config = $this->getConfig();
 		return ResourceLoader::makeConfigSetScript( [
 			'wgGraphAllowedDomains' => $config->get( 'GraphAllowedDomains' ),
