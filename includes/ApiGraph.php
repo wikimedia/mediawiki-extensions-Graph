@@ -167,9 +167,9 @@ class ApiGraph extends ApiBase {
 				$parserOutput = $page->getParserOutput( $parserOptions, $revId );
 
 				if ( $parserOutput !== false ) {
-					$allGraphs = $parserOutput->getExtensionData( 'graph_specs' );
+					$allGraphs = $parserOutput->getExtensionData( 'graph_specs_index' );
 					if ( is_array( $allGraphs ) && array_key_exists( $hash, $allGraphs ) ) {
-						$value = $allGraphs[$hash];
+						$value = $parserOutput->getExtensionData( 'graph_specs[' . $hash . ']' );
 					}
 				}
 
