@@ -56,7 +56,8 @@
 
 			return uri.toString();
 		},
-		languageCode: mw.config.get( 'wgUserLanguage' )
+		languageCode: mw.config.get( 'wgUserLanguage' ),
+		scriptPath: mw.config.get( 'wgScriptPath' )
 	} );
 
 	/**
