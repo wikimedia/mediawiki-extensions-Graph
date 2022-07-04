@@ -8,9 +8,7 @@
 
 namespace Graph;
 
-use OutputPage;
 use Parser;
-use ParserOutput;
 
 class Hooks {
 
@@ -27,13 +25,13 @@ class Hooks {
 	}
 
 	/**
-	 * OutputPageParserOutput hook handler
-	 * @param OutputPage $outputPage
-	 * @param ParserOutput $parserOutput ParserOutput instance being added in $outputPage
+	 * ParserAfterParse hook handler.
+	 *
+	 * @param Parser $parser
+	 * @return bool
 	 */
-	public static function onOutputPageParserOutput(
-		OutputPage $outputPage, ParserOutput $parserOutput
-	): void {
-		ParserTag::finalizeParserOutput( $outputPage, $parserOutput );
+	public static function onParserAfterParse( Parser $parser ) {
+		ParserTag::finalizeParserOutput( $parser, $parser->getTitle(), $parser->getOutput() );
+		return true;
 	}
 }

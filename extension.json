@@ -179,7 +179,7 @@
 	},
 	"Hooks": {
 		"ParserFirstCallInit": "Graph\\Hooks::onParserFirstCallInit",
-		"OutputPageParserOutput": "Graph\\Hooks::onOutputPageParserOutput"
+		"ParserAfterParse": "Graph\\Hooks::onParserAfterParse"
 	},
 	"attributes": {
 		"VisualEditor": {

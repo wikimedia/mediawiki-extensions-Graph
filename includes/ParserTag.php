@@ -4,7 +4,7 @@
  * @license MIT
  * @file
  *
- * @author Dan Andreescu, Yuri Astrakhan, Frédéric Bolduc, Joseph Seddon, Isabelle Hurbain Palatin
+ * @author Dan Andreescu, Yuri Astrakhan, Frédéric Bolduc, Joseph Seddon
  */
 
 namespace Graph;
@@ -14,9 +14,7 @@ use Html;
 use Language;
 use Linker;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Page\PageReference;
 use Message;
-use OutputPage;
 use Parser;
 use ParserOptions;
 use ParserOutput;
@@ -39,8 +37,8 @@ class ParserTag {
 	 * @param ParserOptions $parserOptions
 	 * @param ParserOutput $parserOutput
 	 */
-	public function __construct(
-		Parser $parser, ParserOptions $parserOptions, ParserOutput $parserOutput
+	public function __construct( Parser $parser, ParserOptions $parserOptions,
+		ParserOutput $parserOutput
 	) {
 		$this->parserOptions = $parserOptions;
 		$this->parserOutput = $parserOutput;
@@ -56,68 +54,49 @@ class ParserTag {
 	 */
 	public static function onGraphTag( $input, array $args, Parser $parser, PPFrame $frame ) {
 		$tag = new self( $parser, $parser->getOptions(), $parser->getOutput() );
-		$html = $tag->buildHtml( $input, $parser->getTitle(), $parser->getRevisionId(), $args );
-		self::addTagMetadata( $parser->getOutput(), $parser->getPage(), $parser->getOptions()->getIsPreview() );
-		return $html;
+		return $tag->buildHtml( $input, $parser->getTitle(), $parser->getRevisionId(), $args );
 	}
 
 	/**
+	 * @param Parser $parser
+	 * @param Title $title
 	 * @param ParserOutput $parserOutput
-	 * @param ?PageReference $pageRef
-	 * @param bool $isPreview
 	 */
-	public static function addTagMetadata(
-		ParserOutput $parserOutput, ?PageReference $pageRef, bool $isPreview
-	) {
-		$tc = MediaWikiServices::getInstance()->getTrackingCategories();
+	public static function finalizeParserOutput( Parser $parser, $title, ParserOutput $parserOutput ) {
 		if ( $parserOutput->getExtensionData( 'graph_specs_broken' ) ) {
-			$tc->addTrackingCategory( $parserOutput, 'graph-broken-category', $pageRef );
+			$parser->addTrackingCategory( 'graph-broken-category' );
 		}
 		if ( $parserOutput->getExtensionData( 'graph_specs_obsolete' ) ) {
-			$tc->addTrackingCategory( $parserOutput, 'graph-obsolete-category', $pageRef );
+			$parser->addTrackingCategory( 'graph-obsolete-category' );
 		}
 		$specs = $parserOutput->getExtensionData( 'graph_specs' );
 		if ( $specs === null ) {
 			return;
 		}
-		$tc->addTrackingCategory( $parserOutput, 'graph-tracking-category', $pageRef );
+		$parser->addTrackingCategory( 'graph-tracking-category' );
 
-		if ( $isPreview ) {
-			// Preview generates HTML that is different from normal
-			$parserOutput->updateCacheExpiry( 0 );
-		}
-	}
-
-	/**
-	 * @param OutputPage $outputPage
-	 * @param ParserOutput $parserOutput
-	 */
-	public static function finalizeParserOutput( OutputPage $outputPage, ParserOutput $parserOutput ) {
-		$specs = $parserOutput->getExtensionData( 'graph_specs_index' );
-		if ( $specs === null ) {
-			return;
-		}
-
-		$outputPage->addModuleStyles( [ 'ext.graph.styles' ] );
 		// We can only load one version of vega lib - either 1 or 2
 		// If the default version is 1, and if any of the graphs need Vega2,
 		// we treat all graphs as Vega2 and load corresponding libraries.
 		// All this should go away once we drop Vega1 support.
-		$liveSpecsIndex = $parserOutput->getExtensionData( 'graph_live_specs_index' );
-		if ( !$liveSpecsIndex ) {
+
+		$liveSpecs = $parserOutput->getExtensionData( 'graph_live_specs' );
+
+		if ( $parser->getOptions()->getIsPreview() ) {
+			// Preview generates HTML that is different from normal
+			$parserOutput->updateCacheExpiry( 0 );
+		}
+
+		$parserOutput->addModuleStyles( [ 'ext.graph.styles' ] );
+		if ( !$liveSpecs ) {
 			// Not in live mode
-			$outputPage->addModules( [ 'ext.graph.loader', 'ext.graph.vega2' ] );
+			$parserOutput->addModules( [ 'ext.graph.loader', 'ext.graph.vega2' ] );
 			return;
 		}
 		// Module: ext.graph.vega1, ext.graph.vega2
-		$outputPage->addModules( [ 'ext.graph.vega' .
+		$parserOutput->addModules( [ 'ext.graph.vega' .
 			( $parserOutput->getExtensionData( 'graph_vega2' ) ? 2 : 1 ) ] );
-		$liveSpecs = [];
-		foreach ( $liveSpecsIndex as $hash => $ignore ) {
-			$liveSpecs[$hash] =
-				$parserOutput->getExtensionData( 'graph_live_specs[' . $hash . ']' );
-		}
-		$outputPage->addJsConfigVars( 'wgGraphSpecs', $liveSpecs );
+		$parserOutput->setJsConfigVar( 'wgGraphSpecs', $liveSpecs );
 	}
 
 	/**
@@ -204,20 +183,22 @@ class ParserTag {
 			$this->parserOutput->setExtensionData( 'graph_specs_obsolete', true );
 		}
 
+		// Calculate hash and store graph definition in graph_specs extension data
+		// This allows retrieval via API at a later point
+		$specs = $this->parserOutput->getExtensionData( 'graph_specs' ) ?: [];
 		// Make sure that multiple json blobs that only differ in spacing hash the same
 		$hash = sha1( FormatJson::encode( $data, false, FormatJson::ALL_OK ) );
-
-		// FIXME: This data is not really used.
-		// We only care whether there are non-zero graphs.
-		$this->parserOutput->appendExtensionData( 'graph_specs_index', $hash );
-		$this->parserOutput->setExtensionData( 'graph_specs[' . $hash . ']', $data );
+		$specs[$hash] = $data;
+		$this->parserOutput->setExtensionData( 'graph_specs', $specs );
 
 		// Switching this to false (lazyload), will break cache
 		$alwaysMode = true;
 		/* @phan-suppress-next-line PhanRedundantCondition */
 		if ( $this->parserOptions->getIsPreview() || $alwaysMode ) {
-			$this->parserOutput->appendExtensionData( 'graph_live_specs_index', $hash );
-			$this->parserOutput->setExtensionData( 'graph_live_specs[' . $hash . ']', $data );
+			// Add this data directly in the pagebody on previews
+			$liveSpecs = $this->parserOutput->getExtensionData( 'graph_live_specs' ) ?: [];
+			$liveSpecs[$hash] = $data;
+			$this->parserOutput->setExtensionData( 'graph_live_specs', $liveSpecs );
 			$attribs = self::buildDivAttributes( 'always', $data, $hash );
 		} else {
 			$attribs = self::buildDivAttributes( 'lazyload', $data, $hash );
