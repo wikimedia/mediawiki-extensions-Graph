@@ -3,10 +3,11 @@
 		"authors": [
 			"Ebraminio",
 			"Ladsgroup",
-			"Reza1615"
+			"Reza1615",
+			"Beginneruser"
 		]
 	},
-	"graphsandbox": "صفحه تمرین گراف",
+	"graphsandbox": "صفحهٔ تمرین گراف",
 	"graph-tracking-category": "صفحه‌های دارای گراف",
 	"graph-tracking-category-desc": "این صفحه شامل تگ <code><nowiki><graph></nowiki></code> است",
 	"graph-broken-category": "صفحه‌های دارای گراف شکسته",
