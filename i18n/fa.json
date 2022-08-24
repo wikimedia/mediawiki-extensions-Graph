@@ -4,9 +4,11 @@
 			"Ebraminio",
 			"Ladsgroup",
 			"Reza1615",
-			"Beginneruser"
+			"Beginneruser",
+			"Jeeputer"
 		]
 	},
+	"graph-desc": "به برچسب‌های &lt;graph&gt; یا کل صفحه‌ها اجازه می‌دهد تا به گراف‌های مبتنی بر [http://vega.github.io/ وگا] تبدیل شوند",
 	"graphsandbox": "صفحهٔ تمرین گراف",
 	"graph-tracking-category": "صفحه‌های دارای گراف",
 	"graph-tracking-category-desc": "این صفحه شامل تگ <code><nowiki><graph></nowiki></code> است",
