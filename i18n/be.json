@@ -2,9 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Artsiom91",
-			"Дзяніс Тутэйшы"
+			"Дзяніс Тутэйшы",
+			"Amire80"
 		]
 	},
 	"graphsandbox": "Пясочніца Graph",
+	"graph-tracking-category": "Старонкі з тэгам graph",
+	"graph-broken-category": "Старонкі з няслушна ўжытым тэгам graph",
+	"graph-obsolete-category": "Старонкі з састарэлымі Vega 1.0 графікамі",
+	"graph-ve-dialog-button-tooltip": "Дыяграму",
+	"graph-ve-dialog-edit-field-graph-type": "Тып дыяграмы",
 	"graph-ve-dialog-edit-padding-left": "Злева"
 }
