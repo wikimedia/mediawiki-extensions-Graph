@@ -4,7 +4,7 @@
 			"Eleassar"
 		]
 	},
-	"graph-desc": "Omogoča pretvorbo oznak &lt;graph&gt; ali celotnih strani v grafikone [http://vega.github.io/ Vega]",
+	"graph-desc": "Omogoča pretvorbo značk &lt;graph&gt; ali celotnih strani v grafikone [http://vega.github.io/ Vega]",
 	"graphsandbox": "Peskovnik za grafikone",
 	"graph-tracking-category": "Strani z grafikoni",
 	"graph-tracking-category-desc": "Stran vključuje značko <code><nowiki><graph></nowiki></code>.",
