@@ -48,7 +48,7 @@ class ParserTag {
 	}
 
 	/**
-	 * @param string $input
+	 * @param string|null $input
 	 * @param array $args
 	 * @param Parser $parser
 	 * @param PPFrame $frame
@@ -56,7 +56,7 @@ class ParserTag {
 	 */
 	public static function onGraphTag( $input, array $args, Parser $parser, PPFrame $frame ) {
 		$tag = new self( $parser, $parser->getOptions(), $parser->getOutput() );
-		$html = $tag->buildHtml( $input, $parser->getTitle(), $parser->getRevisionId(), $args );
+		$html = $tag->buildHtml( (string)$input, $parser->getTitle(), $parser->getRevisionId(), $args );
 		self::addTagMetadata( $parser->getOutput(), $parser->getPage(), $parser->getOptions()->getIsPreview() );
 		return $html;
 	}
