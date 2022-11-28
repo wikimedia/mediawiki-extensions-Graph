@@ -4,5 +4,8 @@
 			"Joao Xavier"
 		]
 	},
-	"graph-ve-dialog-edit-padding-left": "Sinistre"
+	"graph-ve-dialog-edit-height": "Altajo",
+	"graph-ve-dialog-edit-padding-left": "Sinistre",
+	"graph-ve-dialog-edit-padding-right": "Dextre",
+	"graph-ve-dialog-edit-width": "Larjeso"
 }
