@@ -1,0 +1,7 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"apierror-graph-invalid": "Grafikon nije validan.",
+	"apierror-graph-missing": "Nije pronađen grafikon."
+}
