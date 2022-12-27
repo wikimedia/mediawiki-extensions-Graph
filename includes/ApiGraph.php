@@ -13,7 +13,7 @@ use ApiBase;
 use ApiMain;
 use FormatJson;
 use MediaWiki\Page\WikiPageFactory;
-use Parser;
+use ParserFactory;
 use ParserOptions;
 use Title;
 use WANObjectCache;
@@ -25,8 +25,8 @@ use Wikimedia\ParamValidator\ParamValidator;
  * @package Graph
  */
 class ApiGraph extends ApiBase {
-	/** @var Parser */
-	private $parser;
+	/** @var ParserFactory */
+	private $parserFactory;
 
 	/** @var WANObjectCache */
 	private $cache;
@@ -37,19 +37,19 @@ class ApiGraph extends ApiBase {
 	/**
 	 * @param ApiMain $main
 	 * @param string $action
-	 * @param Parser $parser
+	 * @param ParserFactory $parserFactory
 	 * @param WANObjectCache $cache
 	 * @param WikiPageFactory $wikiPageFactory
 	 */
 	public function __construct(
 		ApiMain $main,
 		$action,
-		Parser $parser,
+		ParserFactory $parserFactory,
 		WANObjectCache $cache,
 		WikiPageFactory $wikiPageFactory
 	) {
 		parent::__construct( $main, $action );
-		$this->parser = $parser;
+		$this->parserFactory = $parserFactory;
 		$this->cache = $cache;
 		$this->wikiPageFactory = $wikiPageFactory;
 	}
@@ -118,7 +118,7 @@ class ApiGraph extends ApiBase {
 	 */
 	private function preprocess( $text ) {
 		$title = Title::makeTitle( NS_SPECIAL, Sandbox::PAGENAME )->fixSpecialName();
-		$text = $this->parser->getFreshParser()
+		$text = $this->parserFactory->getInstance()
 			->preprocess( $text, $title, new ParserOptions( $this->getUser() ) );
 		$st = FormatJson::parse( $text );
 		if ( !$st->isOK() ) {
