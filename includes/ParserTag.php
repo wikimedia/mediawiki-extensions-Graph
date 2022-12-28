@@ -56,7 +56,7 @@ class ParserTag {
 	 */
 	public static function onGraphTag( $input, array $args, Parser $parser, PPFrame $frame ) {
 		$tag = new self( $parser, $parser->getOptions(), $parser->getOutput() );
-		$html = $tag->buildHtml( (string)$input, $parser->getTitle(), $parser->getRevisionId(), $args );
+		$html = $tag->buildHtml( (string)$input, $parser->getRevisionId(), $args );
 		self::addTagMetadata( $parser->getOutput(), $parser->getPage(), $parser->getOptions()->getIsPreview() );
 		return $html;
 	}
@@ -169,7 +169,6 @@ class ParserTag {
 
 	/**
 	 * @param string $jsonText
-	 * @param Title $title
 	 * @param int $revid
 	 * @param array|null $args
 	 *      title: no longer used?
@@ -178,7 +177,7 @@ class ParserTag {
 	 *      fallbackHeight: height of the fallback image
 	 * @return string
 	 */
-	public function buildHtml( $jsonText, Title $title, $revid, $args = null ) {
+	public function buildHtml( $jsonText, $revid, $args = null ) {
 		$jsonText = trim( $jsonText );
 		if ( $jsonText === '' ) {
 			return $this->formatError( wfMessage( 'graph-error-empty-json' ) );
