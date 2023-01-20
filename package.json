@@ -18,7 +18,7 @@
 		"grunt-eslint": "24.0.0",
 		"grunt-stylelint": "0.18.0",
 		"jquery.splitter": "^0.27.1",
-		"mw-graph-shared": "^0.4.2",
+		"mw-graph-shared": "^0.6.0",
 		"stylelint-config-wikimedia": "0.13.1"
 	}
 }
