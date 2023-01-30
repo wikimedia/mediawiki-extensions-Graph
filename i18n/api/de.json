@@ -2,13 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Hwboehm",
-			"Metalhead64"
+			"Metalhead64",
+			"Justman10000"
 		]
 	},
 	"apihelp-graph-description": "Greift auf die Funktionalität des Graph-Tags zu.",
 	"apihelp-graph-summary": "Greift auf die Funktionalität des Graph-Tags zu.",
 	"apihelp-graph-example": "Ruft das Grafik-JSON nach Prüfsumme und Titel ab",
 	"apihelp-graph-param-hash": "Prüfsummenwert des Diagramms",
+	"apihelp-graph-param-oldid": "ID der Revision der Seite mit der Grafik",
 	"apihelp-graph-param-title": "Titel der Seite mit dem Diagramm",
 	"apihelp-graph-param-text": "Text des Graphen, der in JSON umgewandelt werden soll. Muss ohne Titel und Hash-Parameter gepostet und verwendet werden.",
 	"apierror-graph-mustposttext": "Die Anfrage muss gePOSTet werden, wenn der Parameter <var>text</var> verwendet wird.",
