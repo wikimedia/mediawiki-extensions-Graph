@@ -9,14 +9,14 @@
 			"Verdy p"
 		]
 	},
-	"apihelp-graph-description": "Accéder à la fonctionnalité de balise de graphique.",
-	"apihelp-graph-summary": "Accéder à la fonctionnalité de balise de graphique.",
+	"apihelp-graph-description": "Accéder à la fonctionnalité de balise graphique.",
+	"apihelp-graph-summary": "Accéder à la fonctionnalité de balise graphique.",
 	"apihelp-graph-example": "Obtenir le JSON du graphique par hachage et titre",
 	"apihelp-graph-param-hash": "Valeur de hachage du graphique",
 	"apihelp-graph-param-oldid": "Identifiant de révision de la page avec le graphe",
 	"apihelp-graph-param-title": "Titre de la page avec le graphique",
-	"apihelp-graph-param-text": "Texte du graphique à convertir en JSON. Doit être publié et utilisé sans titre ni paramètres de hachage",
-	"apierror-graph-mustposttext": "La requête doit être envoyée à l’aide de POST quand le paramètre <var>text</var> est utilisé.",
-	"apierror-graph-invalid": "Graphique non valide.",
+	"apihelp-graph-param-text": "Texte du graphique à convertir en JSON. Doit être publié et utilisé sans les paramètres de titre ou de hachage.",
+	"apierror-graph-mustposttext": "La requête doit être effectuée avec la méthode POST quand le paramètre <var>text</var> est utilisé.",
+	"apierror-graph-invalid": "Le graphique n’est pas valide.",
 	"apierror-graph-missing": "Aucun graphique trouvé."
 }
