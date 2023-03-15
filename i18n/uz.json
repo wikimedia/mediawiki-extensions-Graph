@@ -4,5 +4,20 @@
 			"Malikxan"
 		]
 	},
-	"graph-ve-dialog-button-tooltip": "Grafik"
+	"graphsandbox": "Grafiklar uchun qumloq",
+	"graph-tracking-category": "Grafikli sahifalar",
+	"graph-broken-category": "Buzuq grafikli sahifalar",
+	"graph-obsolete-category": "Eski Vega 1.0 grafiklari boʻlgan sahifalar",
+	"graph-ve-dialog-button-tooltip": "Grafik",
+	"graph-ve-dialog-edit-height": "Boʻyi",
+	"graph-ve-dialog-edit-padding-bottom": "Past",
+	"graph-ve-dialog-edit-padding-left": "Chap",
+	"graph-ve-dialog-edit-padding-right": "Oʻng",
+	"graph-ve-dialog-edit-padding-top": "Yuqori",
+	"graph-ve-dialog-edit-page-general": "Umumiy",
+	"graph-ve-dialog-edit-size-field": "Oʻlchami",
+	"graph-ve-dialog-edit-size-table-unit": "Piksellar",
+	"graph-ve-dialog-edit-type-bar": "Gistogramma",
+	"graph-ve-dialog-edit-type-line": "Chiziqli grafik",
+	"graph-ve-dialog-edit-width": "Eni"
 }
