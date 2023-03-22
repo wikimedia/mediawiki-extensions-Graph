@@ -35,10 +35,6 @@
 		"ext.graph.styles": {
 			"styles": [
 				"styles/common.less"
-			],
-			"targets": [
-				"mobile",
-				"desktop"
 			]
 		},
 		"ext.graph.data": {
@@ -50,10 +46,6 @@
 			],
 			"dependencies": [
 				"mediawiki.api"
-			],
-			"targets": [
-				"mobile",
-				"desktop"
 			]
 		},
 		"ext.graph.vega1": {
@@ -66,10 +58,6 @@
 			"dependencies": [
 				"ext.graph.data",
 				"mediawiki.Uri"
-			],
-			"targets": [
-				"mobile",
-				"desktop"
 			]
 		},
 		"ext.graph.vega2": {
@@ -83,10 +71,6 @@
 			"dependencies": [
 				"ext.graph.data",
 				"mediawiki.Uri"
-			],
-			"targets": [
-				"mobile",
-				"desktop"
 			]
 		},
 		"ext.graph.sandbox": {
@@ -151,10 +135,6 @@
 				"graph-ve-no-spec",
 				"graph-ve-vega-error",
 				"graph-ve-vega-error-no-render"
-			],
-			"targets": [
-				"mobile",
-				"desktop"
 			]
 		}
 	},
