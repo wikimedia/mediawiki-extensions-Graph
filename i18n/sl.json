@@ -13,7 +13,7 @@
 	"graph-obsolete-category": "Strani z zastarelimi grafikoni Vega 1.0",
 	"graph-obsolete-category-desc": "Stran vključuje značko <code><nowiki><graph></nowiki></code>, ki jo je treba posodobiti na različico 2.",
 	"graph-error-empty-json": "Prazni podatki grafikona, ničesar ni za prikaz",
-	"graph-error-not-vega": "Podani JSON ni veljavni Vega JSON",
+	"graph-error-not-vega": "Predloženi JSON ni veljaven Vega JSON",
 	"graph-ve-dialog-button-tooltip": "Grafikon",
 	"graph-ve-dialog-edit-field-graph-type": "Vrsta grafikona",
 	"graph-ve-dialog-edit-field-raw-json": "Neobdelana specifikacija JSON",
