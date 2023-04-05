@@ -103,9 +103,6 @@
 				"mediawiki.confirmCloseWindow",
 				"ext.codeEditor",
 				"ext.graph.vega2"
-			],
-			"targets": [
-				"desktop"
 			]
 		},
 		"ext.graph.visualEditor": {
