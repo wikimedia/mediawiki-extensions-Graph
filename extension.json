@@ -33,6 +33,12 @@
 	},
 	"ResourceModules": {
 		"ext.graph.styles": {
+			"class": "MediaWiki\\ResourceLoader\\LessVarFileModule",
+			"lessMessages": [
+				"graph-load",
+				"graph-vega-old-browser",
+				"graph-ve-vega-error-no-render"
+			],
 			"styles": [
 				"styles/common.less"
 			]
@@ -58,6 +64,13 @@
 			"dependencies": [
 				"ext.graph.data",
 				"mediawiki.Uri"
+			]
+		},
+		"ext.graph.lite": {
+			"packageFiles": [
+				"modules/ext.graph.lite/main.js",
+				"lib/vega2/vega.js",
+				"lib/d3.js"
 			]
 		},
 		"ext.graph.vega2": {

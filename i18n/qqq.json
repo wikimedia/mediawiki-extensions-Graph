@@ -20,6 +20,7 @@
 	"graph-error-empty-json": "Shown by &lt;graph&gt; when used without any data in it, e.g. &lt;graph&gt;&lt;/graph&gt;",
 	"graph-error-not-vega": "Shown by &lt;graph&gt; when used with invalid data, e.g. &lt;graph&gt;[]&lt;/graph&gt;",
 	"graph-ve-dialog-button-tooltip": "Tooltip for the graph editing dialog button\n{{Identical|Graph}}",
+	"graph-load": "Message prompting user to click graph to load it.",
 	"graph-ve-dialog-edit-field-graph-type": "Label for graph type",
 	"graph-ve-dialog-edit-field-raw-json": "Label for the raw JSON specification in the graph editing dialog",
 	"graph-ve-dialog-edit-height": "Label for graph height field\n{{Identical|Height}}",
@@ -44,5 +45,6 @@
 	"graph-ve-empty-graph": "Message shown to editors in place of an empty graph",
 	"graph-ve-no-spec": "Label to display on a graph node when no spec is found",
 	"graph-ve-vega-error": "Label to display on a graph node when Vega encounters an unknown error",
-	"graph-ve-vega-error-no-render": "Label to display on a graph node when Vega is unable to render"
+	"graph-ve-vega-error-no-render": "Label to display on a graph node when Vega is unable to render",
+	"graph-vega-old-browser": "Message shown to browser that does not support graphs"
 }
