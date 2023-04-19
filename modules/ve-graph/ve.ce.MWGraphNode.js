@@ -3,6 +3,7 @@
  *
  * @license The MIT License (MIT); see LICENSE.txt
  */
+const loadGraph = require( 'ext.graph.lite' );
 
 /**
  * ContentEditable MediaWiki graph node.
@@ -50,7 +51,7 @@ ve.ce.MWGraphNode.static.primaryCommandName = 'graph';
 ve.ce.MWGraphNode.static.tagName = 'div';
 
 ve.ce.MWGraphNode.static.getDescription = function ( model ) {
-	var graphModel = new ve.dm.MWGraphModel( ve.copy( model.getSpec() ) );
+	const graphModel = new ve.dm.MWGraphModel( ve.copy( model.getSpec() ) );
 	// The following messages are used here:
 	// * graph-ve-dialog-edit-type-area
 	// * graph-ve-dialog-edit-type-bar
@@ -70,9 +71,7 @@ ve.ce.MWGraphNode.static.getDescription = function ( model ) {
  * Promise is rejected with an error message key if there was a problem rendering the graph.
  */
 ve.ce.MWGraphNode.static.vegaParseSpec = function ( spec, element ) {
-	var deferred = $.Deferred(),
-		node = this,
-		canvasNode, view;
+	const deferred = $.Deferred();
 
 	// Check if the spec is currently valid
 	if ( ve.isEmptyObject( spec ) ) {
@@ -80,23 +79,10 @@ ve.ce.MWGraphNode.static.vegaParseSpec = function ( spec, element ) {
 	} else if ( !ve.dm.MWGraphModel.static.specHasData( spec ) ) {
 		deferred.reject( 'graph-ve-empty-graph' );
 	} else {
-		vg.parse.spec( spec, function ( chart ) {
-			try {
-				view = chart( { el: element } ).update();
-
-				// HACK: If canvas is blank, this means Vega didn't render properly.
-				// Once Vega allows for proper rendering validation, this should be
-				// swapped for a validation check.
-				canvasNode = element.children[ 0 ].children[ 0 ];
-				if ( node.isCanvasBlank( canvasNode ) ) {
-					deferred.reject( 'graph-ve-vega-error-no-render' );
-				} else {
-					deferred.resolve( view );
-				}
-
-			} catch ( err ) {
-				deferred.reject( 'graph-ve-vega-error' );
-			}
+		loadGraph( element, spec ).then( ( view ) => {
+			deferred.resolve( view );
+		}, () => {
+			deferred.reject( 'graph-ve-vega-error' );
 		} );
 	}
 
@@ -111,7 +97,7 @@ ve.ce.MWGraphNode.static.vegaParseSpec = function ( spec, element ) {
  * @return {boolean} The canvas is blank
  */
 ve.ce.MWGraphNode.static.isCanvasBlank = function ( canvas ) {
-	var blank = document.createElement( 'canvas' );
+	const blank = document.createElement( 'canvas' );
 
 	blank.width = canvas.width;
 	blank.height = canvas.height;
@@ -125,25 +111,19 @@ ve.ce.MWGraphNode.static.isCanvasBlank = function ( canvas ) {
  * Render a Vega graph inside the node
  */
 ve.ce.MWGraphNode.prototype.update = function () {
-	var node = this;
+	const node = this;
 
 	// Clear element
 	this.$graph.empty();
 
 	this.$element.toggleClass( 'mw-graph-vega1', this.getModel().isGraphLegacy() );
 
-	mw.loader.using( 'ext.graph.vega2' ).done( function () {
+	mw.loader.using( 'ext.graph.lite' ).then( function () {
 		node.$plot.detach();
 
 		node.constructor.static.vegaParseSpec( node.getModel().getSpec(), node.$graph[ 0 ] ).then(
-			function ( view ) {
-				// HACK: We need to know which padding values Vega computes in case
-				// of automatic padding, but it isn't properly exposed in the view
-				node.$graph.append( node.$plot );
-				// eslint-disable-next-line no-underscore-dangle
-				node.$plot.css( view._padding );
-
-				node.calculateHighlights();
+			function () {
+				// do nothing
 			},
 			function ( failMessageKey ) {
 				// The following messages are used here:
@@ -161,7 +141,7 @@ ve.ce.MWGraphNode.prototype.update = function () {
  * @inheritdoc
  */
 ve.ce.MWGraphNode.prototype.getAttributeChanges = function ( width, height ) {
-	var attrChanges = {},
+	const attrChanges = {},
 		newSpec = ve.dm.MWGraphModel.static.updateSpec( this.getModel().getSpec(), {
 			width: width,
 			height: height

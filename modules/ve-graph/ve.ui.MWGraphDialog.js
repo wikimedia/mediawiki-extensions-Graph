@@ -52,9 +52,7 @@ ve.ui.MWGraphDialog.prototype.getBodyHeight = function () {
  * @inheritdoc
  */
 ve.ui.MWGraphDialog.prototype.initialize = function () {
-	var graphTypeField, sizeField, paddingAutoField,
-		jsonTextField, paddingTopField, paddingBottomField,
-		paddingLeftField, paddingRightField, key;
+	let key;
 
 	// Parent method
 	ve.ui.MWGraphDialog.super.prototype.initialize.call( this );
@@ -82,7 +80,7 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 
 	this.graphTypeDropdownInput = new OO.ui.DropdownInputWidget();
 
-	graphTypeField = new OO.ui.FieldLayout( this.graphTypeDropdownInput, {
+	const graphTypeField = new OO.ui.FieldLayout( this.graphTypeDropdownInput, {
 		label: ve.msg( 'graph-ve-dialog-edit-field-graph-type' ),
 		align: 'left'
 	} );
@@ -96,7 +94,7 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 		noOriginalDimensions: true
 	} );
 
-	sizeField = new OO.ui.FieldLayout( this.sizeWidget, {
+	const sizeField = new OO.ui.FieldLayout( this.sizeWidget, {
 		label: ve.msg( 'graph-ve-dialog-edit-size-field' ),
 		align: 'left'
 	} );
@@ -105,7 +103,7 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 		value: 'paddingAuto'
 	} );
 
-	paddingAutoField = new OO.ui.FieldLayout( this.paddingAutoCheckbox, {
+	const paddingAutoField = new OO.ui.FieldLayout( this.paddingAutoCheckbox, {
 		label: ve.msg( 'graph-ve-dialog-edit-padding-auto' ),
 		align: 'left'
 	} );
@@ -129,19 +127,19 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 		} )
 	};
 
-	paddingTopField = new OO.ui.FieldLayout( this.paddingInputs.top, {
+	const paddingTopField = new OO.ui.FieldLayout( this.paddingInputs.top, {
 		label: ve.msg( 'graph-ve-dialog-edit-padding-top' ),
 		align: 'left'
 	} );
-	paddingBottomField = new OO.ui.FieldLayout( this.paddingInputs.bottom, {
+	const paddingBottomField = new OO.ui.FieldLayout( this.paddingInputs.bottom, {
 		label: ve.msg( 'graph-ve-dialog-edit-padding-bottom' ),
 		align: 'left'
 	} );
-	paddingLeftField = new OO.ui.FieldLayout( this.paddingInputs.left, {
+	const paddingLeftField = new OO.ui.FieldLayout( this.paddingInputs.left, {
 		label: ve.msg( 'graph-ve-dialog-edit-padding-left' ),
 		align: 'left'
 	} );
-	paddingRightField = new OO.ui.FieldLayout( this.paddingInputs.right, {
+	const paddingRightField = new OO.ui.FieldLayout( this.paddingInputs.right, {
 		label: ve.msg( 'graph-ve-dialog-edit-padding-right' ),
 		align: 'left'
 	} );
@@ -181,7 +179,7 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 		.toggleLineNumbers( false )
 		.setDir( 'ltr' );
 
-	jsonTextField = new OO.ui.FieldLayout( this.jsonTextInput, {
+	const jsonTextField = new OO.ui.FieldLayout( this.jsonTextInput, {
 		label: ve.msg( 'graph-ve-dialog-edit-field-raw-json' ),
 		align: 'top'
 	} );
@@ -214,7 +212,7 @@ ve.ui.MWGraphDialog.prototype.initialize = function () {
 ve.ui.MWGraphDialog.prototype.getSetupProcess = function ( data ) {
 	return ve.ui.MWGraphDialog.super.prototype.getSetupProcess.call( this, data )
 		.next( function () {
-			var spec, newElement;
+			let newElement;
 
 			this.getFragment().getSurface().pushStaging();
 
@@ -230,7 +228,7 @@ ve.ui.MWGraphDialog.prototype.getSetupProcess = function ( data ) {
 			}
 
 			// Set up model
-			spec = ve.copy( this.selectedNode.getSpec() );
+			const spec = ve.copy( this.selectedNode.getSpec() );
 
 			this.graphModel = new ve.dm.MWGraphModel( spec );
 			this.graphModel.connect( this, {
@@ -295,7 +293,7 @@ ve.ui.MWGraphDialog.prototype.getActionProcess = function ( action ) {
  * @private
  */
 ve.ui.MWGraphDialog.prototype.setupFormValues = function () {
-	var graphType = this.graphModel.getGraphType(),
+	const graphType = this.graphModel.getGraphType(),
 		graphSize = this.graphModel.getSize(),
 		paddings = this.graphModel.getPaddingObject(),
 		readOnly = this.isReadOnly(),
@@ -317,8 +315,8 @@ ve.ui.MWGraphDialog.prototype.setupFormValues = function () {
 			data: 'unknown',
 			label: ve.msg( 'graph-ve-dialog-edit-type-unknown' )
 		},
-		dataFields = this.graphModel.getPipelineFields( 0 ),
-		padding, i;
+		dataFields = this.graphModel.getPipelineFields( 0 );
+	let padding, i;
 
 	// Graph type
 	if ( graphType === 'unknown' ) {
@@ -371,8 +369,8 @@ ve.ui.MWGraphDialog.prototype.setupFormValues = function () {
  * Update data page widgets based on the current spec
  */
 ve.ui.MWGraphDialog.prototype.updateDataPage = function () {
-	var pipeline = this.graphModel.getPipeline( 0 ),
-		i, row, field;
+	const pipeline = this.graphModel.getPipeline( 0 );
+	let i, row, field;
 
 	for ( i = 0; i < pipeline.values.length; i++ ) {
 		row = [];
@@ -395,7 +393,7 @@ ve.ui.MWGraphDialog.prototype.updateDataPage = function () {
  * @return {boolean} Data is valid
  */
 ve.ui.MWGraphDialog.prototype.validateRawData = function ( value ) {
-	var isValid = !$.isEmptyObject( ve.dm.MWGraphNode.static.parseSpecString( value ) ),
+	const isValid = !$.isEmptyObject( ve.dm.MWGraphNode.static.parseSpecString( value ) ),
 		label = ( isValid ) ? '' : ve.msg( 'graph-ve-dialog-edit-json-invalid' );
 
 	this.setLabel( label );
@@ -410,7 +408,7 @@ ve.ui.MWGraphDialog.prototype.validateRawData = function ( value ) {
  * @param {string} value The text input value
  */
 ve.ui.MWGraphDialog.prototype.onSpecStringInputChange = function ( value ) {
-	var newRawData;
+	let newRawData;
 
 	try {
 		// If parsing fails here, nothing more needs to happen
@@ -481,7 +479,7 @@ ve.ui.MWGraphDialog.prototype.onRootLayoutSet = function ( page ) {
  * @param {boolean} value New mode value
  */
 ve.ui.MWGraphDialog.prototype.onPaddingAutoCheckboxChange = function ( value ) {
-	var key;
+	let key;
 	this.graphModel.setPaddingAuto( value );
 	for ( key in this.paddingInputs ) {
 		this.paddingInputs[ key ].setDisabled( value );
@@ -519,8 +517,8 @@ ve.ui.MWGraphDialog.prototype.onPaddingInputChange = function ( key, value ) {
  * @private
  */
 ve.ui.MWGraphDialog.prototype.onSpecChange = function () {
-	var padding,
-		paddingAuto = this.graphModel.isPaddingAutomatic(),
+	let padding;
+	const paddingAuto = this.graphModel.isPaddingAutomatic(),
 		paddingObj = this.graphModel.getPaddingObject();
 
 	if ( this.listeningToInputChanges ) {
@@ -558,7 +556,7 @@ ve.ui.MWGraphDialog.prototype.onSpecChange = function () {
  * @private
  */
 ve.ui.MWGraphDialog.prototype.checkChanges = function () {
-	var dialog = this;
+	const dialog = this;
 
 	// Synchronous validation
 	if ( !this.sizeWidget.isValid() ) {
