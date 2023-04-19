@@ -27,6 +27,9 @@
 		} );
 	}
 
+	/**
+	 * @param {HTMLElement} element
+	 */
 	function loadGraphElement( element ) {
 		if ( !element.classList.contains( 'mw-graph-clickable' ) ) {
 			return;
@@ -43,10 +46,16 @@
 		} );
 	}
 
+	/**
+	 * @param {Event} ev
+	 */
 	function loadGraph( ev ) {
 		loadGraphElement( ev.target );
 	}
 
+	/**
+	 * @param {jQuery.Object} $content
+	 */
 	function lazyLoader( $content ) {
 		// Make graph containers clickable
 		$content.find( '.mw-graph.mw-graph-lazyload' ).each( function () {

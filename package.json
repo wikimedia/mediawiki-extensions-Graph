@@ -4,11 +4,10 @@
 	"private": true,
 	"description": "Build tools for the Graph-MediaWiki extension.",
 	"scripts": {
-		"build-lib": "node_modules/.bin/browserify modules/graph2.js -o lib/graph2.compiled.js",
-		"test": "grunt test"
-	},
-	"manual-dev-Dependencies (fails to install in Jenkins, install manually)": {
-		"vega": "git+https://github.com/nyurik/vega"
+		"test:unit": "jest tests/jest --silent",
+		"fixup": "echo \"/*@nomin*/\"|cat - lib/vega5/vega.js > /tmp/out && mv /tmp/out lib/vega5/vega.js",
+		"build-lib": "cp node_modules/vega/build-es5/vega.js lib/vega5/vega.js && npm run fixup",
+		"test": "grunt test && npm run test:unit"
 	},
 	"devDependencies": {
 		"browserify": "^16.2.3",
@@ -17,8 +16,10 @@
 		"grunt-banana-checker": "0.10.0",
 		"grunt-eslint": "24.0.0",
 		"grunt-stylelint": "0.18.0",
+		"jest": "27.4.7",
 		"jquery.splitter": "^0.27.1",
 		"mw-graph-shared": "^0.6.0",
-		"stylelint-config-wikimedia": "0.14.0"
+		"stylelint-config-wikimedia": "0.14.0",
+		"vega": "5.24.0"
 	}
 }

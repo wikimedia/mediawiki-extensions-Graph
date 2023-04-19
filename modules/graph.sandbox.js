@@ -1,6 +1,7 @@
 /* eslint-disable no-jquery/no-global-selector */
 ( function () {
 	var oldContent, ccw, resizeCodeEditor;
+	var loadGraph = require( 'ext.graph.lite' );
 
 	$( function () {
 		var viewportHeight = $( window ).height(),
@@ -61,7 +62,9 @@
 					return;
 				}
 				$json.textContent = JSON.stringify( data.graph, null, 2 );
-				mw.drawVegaGraph( $graphEl, data.graph, function ( error ) {
+				loadGraph( $graphEl, data.graph ).then( function () {
+					// graph renders successfully.
+				}, function ( error ) {
 					if ( error ) {
 						$graphEl.textContent = ( error.exception || error ).toString();
 					}

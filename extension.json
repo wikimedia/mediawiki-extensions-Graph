@@ -69,7 +69,8 @@
 		"ext.graph.lite": {
 			"packageFiles": [
 				"modules/ext.graph.lite/main.js",
-				"lib/vega2/vega.js",
+				"modules/ext.graph.lite/mapSchema.js",
+				"lib/vega5/vega.js",
 				"lib/d3.js"
 			]
 		},
@@ -96,6 +97,7 @@
 				"styles/sandbox.css"
 			],
 			"dependencies": [
+				"ext.graph.lite",
 				"oojs-ui-core",
 				"mediawiki.confirmCloseWindow",
 				"ext.codeEditor",
