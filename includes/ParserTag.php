@@ -25,6 +25,10 @@ use Status;
 use Title;
 
 class ParserTag {
+	/** Sync with mapSchema.js */
+	private const DEFAULT_WIDTH = 500;
+	private const DEFAULT_HEIGHT = 500;
+
 	/** @var ParserOptions */
 	private $parserOptions;
 
@@ -106,14 +110,7 @@ class ParserTag {
 		// we treat all graphs as Vega2 and load corresponding libraries.
 		// All this should go away once we drop Vega1 support.
 		$liveSpecsIndex = $parserOutput->getExtensionData( 'graph_live_specs_index' );
-		if ( !$liveSpecsIndex ) {
-			// Not in live mode
-			$outputPage->addModules( [ 'ext.graph.loader', 'ext.graph.vega2' ] );
-			return;
-		}
-		// Module: ext.graph.vega1, ext.graph.vega2
-		$outputPage->addModules( [ 'ext.graph.vega' .
-			( $parserOutput->getExtensionData( 'graph_vega2' ) ? 2 : 1 ) ] );
+		$outputPage->addModules( [ 'ext.graph.loader' ] );
 		$liveSpecs = [];
 		foreach ( $liveSpecsIndex as $hash => $ignore ) {
 			$liveSpecs[$hash] =
@@ -129,12 +126,12 @@ class ParserTag {
 	 * @return array
 	 */
 	public static function buildDivAttributes( $mode = '', $data = false, $hash = '' ) {
-		$attribs = [ 'class' => 'mw-graph' ];
+		$attribs = [ 'class' => 'mw-graph mw-graph-clickable' ];
 
 		if ( is_object( $data ) ) {
-			$width = property_exists( $data, 'width' ) && is_int( $data->width ) ? $data->width : 0;
+			$width = property_exists( $data, 'width' ) && is_int( $data->width ) ? $data->width : self::DEFAULT_WIDTH;
 			$height =
-				property_exists( $data, 'height' ) && is_int( $data->height ) ? $data->height : 0;
+				property_exists( $data, 'height' ) && is_int( $data->height ) ? $data->height : self::DEFAULT_HEIGHT;
 			if ( $width && $height ) {
 				$attribs['style'] = "min-width:{$width}px;min-height:{$height}px";
 			}

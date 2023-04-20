@@ -1,5 +1,6 @@
 @import 'mediawiki.mixins';
 @import 'mediawiki.mixins.animation';
+@import 'mediawiki.skin.variables.less';
 
 .mw-graph {
 	display: inline-block;
@@ -10,6 +11,63 @@
 	border: 1px solid transparent;
 	opacity: 0;
 	.animation( spinnerDelay 0.5s ease-out 0.5s forwards ) ;
+
+	&.mw-graph-clickable-loading,
+	&.mw-graph-clickable {
+		border: solid 1px #ccc;
+		display: inline-flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		min-height: 300px;
+	}
+
+	&.mw-graph-clickable {
+		background-image: none;
+
+		&::before {
+			content: '';
+			height: 152px;
+			width: 200px;
+			margin-top: -18px;
+			background-image: url( images/fallback.svg );
+		}
+
+		&::after {
+			background: @background-color-progressive-subtle;
+			color: @color-progressive;
+			padding: 8px;
+			content: '@{msg-graph-load}';
+		}
+	}
+
+	&.mw-graph-clickable-error {
+		background-image: none;
+
+		&::before {
+			content: '';
+			height: 152px;
+			width: 200px;
+			margin-top: -18px;
+			background-image: url( images/error.svg );
+		}
+
+		&::after {
+			background: @background-color-error-subtle;
+			color: @color-error;
+			padding: 8px;
+			content: '@{msg-graph-ve-vega-error-no-render}';
+		}
+	}
+
+	&.mw-graph-nofallback {
+		&::after {
+			.client-nojs & {
+				content: '@{msg-graph-vega-old-browser}';
+			}
+		}
+	}
 
 	canvas {
 		display: inline-block;
@@ -25,15 +83,5 @@
 
 	100% {
 		opacity: 1;
-	}
-}
-
-.client-nojs {
-	.mw-graph {
-		background-image: unset;
-	}
-
-	.mw-graph-nofallback {
-		display: none;
 	}
 }

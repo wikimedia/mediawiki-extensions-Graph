@@ -18,6 +18,7 @@
 	"graph-error-empty-json": "Empty graph data, nothing to show",
 	"graph-error-not-vega": "The JSON provided is not a valid Vega JSON",
 	"graph-ve-dialog-button-tooltip": "Graph",
+	"graph-load": "Click to load graph",
 	"graph-ve-dialog-edit-field-graph-type": "Graph type",
 	"graph-ve-dialog-edit-field-raw-json": "Raw JSON specification",
 	"graph-ve-dialog-edit-height": "Height",
@@ -42,5 +43,6 @@
 	"graph-ve-empty-graph": "Empty graph",
 	"graph-ve-no-spec": "No graph specification found",
 	"graph-ve-vega-error": "Vega has encountered an error rendering this graph",
-	"graph-ve-vega-error-no-render": "Vega was unable to render this graph"
+	"graph-ve-vega-error-no-render": "Vega was unable to render this graph",
+	"graph-vega-old-browser": "Your browser does not support graphs"
 }
