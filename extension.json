@@ -55,8 +55,8 @@
 			"packageFiles": [
 				"modules/ext.graph.render/main.js",
 				"modules/ext.graph.render/mapSchema.js",
-				"lib/vega5/vega.js",
-				"lib/d3.js"
+				"lib/vega/vega.js",
+				"lib/d3/d3.js"
 			]
 		},
 		"ext.graph.sandbox": {
@@ -173,5 +173,6 @@
 	"ExtensionMessagesFiles": {
 		"GraphAliases": "Graph.alias.php"
 	},
+	"ForeignResourcesDir": "lib",
 	"manifest_version": 2
 }
