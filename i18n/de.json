@@ -20,6 +20,7 @@
 	"graph-error-empty-json": "Leere Diagrammdaten, nichts anzuzeigen",
 	"graph-error-not-vega": "Das angegebene JSON ist kein gültiges Vega-JSON",
 	"graph-ve-dialog-button-tooltip": "Diagramm",
+	"graph-load": "Klicke hier, um die Grafik zu laden",
 	"graph-ve-dialog-edit-field-graph-type": "Diagrammtyp",
 	"graph-ve-dialog-edit-field-raw-json": "Unverarbeitete JSON-Spezifikation",
 	"graph-ve-dialog-edit-height": "Höhe",
@@ -44,5 +45,6 @@
 	"graph-ve-empty-graph": "Leere Grafik",
 	"graph-ve-no-spec": "Keine Diagramm-Spezifikation gefunden",
 	"graph-ve-vega-error": "Vega hat einen Fehler beim Rendern dieses Diagramms entdeckt",
-	"graph-ve-vega-error-no-render": "Vega konnte dieses Diagramm nicht darstellen"
+	"graph-ve-vega-error-no-render": "Vega konnte dieses Diagramm nicht darstellen",
+	"graph-vega-old-browser": "Dein Browser unterstützt keine Grafiken"
 }
