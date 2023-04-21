@@ -61,7 +61,7 @@ const propertiesToVega5 = ( props ) => {
  */
 const axesToVega5 = ( axes ) => {
 	return axes.map( ( axis ) => {
-		const props = axis.properties;
+		const props = axis.properties || {};
 		const newAxis = Object.assign(
 			propertiesToVega5( props ),
 			axis,
@@ -118,6 +118,34 @@ const markToVega5 = ( marks ) => {
 };
 
 /**
+ * @param {Object|Array} data
+ * @throws {Error} if unsupported format
+ * @return {Object|Array}
+ */
+const sanitizeData = ( data ) => {
+	if ( Array.isArray( data ) ) {
+		return data.map( sanitizeData );
+	} else {
+		if ( data.url ) {
+			throw new Error( 'Graphs sourcing data from URLs is currently not supported' );
+		}
+		return data;
+	}
+};
+
+/**
+ * @param {Object} spec
+ * @throws {Error} if unsupported format
+ * @return {Object}
+ */
+const sanitize = ( spec ) => {
+	if ( spec.data ) {
+		spec.data = sanitizeData( spec.data );
+	}
+	return spec;
+};
+
+/**
  * Maps a vega2 graph spec to vega 5
  * using https://vega.github.io/vega/docs/porting-guide
  *
@@ -132,7 +160,7 @@ const mapSchema = ( spec ) => {
 	const isNewSchema = schema && schema.indexOf( 'v5.json' ) > -1;
 	// No modifications for new schemas
 	if ( isNewSchema ) {
-		return spec;
+		return sanitize( spec );
 	}
 	const newSpec = {};
 	// Map versions < 5 to 5
@@ -165,12 +193,14 @@ const mapSchema = ( spec ) => {
 				break;
 		}
 	} );
-	return Object.assign( {
-		$schema: 'https://vega.github.io/schema/vega/v5.json',
-		// Make sure width and height defined if not.
-		width: 500,
-		height: 500
-	}, newSpec );
+	return sanitize(
+		Object.assign( {
+			$schema: 'https://vega.github.io/schema/vega/v5.json',
+			// Make sure width and height defined if not.
+			width: 500,
+			height: 500
+		}, newSpec )
+	);
 };
 
 module.exports = mapSchema;
