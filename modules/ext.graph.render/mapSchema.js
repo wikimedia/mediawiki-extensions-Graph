@@ -3,6 +3,7 @@ const autosize = {
 	resize: false,
 	contains: 'padding'
 };
+const sanitizeUrl = require( './sanitizeUrl.js' );
 
 /**
  * @param {Object} dataFormat
@@ -131,12 +132,10 @@ const markToVega5 = ( marks ) => {
 const sanitizeData = ( data ) => {
 	if ( Array.isArray( data ) ) {
 		return data.map( sanitizeData );
-	} else {
-		if ( data.url ) {
-			throw new Error( 'Graphs sourcing data from URLs is currently not supported' );
-		}
-		return data;
+	} else if ( data.url ) {
+		data.url = sanitizeUrl( data.url );
 	}
+	return data;
 };
 
 /**
