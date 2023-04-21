@@ -1,3 +1,9 @@
+const autosize = {
+	type: 'fit',
+	resize: false,
+	contains: 'padding'
+};
+
 /**
  * @param {Object} dataFormat
  * @return {Object}
@@ -160,7 +166,7 @@ const mapSchema = ( spec ) => {
 	const isNewSchema = schema && schema.indexOf( 'v5.json' ) > -1;
 	// No modifications for new schemas
 	if ( isNewSchema ) {
-		return sanitize( spec );
+		return sanitize( Object.assign( { autosize }, spec ) );
 	}
 	const newSpec = {};
 	// Map versions < 5 to 5
@@ -198,7 +204,9 @@ const mapSchema = ( spec ) => {
 			$schema: 'https://vega.github.io/schema/vega/v5.json',
 			// Make sure width and height defined if not.
 			width: 500,
-			height: 500
+			height: 500,
+			// Ensure we keep within the dimensions specified
+			autosize
 		}, newSpec )
 	);
 };

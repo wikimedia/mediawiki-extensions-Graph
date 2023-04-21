@@ -2,14 +2,32 @@ const mapSchema = require( '../../../modules/ext.graph.render/mapSchema.js' );
 const $SCHEMA = 'https://vega.github.io/schema/vega/v5.json';
 const DEFAULT_WIDTH = 500;
 const DEFAULT_HEIGHT = 500;
+const autosize = {
+	type: 'fit',
+	resize: false,
+	contains: 'padding'
+};
 
 describe( 'mapSchema', () => {
-	test( 'version 5 schemas do not get mapped', () => {
-		const schema = {
-			$schema: $SCHEMA
+	test( 'autosize parameter gets added automatically if not defined', () => {
+		const customAutosize = {
+			type: 'fit',
+			resize: true
 		};
-		const newSchema = mapSchema( schema );
-		expect( schema ).toStrictEqual( newSchema );
+		const schemaV2 = mapSchema( {
+			version: 2
+		} );
+		const schemaV5 = mapSchema( {
+			$schema: $SCHEMA
+		} );
+		const schemaCustomAutosize = mapSchema( {
+			$schema: $SCHEMA,
+			autosize: customAutosize
+		} );
+
+		expect( schemaV2.autosize ).toStrictEqual( autosize );
+		expect( schemaV5.autosize ).toStrictEqual( autosize );
+		expect( schemaCustomAutosize.autosize ).toStrictEqual( customAutosize );
 	} );
 
 	test( 'refuse to render graphs using version 1 of spec', () => {
@@ -42,7 +60,8 @@ describe( 'mapSchema', () => {
 		expect( schema ).toStrictEqual( {
 			$schema: $SCHEMA,
 			width: DEFAULT_WIDTH,
-			height: DEFAULT_HEIGHT
+			height: DEFAULT_HEIGHT,
+			autosize
 		} );
 	} );
 
@@ -108,7 +127,8 @@ describe( 'mapSchema', () => {
 			$schema: $SCHEMA,
 			legends: [],
 			height: 200,
-			width: 200
+			width: 200,
+			autosize
 		} );
 	} );
 

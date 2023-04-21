@@ -10,9 +10,15 @@
 	border: 1px solid transparent;
 	opacity: 0;
 	.animation( spinnerDelay 0.5s ease-out 0.5s forwards ) ;
+	// Minimum width needed to render the placeholder graphic
+	min-width: 200px;
 
 	// This block can me merged with the above when the new graph
 	// code has been fully rolled out.
+	// Responsive sizing
+	max-width: 100%;
+	height: auto;
+
 	&.mw-graph-clickable-loading,
 	&.mw-graph-clickable-error,
 	&.mw-graph-clickable {
@@ -22,6 +28,8 @@
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
+		// This makes the background potentially larger than the graph.
+		// Might be better ways to do this ?
 		min-height: 300px;
 	}
 
@@ -75,6 +83,10 @@
 		display: inline-block;
 		vertical-align: middle;
 		background: #fff;
+		// Responsive sizing
+		max-width: 100%;
+		/* stylelint-disable-next-line declaration-no-important */
+		height: auto !important;
 	}
 }
 

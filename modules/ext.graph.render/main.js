@@ -26,6 +26,8 @@ function loadGraph( el, graphSpec ) {
 				const view = new vg.View( runtime )
 					.initialize( el )
 					.run();
+				// Remove style attribute and rely on height:auto to enable responsive sizing
+				el.style.height = null;
 				resolve( view );
 			} catch ( e ) {
 				reject( {

@@ -133,7 +133,7 @@ class ParserTag {
 			$height =
 				property_exists( $data, 'height' ) && is_int( $data->height ) ? $data->height : self::DEFAULT_HEIGHT;
 			if ( $width && $height ) {
-				$attribs['style'] = "min-width:{$width}px;min-height:{$height}px";
+				$attribs['style'] = "width:{$width}px;height:{$height}px;aspect-ratio:$width/$height";
 			}
 		}
 		if ( $mode ) {
