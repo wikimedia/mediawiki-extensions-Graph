@@ -19,6 +19,16 @@ describe( 'mapSchema', () => {
 		expect( () => mapSchema( schema ) ).toThrowError();
 	} );
 
+	test( '[data] refuse to render graphs from URLs', () => {
+		const schema = {
+			$schema: $SCHEMA,
+			data: {
+				url: 'https://vega.github.io/vega/data/wheat.json'
+			}
+		};
+		expect( () => mapSchema( schema ) ).toThrowError();
+	} );
+
 	test( 'refuse to render old graphs using signals', () => {
 		const schema = {
 			version: 2,
@@ -36,6 +46,24 @@ describe( 'mapSchema', () => {
 		} );
 	} );
 
+	test( 'schemas without axis properties can be converted', () => {
+		const s = mapSchema(
+			{
+				version: 2,
+				axes: [
+					{
+						type: 'x',
+						scale: 'x'
+					},
+					{
+						type: 'y',
+						scale: 'y'
+					}
+				]
+			}
+		);
+		expect( s.axes.encode ).toStrictEqual( undefined );
+	} );
 	test( '[data] integer types are mapped to number', () => {
 		const schema = mapSchema( {
 			data: {
