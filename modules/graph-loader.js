@@ -12,9 +12,10 @@
 		mw.loader.using( 'ext.graph.lite' ).then( ( require ) => {
 			require( 'ext.graph.lite' )( element ).then( () => {
 				element.classList.remove( 'mw-graph-clickable-loading' );
-			}, ( msg ) => {
+			}, ( e ) => {
 				element.classList.add( 'mw-graph-clickable-error' );
-				throw new Error( msg );
+				mw.log.error( `Error loading graph with data-graph-id=${e.graphId}`, e.exception );
+				mw.errorLogger.logError( e.exception, 'error.graph' );
 			} );
 		} );
 	}

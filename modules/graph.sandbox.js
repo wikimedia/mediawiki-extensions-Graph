@@ -64,9 +64,10 @@
 				$json.textContent = JSON.stringify( data.graph, null, 2 );
 				loadGraph( $graphEl, data.graph ).then( function () {
 					// graph renders successfully.
-				}, function ( error ) {
-					if ( error ) {
-						$graphEl.textContent = ( error.exception || error ).toString();
+				}, function ( e ) {
+					if ( e ) {
+						$graphEl.textContent = `Error loading graph with data-graph-id=${e.graphId} (${e.message})`;
+						mw.log.error( `Error loading graph with data-graph-id=${e.graphId}`, e.exception );
 					}
 				} );
 			} ).fail( function ( errCode, error ) {

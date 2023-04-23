@@ -28,9 +28,10 @@ function loadGraph( el, graphSpec ) {
 					.run();
 				resolve( view );
 			} catch ( e ) {
-				// Graphs come from user generated content and may contain errors.
-				// When these occur, log them, but do not send them to Wikimedia servers (T274557)
-				reject( `Error loading graph with data-graph-id=${id} (${e})` );
+				reject( {
+					graphId: id,
+					exception: e
+				} );
 			}
 		} );
 	}
