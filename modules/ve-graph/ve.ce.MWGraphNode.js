@@ -3,7 +3,7 @@
  *
  * @license The MIT License (MIT); see LICENSE.txt
  */
-const loadGraph = require( 'ext.graph.lite' );
+const loadGraph = require( 'ext.graph.lite' ).loadGraph;
 
 /**
  * ContentEditable MediaWiki graph node.
