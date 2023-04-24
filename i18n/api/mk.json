@@ -12,6 +12,6 @@
 	"apihelp-graph-param-title": "Наслов на страницата со графиконот",
 	"apihelp-graph-param-text": "Текст на графиконот што треба да се претвори во JSON. Мора да биде објавено и да се користи без параметри за наслов и тарабни параметри",
 	"apierror-graph-mustposttext": "Барањето мора да биде објавено кога се користи параметарот <var>text</var>.",
-	"apierror-graph-invalid": "Графиконот е нева=ечки.",
+	"apierror-graph-invalid": "Графиконот е неважечки.",
 	"apierror-graph-missing": "Не пронајдов ниеден графикон."
 }
