@@ -5,14 +5,16 @@
 .mw-graph {
 	display: inline-block;
 	position: relative;
-	background-image: url( ../includes/ajax-loader.gif );
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	border: 1px solid transparent;
 	opacity: 0;
 	.animation( spinnerDelay 0.5s ease-out 0.5s forwards ) ;
 
+	// This block can me merged with the above when the new graph
+	// code has been fully rolled out.
 	&.mw-graph-clickable-loading,
+	&.mw-graph-clickable-error,
 	&.mw-graph-clickable {
 		border: solid 1px #ccc;
 		display: inline-flex;
@@ -23,9 +25,11 @@
 		min-height: 300px;
 	}
 
-	&.mw-graph-clickable {
-		background-image: none;
+	&.mw-graph-clickable-loading {
+		background-image: url( ../includes/ajax-loader.gif );
+	}
 
+	&.mw-graph-clickable {
 		&::before {
 			content: '';
 			height: 152px;
@@ -43,8 +47,6 @@
 	}
 
 	&.mw-graph-clickable-error {
-		background-image: none;
-
 		&::before {
 			content: '';
 			height: 152px;
