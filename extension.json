@@ -51,10 +51,10 @@
 				"mediawiki.api"
 			]
 		},
-		"ext.graph.lite": {
+		"ext.graph.render": {
 			"packageFiles": [
-				"modules/ext.graph.lite/main.js",
-				"modules/ext.graph.lite/mapSchema.js",
+				"modules/ext.graph.render/main.js",
+				"modules/ext.graph.render/mapSchema.js",
 				"lib/vega5/vega.js",
 				"lib/d3.js"
 			]
@@ -69,11 +69,10 @@
 				"styles/sandbox.css"
 			],
 			"dependencies": [
-				"ext.graph.lite",
+				"ext.graph.render",
 				"oojs-ui-core",
 				"mediawiki.confirmCloseWindow",
-				"ext.codeEditor",
-				"ext.graph.lite"
+				"ext.codeEditor"
 			]
 		},
 		"ext.graph.visualEditor": {
@@ -90,7 +89,7 @@
 			],
 			"dependencies": [
 				"oojs-ui.styles.icons-editing-advanced",
-				"ext.graph.lite",
+				"ext.graph.render",
 				"ext.visualEditor.mwcore",
 				"ext.visualEditor.mwimage.core",
 				"mediawiki.widgets.Table"
@@ -136,7 +135,7 @@
 			"modules/ve-graph/tests/ext.graph.visualEditor.test.js"
 		],
 		"dependencies": [
-			"ext.graph.lite",
+			"ext.graph.render",
 			"ext.graph.visualEditor",
 			"test.VisualEditor"
 		]

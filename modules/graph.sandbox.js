@@ -1,7 +1,7 @@
 /* eslint-disable no-jquery/no-global-selector */
 ( function () {
 	let oldContent, ccw, resizeCodeEditor;
-	const loadGraph = require( 'ext.graph.lite' ).loadGraph;
+	const loadGraph = require( 'ext.graph.render' ).loadGraph;
 
 	$( function () {
 		const viewportHeight = $( window ).height(),

@@ -3,7 +3,7 @@
  *
  * @license The MIT License (MIT); see LICENSE.txt
  */
-const loadGraph = require( 'ext.graph.lite' ).loadGraph;
+const loadGraph = require( 'ext.graph.render' ).loadGraph;
 
 /**
  * ContentEditable MediaWiki graph node.
@@ -118,7 +118,7 @@ ve.ce.MWGraphNode.prototype.update = function () {
 
 	this.$element.toggleClass( 'mw-graph-vega1', this.getModel().isGraphLegacy() );
 
-	mw.loader.using( 'ext.graph.lite' ).then( function () {
+	mw.loader.using( 'ext.graph.render' ).then( function () {
 		node.$plot.detach();
 
 		node.constructor.static.vegaParseSpec( node.getModel().getSpec(), node.$graph[ 0 ] ).then(

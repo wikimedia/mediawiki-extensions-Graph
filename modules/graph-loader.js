@@ -9,8 +9,8 @@
 		}
 		element.classList.remove( 'mw-graph-clickable' );
 		element.classList.add( 'mw-graph-clickable-loading' );
-		mw.loader.using( 'ext.graph.lite' ).then( ( require ) => {
-			require( 'ext.graph.lite' ).loadGraph( element ).then( () => {
+		mw.loader.using( 'ext.graph.render' ).then( ( require ) => {
+			require( 'ext.graph.render' ).loadGraph( element ).then( () => {
 				element.classList.remove( 'mw-graph-clickable-loading' );
 			}, ( e ) => {
 				element.classList.add( 'mw-graph-clickable-error' );

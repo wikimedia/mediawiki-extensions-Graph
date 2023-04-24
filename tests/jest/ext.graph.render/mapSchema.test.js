@@ -1,4 +1,4 @@
-const mapSchema = require( '../../../modules/ext.graph.lite/mapSchema.js' );
+const mapSchema = require( '../../../modules/ext.graph.render/mapSchema.js' );
 const $SCHEMA = 'https://vega.github.io/schema/vega/v5.json';
 const DEFAULT_WIDTH = 500;
 const DEFAULT_HEIGHT = 500;
