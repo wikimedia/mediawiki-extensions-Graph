@@ -36,4 +36,6 @@ function loadGraph( el, graphSpec ) {
 	}
 }
 
-module.exports = loadGraph;
+module.exports = {
+	loadGraph
+};
