@@ -59,14 +59,21 @@
 				"lib/d3.js"
 			]
 		},
+		"ext.graph.sandbox.styles": {
+			"styles": [
+				"styles/sandbox.css"
+			]
+		},
 		"ext.graph.sandbox": {
 			"scripts": [
 				"lib/jquery.splitter/jquery.splitter.js",
 				"modules/graph.sandbox.js"
 			],
 			"styles": [
-				"lib/jquery.splitter/jquery.splitter.css",
-				"styles/sandbox.css"
+				"lib/jquery.splitter/jquery.splitter.css"
+			],
+			"messages": [
+				"graph-outdated-schema"
 			],
 			"dependencies": [
 				"ext.graph.render",

@@ -4,10 +4,30 @@
 	overflow: hidden;
 }
 
+#mw-graph-sandbox {
+	height: 80vh;
+}
+
 #mw-graph-json {
 	margin: 0;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
+	min-height: 500px;
+}
+
+.mw-graph-sandbox-nojs,
+#mw-graph-sandbox {
+	display: none;
+}
+
+.client-nojs .mw-graph-sandbox-nojs {
+	display: block;
+}
+
+.client-js #mw-graph-sandbox {
+	display: block;
+	/* Use visibility so that jquery.splitter can initialize properly */
+	visibility: hidden;
+}
+
+.client-js #mw-graph-sandbox.mw-graph-sandbox-enabled {
+	visibility: visible;
 }

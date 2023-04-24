@@ -44,5 +44,7 @@
 	"graph-ve-no-spec": "No graph specification found",
 	"graph-ve-vega-error": "Vega has encountered an error rendering this graph",
 	"graph-ve-vega-error-no-render": "Vega was unable to render this graph",
-	"graph-vega-old-browser": "Your browser does not support graphs"
+	"graph-vega-old-browser": "Your browser does not support graphs",
+	"graph-outdated-schema": "You are using an outdated schema. This may break in future. Please use the corrected schema below.",
+	"graph-sandbox-requires-js": "The graph sandbox requires a modern browser with JavaScript."
 }

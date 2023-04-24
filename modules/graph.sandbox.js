@@ -1,13 +1,20 @@
 /* eslint-disable no-jquery/no-global-selector */
 ( function () {
 	let oldContent, ccw, resizeCodeEditor;
-	const loadGraph = require( 'ext.graph.render' ).loadGraph;
+	const graph = require( 'ext.graph.render' );
+	const mapSchema = graph.mapSchema;
+	const loadGraph = graph.loadGraph;
+	const banner = document.createElement( 'div' );
+	const GRAPH_CLASS_CLICKABLE = 'mw-graph-clickable';
+	const GRAPH_CLASS_ERROR = `${GRAPH_CLASS_CLICKABLE}-error`;
+	// Prepopulated graph that is shown when the graph is clicked.
+	const exampleGraph = {
+		$schema: 'https://vega.github.io/schema/vega/v5.json'
+	};
 
 	$( function () {
-		const viewportHeight = $( window ).height(),
-			sandboxHeight = viewportHeight - 150,
-			initialPosition = sandboxHeight - 100;
-		$( '#mw-graph-sandbox' ).width( '100%' ).height( sandboxHeight ).split( {
+		const sandbox = document.getElementById( 'mw-graph-sandbox' );
+		$( sandbox ).split( {
 			orientation: 'vertical',
 			limit: 100,
 			position: '40%'
@@ -15,17 +22,64 @@
 		$( '#mw-graph-left' ).split( {
 			orientation: 'horizontal',
 			limit: 100,
-			position: initialPosition
+			position: '50%'
 		} );
+		banner.classList.add( 'mw-message-box', 'mw-message-box-warning' );
+		banner.textContent = mw.msg( 'graph-outdated-schema' );
+		sandbox.classList.add( 'mw-graph-sandbox-enabled' );
 	} );
 
 	mw.hook( 'codeEditor.configure' ).add( function ( session ) {
 		const $json = $( '#mw-graph-json' )[ 0 ],
+			bottomPanel = $json.parentNode,
 			$graph = $( '.mw-graph' ),
-			$graphEl = $graph[ 0 ],
-			$rightPanel = $( '#mw-graph-right' ),
-			$editor = $( '.editor' );
+			$graphEl = $graph[ 0 ];
 
+		/**
+		 * Create a callback for when the graph has successfully loaded.
+		 *
+		 * @param {Object} graphData containing the rendered graph.
+		 * @return {Function}
+		 */
+		function graphLoadedCallback( graphData ) {
+			return function () {
+				// graph renders successfully
+				// eslint-disable-next-line mediawiki/class-doc
+				$graphEl.classList.remove(
+					GRAPH_CLASS_CLICKABLE, GRAPH_CLASS_ERROR
+				);
+
+				const mappedSchema = mapSchema( graphData );
+				if ( mappedSchema.$schema !== graphData.$schema ) {
+					bottomPanel.prepend( banner );
+				} else if ( banner.parentNode ) {
+					banner.parentNode.removeChild( banner );
+				}
+				$json.value = JSON.stringify( mappedSchema, null, 2 );
+			};
+		}
+
+		/**
+		 * Executes when the graph has loaded with an error.
+		 *
+		 * @param {Error} e
+		 */
+		function graphError( e ) {
+			// eslint-disable-next-line mediawiki/class-doc
+			$graphEl.classList.add( GRAPH_CLASS_ERROR );
+			if ( e ) {
+				mw.log.error( 'Error loading graph in Special:GraphSandbox', e );
+			}
+			$json.value = '';
+		}
+		$graphEl.addEventListener( 'click', function () {
+			if ( $graphEl.classList.contains( GRAPH_CLASS_CLICKABLE ) ) {
+				loadGraph( $graphEl, exampleGraph ).then(
+					graphLoadedCallback( exampleGraph ),
+					graphError
+				);
+			}
+		} );
 		if ( ccw ) {
 			ccw.release();
 		}
@@ -36,7 +90,6 @@
 		} );
 
 		resizeCodeEditor = function () {
-			$editor.parent().height( $rightPanel.height() - 57 );
 			$.wikiEditor.instances[ 0 ].data( 'wikiEditor-context' ).codeEditor.resize();
 		};
 
@@ -56,22 +109,17 @@
 				formatversion: 2,
 				action: 'graph',
 				text: content
-			} ).done( function ( data ) {
+			} ).then( function ( data ) {
 				if ( session.getValue() !== content ) {
 					// Just in case the content has changed since we made the api call
 					return;
 				}
-				$json.textContent = JSON.stringify( data.graph, null, 2 );
-				loadGraph( $graphEl, data.graph ).then( function () {
-					// graph renders successfully.
-				}, function ( e ) {
-					if ( e ) {
-						$graphEl.textContent = `Error loading graph with data-graph-id=${e.graphId} (${e.message})`;
-						mw.log.error( `Error loading graph with data-graph-id=${e.graphId}`, e.exception );
-					}
-				} );
-			} ).fail( function ( errCode, error ) {
-				$graphEl.textContent = errCode.toString() + ':' + ( error.exception || error ).toString();
+				loadGraph( $graphEl, data.graph ).then(
+					graphLoadedCallback( data.graph ),
+					graphError
+				);
+			}, function ( errCode, error ) {
+				graphError( error );
 			} );
 		}, 300 ) );
 	} );

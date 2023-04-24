@@ -30,6 +30,10 @@ class Sandbox extends SpecialPage {
 		$this->setHeaders();
 		$this->addHelpLink( 'Extension:Graph/Guide' );
 		$out->addModules( 'ext.graph.sandbox' );
+		$out->addModuleStyles( [
+			'ext.graph.sandbox.styles',
+			'ext.graph.styles'
+		] );
 		// Tell CodeEditor that this page is JSON (T143165)
 		$out->addJsConfigVars( 'wgCodeEditorCurrentLanguage', 'json' );
 
@@ -41,8 +45,15 @@ class Sandbox extends SpecialPage {
 		$specHtml = '<div><textarea tabindex="1" accesskey="," id="wpTextbox1" cols="80" rows="40"' .
 			' style="" lang="en" dir="ltr" name="wpTextbox1" class="webfonts-changed"></textarea>' .
 			'</div>';
-		$jsonHtml = '<div><pre id="mw-graph-json"></pre></div>';
+		$jsonHtml = '<div><textarea id="mw-graph-json"></textarea></div>';
 
+		$out->addHTML(
+			Html::errorBox(
+				$out->msg( 'graph-sandbox-requires-js' )->text(),
+				'',
+				'mw-graph-sandbox-nojs'
+			)
+		);
 		$out->addHTML( Html::rawElement( 'div', [ 'id' => 'mw-graph-sandbox' ],
 			Html::rawElement( 'div', [ 'id' => 'mw-graph-left' ], $graphHtml . $jsonHtml ) .
 			Html::rawElement( 'div', [ 'id' => 'mw-graph-right' ], $specHtml ) ) );

@@ -40,5 +40,6 @@ function loadGraph( el, graphSpec ) {
 }
 
 module.exports = {
-	loadGraph
+	loadGraph,
+	mapSchema
 };
