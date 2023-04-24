@@ -15,6 +15,7 @@
 	"graph-error-empty-json": "Prazni podatki grafikona, ničesar ni za prikaz",
 	"graph-error-not-vega": "Predloženi JSON ni veljaven Vega JSON",
 	"graph-ve-dialog-button-tooltip": "Grafikon",
+	"graph-load": "Kliknite za naložitev grafikona",
 	"graph-ve-dialog-edit-field-graph-type": "Vrsta grafikona",
 	"graph-ve-dialog-edit-field-raw-json": "Neobdelana specifikacija JSON",
 	"graph-ve-dialog-edit-height": "Višina",
@@ -39,5 +40,6 @@
 	"graph-ve-empty-graph": "Prazen grafikon",
 	"graph-ve-no-spec": "Specifikacije grafikona ni mogoče najti",
 	"graph-ve-vega-error": "Vega je pri prikazu tega grafikona naletela na neznano napako",
-	"graph-ve-vega-error-no-render": "Vega ni mogla prikazati tega grafikona"
+	"graph-ve-vega-error-no-render": "Vega ni mogla prikazati tega grafikona",
+	"graph-vega-old-browser": "Vaš brskalnik ne podpira grafikonov"
 }

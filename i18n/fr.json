@@ -26,6 +26,7 @@
 	"graph-error-empty-json": "Aucune donnée de graphique, rien à afficher",
 	"graph-error-not-vega": "Le JSON fourni n’est pas un JSON Vega valide",
 	"graph-ve-dialog-button-tooltip": "Graphique",
+	"graph-load": "Cliquer pour charger le graphique",
 	"graph-ve-dialog-edit-field-graph-type": "Type de graphique",
 	"graph-ve-dialog-edit-field-raw-json": "Spécification JSON brute",
 	"graph-ve-dialog-edit-height": "Hauteur",
@@ -50,5 +51,6 @@
 	"graph-ve-empty-graph": "Graphique vide",
 	"graph-ve-no-spec": "Spécification de graphique introuvable",
 	"graph-ve-vega-error": "Une erreur s’est produite lors du rendu de ce graphique par Vega",
-	"graph-ve-vega-error-no-render": "Vega n’a pas pu effectuer le rendu de ce graphique"
+	"graph-ve-vega-error-no-render": "Vega n’a pas pu effectuer le rendu de ce graphique",
+	"graph-vega-old-browser": "Votre navigateur ne prend pas en charge les graphiques"
 }

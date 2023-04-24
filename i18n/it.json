@@ -21,6 +21,7 @@
 	"graph-error-empty-json": "Dati del grafico vuoti, nulla da mostrare",
 	"graph-error-not-vega": "Il JSON fornito non è un Vega JSON valido",
 	"graph-ve-dialog-button-tooltip": "Grafico",
+	"graph-load": "Clicca per caricare il grafico",
 	"graph-ve-dialog-edit-field-graph-type": "Tipo di grafico",
 	"graph-ve-dialog-edit-height": "Altezza",
 	"graph-ve-dialog-edit-json-invalid": "Stringa JSON non valida",
@@ -39,5 +40,6 @@
 	"graph-ve-dialog-edit-type-unknown": "Tipo di grafico sconosciuto",
 	"graph-ve-dialog-edit-width": "Larghezza",
 	"graph-ve-empty-graph": "Grafico vuoto",
-	"graph-ve-no-spec": "Nessuna specifica grafica è stata trovata"
+	"graph-ve-no-spec": "Nessuna specifica grafica è stata trovata",
+	"graph-vega-old-browser": "Il tuo browser non supporta i grafici"
 }

@@ -16,6 +16,7 @@
 	"graph-error-empty-json": "Tomme grafdata, ingenting å vise",
 	"graph-error-not-vega": "Den angitte JSON-en er ikke gyldig Vega-JSON",
 	"graph-ve-dialog-button-tooltip": "Graf",
+	"graph-load": "Trykk for å laste grafen",
 	"graph-ve-dialog-edit-field-graph-type": "Graftype",
 	"graph-ve-dialog-edit-field-raw-json": "Rå JSON-spesifikasjon",
 	"graph-ve-dialog-edit-height": "Høyde",
@@ -40,5 +41,6 @@
 	"graph-ve-empty-graph": "Tomt diagram",
 	"graph-ve-no-spec": "Ingen diagramspesifikasjon ble funnet",
 	"graph-ve-vega-error": "Vega støtte på et problem under opptegning av diagrammet",
-	"graph-ve-vega-error-no-render": "Vega klarte ikke å tegne opp diagrammet"
+	"graph-ve-vega-error-no-render": "Vega klarte ikke å tegne opp diagrammet",
+	"graph-vega-old-browser": "Nettleseren din støtter ikke grafer"
 }
