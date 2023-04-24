@@ -44,5 +44,6 @@
 	"graph-ve-empty-graph": "Gráfico vacío",
 	"graph-ve-no-spec": "No se encontró ninguna especificación de gráficos",
 	"graph-ve-vega-error": "Vega ha encontrado un error al representar este gráfico",
-	"graph-ve-vega-error-no-render": "Vega fue incapaz de representar este gráfico"
+	"graph-ve-vega-error-no-render": "Vega fue incapaz de representar este gráfico",
+	"graph-vega-old-browser": "El navegador no admite los gráficos"
 }

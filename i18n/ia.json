@@ -15,6 +15,7 @@
 	"graph-error-empty-json": "Datos de graphico vacue, nihil a monstrar",
 	"graph-error-not-vega": "Le JSON fornite non es un JSON valide de Vega",
 	"graph-ve-dialog-button-tooltip": "Graphico",
+	"graph-load": "Clicca pro cargar graphico",
 	"graph-ve-dialog-edit-field-graph-type": "Typo de graphico",
 	"graph-ve-dialog-edit-field-raw-json": "Specification JSON brute",
 	"graph-ve-dialog-edit-height": "Altitude",
@@ -39,5 +40,6 @@
 	"graph-ve-empty-graph": "Graphico vacue",
 	"graph-ve-no-spec": "Nulle specification de graphico trovate",
 	"graph-ve-vega-error": "Vega ha incontrate un error rendente iste graphico",
-	"graph-ve-vega-error-no-render": "Vega non ha potite render iste graphico"
+	"graph-ve-vega-error-no-render": "Vega non ha potite render iste graphico",
+	"graph-vega-old-browser": "Tu navigator non supporta graphicos"
 }

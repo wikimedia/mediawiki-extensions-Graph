@@ -15,6 +15,7 @@
 	"graph-error-empty-json": "Податоците за градикот се празни. Нема што да се прикаже.",
 	"graph-error-not-vega": "Укажаниот JSON не претставува важечки Vega-JSON",
 	"graph-ve-dialog-button-tooltip": "Графикон",
+	"graph-load": "Стиснете за да го вчитате графиконот",
 	"graph-ve-dialog-edit-field-graph-type": "Вид на графикон",
 	"graph-ve-dialog-edit-field-raw-json": "Уредба за сиров JSON",
 	"graph-ve-dialog-edit-height": "Висина",
@@ -39,5 +40,6 @@
 	"graph-ve-empty-graph": "Празен графикон",
 	"graph-ve-no-spec": "Не пронајдов определба за графикот",
 	"graph-ve-vega-error": "Вега наиде на грешка при исцртувањето на графиконов",
-	"graph-ve-vega-error-no-render": "Вега не можеше да го исцрта графиконов"
+	"graph-ve-vega-error-no-render": "Вега не можеше да го исцрта графиконов",
+	"graph-vega-old-browser": "Вашиот прелистувач не го поддржува графикони"
 }

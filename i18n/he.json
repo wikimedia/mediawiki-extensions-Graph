@@ -16,6 +16,7 @@
 	"graph-error-empty-json": "נתוני גרף ריקים, אין מה להציג",
 	"graph-error-not-vega": "ה־JSON שסופק הוא לא JSON תקין של Vega",
 	"graph-ve-dialog-button-tooltip": "תרשים",
+	"graph-load": "יש ללחוץ כדי לטעון את התרשים",
 	"graph-ve-dialog-edit-field-graph-type": "סוג התרשים",
 	"graph-ve-dialog-edit-field-raw-json": "הגדרה ב־JSON גולמי",
 	"graph-ve-dialog-edit-height": "גובה",
@@ -40,5 +41,6 @@
 	"graph-ve-empty-graph": "תרשים ריק",
 	"graph-ve-no-spec": "לא נמצאו הגדרות תרשים",
 	"graph-ve-vega-error": "וגה מצאה שגיאה בתיצוג התרשים הזה",
-	"graph-ve-vega-error-no-render": "וגה לא הצליחה לתצג את התרשים הזה"
+	"graph-ve-vega-error-no-render": "וגה לא הצליחה לתצג את התרשים הזה",
+	"graph-vega-old-browser": "הדפדפן שלך אינו תומך בתרשימים"
 }
