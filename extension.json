@@ -43,9 +43,6 @@
 				"styles/common.less"
 			]
 		},
-		"ext.graph.data": {
-			"class": "Graph\\DataModule"
-		},
 		"ext.graph.loader": {
 			"scripts": [
 				"modules/graph-loader.js"
@@ -54,37 +51,12 @@
 				"mediawiki.api"
 			]
 		},
-		"ext.graph.vega1": {
-			"scripts": [
-				"lib/d3.js",
-				"lib/d3-global.js",
-				"lib/vega1/vega.js",
-				"modules/graph1.js"
-			],
-			"dependencies": [
-				"ext.graph.data",
-				"mediawiki.Uri"
-			]
-		},
 		"ext.graph.lite": {
 			"packageFiles": [
 				"modules/ext.graph.lite/main.js",
 				"modules/ext.graph.lite/mapSchema.js",
 				"lib/vega5/vega.js",
 				"lib/d3.js"
-			]
-		},
-		"ext.graph.vega2": {
-			"scripts": [
-				"lib/d3.js",
-				"lib/d3-global.js",
-				"lib/d3.layout.cloud.js",
-				"lib/vega2/vega.js",
-				"lib/graph2.compiled.js"
-			],
-			"dependencies": [
-				"ext.graph.data",
-				"mediawiki.Uri"
 			]
 		},
 		"ext.graph.sandbox": {
@@ -101,7 +73,7 @@
 				"oojs-ui-core",
 				"mediawiki.confirmCloseWindow",
 				"ext.codeEditor",
-				"ext.graph.vega2"
+				"ext.graph.lite"
 			]
 		},
 		"ext.graph.visualEditor": {
@@ -118,7 +90,7 @@
 			],
 			"dependencies": [
 				"oojs-ui.styles.icons-editing-advanced",
-				"ext.graph.data",
+				"ext.graph.lite",
 				"ext.visualEditor.mwcore",
 				"ext.visualEditor.mwimage.core",
 				"mediawiki.widgets.Table"
@@ -164,8 +136,8 @@
 			"modules/ve-graph/tests/ext.graph.visualEditor.test.js"
 		],
 		"dependencies": [
+			"ext.graph.lite",
 			"ext.graph.visualEditor",
-			"ext.graph.vega1",
 			"test.VisualEditor"
 		]
 	},

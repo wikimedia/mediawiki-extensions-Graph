@@ -15,8 +15,6 @@
  * @param {Object} [element]
  */
 ve.dm.MWGraphNode = function VeDmMWGraphNode() {
-	var mw, extsrc;
-
 	// Parent constructor
 	ve.dm.MWGraphNode.super.apply( this, arguments );
 
@@ -32,8 +30,8 @@ ve.dm.MWGraphNode = function VeDmMWGraphNode() {
 	} );
 
 	// Initialize specificiation
-	mw = this.getAttribute( 'mw' );
-	extsrc = ve.getProp( mw, 'body', 'extsrc' );
+	const mw = this.getAttribute( 'mw' );
+	const extsrc = ve.getProp( mw, 'body', 'extsrc' );
 
 	if ( extsrc ) {
 		this.setSpecFromString( extsrc );
@@ -155,7 +153,7 @@ ve.dm.MWGraphNode.static.defaultSpec = {
  *  the object will be returned empty.
  */
 ve.dm.MWGraphNode.static.parseSpecString = function ( str ) {
-	var result;
+	let result;
 
 	try {
 		result = JSON.parse( str );
@@ -179,7 +177,7 @@ ve.dm.MWGraphNode.static.parseSpecString = function ( str ) {
  * @return {string} The stringified version of the spec.
  */
 ve.dm.MWGraphNode.static.stringifySpec = function ( spec ) {
-	var result = JSON.stringify( spec, null, '\t' );
+	const result = JSON.stringify( spec, null, '\t' );
 	return result || '';
 };
 
@@ -189,7 +187,7 @@ ve.dm.MWGraphNode.static.stringifySpec = function ( spec ) {
  * @inheritdoc
  */
 ve.dm.MWGraphNode.prototype.createScalable = function () {
-	var width = ve.getProp( this.spec, 'width' ),
+	const width = ve.getProp( this.spec, 'width' ),
 		height = ve.getProp( this.spec, 'height' );
 
 	return new ve.dm.Scalable( {

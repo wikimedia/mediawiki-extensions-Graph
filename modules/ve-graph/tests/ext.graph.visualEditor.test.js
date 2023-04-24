@@ -9,7 +9,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 
 	/* Sample specs */
 
-	var sampleSpecs = {
+	const sampleSpecs = {
 		areaGraph: {
 			version: 2,
 			width: 500,
@@ -335,7 +335,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 	/* Tests */
 
 	QUnit.test( 've.dm.MWGraphNode', function ( assert ) {
-		var node = new ve.dm.MWGraphNode(),
+		const node = new ve.dm.MWGraphNode(),
 			specString = JSON.stringify( sampleSpecs.areaGraph );
 
 		assert.deepEqual( node.getSpec(), ve.dm.MWGraphNode.static.defaultSpec, 'MWGraphNode spec is initialized to the default spec' );
@@ -354,7 +354,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 	} );
 
 	QUnit.test( 've.ce.MWGraphNode', function ( assert ) {
-		var view = ve.test.utils.createSurfaceViewFromHtml(
+		const view = ve.test.utils.createSurfaceViewFromHtml(
 				'<div typeof="mw:Extension/graph"></div>'
 			),
 			documentNode = view.getDocument().getDocumentNode(),
@@ -364,19 +364,22 @@ QUnit.module( 'ext.graph.visualEditor' );
 	} );
 
 	QUnit.test( 've.ce.MWGraphNode.static', function ( assert ) {
-		var testElement = document.createElement( 'div' ),
-			promise,
+		const testElement = document.createElement( 'div' ),
 			renderValidTest = assert.async(),
 			renderInvalidTest = assert.async();
 
 		$( '#qunit-fixture' ).append( testElement );
+		testElement.dataset.graphId = 'areaGraph';
 
-		promise = ve.ce.MWGraphNode.static.vegaParseSpec( sampleSpecs.areaGraph, testElement );
+		const promise = ve.ce.MWGraphNode.static.vegaParseSpec(
+			sampleSpecs.areaGraph, testElement
+		);
 		promise.always( function () {
 			assert.strictEqual( promise.state(), 'resolved', 'Single graph gets rendered correctly' );
 			renderValidTest();
 		} );
 
+		testElement.dataset.graphId = 'invalidAxesBarGraph';
 		ve.ce.MWGraphNode.static.vegaParseSpec(
 			sampleSpecs.invalidAxesBarGraph, testElement
 		).always(
@@ -388,7 +391,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 	} );
 
 	QUnit.test( 've.dm.MWGraphModel', function ( assert ) {
-		var model = new ve.dm.MWGraphModel( sampleSpecs.areaGraph ),
+		const model = new ve.dm.MWGraphModel( sampleSpecs.areaGraph ),
 			updateSpecRemoval = {
 				marks: undefined,
 				scales: undefined,
@@ -447,8 +450,8 @@ QUnit.module( 'ext.graph.visualEditor' );
 	} );
 
 	QUnit.test( 've.dm.MWGraphModel.static', function ( assert ) {
-		var result,
-			basicTestObj = {
+		let result;
+		const basicTestObj = {
 				a: 3,
 				b: undefined,
 				c: {

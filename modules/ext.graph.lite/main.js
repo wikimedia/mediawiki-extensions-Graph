@@ -9,7 +9,7 @@ window.d3 = d3;
  * @param {HTMLElement} el
  * @param {Object} [graphSpec] if not defined, wgGraphSpecs will be consulted
  *  using the data-graph-id attribute on the element.
- * @return {Promise<Vega.View>}
+ * @return {Promise<Object>} a promise which resolves to the vega view.
  */
 function loadGraph( el, graphSpec ) {
 	const vg = require( '../../lib/vega5/vega.js' );
@@ -30,7 +30,7 @@ function loadGraph( el, graphSpec ) {
 			} catch ( e ) {
 				// Graphs come from user generated content and may contain errors.
 				// When these occur, log them, but do not send them to Wikimedia servers (T274557)
-				reject( `Error loading graph with data-graph-id=${id} (${e.message})` );
+				reject( `Error loading graph with data-graph-id=${id} (${e})` );
 			}
 		} );
 	}

@@ -131,9 +131,9 @@ ve.dm.MWGraphModel.static.graphConfigs = {
  * @return {Object} The new spec
  */
 ve.dm.MWGraphModel.static.updateSpec = function ( spec, params ) {
-	var undefinedProperty,
-		undefinedProperties = ve.dm.MWGraphModel.static.getUndefinedProperties( params ),
-		i;
+	let undefinedProperty, i;
+	const undefinedProperties =
+		ve.dm.MWGraphModel.static.getUndefinedProperties( params );
 
 	// Remove undefined properties from spec
 	for ( i = 0; i < undefinedProperties.length; i++ ) {
@@ -160,7 +160,7 @@ ve.dm.MWGraphModel.static.updateSpec = function ( spec, params ) {
  * @return {string[]} The list of properties to return.
  */
 ve.dm.MWGraphModel.static.getUndefinedProperties = function ( obj, stack, list ) {
-	var property;
+	let property;
 
 	list = list || [];
 
@@ -189,7 +189,7 @@ ve.dm.MWGraphModel.static.getUndefinedProperties = function ( obj, stack, list )
  * @param {Array} prop The path of the property to remove
  */
 ve.dm.MWGraphModel.static.removeProperty = function ( obj, prop ) {
-	var firstProp = prop.shift();
+	const firstProp = prop.shift();
 
 	try {
 		if ( prop.length > 0 ) {
@@ -227,7 +227,7 @@ ve.dm.MWGraphModel.static.specHasData = function ( spec ) {
  * @fires specChange
  */
 ve.dm.MWGraphModel.prototype.switchGraphType = function ( type ) {
-	var params = {
+	const params = {
 		scales: [ ve.copy( this.constructor.static.graphConfigs[ type ].scale ) ],
 		marks: [ ve.copy( this.constructor.static.graphConfigs[ type ].mark ) ]
 	};
@@ -244,7 +244,7 @@ ve.dm.MWGraphModel.prototype.switchGraphType = function ( type ) {
  * @param {ve.dm.Surface} surfaceModel The surface model for the document
  */
 ve.dm.MWGraphModel.prototype.applyChanges = function ( node, surfaceModel ) {
-	var mwData = ve.copy( node.getAttribute( 'mw' ) );
+	const mwData = ve.copy( node.getAttribute( 'mw' ) );
 
 	// Send transaction
 	mwData.body.extsrc = this.getSpecString();
@@ -265,7 +265,7 @@ ve.dm.MWGraphModel.prototype.applyChanges = function ( node, surfaceModel ) {
  * @fires specChange
  */
 ve.dm.MWGraphModel.prototype.updateSpec = function ( params ) {
-	var updatedSpec = ve.dm.MWGraphModel.static.updateSpec(
+	const updatedSpec = ve.dm.MWGraphModel.static.updateSpec(
 		$.extend( true, {}, this.spec ), params
 	);
 
@@ -283,7 +283,7 @@ ve.dm.MWGraphModel.prototype.updateSpec = function ( params ) {
  * @fires specChange
  */
 ve.dm.MWGraphModel.prototype.setSpecFromString = function ( str ) {
-	var newSpec = ve.dm.MWGraphNode.static.parseSpecString( str );
+	const newSpec = ve.dm.MWGraphNode.static.parseSpecString( str );
 
 	// Only apply changes if the new spec is valid JSON and if the
 	// spec truly was modified
@@ -326,7 +326,7 @@ ve.dm.MWGraphModel.prototype.getOriginalSpecString = function () {
  * @return {string} The graph type
  */
 ve.dm.MWGraphModel.prototype.getGraphType = function () {
-	var markType = this.spec.marks[ 0 ].type;
+	const markType = this.spec.marks[ 0 ].type;
 
 	switch ( markType ) {
 		case 'area':
@@ -391,8 +391,8 @@ ve.dm.MWGraphModel.prototype.getPaddingObject = function () {
  * @return {Object} The default padding values
  */
 ve.dm.MWGraphModel.prototype.getDefaultPaddingObject = function () {
-	var i,
-		indexes = [ 'top', 'bottom', 'left', 'right' ],
+	let i;
+	const indexes = [ 'top', 'bottom', 'left', 'right' ],
 		paddingObj = {};
 
 	for ( i = 0; i < indexes.length; i++ ) {
@@ -443,7 +443,7 @@ ve.dm.MWGraphModel.prototype.setPaddingAuto = function ( auto ) {
  * @return {string[]} The fields for the pipeline
  */
 ve.dm.MWGraphModel.prototype.getPipelineFields = function ( id ) {
-	var firstEntry = ve.getProp( this.spec, 'data', id, 'values', 0 );
+	const firstEntry = ve.getProp( this.spec, 'data', id, 'values', 0 );
 
 	// Get the fields directly from the pipeline data if the pipeline exists and
 	// has data, otherwise default back on the fields intended for this graph type
@@ -489,9 +489,9 @@ ve.dm.MWGraphModel.prototype.setEntryField = function ( entry, field, value ) {
  * @return {Object} The new entry
  */
 ve.dm.MWGraphModel.prototype.buildNewEntry = function ( pipelineId ) {
-	var fields = this.getPipelineFields( pipelineId ),
-		newEntry = {},
-		i;
+	const fields = this.getPipelineFields( pipelineId ),
+		newEntry = {};
+	let i;
 
 	for ( i = 0; i < fields.length; i++ ) {
 		newEntry[ fields[ i ] ] = '';

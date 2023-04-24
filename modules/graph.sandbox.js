@@ -1,10 +1,10 @@
 /* eslint-disable no-jquery/no-global-selector */
 ( function () {
-	var oldContent, ccw, resizeCodeEditor;
-	var loadGraph = require( 'ext.graph.lite' );
+	let oldContent, ccw, resizeCodeEditor;
+	const loadGraph = require( 'ext.graph.lite' );
 
 	$( function () {
-		var viewportHeight = $( window ).height(),
+		const viewportHeight = $( window ).height(),
 			sandboxHeight = viewportHeight - 150,
 			initialPosition = sandboxHeight - 100;
 		$( '#mw-graph-sandbox' ).width( '100%' ).height( sandboxHeight ).split( {
@@ -20,7 +20,7 @@
 	} );
 
 	mw.hook( 'codeEditor.configure' ).add( function ( session ) {
-		var $json = $( '#mw-graph-json' )[ 0 ],
+		const $json = $( '#mw-graph-json' )[ 0 ],
 			$graph = $( '.mw-graph' ),
 			$graphEl = $graph[ 0 ],
 			$rightPanel = $( '#mw-graph-right' ),
@@ -44,7 +44,7 @@
 		resizeCodeEditor();
 
 		session.on( 'change', OO.ui.debounce( function () {
-			var content = session.getValue();
+			const content = session.getValue();
 
 			if ( oldContent === content ) {
 				return;
