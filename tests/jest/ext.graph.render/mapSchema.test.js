@@ -140,8 +140,11 @@ describe( 'mapSchema', () => {
 				}
 			}
 		};
-		const schema = mapSchema( { marks: [ { properties } ] } );
+		const marks = [ { properties } ];
+		const schema = mapSchema( { marks } );
 		expect( schema.marks[ 0 ].encode ).toStrictEqual( properties );
+		const schema2 = mapSchema( { marks } );
+		expect( schema2.marks[ 0 ].encode ).toStrictEqual( properties );
 	} );
 
 	test( '[scales] range is mapped to scheme', () => {
@@ -307,6 +310,32 @@ describe( 'mapSchema', () => {
 			format: 'd',
 			grid: false,
 			encode
+		} );
+	} );
+
+	test( '[scale] domains involving multiple data fields from the same table must now be listed under the "fields" property', () => {
+		const scales = [
+			{
+				type: 'band',
+				name: 'x',
+				zero: false,
+				domain: {
+					data: 'chart',
+					field: 'x'
+				},
+				range: 'width',
+				nice: true
+			}
+		];
+		const schema = mapSchema( { version: '2', scales } );
+		expect( schema.scales[ 0 ] ).toStrictEqual( {
+			type: 'band',
+			name: 'x',
+			domain: {
+				data: 'chart',
+				fields: [ 'x' ]
+			},
+			range: 'width'
 		} );
 	} );
 } );
