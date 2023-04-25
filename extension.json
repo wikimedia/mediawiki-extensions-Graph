@@ -78,8 +78,7 @@
 			"dependencies": [
 				"ext.graph.render",
 				"oojs-ui-core",
-				"mediawiki.confirmCloseWindow",
-				"ext.codeEditor"
+				"mediawiki.confirmCloseWindow"
 			]
 		},
 		"ext.graph.visualEditor": {

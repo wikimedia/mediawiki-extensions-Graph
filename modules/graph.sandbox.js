@@ -1,5 +1,6 @@
 /* eslint-disable no-jquery/no-global-selector */
 ( function () {
+	const isCodeEditorInstalled = mw.loader.getState( 'ext.codeEditor' ) !== null;
 	let oldContent, ccw, resizeCodeEditor;
 	const graph = require( 'ext.graph.render' );
 	const mapSchema = graph.mapSchema;
@@ -29,7 +30,14 @@
 		sandbox.classList.add( 'mw-graph-sandbox-enabled' );
 	} );
 
-	mw.hook( 'codeEditor.configure' ).add( function ( session ) {
+	/**
+	 * @typedef {Object} EditSession
+	 * @property {() => string} getValue
+	 * @property {() => void} on allows binding to change event
+	 *
+	 * @param {EditSession} session
+	 */
+	function configure( session ) {
 		const $json = $( '#mw-graph-json' )[ 0 ],
 			bottomPanel = $json.parentNode,
 			$graph = $( '.mw-graph' ),
@@ -90,7 +98,9 @@
 		} );
 
 		resizeCodeEditor = function () {
-			$.wikiEditor.instances[ 0 ].data( 'wikiEditor-context' ).codeEditor.resize();
+			if ( $.wikiEditor !== undefined ) {
+				$.wikiEditor.instances[ 0 ].data( 'wikiEditor-context' ).codeEditor.resize();
+			}
 		};
 
 		// I tried to resize on $( window ).resize(), but that didn't work right
@@ -122,6 +132,19 @@
 				graphError( error );
 			} );
 		}, 300 ) );
-	} );
+	}
+	if ( isCodeEditorInstalled ) {
+		mw.loader.using( 'ext.codeEditor' ).then( () => mw.hook( 'codeEditor.configure' ).add( configure ) );
+	} else {
+		const textArea = document.getElementById( 'wpTextbox1' );
+		configure( {
+			getValue: () => textArea.value,
+			on: ( eventName, method ) => {
+				if ( eventName === 'change' ) {
+					textArea.addEventListener( 'input', method );
+				}
+			}
+		} );
+	}
 
 }() );
