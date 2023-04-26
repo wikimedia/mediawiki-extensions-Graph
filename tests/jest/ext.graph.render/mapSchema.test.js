@@ -59,6 +59,7 @@ describe( 'mapSchema', () => {
 		const schema = mapSchema( {} );
 		expect( schema ).toStrictEqual( {
 			$schema: $SCHEMA,
+			data: [],
 			width: DEFAULT_WIDTH,
 			height: DEFAULT_HEIGHT,
 			autosize
@@ -94,7 +95,7 @@ describe( 'mapSchema', () => {
 				}
 			}
 		} );
-		expect( schema.data.format.parse ).toStrictEqual( {
+		expect( schema.data[ 0 ].format.parse ).toStrictEqual( {
 			x: 'number',
 			y: 'string'
 		} );
@@ -125,6 +126,7 @@ describe( 'mapSchema', () => {
 		} );
 		expect( schema ).toStrictEqual( {
 			$schema: $SCHEMA,
+			data: [],
 			legends: [],
 			height: 200,
 			width: 200,
@@ -366,18 +368,79 @@ describe( 'mapSchema', () => {
 
 	test( '[marks] currently do not support transforms (T335454)', () => {
 		const schema = require( './T335454.json' );
-		expect( () => mapSchema( schema ) ).toThrowError();
+		const vg = require( '../../../lib/vega/vega.js' );
+		const schema2 = mapSchema( schema );
+		// the mapping is not throwing, but is currently
+		// non-functional, so it should throw when we try to parse it
+		expect( () => vg.parse( schema2 ) ).toThrowError();
 	} );
 
-	test( '[data] currently do not support transforms (T335454)', () => {
+	test( '[marks] embedded transforms', () => {
 		const schema = mapSchema( {
-			$SCHEMA,
+			version: 2,
+			marks: [
+				{
+					type: 'group',
+					from: {
+						data: 'chart',
+						// This embedded transform will become a new data
+						// element with a unique name.
+						transform: [
+							{
+								field: 'y',
+								type: 'stack',
+								groupby: [
+									'x'
+								]
+							},
+							{
+								groupby: [
+									'series'
+								],
+								type: 'facet'
+							}
+						]
+					},
+					marks: [
+						{}
+					]
+				}
+			],
 			data: {
-				format: {}
+				name: 'chart'
 			}
 		} );
-		expect( schema.data ).toStrictEqual( {
-			format: {}
-		} );
+		expect( schema.marks ).toStrictEqual( [ {
+			type: 'group',
+			from: {
+				data: 'data_0'
+			},
+			marks: [
+				{}
+			]
+		} ] );
+		expect( schema.data ).toStrictEqual( [ {
+			name: 'chart'
+		}, {
+			// The embedded transform becomes a new data clause with
+			// a unique name.
+			name: 'data_0',
+			source: 'chart',
+			transform: [
+				{
+					field: 'y',
+					type: 'stack',
+					groupby: [
+						'x'
+					]
+				},
+				{
+					groupby: [
+						'series'
+					],
+					type: 'facet'
+				}
+			]
+		} ] );
 	} );
 } );

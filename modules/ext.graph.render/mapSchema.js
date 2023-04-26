@@ -5,6 +5,22 @@ const autosize = {
 };
 const sanitizeUrl = require( './sanitizeUrl.js' );
 
+// Generate unique data names with our reserved prefix
+const newDataName = ( dataSets ) => {
+	// Store the last index tried in a custom property of the array
+	if ( dataSets.lastIndex === undefined ) {
+		dataSets.lastIndex = 0;
+	}
+	while ( true ) {
+		// Generate a candidate name.
+		const uniqName = 'data_' + ( dataSets.lastIndex++ );
+		// Ensure it is not already used.
+		if ( dataSets.every( ( data ) => data.name !== uniqName ) ) {
+			return uniqName;
+		}
+	}
+};
+
 /**
  * @param {Object} dataFormat
  * @return {Object}
@@ -122,18 +138,44 @@ const scaleToVega5 = ( scales ) => {
 };
 
 /**
+ * @param {Object} markFrom
+ * @param {Array} dataSets
+ * @return {Object}
+ */
+const markFromToVega5 = ( markFrom, dataSets ) => {
+	markFrom = Object.assign( {}, markFrom );
+	if ( markFrom.transform ) {
+		const newFrom = {
+			data: newDataName( dataSets )
+		};
+		dataSets.push( dataToVega5( {
+			name: newFrom.data,
+			source: markFrom.data,
+			transform: markFrom.transform
+		} ) );
+		return newFrom;
+	}
+	return markFrom;
+};
+
+/**
  * @param {Array} marks
+ * @param {Array} dataSets
  * @throws {Error} if unsupported format
  * @return {Array}
  */
-const markToVega5 = ( marks ) => {
+const markToVega5 = ( marks, dataSets ) => {
 	return marks.map( ( mark ) => {
 		mark = Object.assign( {}, mark );
-		mark.encode = Object.assign( {}, mark.properties );
-		delete mark.properties;
-		// In V5 Mark definitions no longer allow embedded data transforms
-		if ( mark.from && mark.from.transform ) {
-			throw new Error( 'Mark definitions no longer allow embedded data transforms (https://vega.github.io/vega/docs/porting-guide/#marks)' );
+		if ( mark.properties !== undefined ) {
+			mark.encode = Object.assign( {}, mark.properties );
+			delete mark.properties;
+		}
+		if ( Array.isArray( mark.marks ) ) {
+			mark.marks = markToVega5( mark.marks, dataSets );
+		}
+		if ( mark.from ) {
+			mark.from = markFromToVega5( mark.from, dataSets );
 		}
 		return mark;
 	} );
@@ -185,6 +227,10 @@ const mapSchema = ( spec ) => {
 		return sanitize( Object.assign( { autosize }, spec ) );
 	}
 	const newSpec = {};
+	const dataSets = (
+		Array.isArray( spec.data ) ? spec.data : ( spec.data ? [ spec.data ] : [] )
+	).map( dataToVega5 );
+
 	// Map versions < 5 to 5
 	Object.keys( spec ).forEach( ( key ) => {
 		const val = spec[ key ];
@@ -198,12 +244,11 @@ const mapSchema = ( spec ) => {
 				newSpec[ key ] = scaleToVega5( val );
 				break;
 			case 'marks':
-				newSpec[ key ] = markToVega5( val );
-				break;
-			case 'data':
-				newSpec[ key ] = dataToVega5( val );
+				newSpec[ key ] = markToVega5( val, dataSets );
 				break;
 			// Do not copy these ones
+			case 'data':
+				break; // Already handled above.
 			case 'version':
 				if ( val === 1 ) {
 					throw new Error( 'Unsupported schema ( T260542 )' );
@@ -223,7 +268,9 @@ const mapSchema = ( spec ) => {
 			height: 500,
 			// Ensure we keep within the dimensions specified
 			autosize
-		}, newSpec )
+		}, newSpec, {
+			data: dataSets
+		} )
 	);
 };
 
