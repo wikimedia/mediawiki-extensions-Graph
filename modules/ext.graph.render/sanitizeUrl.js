@@ -1,4 +1,4 @@
-const allowedDomains = require( './domains.json' );
+const allowedDomains = require( './domains.json' ).GraphAllowedDomains;
 
 /**
  * @param {string} url
@@ -8,14 +8,14 @@ const allowedDomains = require( './domains.json' );
 function sanitizeUrl( url ) {
 	const urlObj = new URL( url );
 	const protocol = urlObj.protocol;
-	if ( protocol !== 'https:' ) {
+	if ( protocol !== 'http:' && protocol !== 'https:' ) {
 		throw new Error( `The protocol ${protocol} is currently not supported.` );
 	}
 	const domains = allowedDomains[ protocol.slice( 0, -1 ) ] || [];
 	if ( domains.indexOf( urlObj.host ) > -1 ) {
 		return url;
 	} else {
-		throw new Error( `The host ${urlObj.host} is not in the list of trusted domains` );
+		throw new Error( `The host ${urlObj.host} is not in the list of trusted domains for the protocol ${protocol}` );
 	}
 }
 
