@@ -54,6 +54,11 @@
 		"ext.graph.render": {
 			"packageFiles": [
 				"modules/ext.graph.render/main.js",
+				{
+					"name": "modules/ext.graph.render/domains.json",
+					"config": [ "GraphAllowedDomains" ]
+				},
+				"modules/ext.graph.render/sanitizeUrl.js",
 				"modules/ext.graph.render/mapSchema.js",
 				"lib/vega5/vega.js",
 				"lib/d3.js"
