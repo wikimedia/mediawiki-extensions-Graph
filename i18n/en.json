@@ -17,6 +17,8 @@
 	"graph-obsolete-category-desc": "The page includes a <code><nowiki><graph></nowiki></code> tag that should be updated to version 2.",
 	"graph-error-empty-json": "Empty graph data, nothing to show",
 	"graph-error-not-vega": "The JSON provided is not a valid Vega JSON",
+	"graph-error-vega-lite-unsupported": "The JSON provided is for Vega Lite, which is currently not supported",
+	"graph-error-vega-unsupported-version": "The JSON provided is for Vega $1 which is currently not supported",
 	"graph-ve-dialog-button-tooltip": "Graph",
 	"graph-load": "Click to load graph",
 	"graph-ve-dialog-edit-field-graph-type": "Graph type",

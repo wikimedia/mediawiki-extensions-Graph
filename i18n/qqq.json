@@ -19,6 +19,8 @@
 	"graph-obsolete-category-desc": "Description on [[Special:TrackingCategories]] for the {{msg-mw|graph-obsolete-category}} tracking category.",
 	"graph-error-empty-json": "Shown by &lt;graph&gt; when used without any data in it, e.g. &lt;graph&gt;&lt;/graph&gt;",
 	"graph-error-not-vega": "Shown by &lt;graph&gt; when used with invalid data, e.g. &lt;graph&gt;[]&lt;/graph&gt;",
+	"graph-error-vega-lite-unsupported": "Shown by &lt;graph&gt; when used with a Vega Lite spec",
+	"graph-error-vega-unsupported-version": "Shown by &lt;graph&gt; when used with an unsupported Vega version (e.g. 3). $1 is the version number (a single digit).",
 	"graph-ve-dialog-button-tooltip": "Tooltip for the graph editing dialog button\n{{Identical|Graph}}",
 	"graph-load": "Message prompting user to click graph to load it.",
 	"graph-ve-dialog-edit-field-graph-type": "Label for graph type",

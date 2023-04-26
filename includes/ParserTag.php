@@ -189,17 +189,32 @@ class ParserTag {
 			return $this->formatError( wfMessage( 'graph-error-not-vega' ) );
 		}
 
-		// Figure out which vega version to use
+		// Figure out which vega version to use (TODO drop this)
 		global $wgGraphDefaultVegaVer;
-		if ( property_exists( $data, 'version' ) && is_numeric( $data->version ) ) {
-			$data->version = $data->version < 2 ? 1 : 2;
+		if ( property_exists( $data, '$schema' ) ) {
+			if ( !preg_match(
+				// https://vega.github.io/schema/
+				'!https://vega.github.io/schema/(vega|vega-lite)/v(\d)(?:\.\d){0,2}.json!',
+				$data->{'$schema'},
+				$matches
+			) ) {
+				return $this->formatError( wfMessage( 'graph-error-not-vega' ) );
+			} elseif ( $matches[1] === 'vega-lite' ) {
+				return $this->formatError( wfMessage( 'graph-error-vega-lite-unsupported' ) );
+			}
+			$version = (int)$matches[2];
+		} elseif ( property_exists( $data, 'version' ) && is_numeric( $data->version ) ) {
+			$version = $data->version;
 		} else {
-			$data->version = $wgGraphDefaultVegaVer;
+			$version = $data->version = $wgGraphDefaultVegaVer;
 		}
-		if ( $data->version === 2 ) {
+		if ( $version === 2 ) {
 			$this->parserOutput->setExtensionData( 'graph_vega2', true );
-		} else {
 			$this->parserOutput->setExtensionData( 'graph_specs_obsolete', true );
+		} elseif ( $version === 5 ) {
+			$this->parserOutput->setExtensionData( 'graph_vega5', true );
+		} else {
+			return $this->formatError( wfMessage( 'graph-error-vega-unsupported-version', $version ) );
 		}
 
 		// Make sure that multiple json blobs that only differ in spacing hash the same
