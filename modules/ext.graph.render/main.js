@@ -9,7 +9,9 @@ window.d3 = d3;
  * @param {HTMLElement} el
  * @param {Object} [graphSpec] if not defined, wgGraphSpecs will be consulted
  *  using the data-graph-id attribute on the element.
- * @return {Promise<Object>} a promise which resolves to the vega view.
+ * @return {Promise<{VEGA_VERSION:string,vega:vega,vegaSpec:Object,view:vega.View},Error>}
+ *  a promise with the vega view and other information. The object the promise resolves to is
+ *  in line with the Vega editor's VEGA_DEBUG.
  */
 function loadGraph( el, graphSpec ) {
 	const vg = require( '../../lib/vega5/vega.js' );
@@ -28,7 +30,12 @@ function loadGraph( el, graphSpec ) {
 					.run();
 				// Remove style attribute and rely on height:auto to enable responsive sizing
 				el.style.height = null;
-				resolve( view );
+				resolve( {
+					VEGA_VERSION: vg.version,
+					vega: vg,
+					vegaSpec: spec,
+					view: view
+				} );
 			} catch ( e ) {
 				reject( {
 					graphId: id,

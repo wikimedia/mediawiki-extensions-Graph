@@ -50,7 +50,7 @@
 		 * @return {Function}
 		 */
 		function graphLoadedCallback( graphData ) {
-			return function () {
+			return function ( vegaInfo ) {
 				// graph renders successfully
 				// eslint-disable-next-line mediawiki/class-doc
 				$graphEl.classList.remove(
@@ -64,6 +64,9 @@
 					banner.parentNode.removeChild( banner );
 				}
 				$json.value = JSON.stringify( mappedSchema, null, 2 );
+
+				// Expose debug data, like https://vega.github.io/editor/ does
+				window.VEGA_DEBUG = vegaInfo;
 			};
 		}
 

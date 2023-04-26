@@ -67,7 +67,7 @@ ve.ce.MWGraphNode.static.getDescription = function ( model ) {
  *
  * @param {Object} spec The graph spec
  * @param {HTMLElement} element Element to render the graph in
- * @return {jQuery.Promise} Promise that resolves when the graph is rendered.
+ * @return {jQuery.Promise<vega.View>} Promise that resolves when the graph is rendered.
  * Promise is rejected with an error message key if there was a problem rendering the graph.
  */
 ve.ce.MWGraphNode.static.vegaParseSpec = function ( spec, element ) {
@@ -79,8 +79,8 @@ ve.ce.MWGraphNode.static.vegaParseSpec = function ( spec, element ) {
 	} else if ( !ve.dm.MWGraphModel.static.specHasData( spec ) ) {
 		deferred.reject( 'graph-ve-empty-graph' );
 	} else {
-		loadGraph( element, spec ).then( ( view ) => {
-			deferred.resolve( view );
+		loadGraph( element, spec ).then( ( vegaInfo ) => {
+			deferred.resolve( vegaInfo.view );
 		}, () => {
 			deferred.reject( 'graph-ve-vega-error' );
 		} );
