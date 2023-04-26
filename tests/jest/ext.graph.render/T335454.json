@@ -1,0 +1,264 @@
+{
+	"legends": [
+		{
+			"stroke": "color",
+			"title": "Legend",
+			"fill": "color"
+		}
+	],
+	"scales": [
+		{
+			"type": "linear",
+			"name": "x",
+			"domain": {
+				"data": "chart",
+				"field": "x"
+			},
+			"zero": false,
+			"range": "width",
+			"nice": true
+		},
+		{
+			"type": "linear",
+			"name": "y",
+			"domain": {
+				"data": "chart",
+				"field": "y"
+			},
+			"zero": false,
+			"range": "height",
+			"nice": true
+		},
+		{
+			"domain": {
+				"data": "chart",
+				"field": "series"
+			},
+			"type": "ordinal",
+			"name": "color",
+			"range": [
+				"#0000aa",
+				"#ff8000"
+			]
+		}
+	],
+	"version": 2,
+	"marks": [
+		{
+			"type": "group",
+			"marks": [
+				{
+					"properties": {
+						"hover": {
+							"stroke": {
+								"value": "red"
+							}
+						},
+						"update": {
+							"stroke": {
+								"scale": "color",
+								"field": "series"
+							}
+						},
+						"enter": {
+							"y": {
+								"scale": "y",
+								"field": "y"
+							},
+							"x": {
+								"scale": "x",
+								"field": "x"
+							},
+							"stroke": {
+								"scale": "color",
+								"field": "series"
+							},
+							"strokeWidth": {
+								"value": 2.5
+							}
+						}
+					},
+					"type": "line"
+				}
+			],
+			"from": {
+				"data": "chart",
+				"transform": [
+					{
+						"groupby": [
+							"series"
+						],
+						"type": "facet"
+					}
+				]
+			}
+		}
+	],
+	"height": 150,
+	"axes": [
+		{
+			"type": "x",
+			"title": "X",
+			"scale": "x",
+			"format": "d",
+			"properties": {
+				"axis": {
+					"strokeWidth": {
+						"value": 2
+					},
+					"stroke": {
+						"value": "#54595d"
+					}
+				},
+				"ticks": {
+					"stroke": {
+						"value": "#54595d"
+					}
+				},
+				"title": {
+					"fill": {
+						"value": "#54595d"
+					}
+				},
+				"labels": {
+					"fill": {
+						"value": "#54595d"
+					}
+				}
+			},
+			"grid": true
+		},
+		{
+			"type": "y",
+			"title": "Y",
+			"scale": "y",
+			"format": "d",
+			"properties": {
+				"title": {
+					"fill": {
+						"value": "#54595d"
+					}
+				},
+				"grid": {
+					"stroke": {
+						"value": "#54595d"
+					}
+				},
+				"ticks": {
+					"stroke": {
+						"value": "#54595d"
+					}
+				},
+				"axis": {
+					"strokeWidth": {
+						"value": 2
+					},
+					"stroke": {
+						"value": "#54595d"
+					}
+				},
+				"labels": {
+					"fill": {
+						"value": "#54595d"
+					}
+				}
+			},
+			"grid": true
+		}
+	],
+	"data": [
+		{
+			"format": {
+				"parse": {
+					"y": "integer",
+					"x": "integer"
+				},
+				"type": "json"
+			},
+			"name": "chart",
+			"values": [
+				{
+					"y": 10,
+					"series": "Y1 Series",
+					"x": 1
+				},
+				{
+					"y": 12,
+					"series": "Y1 Series",
+					"x": 2
+				},
+				{
+					"y": 6,
+					"series": "Y1 Series",
+					"x": 3
+				},
+				{
+					"y": 14,
+					"series": "Y1 Series",
+					"x": 4
+				},
+				{
+					"y": 2,
+					"series": "Y1 Series",
+					"x": 5
+				},
+				{
+					"y": 10,
+					"series": "Y1 Series",
+					"x": 6
+				},
+				{
+					"y": 7,
+					"series": "Y1 Series",
+					"x": 7
+				},
+				{
+					"y": 9,
+					"series": "Y1 Series",
+					"x": 8
+				},
+				{
+					"y": 2,
+					"series": "Y2 Series",
+					"x": 1
+				},
+				{
+					"y": 4,
+					"series": "Y2 Series",
+					"x": 2
+				},
+				{
+					"y": 6,
+					"series": "Y2 Series",
+					"x": 3
+				},
+				{
+					"y": 8,
+					"series": "Y2 Series",
+					"x": 4
+				},
+				{
+					"y": 13,
+					"series": "Y2 Series",
+					"x": 5
+				},
+				{
+					"y": 11,
+					"series": "Y2 Series",
+					"x": 6
+				},
+				{
+					"y": 9,
+					"series": "Y2 Series",
+					"x": 7
+				},
+				{
+					"y": 2,
+					"series": "Y2 Series",
+					"x": 8
+				}
+			]
+		}
+	],
+	"width": 400
+}

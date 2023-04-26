@@ -127,6 +127,10 @@ const markToVega5 = ( marks ) => {
 		mark = Object.assign( {}, mark );
 		mark.encode = Object.assign( {}, mark.properties );
 		delete mark.properties;
+		// In V5 Mark definitions no longer allow embedded data transforms
+		if ( mark.from && mark.from.transform ) {
+			throw new Error( 'Mark definitions no longer allow embedded data transforms (https://vega.github.io/vega/docs/porting-guide/#marks)' );
+		}
 		return mark;
 	} );
 };

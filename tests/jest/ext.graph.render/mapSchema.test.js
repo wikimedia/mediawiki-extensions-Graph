@@ -363,4 +363,9 @@ describe( 'mapSchema', () => {
 		const schema2 = mapSchema( require( './test.json' ) );
 		expect( schema2 ).toStrictEqual( require( './testV5.json' ) );
 	} );
+
+	test( '[marks] currently do not support transforms (T335454)', () => {
+		const schema = require( './T335454.json' );
+		expect( () => mapSchema( schema ) ).toThrowError();
+	} );
 } );
