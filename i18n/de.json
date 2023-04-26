@@ -46,5 +46,7 @@
 	"graph-ve-no-spec": "Keine Diagramm-Spezifikation gefunden",
 	"graph-ve-vega-error": "Vega hat einen Fehler beim Rendern dieses Diagramms entdeckt",
 	"graph-ve-vega-error-no-render": "Vega konnte dieses Diagramm nicht darstellen",
-	"graph-vega-old-browser": "Dein Browser unterstützt keine Grafiken"
+	"graph-vega-old-browser": "Dein Browser unterstützt keine Grafiken",
+	"graph-outdated-schema": "Du verwendest ein veraltetes Schema. Dies kann in Zukunft kaputt gehen. Bitte verwende das korrigierte Schema unten.",
+	"graph-sandbox-requires-js": "Die Graph-Sandbox erfordert einen modernen Browser mit JavaScript."
 }

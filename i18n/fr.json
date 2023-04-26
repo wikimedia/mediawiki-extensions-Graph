@@ -52,5 +52,7 @@
 	"graph-ve-no-spec": "Spécification de graphique introuvable",
 	"graph-ve-vega-error": "Une erreur s’est produite lors du rendu de ce graphique par Vega",
 	"graph-ve-vega-error-no-render": "Vega n’a pas pu effectuer le rendu de ce graphique",
-	"graph-vega-old-browser": "Votre navigateur ne prend pas en charge les graphiques"
+	"graph-vega-old-browser": "Votre navigateur ne prend pas en charge les graphiques",
+	"graph-outdated-schema": "Vous utilisez un schéma obsolète. Il pourrait ne plus fonctionner dans l’avenir. Veuillez utiliser le schéma corrigé ci-dessous.",
+	"graph-sandbox-requires-js": "Le bac à sable des graphiques nécessite un navigateur moderne avec JavaScript."
 }
