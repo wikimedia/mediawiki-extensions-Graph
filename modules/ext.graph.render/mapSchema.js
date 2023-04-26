@@ -71,8 +71,7 @@ const axesToVega5 = ( axes ) => {
 		const props = axis.properties || {};
 		const newAxis = Object.assign(
 			propertiesToVega5( props ),
-			axis,
-			{
+			axis, {
 				orient: axis.type === 'x' ? 'bottom' : 'left'
 			}
 		);
@@ -98,6 +97,14 @@ const scaleToVega5 = ( scales ) => {
 				}
 			} );
 		}
+		const domain = scale.domain;
+		if ( domain && domain.field ) {
+			const fields = [ domain.field ];
+			delete domain.field;
+			scale.domain = Object.assign( {}, domain, {
+				fields
+			} );
+		}
 		const isSpatial = scale.range === 'width' || scale.range === 'height';
 		const isPoint = scale.point;
 		if ( scale.type === 'ordinal' ) {
@@ -105,6 +112,9 @@ const scaleToVega5 = ( scales ) => {
 				scale.type = isPoint ? 'point' : 'band';
 			}
 		}
+
+		delete scale.nice;
+		delete scale.zero;
 		delete scale.point;
 		return scale;
 	} );
@@ -112,12 +122,14 @@ const scaleToVega5 = ( scales ) => {
 
 /**
  * @param {Array} marks
+ * @throws {Error} if unsupported format
  * @return {Array}
  */
 const markToVega5 = ( marks ) => {
 	return marks.map( ( mark ) => {
-		const props = mark.properties;
-		delete mark.properties;
+		const newMark = Object.assign( {}, mark );
+		const props = Object.assign( {}, mark.properties );
+		delete newMark.properties;
 		return Object.assign( {
 			encode: props
 		}, mark );
@@ -147,7 +159,7 @@ const sanitize = ( spec ) => {
 	if ( spec.data ) {
 		spec.data = sanitizeData( spec.data );
 	}
-	return spec;
+	return Object.assign( {}, spec );
 };
 
 /**
@@ -189,7 +201,7 @@ const mapSchema = ( spec ) => {
 			// Do not copy these ones
 			case 'version':
 				if ( val === 1 ) {
-					throw new Error( 'Unsupported schema (T260542)' );
+					throw new Error( 'Unsupported schema ( T260542 )' );
 				}
 				break;
 			// Any other field remains unchanged.
