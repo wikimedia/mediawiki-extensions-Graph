@@ -1,0 +1,149 @@
+{
+	"scales": [
+		{
+			"domain": {
+				"data": "table",
+				"field": "x"
+			},
+			"type": "ordinal",
+			"name": "x",
+			"range": "width"
+		},
+		{
+			"domain": {
+				"data": "table",
+				"field": "y"
+			},
+			"range": "height",
+			"name": "y",
+			"nice": true
+		}
+	],
+	"version": 2,
+	"marks": [
+		{
+			"type": "rect",
+			"properties": {
+				"enter": {
+					"y": {
+						"scale": "y",
+						"field": "y"
+					},
+					"x": {
+						"scale": "x",
+						"field": "x"
+					},
+					"y2": {
+						"scale": "y",
+						"value": 0
+					},
+					"width": {
+						"scale": "x",
+						"offset": -1,
+						"band": true
+					}
+				},
+				"update": {
+					"fill": {
+						"value": "steelblue"
+					}
+				},
+				"hover": {
+					"fill": {
+						"value": "red"
+					}
+				}
+			},
+			"from": {
+				"data": "table"
+			}
+		},
+		{
+			"type": "text",
+			"properties": {
+				"enter": {
+					"dx": {
+						"scale": "x",
+						"mult": 0.5,
+						"band": true
+					},
+					"x": {
+						"scale": "x",
+						"field": "x"
+					},
+					"baseline": {
+						"value": "top"
+					},
+					"dy": {
+						"value": -13
+					},
+					"align": {
+						"value": "center"
+					},
+					"text": {
+						"field": "y_form"
+					},
+					"y": {
+						"scale": "y",
+						"field": "y"
+					},
+					"fill": {
+						"value": "#000"
+					}
+				}
+			},
+			"from": {
+				"data": "table"
+			}
+		}
+	],
+	"height": 200,
+	"axes": [
+		{
+			"scale": "x",
+			"type": "x"
+		},
+		{
+			"scale": "y",
+			"type": "y"
+		}
+	],
+	"data": [
+		{
+			"name": "table",
+			"values": [
+				{
+					"y": 978,
+					"x": "2013",
+					"y_form": "978"
+				},
+				{
+					"y": 1017,
+					"x": "2015",
+					"y_form": "1017"
+				},
+				{
+					"y": 1035,
+					"x": "2016",
+					"y_form": "1035"
+				},
+				{
+					"y": 1032,
+					"x": "2017",
+					"y_form": "1032"
+				},
+				{
+					"y": 1040,
+					"x": "2018",
+					"y_form": "1040"
+				},
+				{
+					"y": 1040,
+					"x": "2019",
+					"y_form": "1040"
+				}
+			]
+		}
+	],
+	"width": 500
+}

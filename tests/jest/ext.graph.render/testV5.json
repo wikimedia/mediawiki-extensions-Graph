@@ -1,0 +1,159 @@
+{
+	"$schema": "https://vega.github.io/schema/vega/v5.json",
+	"width": 500,
+	"height": 200,
+	"autosize": {
+		"type": "fit",
+		"resize": false,
+		"contains": "padding"
+	},
+	"scales": [
+		{
+			"domain": {
+				"data": "table",
+				"fields": [
+					"x"
+				]
+			},
+			"type": "band",
+			"name": "x",
+			"range": "width"
+		},
+		{
+			"domain": {
+				"data": "table",
+				"fields": [
+					"y"
+				]
+			},
+			"range": "height",
+			"name": "y"
+		}
+	],
+	"marks": [
+		{
+			"type": "rect",
+			"from": {
+				"data": "table"
+			},
+			"encode": {
+				"enter": {
+					"y": {
+						"scale": "y",
+						"field": "y"
+					},
+					"x": {
+						"scale": "x",
+						"field": "x"
+					},
+					"y2": {
+						"scale": "y",
+						"value": 0
+					},
+					"width": {
+						"scale": "x",
+						"offset": -1,
+						"band": true
+					}
+				},
+				"update": {
+					"fill": {
+						"value": "steelblue"
+					}
+				},
+				"hover": {
+					"fill": {
+						"value": "red"
+					}
+				}
+			}
+		},
+		{
+			"type": "text",
+			"from": {
+				"data": "table"
+			},
+			"encode": {
+				"enter": {
+					"dx": {
+						"scale": "x",
+						"mult": 0.5,
+						"band": true
+					},
+					"x": {
+						"scale": "x",
+						"field": "x"
+					},
+					"baseline": {
+						"value": "top"
+					},
+					"dy": {
+						"value": -13
+					},
+					"align": {
+						"value": "center"
+					},
+					"text": {
+						"field": "y_form"
+					},
+					"y": {
+						"scale": "y",
+						"field": "y"
+					},
+					"fill": {
+						"value": "#000"
+					}
+				}
+			}
+		}
+	],
+	"axes": [
+		{
+			"encode": {},
+			"scale": "x",
+			"orient": "bottom"
+		},
+		{
+			"encode": {},
+			"scale": "y",
+			"orient": "left"
+		}
+	],
+	"data": [
+		{
+			"name": "table",
+			"values": [
+				{
+					"y": 978,
+					"x": "2013",
+					"y_form": "978"
+				},
+				{
+					"y": 1017,
+					"x": "2015",
+					"y_form": "1017"
+				},
+				{
+					"y": 1035,
+					"x": "2016",
+					"y_form": "1035"
+				},
+				{
+					"y": 1032,
+					"x": "2017",
+					"y_form": "1032"
+				},
+				{
+					"y": 1040,
+					"x": "2018",
+					"y_form": "1040"
+				},
+				{
+					"y": 1040,
+					"x": "2019",
+					"y_form": "1040"
+				}
+			]
+		}
+	]
+}

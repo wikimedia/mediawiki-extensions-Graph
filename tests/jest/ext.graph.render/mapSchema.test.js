@@ -170,6 +170,16 @@ describe( 'mapSchema', () => {
 				scheme: 'category10'
 			}
 		} );
+		// Also check for side effects
+		const schemaNext = mapSchema( { scales } );
+		expect( schemaNext.scales[ 0 ] ).toStrictEqual( {
+			type: 'ordinal',
+			domain,
+			name,
+			range: {
+				scheme: 'category10'
+			}
+		} );
 	} );
 
 	test( '[scales] use "band" for spatial ordinal scales', () => {
@@ -337,5 +347,20 @@ describe( 'mapSchema', () => {
 			},
 			range: 'width'
 		} );
+		const schema2 = mapSchema( { version: '2', scales } );
+		expect( schema2.scales[ 0 ] ).toStrictEqual( {
+			type: 'band',
+			name: 'x',
+			domain: {
+				data: 'chart',
+				fields: [ 'x' ]
+			},
+			range: 'width'
+		} );
+	} );
+
+	test( '[test.json]', () => {
+		const schema2 = mapSchema( require( './test.json' ) );
+		expect( schema2 ).toStrictEqual( require( './testV5.json' ) );
 	} );
 } );

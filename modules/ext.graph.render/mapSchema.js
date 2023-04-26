@@ -10,17 +10,16 @@ const sanitizeUrl = require( './sanitizeUrl.js' );
  * @return {Object}
  */
 const dataFormatToVega5 = ( dataFormat ) => {
-	const newParse = {};
+	const parse = {};
 	Object.keys( dataFormat.parse ).forEach( ( key ) => {
 		const val = dataFormat.parse[ key ];
 		if ( val === 'integer' ) {
-			newParse[ key ] = 'number';
+			parse[ key ] = 'number';
 		} else {
-			newParse[ key ] = val;
+			parse[ key ] = val;
 		}
 	} );
-	dataFormat.parse = newParse;
-	return dataFormat;
+	return Object.assign( {}, dataFormat, { parse } );
 };
 
 /**
@@ -89,21 +88,19 @@ const axesToVega5 = ( axes ) => {
 const scaleToVega5 = ( scales ) => {
 	return scales.map( ( scale ) => {
 		// https://vega.github.io/vega/docs/porting-guide/#scales
+		scale = Object.assign( {}, scale );
 		if ( scale.range === 'category10' || scale.range === 'category20' ) {
 			const scheme = scale.range;
-			return Object.assign( {}, scale, {
-				range: {
-					scheme
-				}
-			} );
+			scale.range = { scheme };
+			return scale;
 		}
 		const domain = scale.domain;
 		if ( domain && domain.field ) {
 			const fields = [ domain.field ];
-			delete domain.field;
 			scale.domain = Object.assign( {}, domain, {
 				fields
 			} );
+			delete scale.domain.field;
 		}
 		const isSpatial = scale.range === 'width' || scale.range === 'height';
 		const isPoint = scale.point;
@@ -127,12 +124,10 @@ const scaleToVega5 = ( scales ) => {
  */
 const markToVega5 = ( marks ) => {
 	return marks.map( ( mark ) => {
-		const newMark = Object.assign( {}, mark );
-		const props = Object.assign( {}, mark.properties );
-		delete newMark.properties;
-		return Object.assign( {
-			encode: props
-		}, mark );
+		mark = Object.assign( {}, mark );
+		mark.encode = Object.assign( {}, mark.properties );
+		delete mark.properties;
+		return mark;
 	} );
 };
 
@@ -157,7 +152,9 @@ const sanitizeData = ( data ) => {
  */
 const sanitize = ( spec ) => {
 	if ( spec.data ) {
-		spec.data = sanitizeData( spec.data );
+		return Object.assign( {}, spec, {
+			data: sanitizeData( spec.data )
+		} );
 	}
 	return Object.assign( {}, spec );
 };
