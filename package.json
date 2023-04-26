@@ -5,8 +5,6 @@
 	"description": "Build tools for the Graph-MediaWiki extension.",
 	"scripts": {
 		"test:unit": "jest tests/jest --silent",
-		"fixup": "echo \"/*@nomin*/\"|cat - lib/vega5/vega.js > /tmp/out && mv /tmp/out lib/vega5/vega.js",
-		"build-lib": "cp node_modules/vega/build-es5/vega.js lib/vega5/vega.js && npm run fixup",
 		"test": "grunt test && npm run test:unit"
 	},
 	"devDependencies": {
