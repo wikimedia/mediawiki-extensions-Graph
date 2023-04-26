@@ -11,7 +11,7 @@ describe( 'sanitizeUrl', () => {
 
 	test( 'Throws error if URL protocol is not trusted', () => {
 		expect(
-			() => sanitizeUrl( 'http://mediawiki.org/foo.json' )
+			() => sanitizeUrl( 'file:///foo.json' )
 		).toThrowError();
 	} );
 

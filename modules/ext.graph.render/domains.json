@@ -1,25 +1,27 @@
 {
 	"@example": "Demonstrates possible format of this JSON",
-	"https": [
-		"mediawiki.org",
-		"wikibooks.org",
-		"wikidata.org",
-		"wikimedia.org",
-		"wikinews.org",
-		"wikipedia.org",
-		"wikiquote.org",
-		"wikisource.org",
-		"wikiversity.org",
-		"wikivoyage.org",
-		"wiktionary.org"
-	],
-	"wikirawupload": [
-		"upload.wikimedia.org"
-	],
-	"wikidatasparql": [
-		"query.wikidata.org"
-	],
-	"geoshape": [
-		"maps.wikimedia.org"
-	]
+	"GraphAllowedDomains": {
+		"https": [
+			"mediawiki.org",
+			"wikibooks.org",
+			"wikidata.org",
+			"wikimedia.org",
+			"wikinews.org",
+			"wikipedia.org",
+			"wikiquote.org",
+			"wikisource.org",
+			"wikiversity.org",
+			"wikivoyage.org",
+			"wiktionary.org"
+		],
+		"wikirawupload": [
+			"upload.wikimedia.org"
+		],
+		"wikidatasparql": [
+			"query.wikidata.org"
+		],
+		"geoshape": [
+			"maps.wikimedia.org"
+		]
+	}
 }
