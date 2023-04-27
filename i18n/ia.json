@@ -41,5 +41,7 @@
 	"graph-ve-no-spec": "Nulle specification de graphico trovate",
 	"graph-ve-vega-error": "Vega ha incontrate un error rendente iste graphico",
 	"graph-ve-vega-error-no-render": "Vega non ha potite render iste graphico",
-	"graph-vega-old-browser": "Tu navigator non supporta graphicos"
+	"graph-vega-old-browser": "Tu navigator non supporta graphicos",
+	"graph-outdated-schema": "Tu usa un schema obsolete. Isto pote non plus functionar in le futuro. Per favor usa le schema corrigite hic infra.",
+	"graph-sandbox-requires-js": "Le sabliera de graphicos require un navigator moderne con JavaScript."
 }

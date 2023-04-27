@@ -44,5 +44,7 @@
 	"graph-ve-empty-graph": "빈 그래프",
 	"graph-ve-no-spec": "그래프 사양이 없습니다",
 	"graph-ve-vega-error": "베가가 이 그래프를 렌더링하던 도중 오류가 발생하였습니다",
-	"graph-ve-vega-error-no-render": "Vega가 이 그래프를 렌더링하지 못했습니다"
+	"graph-ve-vega-error-no-render": "Vega가 이 그래프를 렌더링하지 못했습니다",
+	"graph-vega-old-browser": "사용하는 브라우저는 그래프를 지원하지 않습니다",
+	"graph-sandbox-requires-js": "그래프 연습장은 자바스크립트가 있는 현대의 브라우저가 필요합니다."
 }
