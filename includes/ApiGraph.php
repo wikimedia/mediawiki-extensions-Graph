@@ -120,7 +120,7 @@ class ApiGraph extends ApiBase {
 		$title = Title::makeTitle( NS_SPECIAL, Sandbox::PAGENAME )->fixSpecialName();
 		$text = $this->parserFactory->getInstance()
 			->preprocess( $text, $title, new ParserOptions( $this->getUser() ) );
-		$st = FormatJson::parse( $text );
+		$st = FormatJson::parse( $text, FormatJson::TRY_FIXING | FormatJson::STRIP_COMMENTS );
 		if ( !$st->isOK() ) {
 			// Sometimes we get <graph ...> {...} </graph> as input. Try to strip <graph> tags
 			$count = 0;
