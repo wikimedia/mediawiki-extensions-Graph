@@ -44,6 +44,21 @@
 			$graphEl = $graph[ 0 ];
 
 		/**
+		 * Update the json panel with the mapped schema.
+		 *
+		 * @param {Object} graphData containing the rendered graph.
+		 */
+		function updateV5Schema( graphData ) {
+			const mappedSchema = mapSchema( graphData );
+			if ( mappedSchema.$schema !== graphData.$schema ) {
+				bottomPanel.prepend( banner );
+			} else if ( banner.parentNode ) {
+				banner.parentNode.removeChild( banner );
+			}
+			$json.value = JSON.stringify( mappedSchema, null, 2 );
+		}
+
+		/**
 		 * Create a callback for when the graph has successfully loaded.
 		 *
 		 * @param {Object} graphData containing the rendered graph.
@@ -57,13 +72,7 @@
 					GRAPH_CLASS_CLICKABLE, GRAPH_CLASS_ERROR
 				);
 
-				const mappedSchema = mapSchema( graphData );
-				if ( mappedSchema.$schema !== graphData.$schema ) {
-					bottomPanel.prepend( banner );
-				} else if ( banner.parentNode ) {
-					banner.parentNode.removeChild( banner );
-				}
-				$json.value = JSON.stringify( mappedSchema, null, 2 );
+				updateV5Schema( graphData );
 
 				// Expose debug data, like https://vega.github.io/editor/ does
 				window.VEGA_DEBUG = vegaInfo;
@@ -73,21 +82,31 @@
 		/**
 		 * Executes when the graph has loaded with an error.
 		 *
-		 * @param {Error} e
+		 * @param {Object} graphData containing the rendered graph.
+		 * @return {Function}
 		 */
-		function graphError( e ) {
-			// eslint-disable-next-line mediawiki/class-doc
-			$graphEl.classList.add( GRAPH_CLASS_ERROR );
-			if ( e ) {
-				mw.log.error( 'Error loading graph in Special:GraphSandbox', e.exception || e );
-			}
-			$json.value = '';
+		function graphErrorCallback( graphData ) {
+			return function ( e ) {
+				// eslint-disable-next-line mediawiki/class-doc
+				$graphEl.classList.add( GRAPH_CLASS_ERROR );
+				$json.value = '';
+				if ( graphData ) {
+					try {
+						updateV5Schema( graphData );
+					} catch ( _ignore_ ) {
+						/* ignore errors */
+					}
+				}
+				if ( e ) {
+					mw.log.error( 'Error loading graph in Special:GraphSandbox', e.exception || e );
+				}
+			};
 		}
 		$graphEl.addEventListener( 'click', function () {
 			if ( $graphEl.classList.contains( GRAPH_CLASS_CLICKABLE ) ) {
 				loadGraph( $graphEl, exampleGraph ).then(
 					graphLoadedCallback( exampleGraph ),
-					graphError
+					graphErrorCallback( exampleGraph )
 				);
 			}
 		} );
@@ -129,10 +148,10 @@
 				}
 				loadGraph( $graphEl, data.graph ).then(
 					graphLoadedCallback( data.graph ),
-					graphError
+					graphErrorCallback( data.graph )
 				);
 			}, function ( errCode, error ) {
-				graphError( error );
+				graphErrorCallback( null )( error );
 			} );
 		}, 300 ) );
 	}
