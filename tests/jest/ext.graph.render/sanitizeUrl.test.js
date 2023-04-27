@@ -9,6 +9,32 @@ describe( 'sanitizeUrl', () => {
 		).toBe( 'https://mediawiki.org/foo.json' );
 	} );
 
+	test( 'Returns string if URL is trusted subdomain', () => {
+		expect(
+			// URL is trusted because wikipedia.org is defined in modules/ext.graph.render/domains.json
+			// Note this is configurable in production.
+			sanitizeUrl( 'https://en.m.wikipedia.org/foo.json' )
+		).toBe( 'https://en.m.wikipedia.org/foo.json' );
+	} );
+
+	test( 'Throws error if URL host is not trusted with single extra character', () => {
+		expect(
+			() => sanitizeUrl( 'https://en.wwikipedia.org/foo.json' )
+		).toThrowError();
+	} );
+
+	test( 'Throws error if URL host is not trusted with missing character', () => {
+		expect(
+			() => sanitizeUrl( 'https://en.ikipedia.org/foo.json' )
+		).toThrowError();
+	} );
+
+	test( 'Throws error if URL host is not trusted', () => {
+		expect(
+			() => sanitizeUrl( 'https://en.wikipedia.evil.org/foo.json' )
+		).toThrowError();
+	} );
+
 	test( 'Throws error if URL protocol is not trusted', () => {
 		expect(
 			() => sanitizeUrl( 'file:///foo.json' )
