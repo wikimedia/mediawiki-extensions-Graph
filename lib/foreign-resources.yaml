@@ -1,13 +1,11 @@
 vega:
   license: BSD-3-Clause
   homepage: https://github.com/vega/vega#readme
-  version: 5.24.0
+  version: 5.25.0
   type: tar
-  src: https://registry.npmjs.org/vega/-/vega-5.24.0.tgz
-  integrity: sha512-eahZ+4eryPywLuq9BpgcwWMyqiuVD3FAh7eMB3koOp7peQ4scPxAZxWdLwnh0t0kah+oE2QcXi2EHS4BabsMPg==
+  src: https://registry.npmjs.org/vega/-/vega-5.25.0.tgz
+  integrity: sha512-lr+uj0mhYlSN3JOKbMNp1RzZBenWp9DxJ7kR3lha58AFNCzzds7pmFa7yXPbtbaGhB7Buh/t6n+Bzk3Y0VnF5g==
   dest:
     package/build-es5/vega.js:
     package/LICENSE:
     package/README.md:
-  transforms:
-    vega.js: nomin
