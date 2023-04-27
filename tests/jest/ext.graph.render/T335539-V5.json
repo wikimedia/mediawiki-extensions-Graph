@@ -1,0 +1,361 @@
+{
+	"$schema": "https://vega.github.io/schema/vega/v5.json",
+	"autosize": {
+		"contains": "padding",
+		"resize": false,
+		"type": "fit"
+	},
+	"axes": [
+		{
+			"encode": {
+				"axis": {
+					"update": {
+						"stroke": {
+							"value": "#54595d"
+						},
+						"strokeWidth": {
+							"value": 2
+						}
+					}
+				},
+				"grid": {
+					"update": {
+						"stroke": {
+							"value": "#54595d"
+						}
+					}
+				},
+				"labels": {
+					"update": {
+						"fill": {
+							"value": "#54595d"
+						}
+					}
+				},
+				"ticks": {
+					"update": {
+						"stroke": {
+							"value": "#54595d"
+						}
+					}
+				},
+				"title": {
+					"update": {
+						"fill": {
+							"value": "#54595d"
+						}
+					}
+				}
+			},
+			"format": "d",
+			"grid": false,
+			"orient": "bottom",
+			"scale": "x",
+			"title": "X"
+		},
+		{
+			"encode": {
+				"axis": {
+					"update": {
+						"stroke": {
+							"value": "#54595d"
+						},
+						"strokeWidth": {
+							"value": 2
+						}
+					}
+				},
+				"grid": {
+					"update": {
+						"stroke": {
+							"value": "#54595d"
+						}
+					}
+				},
+				"labels": {
+					"update": {
+						"fill": {
+							"value": "#54595d"
+						}
+					}
+				},
+				"ticks": {
+					"update": {
+						"stroke": {
+							"value": "#54595d"
+						}
+					}
+				},
+				"title": {
+					"update": {
+						"fill": {
+							"value": "#54595d"
+						}
+					}
+				}
+			},
+			"format": "d",
+			"grid": false,
+			"orient": "left",
+			"scale": "y",
+			"title": "Y"
+		}
+	],
+	"data": [
+		{
+			"format": {
+				"parse": {
+					"x": "number",
+					"y": "number"
+				},
+				"type": "json"
+			},
+			"name": "chart",
+			"values": [
+				{
+					"series": "Data A",
+					"x": 1,
+					"y": 10
+				},
+				{
+					"series": "Data A",
+					"x": 2,
+					"y": 12
+				},
+				{
+					"series": "Data A",
+					"x": 3,
+					"y": 6
+				},
+				{
+					"series": "Data A",
+					"x": 4,
+					"y": 14
+				},
+				{
+					"series": "Data A",
+					"x": 5,
+					"y": 2
+				},
+				{
+					"series": "Data A",
+					"x": 6,
+					"y": 10
+				},
+				{
+					"series": "Data A",
+					"x": 7,
+					"y": 7
+				},
+				{
+					"series": "Data A",
+					"x": 8,
+					"y": 9
+				},
+				{
+					"series": "Data B",
+					"x": 1,
+					"y": 2
+				},
+				{
+					"series": "Data B",
+					"x": 2,
+					"y": 4
+				},
+				{
+					"series": "Data B",
+					"x": 3,
+					"y": 6
+				},
+				{
+					"series": "Data B",
+					"x": 4,
+					"y": 8
+				},
+				{
+					"series": "Data B",
+					"x": 5,
+					"y": 13
+				},
+				{
+					"series": "Data B",
+					"x": 6,
+					"y": 11
+				},
+				{
+					"series": "Data B",
+					"x": 7,
+					"y": 9
+				},
+				{
+					"series": "Data B",
+					"x": 8,
+					"y": 2
+				}
+			]
+		},
+		{
+			"name": "stats",
+			"source": "chart",
+			"transform": [
+				{
+					"as": [
+						"sum_y"
+					],
+					"fields": [
+						"y"
+					],
+					"groupby": [
+						"x"
+					],
+					"ops": [
+						"sum"
+					],
+					"type": "aggregate"
+				}
+			]
+		},
+		{
+			"name": "data_0",
+			"source": "chart",
+			"transform": [
+				{
+					"as": [
+						"layout_start",
+						"layout_end"
+					],
+					"field": "y",
+					"groupby": [
+						"x"
+					],
+					"sort": {
+						"field": [
+							"_id"
+						],
+						"order": [
+							"descending"
+						]
+					},
+					"type": "stack"
+				}
+			]
+		}
+	],
+	"height": 150,
+	"legends": [
+		{
+			"fill": "color",
+			"properties": {
+				"labels": {
+					"fill": {
+						"value": "#54595d"
+					}
+				},
+				"title": {
+					"fill": {
+						"value": "#54595d"
+					}
+				}
+			},
+			"stroke": "color",
+			"title": "Legend"
+		}
+	],
+	"marks": [
+		{
+			"from": {
+				"facet": {
+					"data": "data_0",
+					"groupby": [
+						"series"
+					],
+					"name": "data_1"
+				}
+			},
+			"marks": [
+				{
+					"encode": {
+						"enter": {
+							"fill": {
+								"field": "series",
+								"scale": "color"
+							},
+							"width": {
+								"band": true,
+								"offset": -1,
+								"scale": "x"
+							},
+							"x": {
+								"field": "x",
+								"scale": "x"
+							},
+							"y": {
+								"field": "layout_start",
+								"scale": "y"
+							},
+							"y2": {
+								"field": "layout_end",
+								"scale": "y"
+							}
+						},
+						"hover": {
+							"fill": {
+								"value": "red"
+							}
+						},
+						"update": {
+							"fill": {
+								"field": "series",
+								"scale": "color"
+							}
+						}
+					},
+					"from": {
+						"data": "data_1"
+					},
+					"type": "rect"
+				}
+			],
+			"type": "group"
+		}
+	],
+	"scales": [
+		{
+			"domain": {
+				"data": "chart",
+				"fields": [
+					"x"
+				]
+			},
+			"name": "x",
+			"range": "width",
+			"type": "band"
+		},
+		{
+			"domain": {
+				"data": "stats",
+				"fields": [
+					"sum_y"
+				]
+			},
+			"name": "y",
+			"range": "height",
+			"type": "linear"
+		},
+		{
+			"domain": {
+				"data": "chart",
+				"fields": [
+					"series"
+				]
+			},
+			"name": "color",
+			"range": [
+				"seagreen",
+				"orchid"
+			],
+			"type": "ordinal"
+		}
+	],
+	"width": 400
+}

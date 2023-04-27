@@ -435,16 +435,59 @@ describe( 'mapSchema', () => {
 			name: 'data_0',
 			source: 'chart',
 			transform: [
-				// The stack transform isn't right yet; that's a followup
-				// patch (I0430beef854a3dc0e35767da4f0f47d8ee718c29)
 				{
 					field: 'y',
 					type: 'stack',
 					groupby: [
 						'x'
-					]
+					],
+					as: [ 'layout_start', 'layout_end' ]
 				}
 			]
 		} ] );
 	} );
+
+	test( '[transform] stacked bar graph (T335539)', () => {
+		const schema = require( './T335539.json' );
+		const vg = require( '../../../lib/vega/vega.js' );
+		const schema2 = mapSchema( schema );
+		vg.parse( schema2 ); // should not throw
+		expect( schema2 ).toStrictEqual( require( './T335539-V5.json' ) );
+	} );
+
+	test( '[marks] aggregate transform', () => {
+		const schema = mapSchema( {
+			version: 2,
+			data: [ {
+				name: 'chart'
+			}, {
+				name: 'stats',
+				source: 'chart',
+				transform: [ {
+					type: 'aggregate',
+					summarize: {
+						y: 'sum'
+					},
+					groupby: [ 'x' ]
+				} ]
+			} ]
+		} );
+		expect( schema.data ).toStrictEqual( [ {
+			name: 'chart'
+		}, {
+			// Translated aggregate clause
+			name: 'stats',
+			source: 'chart',
+			transform: [
+				{
+					type: 'aggregate',
+					fields: [ 'y' ],
+					ops: [ 'sum' ],
+					as: [ 'sum_y' ],
+					groupby: [ 'x' ]
+				}
+			]
+		} ] );
+	} );
+
 } );

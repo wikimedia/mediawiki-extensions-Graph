@@ -43,6 +43,61 @@ const dataFormatToVega5 = ( dataFormat ) => {
 };
 
 /**
+ * @param {Object} dataTransform
+ * @return {Object}
+ */
+const dataTransformSortbyToVega5 = ( dataTransform ) => {
+	if ( dataTransform.sortby ) {
+		const sortby = Array.isArray( dataTransform.sortby ) ?
+			dataTransform.sortby : [ dataTransform.sortby ];
+		const field = sortby.map( ( f ) => {
+			return f.startsWith( '-' ) ? f.slice( 1 ) : f;
+		} );
+		const order = sortby.map( ( f ) => {
+			return f.startsWith( '-' ) ? 'descending' : 'ascending';
+		} );
+		dataTransform = Object.assign( {
+			sort: { field, order }
+		}, dataTransform );
+		delete dataTransform.sortby;
+	}
+	return dataTransform;
+};
+
+/**
+ * @param {Object} dataTransform
+ * @return {Object}
+ */
+const dataTransformToVega5 = ( dataTransform ) => {
+	if ( Array.isArray( dataTransform ) ) {
+		return dataTransform.map( dataTransformToVega5 );
+	}
+	switch ( dataTransform.type ) {
+		case 'aggregate':
+			if ( dataTransform.summarize ) {
+				const fields = Object.keys( dataTransform.summarize );
+				const ops = fields.map( ( f ) => dataTransform.summarize[ f ] );
+				const as = fields.map( ( _, idx ) => ops[ idx ] + '_' + fields[ idx ] );
+				dataTransform = Object.assign( {}, dataTransform, {
+					fields, ops, as
+				} );
+				delete dataTransform.summarize;
+			}
+			break;
+		case 'stack':
+			dataTransform = Object.assign( {}, dataTransform, {
+			// "layout_mid" not yet supported
+				as: [ 'layout_start', 'layout_end' ]
+			} );
+			dataTransform = dataTransformSortbyToVega5( dataTransform );
+			break;
+		default:
+			throw new Error( 'Graph transform ' + dataTransform.type + ' not yet supported.' );
+	}
+	return dataTransform;
+};
+
+/**
  * @param {Object|Array} data
  * @return {Object|Array}
  */
@@ -56,6 +111,9 @@ const dataToVega5 = ( data ) => {
 			switch ( key ) {
 				case 'format':
 					newData[ key ] = dataFormatToVega5( val );
+					break;
+				case 'transform':
+					newData[ key ] = dataTransformToVega5( val );
 					break;
 				default:
 					newData[ key ] = val;

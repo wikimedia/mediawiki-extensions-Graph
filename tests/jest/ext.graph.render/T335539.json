@@ -1,0 +1,312 @@
+{
+	"legends": [
+		{
+			"properties": {
+				"title": {
+					"fill": {
+						"value": "#54595d"
+					}
+				},
+				"labels": {
+					"fill": {
+						"value": "#54595d"
+					}
+				}
+			},
+			"stroke": "color",
+			"title": "Legend",
+			"fill": "color"
+		}
+	],
+	"scales": [
+		{
+			"type": "ordinal",
+			"name": "x",
+			"zero": false,
+			"domain": {
+				"data": "chart",
+				"field": "x"
+			},
+			"range": "width",
+			"nice": true
+		},
+		{
+			"type": "linear",
+			"name": "y",
+			"domain": {
+				"data": "stats",
+				"field": "sum_y"
+			},
+			"zero": true,
+			"range": "height",
+			"nice": true
+		},
+		{
+			"domain": {
+				"data": "chart",
+				"field": "series"
+			},
+			"type": "ordinal",
+			"name": "color",
+			"range": [
+				"seagreen",
+				"orchid"
+			]
+		}
+	],
+	"version": 2,
+	"marks": [
+		{
+			"type": "group",
+			"marks": [
+				{
+					"properties": {
+						"hover": {
+							"fill": {
+								"value": "red"
+							}
+						},
+						"update": {
+							"fill": {
+								"scale": "color",
+								"field": "series"
+							}
+						},
+						"enter": {
+							"y": {
+								"scale": "y",
+								"field": "layout_start"
+							},
+							"x": {
+								"scale": "x",
+								"field": "x"
+							},
+							"y2": {
+								"scale": "y",
+								"field": "layout_end"
+							},
+							"width": {
+								"scale": "x",
+								"offset": -1,
+								"band": true
+							},
+							"fill": {
+								"scale": "color",
+								"field": "series"
+							}
+						}
+					},
+					"type": "rect"
+				}
+			],
+			"from": {
+				"data": "chart",
+				"transform": [
+					{
+						"field": "y",
+						"type": "stack",
+						"sortby": [
+							"-_id"
+						],
+						"groupby": [
+							"x"
+						]
+					},
+					{
+						"groupby": [
+							"series"
+						],
+						"type": "facet"
+					}
+				]
+			}
+		}
+	],
+	"height": 150,
+	"axes": [
+		{
+			"type": "x",
+			"title": "X",
+			"scale": "x",
+			"format": "d",
+			"properties": {
+				"title": {
+					"fill": {
+						"value": "#54595d"
+					}
+				},
+				"grid": {
+					"stroke": {
+						"value": "#54595d"
+					}
+				},
+				"ticks": {
+					"stroke": {
+						"value": "#54595d"
+					}
+				},
+				"axis": {
+					"strokeWidth": {
+						"value": 2
+					},
+					"stroke": {
+						"value": "#54595d"
+					}
+				},
+				"labels": {
+					"fill": {
+						"value": "#54595d"
+					}
+				}
+			},
+			"grid": false
+		},
+		{
+			"type": "y",
+			"title": "Y",
+			"scale": "y",
+			"format": "d",
+			"properties": {
+				"title": {
+					"fill": {
+						"value": "#54595d"
+					}
+				},
+				"grid": {
+					"stroke": {
+						"value": "#54595d"
+					}
+				},
+				"ticks": {
+					"stroke": {
+						"value": "#54595d"
+					}
+				},
+				"axis": {
+					"strokeWidth": {
+						"value": 2
+					},
+					"stroke": {
+						"value": "#54595d"
+					}
+				},
+				"labels": {
+					"fill": {
+						"value": "#54595d"
+					}
+				}
+			},
+			"grid": false
+		}
+	],
+	"data": [
+		{
+			"format": {
+				"parse": {
+					"y": "integer",
+					"x": "integer"
+				},
+				"type": "json"
+			},
+			"name": "chart",
+			"values": [
+				{
+					"y": 10,
+					"series": "Data A",
+					"x": 1
+				},
+				{
+					"y": 12,
+					"series": "Data A",
+					"x": 2
+				},
+				{
+					"y": 6,
+					"series": "Data A",
+					"x": 3
+				},
+				{
+					"y": 14,
+					"series": "Data A",
+					"x": 4
+				},
+				{
+					"y": 2,
+					"series": "Data A",
+					"x": 5
+				},
+				{
+					"y": 10,
+					"series": "Data A",
+					"x": 6
+				},
+				{
+					"y": 7,
+					"series": "Data A",
+					"x": 7
+				},
+				{
+					"y": 9,
+					"series": "Data A",
+					"x": 8
+				},
+				{
+					"y": 2,
+					"series": "Data B",
+					"x": 1
+				},
+				{
+					"y": 4,
+					"series": "Data B",
+					"x": 2
+				},
+				{
+					"y": 6,
+					"series": "Data B",
+					"x": 3
+				},
+				{
+					"y": 8,
+					"series": "Data B",
+					"x": 4
+				},
+				{
+					"y": 13,
+					"series": "Data B",
+					"x": 5
+				},
+				{
+					"y": 11,
+					"series": "Data B",
+					"x": 6
+				},
+				{
+					"y": 9,
+					"series": "Data B",
+					"x": 7
+				},
+				{
+					"y": 2,
+					"series": "Data B",
+					"x": 8
+				}
+			]
+		},
+		{
+			"transform": [
+				{
+					"type": "aggregate",
+					"summarize": {
+						"y": "sum"
+					},
+					"groupby": [
+						"x"
+					]
+				}
+			],
+			"name": "stats",
+			"source": "chart"
+		}
+	],
+	"width": 400
+}
