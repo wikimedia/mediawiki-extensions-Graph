@@ -41,5 +41,7 @@
 	"graph-ve-no-spec": "Specifikacije grafikona ni mogoče najti",
 	"graph-ve-vega-error": "Vega je pri prikazu tega grafikona naletela na neznano napako",
 	"graph-ve-vega-error-no-render": "Vega ni mogla prikazati tega grafikona",
-	"graph-vega-old-browser": "Vaš brskalnik ne podpira grafikonov"
+	"graph-vega-old-browser": "Vaš brskalnik ne podpira grafikonov",
+	"graph-outdated-schema": "Uporabljate zastarelo shemo. Ta lahko v prihodnosti preneha delovati. Uporabite spodnjo popravljeno shemo.",
+	"graph-sandbox-requires-js": "Za uporabo peskovnika za grafe potrebujete sodoben brskalnik z JavaScriptom."
 }

@@ -42,5 +42,7 @@
 	"graph-ve-no-spec": "לא נמצאו הגדרות תרשים",
 	"graph-ve-vega-error": "וגה מצאה שגיאה בתיצוג התרשים הזה",
 	"graph-ve-vega-error-no-render": "וגה לא הצליחה לתצג את התרשים הזה",
-	"graph-vega-old-browser": "הדפדפן שלך אינו תומך בתרשימים"
+	"graph-vega-old-browser": "הדפדפן שלך אינו תומך בתרשימים",
+	"graph-outdated-schema": "יש אצלך סכמה מיושנת. זה עלול להישבר בעתיד. נא להשתמש בסכמה המתוקנת למטה.",
+	"graph-sandbox-requires-js": "ארגז החול של התרשימים דורש דפדפן מודרני עם JavaScript."
 }
