@@ -368,4 +368,16 @@ describe( 'mapSchema', () => {
 		const schema = require( './T335454.json' );
 		expect( () => mapSchema( schema ) ).toThrowError();
 	} );
+
+	test( '[data] currently do not support transforms (T335454)', () => {
+		const schema = mapSchema( {
+			$SCHEMA,
+			data: {
+				format: {}
+			}
+		} );
+		expect( schema.data ).toStrictEqual( {
+			format: {}
+		} );
+	} );
 } );

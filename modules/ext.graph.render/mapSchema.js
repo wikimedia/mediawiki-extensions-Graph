@@ -10,16 +10,20 @@ const sanitizeUrl = require( './sanitizeUrl.js' );
  * @return {Object}
  */
 const dataFormatToVega5 = ( dataFormat ) => {
-	const parse = {};
-	Object.keys( dataFormat.parse ).forEach( ( key ) => {
-		const val = dataFormat.parse[ key ];
-		if ( val === 'integer' ) {
-			parse[ key ] = 'number';
-		} else {
-			parse[ key ] = val;
-		}
-	} );
-	return Object.assign( {}, dataFormat, { parse } );
+	if ( dataFormat.parse ) {
+		const parse = {};
+		Object.keys( dataFormat.parse ).forEach( ( key ) => {
+			const val = dataFormat.parse[ key ];
+			if ( val === 'integer' ) {
+				parse[ key ] = 'number';
+			} else {
+				parse[ key ] = val;
+			}
+		} );
+		return Object.assign( {}, dataFormat, { parse } );
+	} else {
+		return dataFormat;
+	}
 };
 
 /**
