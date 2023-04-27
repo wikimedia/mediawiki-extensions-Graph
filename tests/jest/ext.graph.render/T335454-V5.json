@@ -1,0 +1,290 @@
+{
+	"$schema": "https://vega.github.io/schema/vega/v5.json",
+	"autosize": {
+		"contains": "padding",
+		"resize": false,
+		"type": "fit"
+	},
+	"axes": [
+		{
+			"encode": {
+				"axis": {
+					"update": {
+						"stroke": {
+							"value": "#54595d"
+						},
+						"strokeWidth": {
+							"value": 2
+						}
+					}
+				},
+				"labels": {
+					"update": {
+						"fill": {
+							"value": "#54595d"
+						}
+					}
+				},
+				"ticks": {
+					"update": {
+						"stroke": {
+							"value": "#54595d"
+						}
+					}
+				},
+				"title": {
+					"update": {
+						"fill": {
+							"value": "#54595d"
+						}
+					}
+				}
+			},
+			"format": "d",
+			"grid": true,
+			"orient": "bottom",
+			"scale": "x",
+			"title": "X"
+		},
+		{
+			"encode": {
+				"axis": {
+					"update": {
+						"stroke": {
+							"value": "#54595d"
+						},
+						"strokeWidth": {
+							"value": 2
+						}
+					}
+				},
+				"grid": {
+					"update": {
+						"stroke": {
+							"value": "#54595d"
+						}
+					}
+				},
+				"labels": {
+					"update": {
+						"fill": {
+							"value": "#54595d"
+						}
+					}
+				},
+				"ticks": {
+					"update": {
+						"stroke": {
+							"value": "#54595d"
+						}
+					}
+				},
+				"title": {
+					"update": {
+						"fill": {
+							"value": "#54595d"
+						}
+					}
+				}
+			},
+			"format": "d",
+			"grid": true,
+			"orient": "left",
+			"scale": "y",
+			"title": "Y"
+		}
+	],
+	"data": [
+		{
+			"format": {
+				"parse": {
+					"x": "number",
+					"y": "number"
+				},
+				"type": "json"
+			},
+			"name": "chart",
+			"values": [
+				{
+					"series": "Y1 Series",
+					"x": 1,
+					"y": 10
+				},
+				{
+					"series": "Y1 Series",
+					"x": 2,
+					"y": 12
+				},
+				{
+					"series": "Y1 Series",
+					"x": 3,
+					"y": 6
+				},
+				{
+					"series": "Y1 Series",
+					"x": 4,
+					"y": 14
+				},
+				{
+					"series": "Y1 Series",
+					"x": 5,
+					"y": 2
+				},
+				{
+					"series": "Y1 Series",
+					"x": 6,
+					"y": 10
+				},
+				{
+					"series": "Y1 Series",
+					"x": 7,
+					"y": 7
+				},
+				{
+					"series": "Y1 Series",
+					"x": 8,
+					"y": 9
+				},
+				{
+					"series": "Y2 Series",
+					"x": 1,
+					"y": 2
+				},
+				{
+					"series": "Y2 Series",
+					"x": 2,
+					"y": 4
+				},
+				{
+					"series": "Y2 Series",
+					"x": 3,
+					"y": 6
+				},
+				{
+					"series": "Y2 Series",
+					"x": 4,
+					"y": 8
+				},
+				{
+					"series": "Y2 Series",
+					"x": 5,
+					"y": 13
+				},
+				{
+					"series": "Y2 Series",
+					"x": 6,
+					"y": 11
+				},
+				{
+					"series": "Y2 Series",
+					"x": 7,
+					"y": 9
+				},
+				{
+					"series": "Y2 Series",
+					"x": 8,
+					"y": 2
+				}
+			]
+		}
+	],
+	"height": 150,
+	"legends": [
+		{
+			"fill": "color",
+			"stroke": "color",
+			"title": "Legend"
+		}
+	],
+	"marks": [
+		{
+			"from": {
+				"facet": {
+					"data": "chart",
+					"groupby": [
+						"series"
+					],
+					"name": "data_0"
+				}
+			},
+			"marks": [
+				{
+					"encode": {
+						"enter": {
+							"stroke": {
+								"field": "series",
+								"scale": "color"
+							},
+							"strokeWidth": {
+								"value": 2.5
+							},
+							"x": {
+								"field": "x",
+								"scale": "x"
+							},
+							"y": {
+								"field": "y",
+								"scale": "y"
+							}
+						},
+						"hover": {
+							"stroke": {
+								"value": "red"
+							}
+						},
+						"update": {
+							"stroke": {
+								"field": "series",
+								"scale": "color"
+							}
+						}
+					},
+					"from": {
+						"data": "data_0"
+					},
+					"type": "line"
+				}
+			],
+			"type": "group"
+		}
+	],
+	"scales": [
+		{
+			"domain": {
+				"data": "chart",
+				"fields": [
+					"x"
+				]
+			},
+			"name": "x",
+			"range": "width",
+			"type": "linear"
+		},
+		{
+			"domain": {
+				"data": "chart",
+				"fields": [
+					"y"
+				]
+			},
+			"name": "y",
+			"range": "height",
+			"type": "linear"
+		},
+		{
+			"domain": {
+				"data": "chart",
+				"fields": [
+					"series"
+				]
+			},
+			"name": "color",
+			"range": [
+				"#0000aa",
+				"#ff8000"
+			],
+			"type": "ordinal"
+		}
+	],
+	"width": 400
+}

@@ -171,10 +171,42 @@ const markToVega5 = ( marks, dataSets ) => {
 			mark.encode = Object.assign( {}, mark.properties );
 			delete mark.properties;
 		}
+		// Recursively convert marks if necessary.
 		if ( Array.isArray( mark.marks ) ) {
 			mark.marks = markToVega5( mark.marks, dataSets );
 		}
-		if ( mark.from ) {
+		// Mark groups with facet transforms get handled specially.
+		if (
+			mark.type === 'group' &&
+			mark.from &&
+			Array.isArray( mark.from.transform ) &&
+			mark.from.transform.length >= 1 &&
+			mark.from.transform[ mark.from.transform.length - 1 ].type === 'facet'
+		) {
+			// Remove the facet transform from the end of the transform list
+			const newTransform = mark.from.transform.slice();
+			const oldFacet = newTransform.pop();
+			// Make a new from clause with the shorter transform list
+			const oldFrom = mark.from;
+			const newFrom = newTransform.length > 0 ?
+				// Call markFromToVega5 to hoist any transforms in newFrom
+				markFromToVega5( Object.assign( {}, oldFrom, {
+					transform: newTransform
+				} ), dataSets ) : oldFrom;
+			// Create a new unique name for this facet
+			const dataName = newDataName( dataSets );
+			mark.from = {
+				facet: {
+					name: dataName,
+					data: newFrom.data,
+					groupby: oldFacet.groupby
+				}
+			};
+			// All of the child marks now refer to this new data name
+			mark.marks.forEach( ( m ) => {
+				m.from = m.from || { data: dataName };
+			} );
+		} else if ( mark.from ) {
 			mark.from = markFromToVega5( mark.from, dataSets );
 		}
 		return mark;

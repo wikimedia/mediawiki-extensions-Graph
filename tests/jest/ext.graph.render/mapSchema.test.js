@@ -366,16 +366,15 @@ describe( 'mapSchema', () => {
 		expect( schema2 ).toStrictEqual( require( './testV5.json' ) );
 	} );
 
-	test( '[marks] currently do not support transforms (T335454)', () => {
+	test( '[marks] facets for line graphs (T335454)', () => {
 		const schema = require( './T335454.json' );
 		const vg = require( '../../../lib/vega/vega.js' );
 		const schema2 = mapSchema( schema );
-		// the mapping is not throwing, but is currently
-		// non-functional, so it should throw when we try to parse it
-		expect( () => vg.parse( schema2 ) ).toThrowError();
+		vg.parse( schema2 ); // should not throw
+		expect( schema2 ).toStrictEqual( require( './T335454-V5.json' ) );
 	} );
 
-	test( '[marks] embedded transforms', () => {
+	test( '[marks] embedded transforms and facets', () => {
 		const schema = mapSchema( {
 			version: 2,
 			marks: [
@@ -393,6 +392,7 @@ describe( 'mapSchema', () => {
 									'x'
 								]
 							},
+							// This facet will be translated, not hoisted.
 							{
 								groupby: [
 									'series'
@@ -412,33 +412,37 @@ describe( 'mapSchema', () => {
 		} );
 		expect( schema.marks ).toStrictEqual( [ {
 			type: 'group',
+			// New facet definition here.
 			from: {
-				data: 'data_0'
+				facet: {
+					data: 'data_0',
+					groupby: [ 'series' ],
+					name: 'data_1'
+				}
 			},
+			// Reference the new facet name in children.
 			marks: [
-				{}
+				{
+					from: { data: 'data_1' }
+				}
 			]
 		} ] );
 		expect( schema.data ).toStrictEqual( [ {
 			name: 'chart'
 		}, {
 			// The embedded transform becomes a new data clause with
-			// a unique name.
+			// a unique name, without the facet transform.
 			name: 'data_0',
 			source: 'chart',
 			transform: [
+				// The stack transform isn't right yet; that's a followup
+				// patch (I0430beef854a3dc0e35767da4f0f47d8ee718c29)
 				{
 					field: 'y',
 					type: 'stack',
 					groupby: [
 						'x'
 					]
-				},
-				{
-					groupby: [
-						'series'
-					],
-					type: 'facet'
 				}
 			]
 		} ] );
