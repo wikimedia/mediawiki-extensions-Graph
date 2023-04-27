@@ -79,7 +79,7 @@
 			// eslint-disable-next-line mediawiki/class-doc
 			$graphEl.classList.add( GRAPH_CLASS_ERROR );
 			if ( e ) {
-				mw.log.error( 'Error loading graph in Special:GraphSandbox', e );
+				mw.log.error( 'Error loading graph in Special:GraphSandbox', e.exception || e );
 			}
 			$json.value = '';
 		}
