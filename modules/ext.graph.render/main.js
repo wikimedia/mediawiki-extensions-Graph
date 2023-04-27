@@ -1,7 +1,4 @@
-const d3 = require( '../../lib/d3/d3.js' );
 const mapSchema = require( './mapSchema.js' );
-// Make D3 global
-window.d3 = d3;
 
 /**
  * Render a graph in the provided element
