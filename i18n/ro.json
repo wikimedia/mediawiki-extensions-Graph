@@ -11,7 +11,7 @@
 	"graph-tracking-category-desc": "Pagina include o etichetă <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Pagini cu grafice defecte",
 	"graph-broken-category-desc": "Pagina include o etichetă <code><nowiki><graph></nowiki></code> cu utilizare invalidă.",
-	"graph-obsolete-category-desc": "Pagina include o etichetă <code><nowiki><graph></nowiki></code> care ar trebui actualizată la versiunea 2.",
+	"graph-obsolete-category-desc": "Pagina include o etichetă <code><nowiki><graph></nowiki></code> care ar trebui actualizată la versiunea 5.",
 	"graph-error-empty-json": "Date de grafic goale, nu este nimic de afișat",
 	"graph-error-not-vega": "JSON-ul furnizat nu este un JSON Vega valid.",
 	"graph-ve-dialog-button-tooltip": "Grafic",

@@ -15,7 +15,7 @@
 	"graph-broken-category": "Stránky s rozbitými grafy",
 	"graph-broken-category-desc": "Tato stránka obsahuje chybně použitou značku <code><nowiki><graph></nowiki></code>.",
 	"graph-obsolete-category": "Stránky se zastaralými grafy Vega 1.0",
-	"graph-obsolete-category-desc": "Stránka obsahuje značku <code><nowiki><graph></nowiki></code>, která by měla být aktualizována na verzi 2.",
+	"graph-obsolete-category-desc": "Stránka obsahuje značku <code><nowiki><graph></nowiki></code>, která by měla být aktualizována na verzi 5.",
 	"graph-error-empty-json": "Prázdná data grafu, není co zobrazit",
 	"graph-error-not-vega": "Poskytnutý JSON není platný Vega JSON",
 	"graph-ve-dialog-button-tooltip": "Graf",

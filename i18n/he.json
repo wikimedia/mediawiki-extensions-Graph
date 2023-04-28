@@ -12,7 +12,7 @@
 	"graph-broken-category": "דפים עם תרשימים מקולקלים",
 	"graph-broken-category-desc": "הדף הזה מכיל תג <code><nowiki><graph></nowiki></code> עם שימוש בלתי־תקין.",
 	"graph-obsolete-category": "דפים עם תרשימים מיושנים של Vega 1.0",
-	"graph-obsolete-category-desc": "הדף הזה מכיל תג <code><nowiki><graph></nowiki></code> שצריך לעדכן לגרסה 2.",
+	"graph-obsolete-category-desc": "הדף הזה מכיל תג <code><nowiki><graph></nowiki></code> שצריך לעדכן לגרסה 5.",
 	"graph-error-empty-json": "נתוני גרף ריקים, אין מה להציג",
 	"graph-error-not-vega": "ה־JSON שסופק הוא לא JSON תקין של Vega",
 	"graph-ve-dialog-button-tooltip": "תרשים",

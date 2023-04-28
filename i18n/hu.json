@@ -11,7 +11,7 @@
 	"graph-broken-category": "Lapok hibás grafikonokkal",
 	"graph-broken-category-desc": "A lap tartalmaz egy hibásan használt <code><nowiki><graph></nowiki></code> elemet.",
 	"graph-obsolete-category": "Lapok elavult Vega 1.0-grafikonokkal",
-	"graph-obsolete-category-desc": "A lap tartalmaz egy <code><nowiki><graph></nowiki></code> elemet, amit 2-es verzióra kellene frissíteni.",
+	"graph-obsolete-category-desc": "A lap tartalmaz egy <code><nowiki><graph></nowiki></code> elemet, amit 5-es verzióra kellene frissíteni.",
 	"graph-error-empty-json": "Üres grafikonadatok, nincs mit megjeleníteni",
 	"graph-error-not-vega": "A megadott JSON nem érvényes Vega-JSON",
 	"graph-ve-dialog-button-tooltip": "Grafikon",

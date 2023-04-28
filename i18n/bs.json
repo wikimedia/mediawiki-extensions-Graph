@@ -11,7 +11,7 @@
 	"graph-tracking-category-desc": "Ova stranica sadrži oznaku <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Stranice s pokvarenim grafikonima",
 	"graph-broken-category-desc": "Ova stranica sadrži neispravno iskorištenu oznaku <code><nowiki><graph></nowiki></code>.",
-	"graph-obsolete-category": "Stranice sa zastarjelim Vega 1.0 grafikonima",
+	"graph-obsolete-category": "Stranice sa zastarjelim Vega grafikonima",
 	"graph-ve-dialog-button-tooltip": "Grafikon",
 	"graph-ve-dialog-edit-field-graph-type": "Vrsta grafikona",
 	"graph-ve-dialog-edit-field-raw-json": "Izvorni JSON",

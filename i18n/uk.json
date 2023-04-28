@@ -17,7 +17,7 @@
 	"graph-broken-category": "Сторінки зі зламаними графіками",
 	"graph-broken-category-desc": "Сторінка включає неправильно використаний тег <code><nowiki><graph></nowiki></code>.",
 	"graph-obsolete-category": "Сторінки з застарілими графіками Vega 1.0",
-	"graph-obsolete-category-desc": "Ця сторінка містить тег <code><nowiki><graph></nowiki></code>, який треба оновити до версії 2.",
+	"graph-obsolete-category-desc": "Ця сторінка містить тег <code><nowiki><graph></nowiki></code>, який треба оновити до версії 5.",
 	"graph-error-empty-json": "Порожні дані графіка, нема що показувати",
 	"graph-error-not-vega": "Наданий JSON не є дійсним Vega JSON",
 	"graph-ve-dialog-button-tooltip": "Графік",

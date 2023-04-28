@@ -18,7 +18,7 @@
 	"graph-broken-category": "破損したグラフのあるページ",
 	"graph-broken-category-desc": "そのページは <code><nowiki><graph></nowiki></code> タグを含んでおり、使用法が無効です。",
 	"graph-obsolete-category": "廃止されたVega 1.0のグラフを使用するページ",
-	"graph-obsolete-category-desc": "このページには、バージョン 2 へ更新すべき <code><nowiki><graph></nowiki></code> タグが含まれています。",
+	"graph-obsolete-category-desc": "このページには、バージョン 5 へ更新すべき <code><nowiki><graph></nowiki></code> タグが含まれています。",
 	"graph-error-empty-json": "空のグラフデータ、表示するものはありません",
 	"graph-error-not-vega": "提供されたJSONは有効なVega JSONではありません",
 	"graph-ve-dialog-button-tooltip": "グラフ",

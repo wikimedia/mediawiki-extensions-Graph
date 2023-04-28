@@ -12,8 +12,8 @@
 	"graph-tracking-category-desc": "Страницата съдържа <code><nowiki><graph></nowiki></code> таг.",
 	"graph-broken-category": "Страници с повредени графики",
 	"graph-broken-category-desc": "Страницата съдържа <code><nowiki><graph></nowiki></code> таг, използван по неправилен начин.",
-	"graph-obsolete-category": "Страници с остарели Vega 1.0 графики",
-	"graph-obsolete-category-desc": "Страницата съдържа <code><nowiki><graph></nowiki></code> таг, който трябва да бъде обновен до версия 2.",
+	"graph-obsolete-category": "Страници с остарели Vega графики",
+	"graph-obsolete-category-desc": "Страницата съдържа <code><nowiki><graph></nowiki></code> таг, който трябва да бъде обновен до версия 5.",
 	"graph-ve-dialog-button-tooltip": "Графика",
 	"graph-ve-dialog-edit-type-line": "Линейна графика"
 }

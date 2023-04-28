@@ -9,5 +9,5 @@
 	"graph-broken-category": "Sider med uverksame diagram",
 	"graph-broken-category-desc": "Sida nyttar eit <code><nowiki><graph></nowiki></code>-merke med feil.",
 	"graph-obsolete-category": "Sider med utdaterte Vega 1.0-diagram",
-	"graph-obsolete-category-desc": "Sida nyttar eit <code><nowiki><graph></nowiki></code>-merke som bør oppdaterast til versjon 2."
+	"graph-obsolete-category-desc": "Sida nyttar eit <code><nowiki><graph></nowiki></code>-merke som bør oppdaterast til versjon 5."
 }

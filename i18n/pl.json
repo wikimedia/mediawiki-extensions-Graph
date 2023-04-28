@@ -17,7 +17,7 @@
 	"graph-broken-category": "Strony z zepsutymi diagramami",
 	"graph-broken-category-desc": "Strona zawiera nieprawidłowo zastosowany znacznik <code><nowiki><graph></nowiki></code>.",
 	"graph-obsolete-category": "Strony z przestarzałymi diagramami Vega 1.0",
-	"graph-obsolete-category-desc": "Strona zawiera znacznik <code><nowiki><graph></nowiki></code>, który powinien zostać zaktualizowany do wersji 2.",
+	"graph-obsolete-category-desc": "Strona zawiera znacznik <code><nowiki><graph></nowiki></code>, który powinien zostać zaktualizowany do wersji 5.",
 	"graph-error-empty-json": "Puste dane wykresu, nie ma nic do pokazania",
 	"graph-error-not-vega": "Podany JSON nie jest prawidłowym JSON Vega",
 	"graph-ve-dialog-button-tooltip": "Wykres",

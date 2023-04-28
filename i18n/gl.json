@@ -12,7 +12,7 @@
 	"graph-broken-category": "Páxinas con gráficos rotos",
 	"graph-broken-category-desc": "A páxina inclúe unha etiqueta <code><nowiki><graph></nowiki></code> con uso non válido.",
 	"graph-obsolete-category": "Páxinas con gráficos obsoletos Vega 1.0",
-	"graph-obsolete-category-desc": "A páxina inclúe unha etiqueta <code><nowiki><graph></nowiki></code> que ten que ser actualizada á versión 2.",
+	"graph-obsolete-category-desc": "A páxina inclúe unha etiqueta <code><nowiki><graph></nowiki></code> que ten que ser actualizada á versión 5.",
 	"graph-error-empty-json": "Datos de gráfico baleiros, nada que amosar",
 	"graph-error-not-vega": "O JSON proporcionada non é un JSON Vega válido",
 	"graph-ve-dialog-button-tooltip": "Gráfico",
