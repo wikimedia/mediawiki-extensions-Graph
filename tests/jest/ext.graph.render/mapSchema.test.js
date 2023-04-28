@@ -490,4 +490,65 @@ describe( 'mapSchema', () => {
 		} ] );
 	} );
 
+	test( '[marks] map to startAngle and endAngle', () => {
+		const schema = {
+			marks: [
+				{
+					type: 'arc',
+					properties: {
+						hover: {
+							fill: {
+								value: 'red'
+							}
+						},
+						update: {
+							fill: {
+								scale: 'color',
+								field: 'x'
+							}
+						},
+						enter: {
+							endAngle: {
+								field: 'layout_end'
+							},
+							innerRadius: {
+								value: 0
+							},
+							outerRadius: {
+								value: 100
+							},
+							startAngle: {
+								field: 'layout_start'
+							},
+							stroke: {
+								value: 'white'
+							},
+							fill: {
+								scale: 'color',
+								field: 'x'
+							},
+							strokeWidth: {
+								value: 1
+							}
+						}
+					},
+					from: {
+						data: 'chart',
+						transform: [
+							{
+								type: 'pie',
+								field: 'y'
+							}
+						]
+					}
+				}
+			]
+		};
+		expect( mapSchema( schema ).marks[ 0 ].encode.enter.startAngle.field ).toBe(
+			'startAngle'
+		);
+		expect( mapSchema( schema ).marks[ 0 ].encode.enter.endAngle.field ).toBe(
+			'endAngle'
+		);
+	} );
 } );
