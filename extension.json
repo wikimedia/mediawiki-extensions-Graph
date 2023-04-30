@@ -166,10 +166,12 @@
 	},
 	"config": {
 		"GraphAllowedDomains": {
-			"value": []
+			"value": [],
+			"description": "List of allowed domains as a map of protocol -> array of domains. Allowed standard protocols: http, https. Allowed custom protocols are listed in https://www.mediawiki.org/wiki/Extension:Graph/Guide#External_data"
 		},
 		"GraphDefaultVegaVer": {
-			"value": 2
+			"value": 2,
+			"description": "Default Vega version for graph specs which do not specify a version. Obsolete, will be removed soon."
 		}
 	},
 	"TrackingCategories": [
