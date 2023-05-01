@@ -35,6 +35,12 @@ describe( 'sanitizeUrl', () => {
 		).toThrowError();
 	} );
 
+	test( 'Throws error if URL protocol is HTTP', () => {
+		expect(
+			() => sanitizeUrl( 'http://example.com/foo.json' )
+		).toThrowError();
+	} );
+
 	test( 'Throws error if URL protocol is not trusted', () => {
 		expect(
 			() => sanitizeUrl( 'file:///foo.json' )
