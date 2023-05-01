@@ -10,11 +10,13 @@
 	"graph-tracking-category-desc": "A lap tartalmaz egy <code><nowiki><graph></nowiki></code> elemet.",
 	"graph-broken-category": "Lapok hibás grafikonokkal",
 	"graph-broken-category-desc": "A lap tartalmaz egy hibásan használt <code><nowiki><graph></nowiki></code> elemet.",
-	"graph-obsolete-category": "Lapok elavult Vega 1.0-grafikonokkal",
-	"graph-obsolete-category-desc": "A lap tartalmaz egy <code><nowiki><graph></nowiki></code> elemet, amit 5-es verzióra kellene frissíteni.",
+	"graph-obsolete-category": "Lapok elavult Vega-grafikonokkal",
+	"graph-obsolete-category-desc": "A lap tartalmaz egy <code><nowiki><graph></nowiki></code> elemet, amit 5-ös verzióra kellene frissíteni.",
 	"graph-error-empty-json": "Üres grafikonadatok, nincs mit megjeleníteni",
 	"graph-error-not-vega": "A megadott JSON nem érvényes Vega-JSON",
+	"graph-error-vega-lite-unsupported": "A megadott JSON Vega Lite-hoz készült, ami jelenleg nem támogatott",
 	"graph-ve-dialog-button-tooltip": "Grafikon",
+	"graph-load": "Kattints ide a grafikon betöltéséhez",
 	"graph-ve-dialog-edit-field-graph-type": "Grafikontípus",
 	"graph-ve-dialog-edit-field-raw-json": "Nyers JSON specifikáció",
 	"graph-ve-dialog-edit-height": "Magasság",
@@ -39,5 +41,6 @@
 	"graph-ve-empty-graph": "Üres diagram",
 	"graph-ve-no-spec": "Nem található specifikáció",
 	"graph-ve-vega-error": "A Vega hibát észlelt a grafikon feldolgozásakor",
-	"graph-ve-vega-error-no-render": "A Vega nem tudta feldolgozni a grafikont"
+	"graph-ve-vega-error-no-render": "A Vega nem tudta feldolgozni a grafikont",
+	"graph-vega-old-browser": "A böngésződ nem támogatja a grafikonokat"
 }

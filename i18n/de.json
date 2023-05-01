@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Brettchenweber",
 			"Hwboehm",
 			"Kghbln",
 			"Metalhead64",
@@ -16,7 +17,7 @@
 	"graph-broken-category": "Seiten mit defekten Diagrammen",
 	"graph-broken-category-desc": "Die Seite enthält eine <code><nowiki><graph></nowiki></code>-Markierung mit einer ungültigen Verwendung.",
 	"graph-obsolete-category": "Seiten mit veralteten Vega-Grafiken",
-	"graph-obsolete-category-desc": "Die Seite enthält eine <code><nowiki><graph></nowiki></code>-Markierung, die auf die Version 5 aktualisiert werden sollte.",
+	"graph-obsolete-category-desc": "Die Seite enthält eine <code><nowiki><graph></nowiki></code>-Markierung, die auf Version 5 aktualisiert werden sollte.",
 	"graph-error-empty-json": "Leere Diagrammdaten, nichts anzuzeigen",
 	"graph-error-not-vega": "Das angegebene JSON ist kein gültiges Vega-JSON",
 	"graph-error-vega-lite-unsupported": "Das angegebene JSON ist für Vega Lite, das derzeit nicht unterstützt wird.",

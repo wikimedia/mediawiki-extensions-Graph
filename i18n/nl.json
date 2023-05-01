@@ -13,7 +13,7 @@
 	"graph-tracking-category-desc": "De pagina bevat het label <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Pagina's met niet-werkende grafieken",
 	"graph-broken-category-desc": "De pagina bevat een label <code><nowiki><graph></nowiki></code> dat onjuist wordt gebruikt.",
-	"graph-obsolete-category": "Pagina's met verouderde Vega 1.0-grafieken",
+	"graph-obsolete-category": "Pagina's met verouderde Vega-grafieken",
 	"graph-ve-dialog-button-tooltip": "Grafiek",
 	"graph-ve-dialog-edit-field-graph-type": "Soort grafiek",
 	"graph-ve-dialog-edit-height": "Hoogte",
