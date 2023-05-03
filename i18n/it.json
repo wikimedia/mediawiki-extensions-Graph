@@ -16,7 +16,7 @@
 	"graph-tracking-category-desc": "La pagina include un tag <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Pagine con errori nei grafici",
 	"graph-broken-category-desc": "La pagina include un tag <code><nowiki><graph></nowiki></code> con utilizzo non valido.",
-	"graph-obsolete-category": "Pagine con grafici obsoleti Vega 1.0",
+	"graph-obsolete-category": "Pagine con grafici Vega obsoleti",
 	"graph-obsolete-category-desc": "La pagina include un tag <code><nowiki><graph></nowiki></code> che dovrebbe essere aggiornato alla versione 5.",
 	"graph-error-empty-json": "Dati del grafico vuoti, nulla da mostrare",
 	"graph-error-not-vega": "Il JSON fornito non è un Vega JSON valido",
