@@ -1,13 +1,13 @@
+@import 'mediawiki.skin.variables.less';
 @import 'mediawiki.mixins';
 @import 'mediawiki.mixins.animation';
-@import 'mediawiki.skin.variables.less';
 
 .mw-graph {
 	display: inline-block;
 	position: relative;
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
-	border: 1px solid transparent;
+	border: @border-width-base @border-style-base @border-color-transparent;
 	opacity: 0;
 	.animation( spinnerDelay 0.5s ease-out 0.5s forwards ) ;
 	// Minimum width needed to render the placeholder graphic
@@ -22,7 +22,7 @@
 	&.mw-graph-clickable-loading,
 	&.mw-graph-clickable-error,
 	&.mw-graph-clickable {
-		border: solid 1px #ccc;
+		border-color: @border-color-subtle;
 		display: inline-flex;
 		flex-direction: column;
 		align-items: center;
@@ -80,9 +80,9 @@
 	}
 
 	canvas {
+		background: @background-color-base;
 		display: inline-block;
 		vertical-align: middle;
-		background: #fff;
 		// Responsive sizing
 		max-width: 100%;
 		/* stylelint-disable-next-line declaration-no-important */
