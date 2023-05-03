@@ -1,4 +1,5 @@
 const allowedDomains = require( './domains.json' ).GraphAllowedDomains;
+const allowHttp = require( './domains.json' ).GraphAllowHttp;
 
 /**
  * @param {Object} urlObj
@@ -21,7 +22,7 @@ const isDomainTrusted = ( urlObj, domains ) => {
 function sanitizeUrl( url ) {
 	const urlObj = new URL( url );
 	const protocol = urlObj.protocol;
-	if ( protocol !== 'http:' && protocol !== 'https:' ) {
+	if ( !( protocol === 'https:' || protocol === 'http:' && allowHttp ) ) {
 		throw new Error( `The protocol ${protocol} is currently not supported.` );
 	}
 	const domains = allowedDomains[ protocol.slice( 0, -1 ) ] || [];

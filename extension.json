@@ -56,7 +56,10 @@
 				"modules/ext.graph.render/main.js",
 				{
 					"name": "modules/ext.graph.render/domains.json",
-					"config": [ "GraphAllowedDomains" ]
+					"config": [
+						"GraphAllowedDomains",
+						"GraphAllowHttp"
+					]
 				},
 				"modules/ext.graph.render/sanitizeUrl.js",
 				"modules/ext.graph.render/mapSchema.js",
@@ -168,6 +171,10 @@
 		"GraphAllowedDomains": {
 			"value": [],
 			"description": "List of allowed domains as a map of protocol -> array of domains. Allowed standard protocols: http, https. Allowed custom protocols are listed in https://www.mediawiki.org/wiki/Extension:Graph/Guide#External_data"
+		},
+		"GraphAllowHttp": {
+			"value": false,
+			"description": "Allow http protocol for external data. This increases the attack surface, use with caution."
 		},
 		"GraphDefaultVegaVer": {
 			"value": 2,

@@ -23,5 +23,6 @@
 		"geoshape": [
 			"maps.wikimedia.org"
 		]
-	}
+	},
+	"GraphAllowHttp": false
 }
