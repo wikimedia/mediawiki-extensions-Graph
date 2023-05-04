@@ -31,7 +31,7 @@
 	} );
 
 	/**
-	 * @typedef {Object} EditSession
+	 * @type {Object} EditSession
 	 * @property {() => string} getValue
 	 * @property {() => void} on allows binding to change event
 	 *
