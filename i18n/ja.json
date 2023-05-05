@@ -25,7 +25,7 @@
 	"graph-ve-dialog-edit-field-graph-type": "グラフの種類",
 	"graph-ve-dialog-edit-field-raw-json": "生のJSONデータ",
 	"graph-ve-dialog-edit-height": "高さ",
-	"graph-ve-dialog-edit-json-invalid": "不正なJSON文字列",
+	"graph-ve-dialog-edit-json-invalid": "無効な JSON 文字列",
 	"graph-ve-dialog-edit-padding-auto": "余白の幅の自動決定",
 	"graph-ve-dialog-edit-padding-bottom": "下",
 	"graph-ve-dialog-edit-padding-left": "左",

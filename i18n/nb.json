@@ -11,7 +11,7 @@
 	"graph-tracking-category-desc": "Denne siden inkluderer en <code><nowiki><graph></nowiki></code>-tagg.",
 	"graph-broken-category": "Sider med defekte diagrammer",
 	"graph-broken-category-desc": "Denne siden inkluderer en <code><nowiki><graph></nowiki></code>-tagg med feil.",
-	"graph-obsolete-category": "Sider med utdaterte Vega 1.0-diagram",
+	"graph-obsolete-category": "Sider med utdaterte Vega-grafer",
 	"graph-obsolete-category-desc": "Denne siden inneholder en <code><nowiki><graph></nowiki></code>-tag that som bør oppgraderes til versjon 5.",
 	"graph-error-empty-json": "Tomme grafdata, ingenting å vise",
 	"graph-error-not-vega": "Den angitte JSON-en er ikke gyldig Vega-JSON",
