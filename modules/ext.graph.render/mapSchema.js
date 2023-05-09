@@ -369,6 +369,11 @@ const mapSchema = ( spec ) => {
 	if ( isNewSchema ) {
 		return sanitize( Object.assign( { autosize }, spec ) );
 	}
+
+	// make a deep copy to avoid side effects - the same spec object can be passed to this
+	// method multiple times
+	spec = JSON.parse( JSON.stringify( spec ) );
+
 	const newSpec = {};
 	const dataSets = (
 		Array.isArray( spec.data ) ? spec.data : ( spec.data ? [ spec.data ] : [] )
