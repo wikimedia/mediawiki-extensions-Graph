@@ -91,6 +91,33 @@ const dataTransformToVega5 = ( dataTransform ) => {
 			} );
 			dataTransform = dataTransformSortbyToVega5( dataTransform );
 			break;
+		case 'lookup':
+			// For the "lookup" transform, the "on", "onKey" and "keys" parameters have been renamed "from", "key", and "fields".
+			dataTransform = Object.assign( {}, {
+				type: 'lookup',
+				from: dataTransform.on,
+				key: dataTransform.onKey,
+				fields: dataTransform.keys,
+				as: dataTransform.as,
+				default: dataTransform.default
+			} );
+			break;
+		case 'formula':
+			// the "formula" transform "field" parameter has been renamed "as".
+			if ( dataTransform.field ) {
+				dataTransform.as = [].concat( dataTransform.field );
+				delete dataTransform.field;
+			}
+			break;
+		case 'filter':
+			dataTransform = Object.assign( dataTransform, {
+				expr: dataTransform.test
+			} );
+			delete dataTransform.test;
+			break;
+		case 'linkpath':
+		case 'pie':
+			return dataTransform;
 		default:
 			throw new Error( 'Graph transform ' + dataTransform.type + ' not yet supported.' );
 	}
@@ -196,6 +223,30 @@ const scaleToVega5 = ( scales ) => {
 };
 
 /**
+ * Fixes keywords for pie charts.
+ *
+ * @param {Object} markEncoding
+ * @return {Object}
+ */
+const replaceLayoutKeywords = ( markEncoding ) => {
+	Object.keys( markEncoding ).forEach( ( key ) => {
+		// key = hover or update or enter.
+		Object.keys( markEncoding[ key ] ).forEach( ( key2 ) => {
+			const val = markEncoding[ key ][ key2 ];
+			if ( key2 === 'endAngle' || key2 === 'startAngle' ) {
+				const fieldName = val.field;
+				if ( fieldName === 'layout_end' ) {
+					markEncoding[ key ][ key2 ].field = 'endAngle';
+				} else if ( fieldName === 'layout_start' ) {
+					markEncoding[ key ][ key2 ].field = 'startAngle';
+				}
+			}
+		} );
+	} );
+	return markEncoding;
+};
+
+/**
  * @param {Object} markFrom
  * @param {Array} dataSets
  * @return {Object}
@@ -226,7 +277,9 @@ const markToVega5 = ( marks, dataSets ) => {
 	return marks.map( ( mark ) => {
 		mark = Object.assign( {}, mark );
 		if ( mark.properties !== undefined ) {
-			mark.encode = Object.assign( {}, mark.properties );
+			mark.encode = replaceLayoutKeywords(
+				Object.assign( {}, mark.properties )
+			);
 			delete mark.properties;
 		}
 		// Recursively convert marks if necessary.
