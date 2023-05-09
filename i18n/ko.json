@@ -21,6 +21,7 @@
 	"graph-error-empty-json": "비어있는 그래프 데이터이므로 표시할 것이 없습니다",
 	"graph-error-not-vega": "입력된 JSON이 올바른 Vega JSON이 아닙니다",
 	"graph-ve-dialog-button-tooltip": "그래프",
+	"graph-load": "그래프를 불러오려면 클릭하세요",
 	"graph-ve-dialog-edit-field-graph-type": "그래프 종류",
 	"graph-ve-dialog-edit-field-raw-json": "순수 JSON 사양",
 	"graph-ve-dialog-edit-height": "높이",
