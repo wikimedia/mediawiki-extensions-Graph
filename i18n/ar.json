@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Alshamiri1",
 			"FShbib",
 			"Meno25",
 			"Shbib Al-Subaie",
@@ -14,10 +15,12 @@
 	"graph-tracking-category-desc": "تتضمن هذه الصفحة وسم <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "صفحات بها مخططات معطوبة",
 	"graph-broken-category-desc": "تتضمن هذه الصفحة وسم <code><nowiki><graph></nowiki></code> باستخدام غير صالح.",
-	"graph-obsolete-category": "صفحات بها مخططات Vega مهملة",
-	"graph-obsolete-category-desc": "تتضمن هذه الصفحة وسم <code><nowiki><graph></nowiki></code> يجب تحديثه للإصدار 5.",
+	"graph-obsolete-category": "صفحات ذات رسوم بيانية قديمة فيغا",
+	"graph-obsolete-category-desc": "تتضمن الصفحة ملف<nowiki><graph></nowiki> العلامة التي يجب تحديثها إلى الإصدار 5.",
 	"graph-error-empty-json": "بيانات الرسم البياني فارغة; لا شيء لإظهاره",
 	"graph-error-not-vega": "JSON المقدم ليس Vega JSON صالحا",
+	"graph-error-vega-lite-unsupported": "JSON المقدم مخصص لـ Vega Lite ، وهو غير مدعوم حاليًا",
+	"graph-error-vega-unsupported-version": "JSON المقدم مخصص لـ Vega $1 وهو غير مدعوم حاليًا",
 	"graph-ve-dialog-button-tooltip": "مخطط",
 	"graph-ve-dialog-edit-field-graph-type": "نوع المخطط",
 	"graph-ve-dialog-edit-field-raw-json": "تخصيص JSON الخام",
@@ -43,5 +46,6 @@
 	"graph-ve-empty-graph": "مخطط فارغ",
 	"graph-ve-no-spec": "لم يتم العثور على مواصفات الرسم البياني",
 	"graph-ve-vega-error": "واجه Vega خطأ في عرض هذا الرسم البياني",
-	"graph-ve-vega-error-no-render": "لم يتمكن Vega من عرض هذا الرسم البياني"
+	"graph-ve-vega-error-no-render": "لم يتمكن Vega من عرض هذا الرسم البياني",
+	"graph-outdated-schema": "أنت تستخدم مخططًا قديمًا. هذا قد ينكسر في المستقبل. الرجاء استخدام المخطط المصحح أدناه."
 }
