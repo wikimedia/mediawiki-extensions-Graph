@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Colt browning",
 			"Facenapalm",
 			"Frhdkazan",
 			"INS Pirat",
@@ -15,7 +16,7 @@
 	"graph-tracking-category-desc": "Страница включает в себя тег <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Страницы со сломанными графиками",
 	"graph-broken-category-desc": "На этой странице неверно используется тег <code><nowiki><graph></nowiki></code>.",
-	"graph-obsolete-category": "Страницы с устаревшими графиками Vega 1.0",
+	"graph-obsolete-category": "Страницы с устаревшими графиками Vega",
 	"graph-obsolete-category-desc": "Страница включает в себя тег <code><nowiki><graph></nowiki></code>, который должен быть обновлён до версии 5.",
 	"graph-error-empty-json": "Данные графика пусты, нечего отображать.",
 	"graph-error-not-vega": "Некорректный JSON.",
