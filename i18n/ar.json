@@ -22,6 +22,7 @@
 	"graph-error-vega-lite-unsupported": "JSON المقدم مخصص لـ Vega Lite ، وهو غير مدعوم حاليًا",
 	"graph-error-vega-unsupported-version": "JSON المقدم مخصص لـ Vega $1 وهو غير مدعوم حاليًا",
 	"graph-ve-dialog-button-tooltip": "مخطط",
+	"graph-load": "انقر لتحميل الرسم البياني",
 	"graph-ve-dialog-edit-field-graph-type": "نوع المخطط",
 	"graph-ve-dialog-edit-field-raw-json": "تخصيص JSON الخام",
 	"graph-ve-dialog-edit-height": "الارتفاع",
@@ -47,5 +48,7 @@
 	"graph-ve-no-spec": "لم يتم العثور على مواصفات الرسم البياني",
 	"graph-ve-vega-error": "واجه Vega خطأ في عرض هذا الرسم البياني",
 	"graph-ve-vega-error-no-render": "لم يتمكن Vega من عرض هذا الرسم البياني",
-	"graph-outdated-schema": "أنت تستخدم مخططًا قديمًا. هذا قد ينكسر في المستقبل. الرجاء استخدام المخطط المصحح أدناه."
+	"graph-vega-old-browser": "متصفحك لا يدعم الرسوم البيانية",
+	"graph-outdated-schema": "أنت تستخدم مخططًا قديمًا. هذا قد ينكسر في المستقبل. الرجاء استخدام المخطط المصحح أدناه.",
+	"graph-sandbox-requires-js": "يتطلب وضع الحماية للرسم البياني متصفحًا حديثًا به JavaScript."
 }
