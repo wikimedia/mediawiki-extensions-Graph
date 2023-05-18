@@ -2,10 +2,19 @@
 	"@metadata": {
 		"authors": [
 			"Eitvys200",
-			"Zygimantus"
+			"Zygimantus",
+			"Nokeoo"
 		]
 	},
+	"graphsandbox": "Grafiko smėlio dėžė",
+	"graph-tracking-category": "Puslapiai su grafikais",
+	"graph-tracking-category-desc": "Puslapyje yra <code><nowiki><graph></nowiki></code> žyma.",
 	"graph-broken-category": "Puslapiai su sugedusiais grafikais",
+	"graph-broken-category-desc": "Puslapyje yra <code><nowiki><graph></nowiki></code> žyma su netinkamu naudojimu.",
+	"graph-error-empty-json": "Tušti diagramos duomenys, nėra ką rodyti",
+	"graph-ve-dialog-button-tooltip": "Grafikas",
+	"graph-ve-dialog-edit-field-graph-type": "Grafiko tipas",
+	"graph-ve-dialog-edit-field-raw-json": "Neapdorota JSON specifikacija",
 	"graph-ve-dialog-edit-height": "Aukštis",
 	"graph-ve-dialog-edit-padding-bottom": "Apačioje",
 	"graph-ve-dialog-edit-padding-left": "Kairėje",
@@ -16,5 +25,11 @@
 	"graph-ve-dialog-edit-page-raw": "Neapdoroti duomenys",
 	"graph-ve-dialog-edit-size-field": "Dydis",
 	"graph-ve-dialog-edit-size-table-unit": "Pikseliai",
-	"graph-ve-dialog-edit-width": "Plotis"
+	"graph-ve-dialog-edit-title": "Redaguoti grafiką",
+	"graph-ve-dialog-edit-type-bar": "Juostinė diagrama",
+	"graph-ve-dialog-edit-type-line": "Linijinė diagrama",
+	"graph-ve-dialog-edit-type-unknown": "Nežinomas grafiko tipas",
+	"graph-ve-dialog-edit-width": "Plotis",
+	"graph-ve-empty-graph": "Tuščias grafikas",
+	"graph-ve-no-spec": "Nerasta grafiko specifikacijų"
 }
