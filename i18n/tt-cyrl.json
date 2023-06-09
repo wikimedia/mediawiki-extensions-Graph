@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Blackisnewyellow",
 			"Ерней"
 		]
 	},
+	"graph-tracking-category": "Графиклы битләр",
 	"graph-ve-dialog-button-tooltip": "График",
 	"graph-ve-dialog-edit-field-graph-type": "График төре",
 	"graph-ve-dialog-edit-height": "Биеклек",
