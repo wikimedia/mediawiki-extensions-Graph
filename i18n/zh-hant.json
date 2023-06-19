@@ -16,7 +16,10 @@
 	"graph-obsolete-category-desc": "含有 <code><nowiki><graph></nowiki></code> 標籤且應更新為 5 版的頁面。",
 	"graph-error-empty-json": "空的圖表資料，沒有可顯示的東西",
 	"graph-error-not-vega": "提供的 JSON 不是有效的 Vega JSON",
+	"graph-error-vega-lite-unsupported": "提供的 JSON 是用於 Vega Lite，目前不支援",
+	"graph-error-vega-unsupported-version": "提供的 JSON 是用於 Vega $1，目前不支援",
 	"graph-ve-dialog-button-tooltip": "圖表",
+	"graph-load": "點擊來載入圖表",
 	"graph-ve-dialog-edit-field-graph-type": "圖表類型",
 	"graph-ve-dialog-edit-field-raw-json": "原始 JSON 描述",
 	"graph-ve-dialog-edit-height": "高度",
@@ -41,5 +44,8 @@
 	"graph-ve-empty-graph": "空圖表",
 	"graph-ve-no-spec": "查無圖型規格",
 	"graph-ve-vega-error": "Vega 在呈現此圖形時發生錯誤",
-	"graph-ve-vega-error-no-render": "Vega 無法呈現此圖形"
+	"graph-ve-vega-error-no-render": "Vega 無法呈現此圖形",
+	"graph-vega-old-browser": "您的瀏覽器不支援圖表",
+	"graph-outdated-schema": "您使用的是過時的架構，這在未來可能會中斷支援。請使用下方的更正架構。",
+	"graph-sandbox-requires-js": "圖表沙盒需要能使用 JavaScript 的現代瀏覽器。"
 }
