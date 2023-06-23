@@ -7,7 +7,6 @@
 			"Max Semenik"
 		]
 	},
-	"apihelp-graph-description": "Access graph tag functionality.",
 	"apihelp-graph-summary": "Access graph tag functionality.",
 	"apihelp-graph-example": "Get the graph JSON by hash and title",
 	"apihelp-graph-param-hash": "Hash value of the graph",

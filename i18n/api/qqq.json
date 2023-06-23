@@ -8,7 +8,6 @@
 			"Robby"
 		]
 	},
-	"apihelp-graph-description": "{{doc-apihelp-description|graph}}",
 	"apihelp-graph-summary": "{{doc-apihelp-summary|graph}}",
 	"apihelp-graph-example": "{{doc-apihelp-example|graph}}",
 	"apihelp-graph-param-hash": "{{doc-apihelp-param|graph|hash}}",
