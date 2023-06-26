@@ -7,7 +7,6 @@
 			"McDutchie"
 		]
 	},
-	"apihelp-graph-description": "Acceso a la funcionalidad de la etiqueta «graph».",
 	"apihelp-graph-example": "Obtener el JSON del gráfico por «hash» y título",
 	"apihelp-graph-param-hash": "Valor de hash del gráfico",
 	"apihelp-graph-param-title": "Título de la página con el gráfico",

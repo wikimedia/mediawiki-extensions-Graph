@@ -4,7 +4,6 @@
 			"Bjankuloski06"
 		]
 	},
-	"apihelp-graph-description": "Пристап до функцијата за ознаки за графикони.",
 	"apihelp-graph-summary": "Пристап до функцијата за ознаки за графикони.",
 	"apihelp-graph-example": "Дај JSON за графикон по тараба и наслов",
 	"apihelp-graph-param-hash": "Тарабна вредност на графиконот",

@@ -6,7 +6,6 @@
 			"Piramidion"
 		]
 	},
-	"apihelp-graph-description": "Отримати доступ до функціоналу тегів graph.",
 	"apihelp-graph-summary": "Отримати доступ до функціоналу тегів graph.",
 	"apihelp-graph-example": "Отримати графік у JSON-форматі за хешем та назвою",
 	"apihelp-graph-param-hash": "Хеш-значення графіка",

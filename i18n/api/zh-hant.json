@@ -5,7 +5,6 @@
 			"Kly"
 		]
 	},
-	"apihelp-graph-description": "存取圖表標籤功能。",
 	"apihelp-graph-summary": "存取圖表標籤功能。",
 	"apihelp-graph-example": "由 Hash 與標題取得圖表 JSON",
 	"apihelp-graph-param-hash": "此圖表的 Hash 值",

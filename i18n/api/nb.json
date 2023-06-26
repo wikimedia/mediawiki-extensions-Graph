@@ -4,7 +4,6 @@
 			"Jon Harald Søby"
 		]
 	},
-	"apihelp-graph-description": "Få tilgang til graftaggfunksjonalitet.",
 	"apihelp-graph-summary": "Få tilgang til graftaggfunksjonalitet.",
 	"apihelp-graph-example": "Hent graf-JSON-en med hash og tittel",
 	"apihelp-graph-param-hash": "Hash-verdien til grafen",

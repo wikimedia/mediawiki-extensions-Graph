@@ -6,7 +6,6 @@
 			"Metalhead64"
 		]
 	},
-	"apihelp-graph-description": "Greift auf die Funktionalität des Graph-Tags zu.",
 	"apihelp-graph-summary": "Greift auf die Funktionalität des Graph-Tags zu.",
 	"apihelp-graph-example": "Ruft das Grafik-JSON nach Prüfsumme und Titel ab",
 	"apihelp-graph-param-hash": "Prüfsummenwert des Diagramms",

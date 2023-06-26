@@ -4,7 +4,6 @@
 			"Vlad5250"
 		]
 	},
-	"apihelp-graph-description": "Pristup funkciji oznake grafikona.",
 	"apihelp-graph-summary": "Pristup funkciji oznake grafikona.",
 	"apihelp-graph-example": "Nabavi graf JSON prema hash-u i naslovu"
 }

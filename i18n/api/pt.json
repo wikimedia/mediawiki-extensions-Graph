@@ -4,7 +4,6 @@
 			"Hamilton Abreu"
 		]
 	},
-	"apihelp-graph-description": "Aceder à funcionalidade do elemento <code>graph</code>.",
 	"apihelp-graph-summary": "Aceder à funcionalidade do elemento <code>graph</code>.",
 	"apihelp-graph-example": "Obter o JSON do gráfico por resumo criptográfico e título",
 	"apihelp-graph-param-hash": "Valor do resumo criptográfico do gráfico",

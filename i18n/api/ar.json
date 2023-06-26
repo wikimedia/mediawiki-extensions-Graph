@@ -4,7 +4,6 @@
 			"ديفيد"
 		]
 	},
-	"apihelp-graph-description": "وظيفة وسم الوصول إلى الرسوم البيانية.",
 	"apihelp-graph-summary": "وظيفة وسم الوصول إلى الرسوم البيانية.",
 	"apihelp-graph-example": "الحصول على الرسم البياني JSON بواسطة رمز الرقم والعنوان",
 	"apihelp-graph-param-hash": "قيمة رمز الرقم للرسم البياني",

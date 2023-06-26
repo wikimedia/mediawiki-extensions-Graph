@@ -5,7 +5,6 @@
 			"William Surya Permana"
 		]
 	},
-	"apihelp-graph-description": "Akses fungsionalitas tag graph.",
 	"apihelp-graph-summary": "Akses fungsionalitas tag graph.",
 	"apihelp-graph-example": "Mengambil JSON bagan berdasarkan hash dan judul",
 	"apihelp-graph-param-hash": "Nilai hash dari bagan",

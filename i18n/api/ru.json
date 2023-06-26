@@ -5,7 +5,6 @@
 			"Movses"
 		]
 	},
-	"apihelp-graph-description": "Получение доступа к функциональности тега graph.",
 	"apihelp-graph-summary": "Получение доступа к функциональности тега graph.",
 	"apihelp-graph-example": "Получить JSON графика по его хэшу и названию",
 	"apihelp-graph-param-hash": "Хэш-значение графика",

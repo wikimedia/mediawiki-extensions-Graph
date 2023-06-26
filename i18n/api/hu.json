@@ -4,7 +4,6 @@
 			"Tacsipacsi"
 		]
 	},
-	"apihelp-graph-description": "A graph címke funkcióinak elérése.",
 	"apihelp-graph-summary": "A graph címke funkcióinak elérése.",
 	"apihelp-graph-param-title": "A grafikont tartalmazó lap címe",
 	"apierror-graph-mustposttext": "A kérést POST-tal kell küldeni a <var>text</var> paraméter használatakor.",

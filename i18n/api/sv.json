@@ -6,7 +6,6 @@
 			"WikiPhoenix"
 		]
 	},
-	"apihelp-graph-description": "Få tillgång till graftagg funktionen",
 	"apihelp-graph-summary": "Få tillgång till graftagg funktionen.",
 	"apihelp-graph-example": "Få JSON för grafen genom hash och titel",
 	"apihelp-graph-param-hash": "Hash-värde på grafen",

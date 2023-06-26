@@ -4,7 +4,6 @@
 			"Eleassar"
 		]
 	},
-	"apihelp-graph-description": "Dostop do funkcije značk za grafikone.",
 	"apihelp-graph-summary": "Dostop do funkcije oznak za grafikone.",
 	"apihelp-graph-example": "Pridobitev grafikona JSON po zgoščeni vrednosti in naslovu.",
 	"apihelp-graph-param-hash": "Zgoščena vrednost grafikona",

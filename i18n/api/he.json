@@ -5,7 +5,6 @@
 			"Guycn2"
 		]
 	},
-	"apihelp-graph-description": "גישה לפונקצינליות של תגי graph.",
 	"apihelp-graph-summary": "גישה לפונקצינליות של תגי graph.",
 	"apihelp-graph-example": "קבלת ה־JSON של התרשים באמצעות גיבוב וכותרת",
 	"apihelp-graph-param-hash": "ערך הגיבוב של התרשים",

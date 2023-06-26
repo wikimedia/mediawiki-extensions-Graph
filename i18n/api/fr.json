@@ -9,7 +9,6 @@
 			"Wladek92"
 		]
 	},
-	"apihelp-graph-description": "Accéder à la fonctionnalité de balise graphique.",
 	"apihelp-graph-summary": "Accéder à la fonctionnalité de balise graphique.",
 	"apihelp-graph-example": "Obtenir le JSON du graphique par hachage et titre",
 	"apihelp-graph-param-hash": "Valeur de hachage du graphique",

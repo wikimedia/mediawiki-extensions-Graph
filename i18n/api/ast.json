@@ -4,7 +4,6 @@
 			"Xuacu"
 		]
 	},
-	"apihelp-graph-description": "Accesu a la función de la etiqueta graph.",
 	"apihelp-graph-summary": "Accesu a la función de la etiqueta graph.",
 	"apihelp-graph-example": "Algamar el JSON de la gráfica por función hash y títulu",
 	"apihelp-graph-param-hash": "Valor hash de la gráfica",

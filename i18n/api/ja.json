@@ -5,7 +5,6 @@
 			"Yusuke1109"
 		]
 	},
-	"apihelp-graph-description": "グラフタグの機能にアクセス。",
 	"apihelp-graph-summary": "グラフタグの機能にアクセス。",
 	"apihelp-graph-example": "グラフのJSONをハッシュとタイトルで取得",
 	"apihelp-graph-param-hash": "グラフのハッシュ値",

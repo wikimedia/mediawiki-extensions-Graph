@@ -6,7 +6,6 @@
 			"Sezgin İbiş"
 		]
 	},
-	"apihelp-graph-description": "Erişim grafik etiketi işlevselliği.",
 	"apihelp-graph-summary": "Erişim grafik etiketi işlevselliği.",
 	"apihelp-graph-example": "JSON grafiğini karma ve başlığa göre alın",
 	"apihelp-graph-param-hash": "Grafiğin karma değeri",

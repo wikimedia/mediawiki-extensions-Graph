@@ -4,7 +4,6 @@
 			"Ykhwong"
 		]
 	},
-	"apihelp-graph-description": "그래프 태그 기능에 접근합니다.",
 	"apihelp-graph-summary": "그래프 태그 기능에 접근합니다.",
 	"apihelp-graph-example": "hash와 title로 그래프 JSON을 가져옵니다",
 	"apihelp-graph-param-hash": "그래프의 해시값",

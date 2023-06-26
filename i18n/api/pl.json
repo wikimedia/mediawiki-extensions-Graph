@@ -6,7 +6,6 @@
 			"Woytecr"
 		]
 	},
-	"apihelp-graph-description": "Dostęp do funkcjonalności znacznika graph.",
 	"apihelp-graph-summary": "Dostęp do funkcjonalności znacznika graph.",
 	"apihelp-graph-example": "Pobierz JSON wykresu według tytułu i hasha",
 	"apihelp-graph-param-hash": "Wartość hash grafu",
