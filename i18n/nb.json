@@ -15,6 +15,8 @@
 	"graph-obsolete-category-desc": "Denne siden inneholder en <code><nowiki><graph></nowiki></code>-tag that som bør oppgraderes til versjon 5.",
 	"graph-error-empty-json": "Tomme grafdata, ingenting å vise",
 	"graph-error-not-vega": "Den angitte JSON-en er ikke gyldig Vega-JSON",
+	"graph-error-vega-lite-unsupported": "Den angitte JSON-en er for Vega Lite, som for tiden ikke støttes",
+	"graph-error-vega-unsupported-version": "Den angitte JSON-en er for Vega $1, som for tiden ikke støttes",
 	"graph-ve-dialog-button-tooltip": "Graf",
 	"graph-load": "Trykk for å laste grafen",
 	"graph-ve-dialog-edit-field-graph-type": "Graftype",
@@ -42,5 +44,7 @@
 	"graph-ve-no-spec": "Ingen diagramspesifikasjon ble funnet",
 	"graph-ve-vega-error": "Vega støtte på et problem under opptegning av diagrammet",
 	"graph-ve-vega-error-no-render": "Vega klarte ikke å tegne opp diagrammet",
-	"graph-vega-old-browser": "Nettleseren din støtter ikke grafer"
+	"graph-vega-old-browser": "Nettleseren din støtter ikke grafer",
+	"graph-outdated-schema": "Du bruker et utdatert skjema. Dette kan slutte å fungere i fremtiden. Bruk det korrigerte skjemaet nedenfor.",
+	"graph-sandbox-requires-js": "Grafsandkassen krever en moderne nettleser med JavaScript."
 }
