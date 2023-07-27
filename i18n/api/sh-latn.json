@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"apihelp-graph-summary": "Pristup funkciji oznake grafikona.",
+	"apihelp-graph-example": "Nabavi graf JSON prema hash-u i naslovu"
+}
