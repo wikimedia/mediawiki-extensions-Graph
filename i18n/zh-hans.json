@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"CrownedWharf566",
 			"Liuxinyu970226"
 		]
 	},
@@ -10,7 +11,7 @@
 	"graph-tracking-category-desc": "页面包含<code><nowiki><graph></nowiki></code>标签。",
 	"graph-broken-category": "有损坏图表的页面",
 	"graph-broken-category-desc": "页面包含无效用法的<code><nowiki><graph></nowiki></code>标签。",
-	"graph-obsolete-category": "有过时的Vega 1.0图表的页面",
+	"graph-obsolete-category": "有过时的Vega图表的页面",
 	"graph-obsolete-category-desc": "页面包含应更新至版本5的<code><nowiki><graph></nowiki></code>标签。",
 	"graph-error-empty-json": "空白图标数据，没有要显示的事物",
 	"graph-error-not-vega": "提供的JSON不是有效的Vega JSON",
