@@ -13,9 +13,9 @@ use ApiBase;
 use ApiMain;
 use FormatJson;
 use MediaWiki\Page\WikiPageFactory;
+use MediaWiki\Title\Title;
 use ParserFactory;
 use ParserOptions;
-use Title;
 use WANObjectCache;
 use Wikimedia\ParamValidator\ParamValidator;
 

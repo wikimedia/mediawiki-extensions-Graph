@@ -15,6 +15,7 @@ use Language;
 use Linker;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageReference;
+use MediaWiki\Title\Title;
 use Message;
 use OutputPage;
 use Parser;
@@ -22,7 +23,6 @@ use ParserOptions;
 use ParserOutput;
 use PPFrame;
 use Status;
-use Title;
 
 class ParserTag {
 	/** Sync with mapSchema.js */
