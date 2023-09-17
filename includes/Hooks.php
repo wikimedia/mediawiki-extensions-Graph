@@ -8,22 +8,25 @@
 
 namespace Graph;
 
+use MediaWiki\Hook\OutputPageParserOutputHook;
+use MediaWiki\Hook\ParserFirstCallInitHook;
 use OutputPage;
 use Parser;
 use ParserOutput;
 
-class Hooks {
+class Hooks implements
+	ParserFirstCallInitHook,
+	OutputPageParserOutputHook
+{
 
 	/**
 	 * ParserFirstCallInit hook handler.
 	 * Registers the <graph> tag
 	 *
 	 * @param Parser $parser
-	 * @return bool
 	 */
-	public static function onParserFirstCallInit( Parser $parser ) {
+	public function onParserFirstCallInit( $parser ) {
 		$parser->setHook( 'graph', 'Graph\ParserTag::onGraphTag' );
-		return true;
 	}
 
 	/**
@@ -31,8 +34,8 @@ class Hooks {
 	 * @param OutputPage $outputPage
 	 * @param ParserOutput $parserOutput ParserOutput instance being added in $outputPage
 	 */
-	public static function onOutputPageParserOutput(
-		OutputPage $outputPage, ParserOutput $parserOutput
+	public function onOutputPageParserOutput(
+		$outputPage, $parserOutput
 	): void {
 		ParserTag::finalizeParserOutput( $outputPage, $parserOutput );
 	}

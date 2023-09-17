@@ -157,8 +157,13 @@
 		"wgGraphSpecs"
 	],
 	"Hooks": {
-		"ParserFirstCallInit": "Graph\\Hooks::onParserFirstCallInit",
-		"OutputPageParserOutput": "Graph\\Hooks::onOutputPageParserOutput"
+		"ParserFirstCallInit": "main",
+		"OutputPageParserOutput": "main"
+	},
+	"HookHandlers": {
+		"main": {
+			"class": "Graph\\Hooks"
+		}
 	},
 	"attributes": {
 		"VisualEditor": {
