@@ -26,7 +26,7 @@ class Hooks implements
 	 * @param Parser $parser
 	 */
 	public function onParserFirstCallInit( $parser ) {
-		$parser->setHook( 'graph', 'Graph\ParserTag::onGraphTag' );
+		$parser->setHook( 'graph', [ ParserTag::class, 'onGraphTag' ] );
 	}
 
 	/**
