@@ -8,6 +8,7 @@
 	},
 	"graphsandbox": "Пясочніца Graph",
 	"graph-tracking-category": "Старонкі з тэгам graph",
+	"graph-tracking-category-desc": "Старонка змяшчае тэг <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Старонкі з няслушна ўжытым тэгам graph",
 	"graph-obsolete-category": "Старонкі з састарэлымі Vega графікамі",
 	"graph-ve-dialog-button-tooltip": "Дыяграму",
