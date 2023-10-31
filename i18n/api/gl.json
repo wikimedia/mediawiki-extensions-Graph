@@ -1,13 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Elisardojm"
+			"Elisardojm",
+			"Toliño"
 		]
 	},
 	"apihelp-graph-description": "Acceder á funcionalidade de etiquetado de gráficos.",
 	"apihelp-graph-summary": "Acceder á funcionalidade de etiquetado de gráficos.",
 	"apihelp-graph-example": "Obter o JSON do gráfico por función hash e título",
 	"apihelp-graph-param-hash": "Valor hash do gráfico",
+	"apihelp-graph-param-oldid": "Identificador da revisión da páxina co gráfico",
 	"apihelp-graph-param-title": "Título da páxina co gráfico",
 	"apihelp-graph-param-text": "Texto do gráfico a converter a JSON. Debe ser enviado e usado sen título nin parámetros de resumo (hash)",
 	"apierror-graph-mustposttext": "A petición debe enviarse polo método POST se se usa o parámetro <var>text</var>.",
