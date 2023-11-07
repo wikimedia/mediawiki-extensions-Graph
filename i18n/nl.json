@@ -4,19 +4,24 @@
 			"Bdijkstra",
 			"Mar(c)",
 			"Siebrand",
-			"Sjoerddebruin"
+			"Sjoerddebruin",
+			"McDutchie"
 		]
 	},
 	"graph-desc": "Maakt het mogelijk om het label &lt;graph> of hele pagina's op [http://vega.github.io/ Vega] gebaseerde grafieken te laten worden",
 	"graphsandbox": "Grafiekzandbak",
 	"graph-tracking-category": "Pagina's met grafieken",
-	"graph-tracking-category-desc": "De pagina bevat het label <code><nowiki><graph></nowiki></code>.",
+	"graph-tracking-category-desc": "De pagina bevat een <code><nowiki><graph></nowiki></code>-tag.",
 	"graph-broken-category": "Pagina's met niet-werkende grafieken",
-	"graph-broken-category-desc": "De pagina bevat een label <code><nowiki><graph></nowiki></code> dat onjuist wordt gebruikt.",
+	"graph-broken-category-desc": "De pagina bevat een <code><nowiki><graph></nowiki></code>-tag die onjuist wordt gebruikt.",
 	"graph-obsolete-category": "Pagina's met verouderde Vega 1.0-grafieken",
+	"graph-error-empty-json": "Lege grafiekgegevens. Er is niets om te laten zien.",
+	"graph-error-not-vega": "De opgegeven JSON is geen geldige Vega-JSON",
 	"graph-ve-dialog-button-tooltip": "Grafiek",
 	"graph-ve-dialog-edit-field-graph-type": "Soort grafiek",
+	"graph-ve-dialog-edit-field-raw-json": "Ruwe JSON-specificatie",
 	"graph-ve-dialog-edit-height": "Hoogte",
+	"graph-ve-dialog-edit-json-invalid": "Ongeldige JSON-tekenreeks",
 	"graph-ve-dialog-edit-padding-auto": "Automatische opvulling",
 	"graph-ve-dialog-edit-padding-bottom": "Onderaan",
 	"graph-ve-dialog-edit-padding-left": "Links",
@@ -33,5 +38,9 @@
 	"graph-ve-dialog-edit-type-line": "Lijngrafiek",
 	"graph-ve-dialog-edit-type-unknown": "Onbekend soort grafiek",
 	"graph-ve-dialog-edit-width": "Breedte",
-	"graph-ve-empty-graph": "Lege grafiek"
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "Het type van deze grafiek wordt niet ondersteund en eventuele wijzigingen erin kunnen de weergave ervan verstoren. Bewerk de grafiek via de onbewerkte gegevensspecificatie op het tabblad “{{int:graph-ve-dialog-edit-page-raw}}”.",
+	"graph-ve-empty-graph": "Lege grafiek",
+	"graph-ve-no-spec": "Geen grafiekspecificatie gevonden",
+	"graph-ve-vega-error": "Vega heeft een fout aangetroffen bij het weergeven van deze grafiek",
+	"graph-ve-vega-error-no-render": "Vega kon deze grafiek niet weergeven"
 }
