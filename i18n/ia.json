@@ -5,7 +5,7 @@
 		]
 	},
 	"graph-desc": "Permitte que etiquettas &lt;graph&gt; o mesmo paginas complete deveni graphicos basate sur [http://vega.github.io/ Vega]",
-	"graphsandbox": "Cassa a sablo pro graphicos",
+	"graphsandbox": "Sabliera de Graph",
 	"graph-tracking-category": "Paginas con graphicos",
 	"graph-tracking-category-desc": "Le pagina include un etiquetta <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Paginas con graphicos rupte",

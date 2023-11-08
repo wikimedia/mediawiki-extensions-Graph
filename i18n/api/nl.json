@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"apihelp-graph-summary": "Toegang tot grafieklabel-functionaliteit.",
+	"apihelp-graph-example": "De JSON-grafiek ophalen aan de hand van hash en titel",
+	"apihelp-graph-param-hash": "Hashwaarde van de grafiek",
+	"apihelp-graph-param-oldid": "ID van de versie van de pagina met de grafiek",
+	"apihelp-graph-param-title": "Titel van de pagina met de grafiek",
+	"apihelp-graph-param-text": "Tekst van de grafiek die naar JSON moet worden omgezet. Moet worden gePOST en gebruikt zonder de parameters ‘title’ en ‘hash’",
+	"apierror-graph-mustposttext": "Het verzoek moet worden gePOST wanneer de parameter <var>text</var> wordt gebruikt.",
+	"apierror-graph-invalid": "Grafiek is niet geldig.",
+	"apierror-graph-missing": "Geen grafiek gevonden."
+}
