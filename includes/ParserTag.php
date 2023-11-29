@@ -52,6 +52,7 @@ class ParserTag {
 	}
 
 	/**
+	 * <graph> parser tag handler.
 	 * @param string|null $input
 	 * @param array $args
 	 * @param Parser $parser
@@ -66,6 +67,8 @@ class ParserTag {
 	}
 
 	/**
+	 * - Add tracking categories
+	 * - Split parser cache for preview, where Graph uses different HTML
 	 * @param ParserOutput $parserOutput
 	 * @param ?PageReference $pageRef
 	 * @param bool $isPreview
@@ -87,12 +90,13 @@ class ParserTag {
 		$tc->addTrackingCategory( $parserOutput, 'graph-tracking-category', $pageRef );
 
 		if ( $isPreview ) {
-			// Preview generates HTML that is different from normal
 			$parserOutput->updateCacheExpiry( 0 );
 		}
 	}
 
 	/**
+	 * Called on OutputPageParserOutput, handles initializing the client-side logic based on
+	 * the graph data collected in the ParserOutput.
 	 * @param OutputPage $outputPage
 	 * @param ParserOutput $parserOutput
 	 */
@@ -165,9 +169,20 @@ class ParserTag {
 	}
 
 	/**
-	 * @param string $jsonText
+	 * Generate HTML output for the <graph> parser tag.
+	 * On error, outputs an error message. On success, outputs an empty div with the Vega
+	 * specification's sha1 hash in its 'data-graph-id' attribute.
+	 * Sets the following keys in the ParserOutput extension data:
+	 * - graph_vega2 and graph_specs_obsolete: there is at least one Vega 2 graph on the page
+	 * - graph_vega5: there is at least one Vega 5 graph on the page
+	 * - graph_specs_index: a list of all Vega spec hashes
+	 * - graph_specs[<hash>]: the Vega spec whose sha1 hash is <hash> (note the hash and brackets
+	 *   are literally part of the key)
+	 * - graph_live_specs_index and graph_live_specs[<hash>]: same thing but for graphs shown
+	 *   during page preview.
+	 * @param string $jsonText <graph> tag contents; expected to be a JSON Vega definition.
 	 * @param int $revid
-	 * @param array|null $args
+	 * @param array|null $args <graph> tag attributes:
 	 *      title: no longer used?
 	 *      fallback: title of a fallback image for noscript
 	 *      fallbackWidth: width of the fallback image
