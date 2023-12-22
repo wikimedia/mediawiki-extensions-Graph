@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Fahimrazick",
 			"Timbaaa"
 		]
 	},
@@ -14,7 +15,7 @@
 	"graph-ve-dialog-edit-padding-top": "மேல்",
 	"graph-ve-dialog-edit-page-data": "தரவு",
 	"graph-ve-dialog-edit-page-general": "பொது",
-	"graph-ve-dialog-edit-page-raw": "மூல தரவு",
+	"graph-ve-dialog-edit-page-raw": "மூலத்தரவு",
 	"graph-ve-dialog-edit-size-field": "அளவு",
 	"graph-ve-dialog-edit-title": "வரைப்படத்தை தொகு",
 	"graph-ve-dialog-edit-width": "அகலம்",

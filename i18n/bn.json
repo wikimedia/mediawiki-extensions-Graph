@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Aftabuzzaman",
+			"Aishik Rehman",
 			"আফতাবুজ্জামান"
 		]
 	},
@@ -37,7 +38,7 @@
 	"graph-ve-dialog-edit-width": "প্রস্থ",
 	"graph-ve-dialog-edit-unknown-graph-type-warning": "এই গ্রাফের ধরণ অসমর্থিত, এবং এটিতে কোন পরিবর্তন করলে এটি প্রদর্শনের ভেঙ্গে যেতে পারে। দয়া করে \"{{int:graph-ve-dialog-edit-page-raw}}\" ট্যাবে সারির উপাত্ত নির্দিষ্টকরণের মাধ্যমে গ্রাফ সম্পাদনা করুন।",
 	"graph-ve-empty-graph": "গ্রাফ খালি",
-	"graph-ve-no-spec": "কোন গ্রাফ নির্দিষ্টকরণ পাওয়া যায়নি",
+	"graph-ve-no-spec": "কোনো গ্রাফ নির্দিষ্টকরণ পাওয়া যায়নি",
 	"graph-ve-vega-error": "ভেগা এই গ্রাফ রেন্ডারিং করার সময় একটি ত্রুটির সম্মুখীন হয়েছে",
 	"graph-ve-vega-error-no-render": "ভেগা এই গ্রাফ রেন্ডার করতে অক্ষম"
 }
