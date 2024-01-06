@@ -10,7 +10,7 @@
 	"license-name": "MIT",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.41"
+		"MediaWiki": ">= 1.42"
 	},
 	"MessagesDirs": {
 		"Graph": [

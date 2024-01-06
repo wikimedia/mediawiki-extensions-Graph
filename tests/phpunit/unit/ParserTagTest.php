@@ -2,9 +2,9 @@
 namespace Graph\Tests\Unit;
 
 use Graph\ParserTag;
+use MediaWiki\Parser\ParserOutput;
 use Parser;
 use ParserOptions;
-use ParserOutput;
 
 /**
  * Class ParserTagTestt
