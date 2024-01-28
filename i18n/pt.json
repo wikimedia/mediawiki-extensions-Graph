@@ -15,10 +15,13 @@
 	"graph-broken-category": "Páginas com gráficos quebrados",
 	"graph-broken-category-desc": "A página inclui um elemento <code><nowiki><graph></nowiki></code> com utilização inválida.",
 	"graph-obsolete-category": "Páginas com gráficos Vega obsoletos",
-	"graph-obsolete-category-desc": "A página inclui um elemento <code><nowiki><graph></nowiki></code> que deve ser atualizado para a versão 5.",
+	"graph-obsolete-category-desc": "A página inclui uma etiqueta <code><nowiki><graph></nowiki></code> que deve ser atualizada para a versão 5.",
 	"graph-error-empty-json": "Dados de gráfico vazios, nada a apresentar",
 	"graph-error-not-vega": "O JSON fornecido não é JSON Vega válido",
+	"graph-error-vega-lite-unsupported": "O JSON fornecido é para Vega Lite, que não é suportado neste momento",
+	"graph-error-vega-unsupported-version": "O JSON fornecido é para Vega $1, que não é suportado neste momento",
 	"graph-ve-dialog-button-tooltip": "Gráfico",
+	"graph-load": "Clicar para carregar o gráfico",
 	"graph-ve-dialog-edit-field-graph-type": "Tipo de gráfico",
 	"graph-ve-dialog-edit-field-raw-json": "Especificação em JSON em bruto",
 	"graph-ve-dialog-edit-height": "Altura",
@@ -43,5 +46,8 @@
 	"graph-ve-empty-graph": "Gráfico vazio",
 	"graph-ve-no-spec": "Não foi encontrada uma especificação de gráfico",
 	"graph-ve-vega-error": "Ocorreu um problema no Vega ao compor este gráfico",
-	"graph-ve-vega-error-no-render": "O Vega não conseguiu compor este gráfico"
+	"graph-ve-vega-error-no-render": "O Vega não conseguiu compor este gráfico",
+	"graph-vega-old-browser": "O seu ''browser'' não suporta gráficos",
+	"graph-outdated-schema": "Está a usar um esquema desatualizado. Isso pode deixar de funcionar no futuro. Use o esquema corrigido abaixo, por favor.",
+	"graph-sandbox-requires-js": "A zona de testes de gráficos requer um ''browser'' moderno com JavaScript."
 }
