@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sveinn í Felli"
+			"Sveinn í Felli",
+			"Stefán Örvar Sigmundsson"
 		]
 	},
+	"graph-tracking-category": "Síður með gröfum",
+	"graph-tracking-category-desc": "Síðan innifelur <code><nowiki><graph></nowiki></code>-merki.",
+	"graph-broken-category-desc": "Síðan innifelur <code><nowiki><graph></nowiki></code>-merki með ógildri notkun.",
 	"graph-ve-dialog-button-tooltip": "Graf",
 	"graph-ve-dialog-edit-field-graph-type": "Tegund grafs:",
 	"graph-ve-dialog-edit-height": "Hæð",
