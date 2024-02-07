@@ -5,9 +5,9 @@
 		]
 	},
 	"graph-tracking-category": "Sider med diagram",
-	"graph-tracking-category-desc": "Sida nyttar eit <code><nowiki><graph></nowiki></code>-merke",
+	"graph-tracking-category-desc": "Sida nyttar eit <code>&lt;graph&gt;</code>-merke",
 	"graph-broken-category": "Sider med uverksame diagram",
-	"graph-broken-category-desc": "Sida nyttar eit <code><nowiki><graph></nowiki></code>-merke med feil.",
+	"graph-broken-category-desc": "Sida nyttar eit <code>&lt;graph&gt;</code>-merke med feil.",
 	"graph-obsolete-category": "Sider med utdaterte Vega 1.0-diagram",
-	"graph-obsolete-category-desc": "Sida nyttar eit <code><nowiki><graph></nowiki></code>-merke som bør oppdaterast til versjon 5."
+	"graph-obsolete-category-desc": "Sida nyttar eit <code>&lt;graph&gt;</code>-merke som bør oppdaterast til versjon 5."
 }

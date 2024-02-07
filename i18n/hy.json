@@ -5,9 +5,9 @@
 		]
 	},
 	"graph-tracking-category": "Գրաֆիկներով էջեր",
-	"graph-tracking-category-desc": "Էջում կա <code><nowiki><graph></nowiki></code> թեգ",
+	"graph-tracking-category-desc": "Էջում կա <code>&lt;graph&gt;</code> թեգ",
 	"graph-broken-category": "Կոտրված գրաֆիկներով էջեր",
-	"graph-broken-category-desc": "Էջը պարունակում է սխալ կիրառմամբ <code><nowiki><graph></nowiki></code> թեգ",
+	"graph-broken-category-desc": "Էջը պարունակում է սխալ կիրառմամբ <code>&lt;graph&gt;</code> թեգ",
 	"graph-ve-dialog-button-tooltip": "Գրաֆիկ",
 	"graph-ve-dialog-edit-field-graph-type": "Գրաֆիկի տեսակ",
 	"graph-ve-dialog-edit-field-raw-json": "Հում JSON կարգավորումներ",
