@@ -15,6 +15,7 @@
 	"graph-error-empty-json": "Date d'u grafeche vacande, ninde da fà 'ndrucà",
 	"graph-error-not-vega": "'U JSON date non g'è 'nu JSON Vega valide",
 	"graph-ve-dialog-button-tooltip": "Grafeche",
+	"graph-load": "Cazze pe carecà 'u grafeche",
 	"graph-ve-dialog-edit-field-graph-type": "Tipe de grafeche",
 	"graph-ve-dialog-edit-field-raw-json": "Specifiche d'u JSON grezze",
 	"graph-ve-dialog-edit-height": "Altezze",

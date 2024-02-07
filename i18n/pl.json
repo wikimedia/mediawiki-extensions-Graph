@@ -7,7 +7,8 @@
 			"Rail",
 			"Railfail536",
 			"The Polish",
-			"Woytecr"
+			"Woytecr",
+			"Msz2001"
 		]
 	},
 	"graph-desc": "Umożliwia znacznikom <code>&lt;graph&gt;</code> lub całym stronom stworzenie wykresów bazujących na [http://vega.github.io/ Vega]",
@@ -16,7 +17,7 @@
 	"graph-tracking-category-desc": "Strona zawiera znacznik <code><nowiki><graph></nowiki></code>.",
 	"graph-broken-category": "Strony z zepsutymi diagramami",
 	"graph-broken-category-desc": "Strona zawiera nieprawidłowo zastosowany znacznik <code><nowiki><graph></nowiki></code>.",
-	"graph-obsolete-category": "Strony z przestarzałymi diagramami Vega 1.0",
+	"graph-obsolete-category": "Strony z przestarzałymi diagramami Vega",
 	"graph-obsolete-category-desc": "Strona zawiera znacznik <code><nowiki><graph></nowiki></code>, który powinien zostać zaktualizowany do wersji 5.",
 	"graph-error-empty-json": "Puste dane wykresu, nie ma nic do pokazania",
 	"graph-error-not-vega": "Podany JSON nie jest prawidłowym JSON Vega",
