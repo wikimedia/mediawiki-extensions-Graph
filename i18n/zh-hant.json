@@ -3,17 +3,18 @@
 		"authors": [
 			"Cwlin0416",
 			"Kly",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Winston Sung"
 		]
 	},
 	"graph-desc": "允許 &lt;graph&gt; 標籤或整個頁面使用 [http://vega.github.io/ Vega] 為基礎的圖型。",
 	"graphsandbox": "圖表沙盒",
 	"graph-tracking-category": "有圖表的頁面",
-	"graph-tracking-category-desc": "含有 <code>&lt;graph&gt;</code> 標籤的頁面。",
+	"graph-tracking-category-desc": "頁面含有 <code>&lt;graph&gt;</code> 標籤。",
 	"graph-broken-category": "有損壞圖表的頁面",
-	"graph-broken-category-desc": "含有 <code>&lt;graph&gt;</code> 標籤且有無效用法的頁面。",
+	"graph-broken-category-desc": "頁面含有 <code>&lt;graph&gt;</code> 標籤且有無效用法。",
 	"graph-obsolete-category": "有過時 Vega 圖表的頁面",
-	"graph-obsolete-category-desc": "含有 <code>&lt;graph&gt;</code> 標籤且應更新為 5 版的頁面。",
+	"graph-obsolete-category-desc": "頁面含有 <code>&lt;graph&gt;</code> 標籤且應更新為第 5 版。",
 	"graph-error-empty-json": "空的圖表資料，沒有可顯示的東西",
 	"graph-error-not-vega": "提供的 JSON 不是有效的 Vega JSON",
 	"graph-error-vega-lite-unsupported": "提供的 JSON 是用於 Vega Lite，目前不支援",
