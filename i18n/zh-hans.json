@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Anterdc99",
 			"CrownedWharf566",
 			"LittlePaw365",
 			"Liuxinyu970226"
@@ -16,7 +17,10 @@
 	"graph-obsolete-category-desc": "页面包含应更新至版本5的<code>&lt;graph&gt;</code>标签。",
 	"graph-error-empty-json": "图形数据为空，没有任何内容可显示",
 	"graph-error-not-vega": "提供的JSON不是有效的Vega JSON",
+	"graph-error-vega-lite-unsupported": "提供的JSON适用于Vega Lite，目前尚不支持",
+	"graph-error-vega-unsupported-version": "提供的JSON适用于Vega $1，目前尚不支持",
 	"graph-ve-dialog-button-tooltip": "图表",
+	"graph-load": "点击加载图表",
 	"graph-ve-dialog-edit-field-graph-type": "图表类型",
 	"graph-ve-dialog-edit-field-raw-json": "原始JSON规范",
 	"graph-ve-dialog-edit-height": "高度",
@@ -41,5 +45,8 @@
 	"graph-ve-empty-graph": "空的图表",
 	"graph-ve-no-spec": "找不到图表规范",
 	"graph-ve-vega-error": "Vega在渲染此图表时遇到错误",
-	"graph-ve-vega-error-no-render": "Vega无法渲染此图表"
+	"graph-ve-vega-error-no-render": "Vega无法渲染此图表",
+	"graph-vega-old-browser": "您的浏览器不支持图表",
+	"graph-outdated-schema": "您使用的是过时架构。这可能会在将来出现问题。请使用下列更正后的架构。",
+	"graph-sandbox-requires-js": "图表沙盒需要带有JavaScript的现代浏览器。"
 }
