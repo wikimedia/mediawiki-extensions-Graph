@@ -10,7 +10,8 @@
 		"mediawiki/no-nodelist-unsupported-methods": "off",
 		"no-implicit-globals": "off",
 		"compat/compat": "off",
-		"no-var": "warn"
+		"no-var": "warn",
+		"es-x/no-resizable-and-growable-arraybuffers": "warn"
 	},
 	"globals": {
 		"vg": "readonly"

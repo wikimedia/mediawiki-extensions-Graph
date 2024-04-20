@@ -15,7 +15,7 @@
 			}, ( e ) => {
 				element.classList.remove( 'mw-graph-clickable-loading' );
 				element.classList.add( 'mw-graph-clickable-error' );
-				mw.log.error( `Error loading graph with data-graph-id=${e.graphId}`, e.exception );
+				mw.log.error( `Error loading graph with data-graph-id=${ e.graphId }`, e.exception );
 				mw.errorLogger.logError( e.exception, 'error.graph' );
 			} );
 		} );

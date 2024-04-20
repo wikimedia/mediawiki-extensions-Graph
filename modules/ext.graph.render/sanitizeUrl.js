@@ -23,13 +23,13 @@ function sanitizeUrl( url ) {
 	const urlObj = new URL( url );
 	const protocol = urlObj.protocol;
 	if ( !( protocol === 'https:' || protocol === 'http:' && allowHttp ) ) {
-		throw new Error( `The protocol ${protocol} is currently not supported.` );
+		throw new Error( `The protocol ${ protocol } is currently not supported.` );
 	}
 	const domains = allowedDomains[ protocol.slice( 0, -1 ) ] || [];
 	if ( isDomainTrusted( urlObj, domains ) ) {
 		return url;
 	} else {
-		throw new Error( `The host ${urlObj.host} is not in the list of trusted domains for the protocol ${protocol}` );
+		throw new Error( `The host ${ urlObj.host } is not in the list of trusted domains for the protocol ${ protocol }` );
 	}
 }
 

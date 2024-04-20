@@ -16,7 +16,7 @@ function loadGraph( el, graphSpec ) {
 	const id = el.dataset.graphId || 'unknown-graph';
 	const graph = graphSpec || specs[ id ];
 	if ( !graph ) {
-		return Promise.reject( `Graph: Unable to find graph with id ${id}` );
+		return Promise.reject( `Graph: Unable to find graph with id ${ id }` );
 	} else {
 		return new Promise( ( resolve, reject ) => {
 			try {

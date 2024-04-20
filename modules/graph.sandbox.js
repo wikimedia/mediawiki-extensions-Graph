@@ -7,7 +7,7 @@
 	const loadGraph = graph.loadGraph;
 	const banner = document.createElement( 'div' );
 	const GRAPH_CLASS_CLICKABLE = 'mw-graph-clickable';
-	const GRAPH_CLASS_ERROR = `${GRAPH_CLASS_CLICKABLE}-error`;
+	const GRAPH_CLASS_ERROR = `${ GRAPH_CLASS_CLICKABLE }-error`;
 	// Prepopulated graph that is shown when the graph is clicked.
 	const exampleGraph = {
 		$schema: 'https://vega.github.io/schema/vega/v5.json'
