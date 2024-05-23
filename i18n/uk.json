@@ -16,7 +16,7 @@
 	"graph-tracking-category-desc": "Сторінка включає тег <code>&lt;graph&gt;</code>.",
 	"graph-broken-category": "Сторінки зі зламаними графіками",
 	"graph-broken-category-desc": "Сторінка включає неправильно використаний тег <code>&lt;graph&gt;</code>.",
-	"graph-obsolete-category": "Сторінки з застарілими графіками Vega 1.0",
+	"graph-obsolete-category": "Сторінки з застарілими графіками Vega",
 	"graph-obsolete-category-desc": "Ця сторінка містить тег <code>&lt;graph&gt;</code>, який треба оновити до версії 5.",
 	"graph-error-empty-json": "Порожні дані графіка, нема що показувати",
 	"graph-error-not-vega": "Наданий JSON не є дійсним Vega JSON",
