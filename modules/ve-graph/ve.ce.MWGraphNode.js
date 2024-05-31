@@ -10,7 +10,7 @@ const loadGraph = require( 'ext.graph.render' ).loadGraph;
  *
  * @class
  * @extends ve.ce.MWBlockExtensionNode
- * @mixins ve.ce.MWResizableNode
+ * @mixes ve.ce.MWResizableNode
  *
  * @constructor
  * @param {ve.dm.MWGraphNode} model Model to observe

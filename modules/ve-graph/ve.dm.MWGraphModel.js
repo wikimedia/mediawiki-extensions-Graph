@@ -8,7 +8,7 @@
  * MediaWiki graph model.
  *
  * @class
- * @mixins OO.EventEmitter
+ * @mixes OO.EventEmitter
  *
  * @constructor
  * @param {Object} [spec] The Vega specification as a JSON object
