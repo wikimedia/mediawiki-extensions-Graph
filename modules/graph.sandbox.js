@@ -13,7 +13,7 @@
 		$schema: 'https://vega.github.io/schema/vega/v5.json'
 	};
 
-	$( function () {
+	$( () => {
 		const sandbox = document.getElementById( 'mw-graph-sandbox' );
 		$( sandbox ).split( {
 			orientation: 'vertical',
@@ -102,7 +102,7 @@
 				}
 			};
 		}
-		$graphEl.addEventListener( 'click', function () {
+		$graphEl.addEventListener( 'click', () => {
 			if ( $graphEl.classList.contains( GRAPH_CLASS_CLICKABLE ) ) {
 				loadGraph( $graphEl, exampleGraph ).then(
 					graphLoadedCallback( exampleGraph ),
@@ -128,7 +128,7 @@
 		// I tried to resize on $( window ).resize(), but that didn't work right
 		resizeCodeEditor();
 
-		session.on( 'change', OO.ui.debounce( function () {
+		session.on( 'change', OO.ui.debounce( () => {
 			const content = session.getValue();
 
 			if ( oldContent === content ) {
@@ -141,7 +141,7 @@
 				formatversion: 2,
 				action: 'graph',
 				text: content
-			} ).then( function ( data ) {
+			} ).then( ( data ) => {
 				if ( session.getValue() !== content ) {
 					// Just in case the content has changed since we made the api call
 					return;
@@ -150,7 +150,7 @@
 					graphLoadedCallback( data.graph ),
 					graphErrorCallback( data.graph )
 				);
-			}, function ( errCode, error ) {
+			}, ( errCode, error ) => {
 				graphErrorCallback( null )( error );
 			} );
 		}, 300 ) );

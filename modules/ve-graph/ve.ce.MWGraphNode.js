@@ -118,14 +118,14 @@ ve.ce.MWGraphNode.prototype.update = function () {
 
 	this.$element.toggleClass( 'mw-graph-vega1', this.getModel().isGraphLegacy() );
 
-	mw.loader.using( 'ext.graph.render' ).then( function () {
+	mw.loader.using( 'ext.graph.render' ).then( () => {
 		node.$plot.detach();
 
 		node.constructor.static.vegaParseSpec( node.getModel().getSpec(), node.$graph[ 0 ] ).then(
-			function () {
+			() => {
 				// do nothing
 			},
-			function ( failMessageKey ) {
+			( failMessageKey ) => {
 				// The following messages are used here:
 				// * graph-ve-no-spec
 				// * graph-ve-empty-graph

@@ -50,12 +50,8 @@ const dataTransformSortbyToVega5 = ( dataTransform ) => {
 	if ( dataTransform.sortby ) {
 		const sortby = Array.isArray( dataTransform.sortby ) ?
 			dataTransform.sortby : [ dataTransform.sortby ];
-		const field = sortby.map( ( f ) => {
-			return f.startsWith( '-' ) ? f.slice( 1 ) : f;
-		} );
-		const order = sortby.map( ( f ) => {
-			return f.startsWith( '-' ) ? 'descending' : 'ascending';
-		} );
+		const field = sortby.map( ( f ) => f.startsWith( '-' ) ? f.slice( 1 ) : f );
+		const order = sortby.map( ( f ) => f.startsWith( '-' ) ? 'descending' : 'ascending' );
 		dataTransform = Object.assign( {
 			sort: { field, order }
 		}, dataTransform );
@@ -170,57 +166,53 @@ const propertiesToVega5 = ( props ) => {
  * @param {Array} axes
  * @return {Array}
  */
-const axesToVega5 = ( axes ) => {
-	return axes.map( ( axis ) => {
-		const props = axis.properties || {};
-		const newAxis = Object.assign(
-			propertiesToVega5( props ),
-			axis, {
-				orient: axis.type === 'x' ? 'bottom' : 'left'
-			}
-		);
-		delete newAxis.properties;
-		delete newAxis.ticks;
-		delete newAxis.type;
-		return newAxis;
-	} );
-};
+const axesToVega5 = ( axes ) => axes.map( ( axis ) => {
+	const props = axis.properties || {};
+	const newAxis = Object.assign(
+		propertiesToVega5( props ),
+		axis, {
+			orient: axis.type === 'x' ? 'bottom' : 'left'
+		}
+	);
+	delete newAxis.properties;
+	delete newAxis.ticks;
+	delete newAxis.type;
+	return newAxis;
+} );
 
 /**
  * @param {Array} scales
  * @return {Array}
  */
-const scaleToVega5 = ( scales ) => {
-	return scales.map( ( scale ) => {
-		// https://vega.github.io/vega/docs/porting-guide/#scales
-		scale = Object.assign( {}, scale );
-		if ( scale.range === 'category10' || scale.range === 'category20' ) {
-			const scheme = scale.range;
-			scale.range = { scheme };
-			return scale;
-		}
-		const domain = scale.domain;
-		if ( domain && domain.field ) {
-			const fields = [ domain.field ];
-			scale.domain = Object.assign( {}, domain, {
-				fields
-			} );
-			delete scale.domain.field;
-		}
-		const isSpatial = scale.range === 'width' || scale.range === 'height';
-		const isPoint = scale.point;
-		if ( scale.type === 'ordinal' ) {
-			if ( isSpatial ) {
-				scale.type = isPoint ? 'point' : 'band';
-			}
-		}
-
-		delete scale.nice;
-		delete scale.zero;
-		delete scale.point;
+const scaleToVega5 = ( scales ) => scales.map( ( scale ) => {
+	// https://vega.github.io/vega/docs/porting-guide/#scales
+	scale = Object.assign( {}, scale );
+	if ( scale.range === 'category10' || scale.range === 'category20' ) {
+		const scheme = scale.range;
+		scale.range = { scheme };
 		return scale;
-	} );
-};
+	}
+	const domain = scale.domain;
+	if ( domain && domain.field ) {
+		const fields = [ domain.field ];
+		scale.domain = Object.assign( {}, domain, {
+			fields
+		} );
+		delete scale.domain.field;
+	}
+	const isSpatial = scale.range === 'width' || scale.range === 'height';
+	const isPoint = scale.point;
+	if ( scale.type === 'ordinal' ) {
+		if ( isSpatial ) {
+			scale.type = isPoint ? 'point' : 'band';
+		}
+	}
+
+	delete scale.nice;
+	delete scale.zero;
+	delete scale.point;
+	return scale;
+} );
 
 /**
  * Fixes keywords for pie charts.
@@ -273,56 +265,54 @@ const markFromToVega5 = ( markFrom, dataSets ) => {
  * @throws {Error} if unsupported format
  * @return {Array}
  */
-const markToVega5 = ( marks, dataSets ) => {
-	return marks.map( ( mark ) => {
-		mark = Object.assign( {}, mark );
-		if ( mark.properties !== undefined ) {
-			mark.encode = replaceLayoutKeywords(
-				Object.assign( {}, mark.properties )
-			);
-			delete mark.properties;
-		}
-		// Recursively convert marks if necessary.
-		if ( Array.isArray( mark.marks ) ) {
-			mark.marks = markToVega5( mark.marks, dataSets );
-		}
-		// Mark groups with facet transforms get handled specially.
-		if (
-			mark.type === 'group' &&
+const markToVega5 = ( marks, dataSets ) => marks.map( ( mark ) => {
+	mark = Object.assign( {}, mark );
+	if ( mark.properties !== undefined ) {
+		mark.encode = replaceLayoutKeywords(
+			Object.assign( {}, mark.properties )
+		);
+		delete mark.properties;
+	}
+	// Recursively convert marks if necessary.
+	if ( Array.isArray( mark.marks ) ) {
+		mark.marks = markToVega5( mark.marks, dataSets );
+	}
+	// Mark groups with facet transforms get handled specially.
+	if (
+		mark.type === 'group' &&
 			mark.from &&
 			Array.isArray( mark.from.transform ) &&
 			mark.from.transform.length >= 1 &&
 			mark.from.transform[ mark.from.transform.length - 1 ].type === 'facet'
-		) {
-			// Remove the facet transform from the end of the transform list
-			const newTransform = mark.from.transform.slice();
-			const oldFacet = newTransform.pop();
-			// Make a new from clause with the shorter transform list
-			const oldFrom = mark.from;
-			const newFrom = newTransform.length > 0 ?
-				// Call markFromToVega5 to hoist any transforms in newFrom
-				markFromToVega5( Object.assign( {}, oldFrom, {
-					transform: newTransform
-				} ), dataSets ) : oldFrom;
+	) {
+		// Remove the facet transform from the end of the transform list
+		const newTransform = mark.from.transform.slice();
+		const oldFacet = newTransform.pop();
+		// Make a new from clause with the shorter transform list
+		const oldFrom = mark.from;
+		const newFrom = newTransform.length > 0 ?
+		// Call markFromToVega5 to hoist any transforms in newFrom
+			markFromToVega5( Object.assign( {}, oldFrom, {
+				transform: newTransform
+			} ), dataSets ) : oldFrom;
 			// Create a new unique name for this facet
-			const dataName = newDataName( dataSets );
-			mark.from = {
-				facet: {
-					name: dataName,
-					data: newFrom.data,
-					groupby: oldFacet.groupby
-				}
-			};
-			// All of the child marks now refer to this new data name
-			mark.marks.forEach( ( m ) => {
-				m.from = m.from || { data: dataName };
-			} );
-		} else if ( mark.from ) {
-			mark.from = markFromToVega5( mark.from, dataSets );
-		}
-		return mark;
-	} );
-};
+		const dataName = newDataName( dataSets );
+		mark.from = {
+			facet: {
+				name: dataName,
+				data: newFrom.data,
+				groupby: oldFacet.groupby
+			}
+		};
+		// All of the child marks now refer to this new data name
+		mark.marks.forEach( ( m ) => {
+			m.from = m.from || { data: dataName };
+		} );
+	} else if ( mark.from ) {
+		mark.from = markFromToVega5( mark.from, dataSets );
+	}
+	return mark;
+} );
 
 /**
  * @param {Object|Array} data

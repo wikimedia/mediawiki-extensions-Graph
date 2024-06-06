@@ -566,12 +566,12 @@ ve.ui.MWGraphDialog.prototype.checkChanges = function () {
 
 	// Asynchronous validation
 	this.jsonTextInput.getValidity().then(
-		function () {
+		() => {
 			dialog.actions.setAbilities( {
 				done: ( dialog.mode === 'insert' ) || dialog.graphModel.hasBeenChanged()
 			} );
 		},
-		function () {
+		() => {
 			dialog.actions.setAbilities( { done: false } );
 		}
 	);

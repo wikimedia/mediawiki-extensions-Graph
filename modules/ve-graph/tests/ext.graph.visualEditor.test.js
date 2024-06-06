@@ -334,7 +334,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 
 	/* Tests */
 
-	QUnit.test( 've.dm.MWGraphNode', function ( assert ) {
+	QUnit.test( 've.dm.MWGraphNode', ( assert ) => {
 		const node = new ve.dm.MWGraphNode(),
 			specString = JSON.stringify( sampleSpecs.areaGraph );
 
@@ -353,7 +353,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 		assert.deepEqual( node.getSpec(), {}, 'Setting a null spec resets the spec to an empty object' );
 	} );
 
-	QUnit.test( 've.ce.MWGraphNode', function ( assert ) {
+	QUnit.test( 've.ce.MWGraphNode', ( assert ) => {
 		const view = ve.test.utils.createSurfaceViewFromHtml(
 				'<div typeof="mw:Extension/graph"></div>'
 			),
@@ -363,7 +363,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 		assert.strictEqual( node.type, 'mwGraph', 'Parsoid HTML graphs are properly recognized as graph nodes' );
 	} );
 
-	QUnit.test( 've.ce.MWGraphNode.static', function ( assert ) {
+	QUnit.test( 've.ce.MWGraphNode.static', ( assert ) => {
 		const testElement = document.createElement( 'div' ),
 			renderValidTest = assert.async(),
 			renderInvalidTest = assert.async();
@@ -374,7 +374,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 		const promise = ve.ce.MWGraphNode.static.vegaParseSpec(
 			sampleSpecs.areaGraph, testElement
 		);
-		promise.always( function () {
+		promise.always( () => {
 			assert.strictEqual( promise.state(), 'resolved', 'Single graph gets rendered correctly' );
 			renderValidTest();
 		} );
@@ -383,14 +383,14 @@ QUnit.module( 'ext.graph.visualEditor' );
 		ve.ce.MWGraphNode.static.vegaParseSpec(
 			sampleSpecs.invalidAxesBarGraph, testElement
 		).always(
-			function ( failMessageKey ) {
+			( failMessageKey ) => {
 				assert.strictEqual( failMessageKey, 'graph-ve-vega-error', 'Invalid graph triggers an error at rendering' );
 				renderInvalidTest();
 			}
 		);
 	} );
 
-	QUnit.test( 've.dm.MWGraphModel', function ( assert ) {
+	QUnit.test( 've.dm.MWGraphModel', ( assert ) => {
 		const model = new ve.dm.MWGraphModel( sampleSpecs.areaGraph ),
 			updateSpecRemoval = {
 				marks: undefined,
@@ -449,7 +449,7 @@ QUnit.module( 'ext.graph.visualEditor' );
 		assert.deepEqual( model.getSpec(), areaGraphRemovalExpected, 'Updating the spec and removing properties' );
 	} );
 
-	QUnit.test( 've.dm.MWGraphModel.static', function ( assert ) {
+	QUnit.test( 've.dm.MWGraphModel.static', ( assert ) => {
 		let result;
 		const basicTestObj = {
 				a: 3,
