@@ -1,6 +1,6 @@
 /* stylelint-disable selector-max-id */
 
-#mw-graph-right .top_panel {
+#mw-graph-right .top_panel { /* stylelint-disable-line selector-class-pattern */
 	overflow: hidden;
 }
 
