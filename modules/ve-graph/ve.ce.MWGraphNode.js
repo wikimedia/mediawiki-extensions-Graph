@@ -111,17 +111,15 @@ ve.ce.MWGraphNode.static.isCanvasBlank = function ( canvas ) {
  * Render a Vega graph inside the node
  */
 ve.ce.MWGraphNode.prototype.update = function () {
-	const node = this;
-
 	// Clear element
 	this.$graph.empty();
 
 	this.$element.toggleClass( 'mw-graph-vega1', this.getModel().isGraphLegacy() );
 
 	mw.loader.using( 'ext.graph.render' ).then( () => {
-		node.$plot.detach();
+		this.$plot.detach();
 
-		node.constructor.static.vegaParseSpec( node.getModel().getSpec(), node.$graph[ 0 ] ).then(
+		this.constructor.static.vegaParseSpec( this.getModel().getSpec(), this.$graph[ 0 ] ).then(
 			() => {
 				// do nothing
 			},
@@ -131,7 +129,7 @@ ve.ce.MWGraphNode.prototype.update = function () {
 				// * graph-ve-empty-graph
 				// * graph-ve-vega-error-no-render
 				// * graph-ve-vega-error
-				node.$graph.text( ve.msg( failMessageKey ) );
+				this.$graph.text( ve.msg( failMessageKey ) );
 			}
 		);
 	} );

@@ -556,8 +556,6 @@ ve.ui.MWGraphDialog.prototype.onSpecChange = function () {
  * @private
  */
 ve.ui.MWGraphDialog.prototype.checkChanges = function () {
-	const dialog = this;
-
 	// Synchronous validation
 	if ( !this.sizeWidget.isValid() ) {
 		this.actions.setAbilities( { done: false } );
@@ -567,12 +565,12 @@ ve.ui.MWGraphDialog.prototype.checkChanges = function () {
 	// Asynchronous validation
 	this.jsonTextInput.getValidity().then(
 		() => {
-			dialog.actions.setAbilities( {
-				done: ( dialog.mode === 'insert' ) || dialog.graphModel.hasBeenChanged()
+			this.actions.setAbilities( {
+				done: ( this.mode === 'insert' ) || this.graphModel.hasBeenChanged()
 			} );
 		},
 		() => {
-			dialog.actions.setAbilities( { done: false } );
+			this.actions.setAbilities( { done: false } );
 		}
 	);
 };
