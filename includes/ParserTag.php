@@ -14,13 +14,13 @@ use Language;
 use MediaWiki\Html\Html;
 use MediaWiki\Linker\Linker;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Message\Message;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\PageReference;
+use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
-use Message;
-use Parser;
 use ParserOptions;
 use PPFrame;
 

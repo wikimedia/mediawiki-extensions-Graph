@@ -8,11 +8,11 @@
 
 namespace Graph;
 
-use MediaWiki\Hook\OutputPageParserOutputHook;
 use MediaWiki\Hook\ParserFirstCallInitHook;
+use MediaWiki\Output\Hook\OutputPageParserOutputHook;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOutput;
-use Parser;
 
 class Hooks implements
 	ParserFirstCallInitHook,
