@@ -8,7 +8,9 @@
 			"Shirayuki",
 			"Sujiniku",
 			"Suyama",
-			"Yusuke1109"
+			"Yusuke1109",
+			"Kokage si",
+			"Omotecho"
 		]
 	},
 	"graph-desc": "&lt;graph&gt;タグまたはページ全体を[http://vega.github.io/ Vega]ベースのグラフにする",
@@ -17,7 +19,7 @@
 	"graph-tracking-category-desc": "そのページは <code><nowiki><graph></nowiki></code> タグを含んでいます。",
 	"graph-broken-category": "破損したグラフのあるページ",
 	"graph-broken-category-desc": "そのページは <code><nowiki><graph></nowiki></code> タグを含んでおり、使用法が無効です。",
-	"graph-obsolete-category": "廃止されたVega 1.0のグラフを使用するページ",
+	"graph-obsolete-category": "廃止されたVegaのグラフを使用するページ",
 	"graph-obsolete-category-desc": "このページには、バージョン 5 へ更新すべき <code><nowiki><graph></nowiki></code> タグが含まれています。",
 	"graph-error-empty-json": "空のグラフデータ、表示するものはありません",
 	"graph-error-not-vega": "提供されたJSONは有効なVega JSONではありません",
