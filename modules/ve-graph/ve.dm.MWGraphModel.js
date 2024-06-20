@@ -138,8 +138,8 @@ ve.dm.MWGraphModel.static.updateSpec = function ( spec, params ) {
 	// Remove undefined properties from spec
 	for ( i = 0; i < undefinedProperties.length; i++ ) {
 		undefinedProperty = undefinedProperties[ i ].split( '.' );
-		ve.dm.MWGraphModel.static.removeProperty( spec, $.extend( [], undefinedProperty ) );
-		ve.dm.MWGraphModel.static.removeProperty( params, $.extend( [], undefinedProperty ) );
+		ve.dm.MWGraphModel.static.removeProperty( spec, Object.assign( [], undefinedProperty ) );
+		ve.dm.MWGraphModel.static.removeProperty( params, Object.assign( [], undefinedProperty ) );
 	}
 
 	// Extend remaining properties
