@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Nemoralis",
 			"Toghrul Rahimli",
 			"Wertuose"
 		]
 	},
+	"graph-tracking-category": "Qrafik olan səhifələr",
 	"graph-ve-dialog-button-tooltip": "Qrafik",
 	"graph-ve-dialog-edit-page-general": "Ümumi"
 }
