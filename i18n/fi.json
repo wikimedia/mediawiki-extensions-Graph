@@ -4,7 +4,8 @@
 			"Nike",
 			"Pyscowicz",
 			"Silvonen",
-			"Stryn"
+			"Stryn",
+			"Samoasambia"
 		]
 	},
 	"graphsandbox": "Graph-hiekkalaatikko",
@@ -13,6 +14,7 @@
 	"graph-ve-dialog-edit-height": "Korkeus",
 	"graph-ve-dialog-edit-padding-left": "Vasen",
 	"graph-ve-dialog-edit-padding-right": "Oikea",
+	"graph-ve-dialog-edit-page-general": "Yleinen",
 	"graph-ve-dialog-edit-size-field": "Koko",
 	"graph-ve-dialog-edit-size-table-unit": "Pikseliä",
 	"graph-ve-dialog-edit-title": "Muokkaa kuvaajaa"
