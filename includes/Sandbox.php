@@ -49,7 +49,7 @@ class Sandbox extends SpecialPage {
 
 		$out->addHTML(
 			Html::errorBox(
-				$out->msg( 'graph-sandbox-requires-js' )->text(),
+				$out->msg( 'graph-sandbox-requires-js' )->parse(),
 				'',
 				'mw-graph-sandbox-nojs'
 			)
