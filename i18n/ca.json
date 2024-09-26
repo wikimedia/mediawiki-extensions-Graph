@@ -4,16 +4,17 @@
 			"Macofe",
 			"Mguix",
 			"Paucabot",
-			"Vriullop"
+			"Vriullop",
+			"Lluis Cat"
 		]
 	},
 	"graphsandbox": "Proves de gràfics",
 	"graph-tracking-category": "Pàgines amb gràfics",
-	"graph-tracking-category-desc": "La pàgina inclou una etiqueta <code>&lt;graph&gt;</code>.",
+	"graph-tracking-category-desc": "La pàgina conté una etiqueta <code>&lt;graph&gt;</code>.",
 	"graph-broken-category": "Pàgines amb gràfics que no funcionen",
-	"graph-broken-category-desc": "La pàgina inclou una etiqueta <code>&lt;graph&gt;</code> usada de forma no vàlida.",
+	"graph-broken-category-desc": "La pàgina conté una etiqueta <code>&lt;graph&gt;</code> no usada de manera vàlida.",
 	"graph-obsolete-category": "Pàgines amb gràfics Vega obsolets",
-	"graph-obsolete-category-desc": "La pàgina inclou una etiqueta <code>&lt;graph&gt;</code> que s'hauria d'actualitzar a la versió 5.",
+	"graph-obsolete-category-desc": "La pàgina conté una etiqueta <code>&lt;graph&gt;</code> que s'hauria d'actualitzar a la versió 5.",
 	"graph-ve-dialog-button-tooltip": "Gràfic",
 	"graph-ve-dialog-edit-field-graph-type": "Tipus de gràfic",
 	"graph-ve-dialog-edit-height": "Alçària",
