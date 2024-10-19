@@ -9,20 +9,20 @@
 
 namespace Graph;
 
-use FormatJson;
-use Language;
 use MediaWiki\Html\Html;
+use MediaWiki\Json\FormatJson;
+use MediaWiki\Language\Language;
 use MediaWiki\Linker\Linker;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\PageReference;
 use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Parser\ParserOutput;
+use MediaWiki\Parser\PPFrame;
 use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
-use ParserOptions;
-use PPFrame;
 
 class ParserTag {
 	/** Sync with mapSchema.js */

@@ -9,14 +9,14 @@
 
 namespace Graph;
 
-use ApiBase;
-use ApiMain;
-use FormatJson;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiMain;
+use MediaWiki\Json\FormatJson;
 use MediaWiki\Page\WikiPageFactory;
+use MediaWiki\Parser\ParserFactory;
+use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Title\Title;
-use ParserFactory;
-use ParserOptions;
-use WANObjectCache;
+use Wikimedia\ObjectCache\WANObjectCache;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**
