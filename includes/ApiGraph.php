@@ -25,25 +25,13 @@ use Wikimedia\ParamValidator\ParamValidator;
  * @package Graph
  */
 class ApiGraph extends ApiBase {
-	/** @var ParserFactory */
-	private $parserFactory;
+	private ParserFactory $parserFactory;
+	private WANObjectCache $cache;
+	private WikiPageFactory $wikiPageFactory;
 
-	/** @var WANObjectCache */
-	private $cache;
-
-	/** @var WikiPageFactory */
-	private $wikiPageFactory;
-
-	/**
-	 * @param ApiMain $main
-	 * @param string $action
-	 * @param ParserFactory $parserFactory
-	 * @param WANObjectCache $cache
-	 * @param WikiPageFactory $wikiPageFactory
-	 */
 	public function __construct(
 		ApiMain $main,
-		$action,
+		string $action,
 		ParserFactory $parserFactory,
 		WANObjectCache $cache,
 		WikiPageFactory $wikiPageFactory
