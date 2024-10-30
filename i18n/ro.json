@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"NGC 54",
-			"XXN"
+			"XXN",
+			"Paloi Sciurala"
 		]
 	},
 	"graph-desc": "Permite ca etichetele &lt;graph&gt; sau pagini întregi să devină grafice bazate pe [http://vega.github.io/ Vega]",
