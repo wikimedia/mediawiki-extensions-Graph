@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Banjo",
-			"Elisardojm"
+			"Elisardojm",
+			"Toliño"
 		]
 	},
 	"graph-desc": "Permite que as etiquetas &lt;graph&gt; ou páxinas enteiras se convirtan en gráficos basados en [http://vega.github.io/ Vega]",
@@ -14,7 +15,7 @@
 	"graph-obsolete-category": "Páxinas con gráficos obsoletos Vega 1.0",
 	"graph-obsolete-category-desc": "A páxina inclúe unha etiqueta <code><nowiki><graph></nowiki></code> que ten que ser actualizada á versión 2.",
 	"graph-error-empty-json": "Datos de gráfico baleiros, nada que amosar",
-	"graph-error-not-vega": "O JSON proporcionada non é un JSON Vega válido",
+	"graph-error-not-vega": "O JSON proporcionado non é un JSON Vega válido",
 	"graph-ve-dialog-button-tooltip": "Gráfico",
 	"graph-ve-dialog-edit-field-graph-type": "Tipo de gráfico",
 	"graph-ve-dialog-edit-field-raw-json": "Especificación de JSON cru",
