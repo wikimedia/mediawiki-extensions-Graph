@@ -1,3 +1,5 @@
+'use strict';
+
 const sanitizeUrl = require( '../../../modules/ext.graph.render/sanitizeUrl.js' );
 
 describe( 'sanitizeUrl', () => {
