@@ -21,7 +21,10 @@
 	"graph-obsolete-category-desc": "Strona zawiera znacznik <code>&lt;graph&gt;</code>, który powinien zostać zaktualizowany do wersji 5.",
 	"graph-error-empty-json": "Puste dane wykresu, nie ma nic do pokazania",
 	"graph-error-not-vega": "Podany JSON nie jest prawidłowym JSON Vega",
+	"graph-error-vega-lite-unsupported": "Wprowadzony JSON dotyczy Vega Lite, która obecnie nie jest obsługiwana",
+	"graph-error-vega-unsupported-version": "Wprowadzony JSON dotyczy Vega $1, która obecnie nie jest obsługiwana",
 	"graph-ve-dialog-button-tooltip": "Wykres",
+	"graph-load": "Kliknij, aby załadować wykres",
 	"graph-ve-dialog-edit-field-graph-type": "Rodzaj wykresu",
 	"graph-ve-dialog-edit-field-raw-json": "Kod źródłowy w formacie JSON",
 	"graph-ve-dialog-edit-height": "Wysokość",
@@ -46,5 +49,8 @@
 	"graph-ve-empty-graph": "Pusty wykres",
 	"graph-ve-no-spec": "Nie znaleziono specyfikacji wykresu",
 	"graph-ve-vega-error": "Vega nie mógł wyrenderować wykresu z powodu błędu",
-	"graph-ve-vega-error-no-render": "Vega nie mógł wyrenderować tego wykresu"
+	"graph-ve-vega-error-no-render": "Vega nie mógł wyrenderować tego wykresu",
+	"graph-vega-old-browser": "Twoja przeglądarka nie obsługuje wykresów",
+	"graph-outdated-schema": "Używasz przestarzałego schematu. Może to w przyszłości ulec uszkodzeniu. Użyj poprawionego schematu poniżej.",
+	"graph-sandbox-requires-js": "Do działania brudnopisu dla wykresów wymagana jest nowoczesna przeglądarka z obsługą JavaScript."
 }
