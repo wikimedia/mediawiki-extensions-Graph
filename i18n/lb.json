@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
 	"graphsandbox": "Sandkëscht fir Graphiken",
@@ -14,6 +15,7 @@
 	"graph-ve-dialog-button-tooltip": "Graphik",
 	"graph-ve-dialog-edit-field-graph-type": "Grafiktyp",
 	"graph-ve-dialog-edit-height": "Héicht",
+	"graph-ve-dialog-edit-json-invalid": "Ongülteg JSON-Zeecheketten",
 	"graph-ve-dialog-edit-padding-auto": "Atomatesch Opfëllen",
 	"graph-ve-dialog-edit-padding-bottom": "Ënnen",
 	"graph-ve-dialog-edit-padding-left": "Lenks",
