@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"GolyatGeri",
 			"Mirzali",
 			"Orbot707"
 		]
 	},
 	"graph-tracking-category-desc": "Pele etiketê <code>&lt;graph&gt;</code> ihtıwa kena.",
 	"graph-ve-dialog-edit-height": "Berziye",
-	"graph-ve-dialog-edit-page-data": "Melumat",
+	"graph-ve-dialog-edit-page-data": "Dayıt",
 	"graph-ve-dialog-edit-width": "Herayiye"
 }
