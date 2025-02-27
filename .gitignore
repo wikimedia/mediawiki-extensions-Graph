@@ -6,3 +6,4 @@ node_modules/
 composer.lock
 .eslintcache
 
+/.stylelintcache
