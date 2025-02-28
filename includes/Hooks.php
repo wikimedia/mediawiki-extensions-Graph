@@ -37,6 +37,15 @@ class Hooks implements
 	public function onOutputPageParserOutput(
 		$outputPage, $parserOutput
 	): void {
+		$config = $outputPage->getContext()->getConfig();
+
+		// Add whether to use 'save' or 'publish' messages to JavaScript for post-edit, other
+		// editors, etc.
+		$outputPage->addJsConfigVars(
+			'wgGraphShowInToolbar',
+			$config->get( 'GraphShowInToolbar' )
+		);
+
 		ParserTag::finalizeParserOutput( $outputPage, $parserOutput );
 	}
 }

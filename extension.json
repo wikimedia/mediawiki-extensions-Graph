@@ -184,6 +184,10 @@
 		"GraphDefaultVegaVer": {
 			"value": 2,
 			"description": "Default Vega version for graph specs which do not specify a version. Obsolete, will be removed soon."
+		},
+		"GraphShowInToolbar": {
+			"value": true,
+			"description": "Show the an 'Insert graph' tool in relevant editor toolbars. Disabled on wikis where graph rendering is disabled (T387501)."
 		}
 	},
 	"TrackingCategories": [

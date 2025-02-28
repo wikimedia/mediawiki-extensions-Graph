@@ -24,6 +24,7 @@ ve.ui.MWGraphDialogTool.static.title =
 	OO.ui.deferMsg( 'graph-ve-dialog-button-tooltip' );
 ve.ui.MWGraphDialogTool.static.modelClasses = [ ve.dm.MWGraphNode ];
 ve.ui.MWGraphDialogTool.static.commandName = 'graph';
+ve.ui.MWGraphDialogTool.static.autoAddToCatchall = mw.config.get( 'wgGraphShowInToolbar' );
 
 /* Registration */
 
