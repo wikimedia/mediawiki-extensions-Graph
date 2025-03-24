@@ -35,7 +35,7 @@
 	"graph-ve-dialog-edit-type-line": "Graphico de lineas",
 	"graph-ve-dialog-edit-type-unknown": "Typo de graphico incognite",
 	"graph-ve-dialog-edit-width": "Latitude",
-	"graph-ve-dialog-edit-unknown-graph-type-warning": "Le typo de iste graphico non es supportate. Omne modification apportate a illo pote rumper su visualisation. Per favor modifica le graphico usante le specification de datos crude sur le scheda \"{{int:graph-ve-dialog-edit-page-raw}}\".",
+	"graph-ve-dialog-edit-unknown-graph-type-warning": "Le typo de iste graphico non es supportate. Omne modification apportate a illo pote rumper su visualisation. Per favor modifica le graphico usante le specification de datos brute sur le scheda “{{int:graph-ve-dialog-edit-page-raw}}”.",
 	"graph-ve-empty-graph": "Graphico vacue",
 	"graph-ve-no-spec": "Nulle specification de graphico trovate",
 	"graph-ve-vega-error": "Vega ha incontrate un error rendente iste graphico",
