@@ -10,7 +10,7 @@ const isDomainTrusted = ( urlObj, domains ) => {
 	const subdomains = urlObj.host.split( '.' );
 	return subdomains.some( ( _part, i ) => {
 		const hostToTest = subdomains.slice( i ).join( '.' );
-		return domains.indexOf( hostToTest ) > -1;
+		return domains.includes( hostToTest );
 	} );
 };
 

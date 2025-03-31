@@ -354,7 +354,7 @@ const mapSchema = ( spec ) => {
 	// eslint-disable-next-line no-jquery/variable-pattern
 	const schema = spec.$schema;
 	// Check versioning.
-	const isNewSchema = schema && schema.indexOf( 'v5.json' ) > -1;
+	const isNewSchema = schema && schema.includes( 'v5.json' );
 	// No modifications for new schemas
 	if ( isNewSchema ) {
 		return sanitize( Object.assign( { autosize }, spec ) );
