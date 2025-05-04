@@ -18,6 +18,6 @@
 		"jquery.splitter": "^0.27.1",
 		"mw-graph-shared": "^0.6.0",
 		"stylelint-config-wikimedia": "0.16.1",
-		"vega": "5.25.0"
+		"vega": "5.33.0"
 	}
 }
