@@ -42,5 +42,6 @@
 	"graph-ve-empty-graph": "Йаьсса график",
 	"graph-ve-no-spec": "Графикин спецификаци ца карийна",
 	"graph-ve-vega-error": "Vega чохь гӀалат нисделира хӀара график гойтуш",
-	"graph-ve-vega-error-no-render": "Vega аьтто ца баьлла и график дӀахӀотто"
+	"graph-ve-vega-error-no-render": "Vega аьтто ца баьлла и график дӀахӀотто",
+	"graph-vega-old-browser": "Хьан браузеро графикаш лелош йац"
 }
