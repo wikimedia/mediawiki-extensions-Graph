@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"BadDog",
-			"Milicevic01"
+			"Milicevic01",
+			"Aca"
 		]
 	},
 	"graph-desc": "Омогућава ознаке &lt;graph&gt; или да целе странице постану графикони засновани на [http://vega.github.io/ Vega-и]",
