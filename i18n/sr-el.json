@@ -10,8 +10,8 @@
 	"graph-tracking-category-desc": "Stranice koje uključuju oznaku <code>&lt;graph&gt;</code>.",
 	"graph-broken-category": "Stranice sa pokvarenim grafikonima",
 	"graph-broken-category-desc": "Stranice koje uključuju oznaku <code>&lt;graph&gt;</code> sa nevalidnom upotrebom.",
-	"graph-obsolete-category": "Stranice sa zastarelim Vega 1.0 grafikonima",
-	"graph-obsolete-category-desc": "Stranice koje uključuju oznaku <code>&lt;graph&gt;</code> koju treba ažurirati na verziju 2.",
+	"graph-obsolete-category": "Stranice sa zastarelim Vega grafikonima",
+	"graph-obsolete-category-desc": "Stranice koje uključuju oznaku <code>&lt;graph&gt;</code> koju treba ažurirati na verziju 5.",
 	"graph-error-empty-json": "Prazni podaci o grafikonu, ništa za prikaz",
 	"graph-error-not-vega": "Pružen JSON nije validan Vega JSON",
 	"graph-ve-dialog-button-tooltip": "Grafikon",
@@ -38,5 +38,6 @@
 	"graph-ve-empty-graph": "Prazan grafikon",
 	"graph-ve-no-spec": "Nije pronađena specifikacija grafikona",
 	"graph-ve-vega-error": "Vega je naišla na grešku pri renderovanju ovog grafikona",
-	"graph-ve-vega-error-no-render": "Vega nije mogla da renderuje ovaj grafikon"
+	"graph-ve-vega-error-no-render": "Vega nije mogla da renderuje ovaj grafikon",
+	"graph-vega-old-browser": "Vaš veb-pregledač ne podržava grafikone"
 }
