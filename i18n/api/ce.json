@@ -4,6 +4,7 @@
 			"Умар"
 		]
 	},
+	"apihelp-graph-summary": "graph теган функционалан тӀекхачар.",
 	"apihelp-graph-param-title": "Графикца агӀонан цӀе",
 	"apierror-graph-invalid": "График нийса йац.",
 	"apierror-graph-missing": "График ца карийна."
