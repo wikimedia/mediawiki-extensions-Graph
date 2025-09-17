@@ -5,7 +5,12 @@
 		]
 	},
 	"apihelp-graph-summary": "graph теган функционалан тӀекхачар.",
+	"apihelp-graph-example": "JSON-график схьаэца хешца а, цӀарца а",
+	"apihelp-graph-param-hash": "Графикин хэш-маьӀна",
+	"apihelp-graph-param-oldid": "Графикин агӀонан версин ID",
 	"apihelp-graph-param-title": "Графикца агӀонан цӀе",
+	"apihelp-graph-param-text": "JSON хийца йезаш йолу графикин текст. POST дехарца дӀакхачо деза, title а, hash а параметраш йоцуш лело деза",
+	"apierror-graph-mustposttext": "Дехар POST хила деза <var>text</var> параметр лелийча.",
 	"apierror-graph-invalid": "График нийса йац.",
 	"apierror-graph-missing": "График ца карийна."
 }
